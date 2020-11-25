@@ -11,8 +11,8 @@ typedef enum Monthes {JAN = 1, FEB, MER, APR, MAY , JUN , JUL , AUG , SEP , OCT 
 
 struct Date_t
 {
-    int date;
-    int month;
+    int day;
+    Month month;
     int year;
 };
 
@@ -46,59 +46,74 @@ Date dateCreate(int day, int month, int year)
 		return NULL;
 	}
 	date->day = day;
-	strcpy(date->month, months[month-1]);
+	date->month = month;
 	date->year = year;
 	return date;
-
 }
 
-/**
-* dateDestroy: Deallocates an existing Date.
-*
-* @param date - Target date to be deallocated. If priority queue is NULL nothing will be done
-*/
-void dateDestroy(Date date);
+void dateDestroy(Date date)
+{
+    free(date);
+}
 
-/**
-* dateCopy: Creates a copy of target Date.
-*
-* @param date - Target Date.
-* @return
-* 	NULL if a NULL was sent or a memory allocation failed.
-* 	A Date containing the same elements as date otherwise.
-*/
-Date dateCopy(Date date);
+Date dateCopy(Date date)
+{
+    if (!date)
+    {
+        return NULL;
+    }
+    return dateCreate(date->day,date->month,date->year);
+}
 
-/**
-* dateGet: Returns the day, month and year of a date
-*
-* @param date - Target Date
-* @param day - the pointer to assign to day of the date into.
-* @param month - the pointer to assign to month of the date into.
-* @param year - the pointer to assign to year of the date into.
-*
-* @return
-* 	false if one of pointers is NULL.
-* 	Otherwise true and the date is assigned to the pointers.
-*/
-bool dateGet(Date date, int* day, int* month, int* year);
+bool dateGet(Date date, int* day, int* month, int* year)
+{
+    if (!date || !date->day || !date->month || !date->year)
+    {
+        return false;
+    }
+    *day = date->day;
+    *month = date->month;
+    *year = date->year;
+    return true;
+}
 
-/**
-* dateCompare: compares to dates and return which comes first
-*
-* @return
-* 		A negative integer if date1 occurs first;
-* 		0 if they're equal or one of the given dates is NULL;
-*		A positive integer if date1 arrives after date2.
-*/
-int dateCompare(Date date1, Date date2);
+int dateCompare(Date date1, Date date2)
+{
+    if (!date1 || !date2)
+    {
+        return 0;
+    }
+    if (date1->year != date2->year)
+    {
+        return  date1->year > date2->year;
+    }
+    if (date1->month != date2->month)
+    {
+        return  date1->month > date2->month;
+    }
+    return date1->day > date2->day;
+}
 
-/**
-* dateTick: increases the date by one day, if date is NULL should do nothing.
-*
-* @param date - Target Date
-*
-*/
-void dateTick(Date date);
+static dateToDays(Date date)
+{
+    return date->day + date->month*MAX_DAY + date->year * DAYS_IN_YEAR;
+}
 
-#endif //DATE_H_
+static daysToDate(Date date, int days)
+{
+    date->year = days / DAYS_IN_YEAR;
+    days = days % DAYS_IN_YEAR;
+    date->month = days / MAX_DAY;
+    date->day = days % MAX_DAY;
+}
+
+void dateTick(Date date)
+{
+    if (!date)
+    {
+        return NULL;
+    }
+    int days_after_tick = dateToDays(date) + 1;
+    daysToDate(date, days_after_tick);
+}
+
