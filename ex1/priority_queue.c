@@ -126,7 +126,19 @@ void pqDestroy(PriorityQueue queue);
 * 	NULL if a NULL was sent or a memory allocation failed.
 * 	A Priority Queue containing the same elements as queue otherwise.
 */
-PriorityQueue pqCopy(PriorityQueue queue);
+PriorityQueue pqCopy(PriorityQueue queue)
+{
+    if (!queue)
+    {
+        return PQ_NULL_ARGUMENT;
+    }
+    PriorityQueue new_queue = pqCreate(queue->copy_element,
+                       queue->free_element,
+                       queue->equal_elements,
+                       queue->copy_priority,
+                       queue->free_priority,
+                       queue->compare_priorities)
+}
 
 /**
 * pqGetSize: Returns the number of elements in a priority queue
