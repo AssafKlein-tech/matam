@@ -117,28 +117,52 @@ PriorityQueue pqCreate(CopyPQElement copy_element,
 */
 void pqDestroy(PriorityQueue queue);
 
-/**
-* pqCopy: Creates a copy of target priority queue.
-* Iterator values for both priority queues are undefined after this operation.
+
+/*
+* pqGetPriority: get the current element priority (by the iterator)
 *
 * @param queue - Target priority queue.
 * @return
 * 	NULL if a NULL was sent or a memory allocation failed.
-* 	A Priority Queue containing the same elements as queue otherwise.
+* 	A Priority otherwise.
 */
+static PQElementPriority pqGetPriority(PriorityQueue queue)
+{
+
+}
+
+
 PriorityQueue pqCopy(PriorityQueue queue)
 {
     if (!queue)
     {
         return PQ_NULL_ARGUMENT;
     }
-    PriorityQueue new_queue = pqCreate(queue->copy_element,
-                       queue->free_element,
-                       queue->equal_elements,
-                       queue->copy_priority,
-                       queue->free_priority,
-                       queue->compare_priorities)
-}
+    PriorityQueue new_queue = pqCreate(queue->copy_element,queue->free_element,queue->equal_elements, queue->copy_priority, queue->free_priority, queue->compare_priorities);
+    if(!new_queue)
+    {
+        return PQ_NULL_ARGUMENT;
+    }
+    PQElement element = pqGetFirst(queue);
+    PQElementPriority priority = PqGetPriority(queue);
+    while (element)
+    {
+        if(pqInsert(new_queue, element, priority) != PQ_SUCCESS)
+        {
+            pqDestroy(new_queue);
+            return PQ_NULL_ARGUMENT;
+        }
+        element = pqGetNext(queue);
+        priority = pqGetPriority(queue);
+    }
+    return new_queue;
+    /**
+    int size = pqGetSize(queue);
+    for(int i=1;i<=size;i++)
+    {
+
+    }**/
+}   
 
 /**
 * pqGetSize: Returns the number of elements in a priority queue
@@ -147,7 +171,22 @@ PriorityQueue pqCopy(PriorityQueue queue)
 * 	-1 if a NULL pointer was sent.
 * 	Otherwise the number of elements in the priority queue.
 */
-int pqGetSize(PriorityQueue queue);
+int pqGetSize(PriorityQueue queue)
+{
+    if (!queue)
+    {
+        return -1;
+    }
+    if(!pqGetFirst(queue))
+    {
+        return 0;
+    }
+    while(pqGetNext(queue))
+    {
+        continue;
+    }
+    return queue->iterator;
+}
 
 /**
 * pqContains: Checks if an element exists in the priority queue. The element will be

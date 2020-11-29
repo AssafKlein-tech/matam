@@ -1,6 +1,5 @@
 #include "date.h"
 #include <stdbool.h>
-#include <stddef.h>
 
 typedef enum Monthes {JAN = 1, FEB, MER, APR, MAY , JUN , JUL , AUG , SEP , OCT , NOV , DEC} Month;
 #define MIN_DAY 1
@@ -40,11 +39,11 @@ static bool isMonthNumberValid(int month)
 Date dateCreate(int day, int month, int year)
 {
     if (!isDayValid(day) || !isMonthNumberValid(month)) {
-		return NULL;
+		return 0;
 	}
 	Date date = malloc(sizeof(*date));
 	if (!date) {
-		return NULL;
+		return 0;
 	}
 	date->day = day;
 	date->month = month;
@@ -61,7 +60,7 @@ Date dateCopy(Date date)
 {
     if (!date)
     {
-        return NULL;
+        return 0;
     }
     return dateCreate(date->day,date->month,date->year);
 }
@@ -112,7 +111,7 @@ void dateTick(Date date)
 {
     if (!date)
     {
-        return NULL;
+        return 0;
     }
     int days_after_tick = dateToDays(date) + 1;
     daysToDate(date, days_after_tick);
