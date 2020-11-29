@@ -1,112 +1,55 @@
-#ifndef PRIORITY_QUEUE_H
-#define PRIORITY_QUEUE_H
-
+#include "priority_queue.h"
 #include <stdbool.h>
-
-/**
-* Generic Priority Queue Container
-*
-* Implements a priority queue container type.
-* The priority queue has an internal iterator for external use. For all functions
-* where the state of the iterator after calling that function is not stated,
-* it is undefined. That means that you cannot assume anything about it.
-*
-* The following functions are available:
-*   pqCreate		    - Creates a new empty priority queue
-*   pqDestroy		    - Deletes an existing priority queue and frees all resources
-*   pqCopy		        - Copies an existing priority queue
-*   pqGetSize		    - Returns the size of a given priority queue
-*   pqContains	        - returns whether or not an element exists inside the priority queue.
-*   pqInsert	        - Insert an element with a given priority to the queue.
-*   				        Duplication in the priority queue is allowed.
-*   				        Iterator value is undefined after this operation.
-*   pqChangePriority  	- Changes priority of an element with specific priority
-*					        Iterator value is undefined after this operation.
-*   pqRemove		    - Removes the highest priority element in the queue
-*                           Iterator value is undefined after this operation.
-*   pqGetFirst	        - Sets the internal iterator to the first element in the priority queue and returns it
-*   pqGetNext		    - Advances the internal iterator to the next key and returns it.
-*	pqClear		        - Clears the contents of the priority queue. Frees all the elements of
-*	 				        the queue using the free function.
-* 	PQ_FOREACH	        - A macro for iterating over the priority queue's elements.
-*/
-
-/** Type for defining the priority queue */
-typedef struct PriorityQueue_t *PriorityQueue;
-
-/** Type used for returning error codes from priority queue functions */
-typedef enum PriorityQueueResult_t {
-    PQ_SUCCESS,
-    PQ_OUT_OF_MEMORY,
-    PQ_NULL_ARGUMENT,
-    PQ_ELEMENT_DOES_NOT_EXISTS,
-    PQ_ITEM_DOES_NOT_EXIST,
-    PQ_ERROR
-} PriorityQueueResult;
-
-/** Data element data type for priority queue container */
-typedef void *PQElement;
-
-/** priority data type for priority queue container */
-typedef void *PQElementPriority;
-
-/** Type of function for copying a data element of the priority queue */
-typedef PQElement(*CopyPQElement)(PQElement);
-
-/** Type of function for copying a key element of the priority queue */
-typedef PQElementPriority(*CopyPQElementPriority)(PQElementPriority);
-
-/** Type of function for deallocating a data element of the priority queue */
-typedef void(*FreePQElement)(PQElement);
-
-/** Type of function for deallocating a key element of the priority queue */
-typedef void(*FreePQElementPriority)(PQElementPriority);
+#include <stdio.h>
+#include <stdlib.h>
+#define PQ_SUCCESS 1
+#define PQ_OUT_OF_MEMORY 0
+#define PQ_NULL_ARGUMENT 0
+#define PQ_ELEMENT_DOES_NOT_EXISTS 0
+#define PQ_ITEM_DOES_NOT_EXIST 0
+#define PQ_ERROR 0
 
 
-/**
-* Type of function used by the priority queue to identify equal elements.
-* This function should return:
-* 		true if they're equal;
-*		false otherwise;
-*/
-typedef bool(*EqualPQElements)(PQElement, PQElement);
+
+struct PriorityQueue_t
+{
+    typedef struct Node_element_t
+    {
+
+    PQElementPriority priority;
+    PQElement element;
+    struct Node_element_t* next;
 
 
-/**
-* Type of function used by the priority queue to compare priorities.
-* This function should return:
-* 		A positive integer if the first element is greater;
-* 		0 if they're equal;
-*		A negative integer if the second element is greater.
-*/
-typedef int(*ComparePQElementPriorities)(PQElementPriority, PQElementPriority);
+    } *Node_Element;
+
+    int iterator;
+    
+    
+    CopyPQElement copy_element;
+    FreePQElement free_element;
+    EqualPQElements equal_elements;
+    CopyPQElementPriority copy_priority;
+    FreePQElementPriority free_priority;
+    ComparePQElementPriorities compare_priorities;
 
 
-/**
-* pqCreate: Allocates a new empty priority queue.
-*
-* @param copy_element - Function pointer to be used for copying data elements into
-*  	the priority queue or when copying the priority queue.
-* @param free_element - Function pointer to be used for removing data elements from
-* 		the priority queue
-* @param compare_element - Function pointer to be used for comparing elements
-* 		inside the priority queue. Used to check if new elements already exist in the priority queue.
-* @param copy_priority - Function pointer to be used for copying priority into
-*  	the priority queue or when copying the priority queue.
-* @param free_priority - Function pointer to be used for removing priority from
-* 		the priority queue
-* @param compare_priority - Function pointer to be used for comparing elements
-* 		inside the priority queue. Used to check if new elements already exist in the priority queue.
-* @return
-* 	NULL - if one of the parameters is NULL or allocations failed.
-* 	A new Map in case of success.
-*/
-PriorityQueue pqCreate(CopyPQElement copy_element,
-                       FreePQElement free_element,
-                       EqualPQElements equal_elements,
-                       CopyPQElementPriority copy_priority,
-                       FreePQElementPriority free_priority,
-                       ComparePQElementPriorities compare_priorities);
+}
+
+
+void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements,CopyPQElementPriority copy_priority,
+        FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
+{
+    if(!copy_element||!free_element||!equal_elements||!copy_priority||!free_priority||!compare_priorities)
+    return PQ_NULL_ARGUMENT;
+
+    PriorityQueue_t priorityQueue_t = malloc(sizeof(*PriorityQueue_t));
+    if (!priorityQueue_tL) {
+		return 
+
+
+
+}
 
 /**
 * pqDestroy: Deallocates an existing priority queue. Clears all elements by using the
@@ -265,4 +208,4 @@ PriorityQueueResult pqClear(PriorityQueue queue);
         iterator ;\
         iterator = pqGetNext(queue))
 
-#endif /* PRIORITY_QUEUE_H_ */
+#endif /* PRIORITY_QUEUE_H_ *
