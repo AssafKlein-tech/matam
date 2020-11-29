@@ -1,6 +1,8 @@
 #include "date.h"
 #include <stdbool.h>
 
+
+//fdgag
 typedef enum Monthes {JAN = 1, FEB, MER, APR, MAY , JUN , JUL , AUG , SEP , OCT , NOV , DEC} Month;
 #define MIN_DAY 1
 #define MAX_DAY 30
