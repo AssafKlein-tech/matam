@@ -13,7 +13,7 @@
 
 struct PriorityQueue_t
 {
-    typedef struct Node_element_t
+    struct Node_element_t
     {
 
     PQElementPriority priority;
@@ -21,10 +21,10 @@ struct PriorityQueue_t
     struct Node_element_t* next;
 
 
-    } *Node_Element;
+    } *node_Element;
 
     int iterator;
-    
+    struct Node_element_t* current_node;
     
     CopyPQElement copy_element;
     FreePQElement free_element;
@@ -37,14 +37,15 @@ struct PriorityQueue_t
 }
 
 
-void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements,CopyPQElementPriority copy_priority, FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
+void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements,CopyPQElementPriority copy_priority,
+        FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
 {
     if(!copy_element||!free_element||!equal_elements||!copy_priority||!free_priority||!compare_priorities)
     return PQ_NULL_ARGUMENT;
 
     PriorityQueue_t priorityQueue_t = malloc(sizeof(*PriorityQueue_t));
-    if (!priorityQueue_tL) {
-		return 
+    if (!priorityQueue_tL)
+		return NULL;
 
 
 
@@ -58,6 +59,20 @@ void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQEleme
 * 		done
 */
 void pqDestroy(PriorityQueue queue);
+
+
+/*
+* pqGetPriority: get the current element priority (by the iterator)
+*
+* @param queue - Target priority queue.
+* @return
+* 	NULL if a NULL was sent or a memory allocation failed.
+* 	A Priority otherwise.
+*/
+static PQElementPriority pqGetPriority(PriorityQueue queue)
+{
+
+}
 
 
 PriorityQueue pqCopy(PriorityQueue queue)
@@ -111,7 +126,7 @@ int pqGetSize(PriorityQueue queue)
     }
     while(pqGetNext(queue))
     {
-        continue;
+        
     }
     return queue->iterator;
 }
