@@ -38,6 +38,19 @@ struct PriorityQueue_t
 
 
 PriorityQueue pqCreate(CopyPQElement CopyFunction,FreePQElement FreeFunction,EqualPQElements EqualFunction,CopyPQElementPriority CopyPriorityFunction, FreePQElementPriority FreePriorityFunction,ComparePQElementPriorities comparePrioritiesFunction)
+     *node_element;
+    int iterator;
+    struct Node_element_t* current_node;
+    CopyPQElement copy_element;
+    FreePQElement free_element;
+    EqualPQElements equal_elements;
+    CopyPQElementPriority copy_priority;
+    FreePQElementPriority free_priority;
+    ComparePQElementPriorities compare_priorities;
+}
+
+void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements, CopyPQElementPriority copy_priority,
+        FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
 {
     if(!CopyFunction||!FreeFunction||!EqualFunction||!CopyPriorityFunction||!FreePriorityFunction||!comparePrioritiesFunction)
         return PQ_NULL_ARGUMENT;
@@ -55,7 +68,7 @@ PriorityQueue pqCreate(CopyPQElement CopyFunction,FreePQElement FreeFunction,Equ
 
     priority_queue->iterator = INVALID_STATE;
     priority_queue->node_element=malloc(sizeof(* priority_queue->node_element));
-    priority_queue->current_node=malloc(sizeof(* priority_queue->node_element));
+    priority_queue->current_node=priority_queue->node_element;
     return  priority_queue;
 }
 
@@ -129,7 +142,27 @@ int pqGetSize(PriorityQueue queue)
 * 	false - if one or more of the inputs is null, or if the key element was not found.
 * 	true - if the key element was found in the priority queue.
 */
-bool pqContains(PriorityQueue queue, PQElement element);
+bool pqContains(PriorityQueue queue, PQElement element)
+{
+     struct Node_element_t* copy_of_current_mode=malloc(sizeof(*copy_of_current_mode));
+     copy_of_current_mode=queue->current_node;
+
+   do
+   {
+       if(equal_elements(element,queue->current_node->element))
+       {
+        queue->current_node=copy_of_current_mode;
+       return true;
+       }
+   } 
+   while (pqGetNext);
+   
+   queue->current_node=copy_of_current_mode;
+    return false;
+
+
+
+}
 
 /**
 *   pqInsert: add a specified element with a specific priority.
@@ -198,7 +231,16 @@ PriorityQueueResult pqRemove(PriorityQueue queue);
 * 	PQ_ELEMENT_DOES_NOT_EXISTS if given element does not exists.
 * 	PQ_SUCCESS the most prioritized element had been removed successfully.
 */
-PriorityQueueResult pqRemoveElement(PriorityQueue queue, PQElement element);
+PriorityQueueResult pqRemoveElement(PriorityQueue queue, PQElement element)
+{
+        
+
+
+
+
+
+
+}
 
 
 PQElement pqGetFirst(PriorityQueue queue)
