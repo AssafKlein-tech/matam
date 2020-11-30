@@ -15,29 +15,21 @@ struct PriorityQueue_t
 {
     struct Node_element_t
     {
-
     PQElementPriority priority;
     PQElement element;
     struct Node_element_t* next;
-
-
-    } *node_Element;
-
+    } *node_element;
     int iterator;
     struct Node_element_t* current_node;
-    
     CopyPQElement copy_element;
     FreePQElement free_element;
     EqualPQElements equal_elements;
     CopyPQElementPriority copy_priority;
     FreePQElementPriority free_priority;
     ComparePQElementPriorities compare_priorities;
-
-
 }
 
-
-void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements,CopyPQElementPriority copy_priority,
+void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements, CopyPQElementPriority copy_priority,
         FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
 {
     if(!copy_element||!free_element||!equal_elements||!copy_priority||!free_priority||!compare_priorities)
@@ -60,21 +52,6 @@ void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQEleme
 */
 void pqDestroy(PriorityQueue queue);
 
-
-/*
-* pqGetPriority: get the current element priority (by the iterator)
-*
-* @param queue - Target priority queue.
-* @return
-* 	NULL if a NULL was sent or a memory allocation failed.
-* 	A Priority otherwise.
-*/
-static PQElementPriority pqGetPriority(PriorityQueue queue)
-{
-
-}
-
-
 PriorityQueue pqCopy(PriorityQueue queue)
 {
     if (!queue)
@@ -96,7 +73,7 @@ PriorityQueue pqCopy(PriorityQueue queue)
             return PQ_NULL_ARGUMENT;
         }
         element = pqGetNext(queue);
-        priority = queue->current_element->priority;
+        priority = queue->current_node->priority;
     }
     return new_queue;
     /**
@@ -107,13 +84,6 @@ PriorityQueue pqCopy(PriorityQueue queue)
     }**/
 }   
 
-/**
-* pqGetSize: Returns the number of elements in a priority queue
-* @param queue - The priority queue which size is requested
-* @return
-* 	-1 if a NULL pointer was sent.
-* 	Otherwise the number of elements in the priority queue.
-*/
 int pqGetSize(PriorityQueue queue)
 {
     if (!queue)
@@ -214,38 +184,32 @@ PriorityQueueResult pqRemove(PriorityQueue queue);
 */
 PriorityQueueResult pqRemoveElement(PriorityQueue queue, PQElement element);
 
-/**
-*	pqGetFirst: Sets the internal iterator (also called current element) to
-*	the first element in the priority queue. The internal order derived from the priorities, and the tie-breaker between
-*   two equal priorities is the insertion order.
-*	Use this to start iterating over the priority queue.
-*	To continue iteration use pqGetNext
-*
-* @param queue - The priority queue for which to set the iterator and return the first element.
-* @return
-* 	NULL if a NULL pointer was sent or the priority queue is empty.
-* 	The first key element of the priority queue otherwise
-*/
+
 PQElement pqGetFirst(PriorityQueue queue)
 {
-    if(!queue)
+    if(!queue || !queue->node_element)
     {
-        return NULL;
+        return PQ_NULL_ARGUMENT;
     }
     queue->iterator = 1;
+    queue->current_node = queue->node_element;
     return queue->node_element->element;
 }
 
-/**
-*	pqGetNext: Advances the priority queue iterator to the next element and returns it.
-*
-* @param queue - The priority queue for which to advance the iterator
-* @return
-* 	NULL if reached the end of the priority queue, or the iterator is at an invalid state
-* 	or a NULL sent as argument
-* 	The next element on the priority queue in case of success
-*/
-PQElement pqGetNext(PriorityQueue queue);
+PQElement pqGetNext(PriorityQueue queue)
+{
+    if(!queue || queue->iterator == INVALID_STATE)
+    {
+        return PQ_NULL_ARGUMENT;
+    }
+    if (!queue->current_node->next)
+    {
+        return NULL;
+    }
+    queue->current_node = queue->current_node->next;
+    queue->iterator++;
+    return queue->current_node->element;
+}
 
 /**
 * pqClear: Removes all elements and priorities from target priority queue.
