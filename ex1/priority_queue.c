@@ -37,8 +37,7 @@ struct PriorityQueue_t
 }
 
 
-void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements,CopyPQElementPriority copy_priority,
-        FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
+void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements,CopyPQElementPriority copy_priority, FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
 {
     if(!copy_element||!free_element||!equal_elements||!copy_priority||!free_priority||!compare_priorities)
     return PQ_NULL_ARGUMENT;
@@ -59,20 +58,6 @@ void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQEleme
 * 		done
 */
 void pqDestroy(PriorityQueue queue);
-
-
-/*
-* pqGetPriority: get the current element priority (by the iterator)
-*
-* @param queue - Target priority queue.
-* @return
-* 	NULL if a NULL was sent or a memory allocation failed.
-* 	A Priority otherwise.
-*/
-static PQElementPriority pqGetPriority(PriorityQueue queue)
-{
-
-}
 
 
 PriorityQueue pqCopy(PriorityQueue queue)
@@ -96,7 +81,7 @@ PriorityQueue pqCopy(PriorityQueue queue)
             return PQ_NULL_ARGUMENT;
         }
         element = pqGetNext(queue);
-        priority = pqGetPriority(queue);
+        priority = queue->current_element->priority;
     }
     return new_queue;
     /**
@@ -226,7 +211,15 @@ PriorityQueueResult pqRemoveElement(PriorityQueue queue, PQElement element);
 * 	NULL if a NULL pointer was sent or the priority queue is empty.
 * 	The first key element of the priority queue otherwise
 */
-PQElement pqGetFirst(PriorityQueue queue);
+PQElement pqGetFirst(PriorityQueue queue)
+{
+    if(!queue)
+    {
+        return NULL;
+    }
+    queue->iterator = 1;
+    return queue->node_element->element;
+}
 
 /**
 *	pqGetNext: Advances the priority queue iterator to the next element and returns it.
