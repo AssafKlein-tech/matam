@@ -144,8 +144,7 @@ int pqGetSize(PriorityQueue queue)
 */
 bool pqContains(PriorityQueue queue, PQElement element)
 {
-     struct Node_element_t* copy_of_current_mode=malloc(sizeof(*copy_of_current_mode));
-     copy_of_current_mode=queue->current_node;
+     struct Node_element_t* copy_of_current_mode = copy_of_current_mode=queue->current_node;
 
    do
    {
