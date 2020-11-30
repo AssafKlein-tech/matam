@@ -8,6 +8,7 @@
 #define PQ_ELEMENT_DOES_NOT_EXISTS 0
 #define PQ_ITEM_DOES_NOT_EXIST 0
 #define PQ_ERROR 0
+#define INVALID_STATE -1
 
 
 
@@ -21,34 +22,42 @@ struct PriorityQueue_t
     struct Node_element_t* next;
 
 
-    } *node_Element;
+    } *node_element;
 
     int iterator;
     struct Node_element_t* current_node;
     
-    CopyPQElement copy_element;
-    FreePQElement free_element;
-    EqualPQElements equal_elements;
-    CopyPQElementPriority copy_priority;
-    FreePQElementPriority free_priority;
-    ComparePQElementPriorities compare_priorities;
+    CopyPQElement copyElement;
+    FreePQElement freeElement;
+    EqualPQElements equalElements;
+    CopyPQElementPriority copyPriority;
+    FreePQElementPriority freePriority;
+    ComparePQElementPriorities comparePriorities;
 
 
 }
 
 
-void pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements,CopyPQElementPriority copy_priority,
-        FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
+PriorityQueue pqCreate(CopyPQElement CopyFunction,FreePQElement FreeFunction,EqualPQElements EqualFunction,CopyPQElementPriority CopyPriorityFunction, FreePQElementPriority FreePriorityFunction,ComparePQElementPriorities comparePrioritiesFunction)
 {
-    if(!copy_element||!free_element||!equal_elements||!copy_priority||!free_priority||!compare_priorities)
-    return PQ_NULL_ARGUMENT;
+    if(!CopyFunction||!FreeFunction||!EqualFunction||!CopyPriorityFunction||!FreePriorityFunction||!comparePrioritiesFunction)
+        return PQ_NULL_ARGUMENT;
 
-    PriorityQueue_t priorityQueue_t = malloc(sizeof(*PriorityQueue_t));
-    if (!priorityQueue_tL)
+    PriorityQueue priority_queue = malloc(sizeof(*PriorityQueue));
+    if (!priorityQueue)
 		return NULL;
 
+    priority_queue->copyElement=CopyFunction;
+    priority_queue->freeElement=FreeFunction;
+    priority_queue->equalElements=EqualFunction;
+    priority_queue->copyPriority=CopyPriorityFunction;
+    priority_queue->freePriority=FreePriorityFunction;
+    priority_queue->comparePriorities=comparePrioritiesFunction;
 
-
+    priority_queue->iterator = INVALID_STATE;
+    priority_queue->node_element=malloc(sizeof(*PriorityQueue));
+    priority_queue->current_node=malloc(sizeof(*PriorityQueue));
+    return  priority_queue;
 }
 
 /**
