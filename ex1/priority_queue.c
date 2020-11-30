@@ -35,7 +35,7 @@ struct PriorityQueue_t
     ComparePQElementPriorities comparePriorities;
 
 
-}
+} ;
 
 
 PriorityQueue pqCreate(CopyPQElement CopyFunction,FreePQElement FreeFunction,EqualPQElements EqualFunction,CopyPQElementPriority CopyPriorityFunction, FreePQElementPriority FreePriorityFunction,ComparePQElementPriorities comparePrioritiesFunction)
@@ -43,8 +43,8 @@ PriorityQueue pqCreate(CopyPQElement CopyFunction,FreePQElement FreeFunction,Equ
     if(!CopyFunction||!FreeFunction||!EqualFunction||!CopyPriorityFunction||!FreePriorityFunction||!comparePrioritiesFunction)
         return PQ_NULL_ARGUMENT;
 
-    PriorityQueue priority_queue = malloc(sizeof(*PriorityQueue));
-    if (!priorityQueue)
+    PriorityQueue priority_queue = malloc(sizeof(*priority_queue));
+    if (!priority_queue)
 		return NULL;
 
     priority_queue->copyElement=CopyFunction;
@@ -55,8 +55,8 @@ PriorityQueue pqCreate(CopyPQElement CopyFunction,FreePQElement FreeFunction,Equ
     priority_queue->comparePriorities=comparePrioritiesFunction;
 
     priority_queue->iterator = INVALID_STATE;
-    priority_queue->node_element=malloc(sizeof(*PriorityQueue));
-    priority_queue->current_node=malloc(sizeof(*PriorityQueue));
+    priority_queue->node_element=malloc(sizeof(* priority_queue->node_element));
+    priority_queue->current_node=malloc(sizeof(* priority_queue->node_element));
     return  priority_queue;
 }
 
