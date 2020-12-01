@@ -10,8 +10,6 @@
 #define PQ_ERROR 0
 #define INVALID_STATE -1
 
-
-
 struct PriorityQueue_t
 {
     struct Node_element_t
@@ -30,26 +28,21 @@ struct PriorityQueue_t
     ComparePQElementPriorities compare_priorities;
 } ;
 
-
 PriorityQueue pqCreate(CopyPQElement copy_element,FreePQElement free_element,EqualPQElements equal_elements, CopyPQElementPriority copy_priority, FreePQElementPriority free_priority,ComparePQElementPriorities compare_priorities)
 {
     if(!copy_element||!free_element||!equal_elements||!copy_priority||!free_priority||!compare_priorities)
         return PQ_NULL_ARGUMENT;
-
     PriorityQueue priority_queue = malloc(sizeof(*priority_queue));
     if (!priority_queue)
 		return NULL;
-
     priority_queue->copy_element=copy_element;
     priority_queue->free_element=free_element;
     priority_queue->equal_elements=equal_elements;
     priority_queue->copy_priority=copy_priority;
     priority_queue->free_priority=free_priority;
     priority_queue->compare_priorities=compare_priorities;
-
     priority_queue->iterator = INVALID_STATE;
-    priority_queue->node_element=malloc(sizeof(* priority_queue->node_element));
-    priority_queue->current_node=priority_queue->node_element;
+    priority_queue->current_node=NULL;
     return  priority_queue;
 }
 
@@ -125,24 +118,19 @@ int pqGetSize(PriorityQueue queue)
 */
 bool pqContains(PriorityQueue queue, PQElement element)
 {
-     struct Node_element_t* copy_of_current_mode=malloc(sizeof(*copy_of_current_mode));
-     copy_of_current_mode=queue->current_node;
-
-   do
-   {
-       if(equal_elements(element,queue->current_node->element))
-       {
-        queue->current_node=copy_of_current_mode;
-       return true;
-       }
-   } 
-   while (pqGetNext);
-   
-   queue->current_node=copy_of_current_mode;
+    struct Node_element_t* copy_of_current_node=malloc(sizeof(*copy_of_current_node));
+    copy_of_current_node=queue->current_node;
+    do
+    {
+        if(equal_elements(element,queue->current_node->element))
+        {
+            queue->current_node=copy_of_current_node;
+            return true;
+        }
+    } 
+    while (pqGetNext);
+    queue->current_node=copy_of_current_node;
     return false;
-
-
-
 }
 
 /**
@@ -154,7 +142,7 @@ bool pqContains(PriorityQueue queue, PQElement element)
 * @return
 * 	a "struct Node_element_t*" node. the new node should be enter after this one
 */
-static struct Node_element_t* PqGetInsertionPlace(PriorityQueue queue,PQElementPriority priority)
+static struct Node_element_t* pqGetInsertionPlace(PriorityQueue queue,PQElementPriority priority)
 {
     queue->current_node = queue->node_element;
     if(!queue->current_node)
@@ -163,7 +151,7 @@ static struct Node_element_t* PqGetInsertionPlace(PriorityQueue queue,PQElementP
     {
         queue->current_node = queue->current_node->next;
     }
-    return queue->current_node
+    return queue->current_node;
 }
 
 PriorityQueueResult pqInsert(PriorityQueue queue, PQElement element, PQElementPriority priority)
@@ -191,7 +179,13 @@ PriorityQueueResult pqInsert(PriorityQueue queue, PQElement element, PQElementPr
         queue->current_node->next = new_node;
     }
     queue->iterator = INVALID_STATE;
-    return PQ_SUCCESS
+    return PQ_SUCCESS;
+}
+
+static struct Node_element_t* pqFindElementWithPriority(PriorityQueue queue,PQElementPriority priority)
+{
+    struct Node_element_t* inner_iteration_node= queue->node_element;
+
 }
 
 /**
@@ -212,7 +206,13 @@ PriorityQueueResult pqInsert(PriorityQueue queue, PQElement element, PQElementPr
 * 	PQ_ELEMENT_DOES_NOT_EXISTS if element with old_priority does not exists in the queue.
 * 	PQ_SUCCESS the paired elements had been inserted successfully
 */
-PriorityQueueResult pqChangePriority(PriorityQueue queue, PQElement element,PQElementPriority old_priority, PQElementPriority new_priority);
+PriorityQueueResult pqChangePriority(PriorityQueue queue, PQElement element,PQElementPriority old_priority, PQElementPriority new_priority)
+{
+    if(!queue || !element || !old_priority || !new_priority)
+        return PQ_NULL_ARGUMENT;
+    
+    
+}
 
 /**
 *   pqRemove: Removes the highest priority element from the priority queue.
@@ -245,12 +245,6 @@ PriorityQueueResult pqRemove(PriorityQueue queue);
 */
 PriorityQueueResult pqRemoveElement(PriorityQueue queue, PQElement element)
 {
-        
-
-
-
-
-
 
 }
 
@@ -300,5 +294,3 @@ PriorityQueueResult pqClear(PriorityQueue queue);
     for(type iterator = (type) pqGetFirst(queue) ; \
         iterator ;\
         iterator = pqGetNext(queue))
-
-#endif /* PRIORITY_QUEUE_H_ *
