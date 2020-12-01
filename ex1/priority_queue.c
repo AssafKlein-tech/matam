@@ -185,8 +185,16 @@ PriorityQueueResult pqInsert(PriorityQueue queue, PQElement element, PQElementPr
 static struct Node_element_t* pqFindElementWithPriority(PriorityQueue queue,PQElementPriority priority)
 {
     struct Node_element_t* inner_iteration_node= queue->node_element;
-
+    if(!inner_iteration_node)
+        return NULL;
+    while (queue->current_node->next && queue->compare_priorities(priority, queue->current_node->next->priority) <= 0)
+    {
+        queue->current_node = queue->current_node->next;
+    }
+    return queue->current_node;
 }
+
+static PriorityQueueResult pqRemoveElementWithPriority(PriorityQueue queue,PQElementPriority element,PQElementPriority highest_priority);
 
 /**
 *	pqChangePriority: Changes a priority of specific element with a specific priority in the priority queue.
@@ -209,9 +217,12 @@ static struct Node_element_t* pqFindElementWithPriority(PriorityQueue queue,PQEl
 PriorityQueueResult pqChangePriority(PriorityQueue queue, PQElement element,PQElementPriority old_priority, PQElementPriority new_priority)
 {
     if(!queue || !element || !old_priority || !new_priority)
-        return PQ_NULL_ARGUMENT;
-    
-    
+        return PQ_NULL_ARGUMENT;    
+    PriorityQueueResult result = pqRemoveElementWithPriority(queue, element, old_priority);
+    if (result == PQ_SUCCESS)
+        return pqInsert(queue,element,new_priority);
+    return result;
+
 }
 
 /**
@@ -245,7 +256,11 @@ PriorityQueueResult pqRemove(PriorityQueue queue);
 */
 PriorityQueueResult pqRemoveElement(PriorityQueue queue, PQElement element)
 {
-
+    /**I need the same function like that one but recives also a priority and remove by both ( and not the highst priority) for the changePriority function
+    So i thought the function should be implement like this**/
+    PQElementPriority highest_priority = pqGetHighestPriorityOfElement(queue, element); // לא ממשתי
+    return pqRemoveElementWithPriority(queue, element, highest_priority); // לא ממשתי
+    // צריכים לעשות גם בדיקות של המשתנים
 }
 
 
