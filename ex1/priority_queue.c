@@ -38,14 +38,14 @@ PriorityQueue pqCreate(CopyPQElement copy_element, FreePQElement free_element, E
     return priority_queue;
 }
 
-/**
-* pqDestroy: Deallocates an existing priority queue. Clears all elements by using the
-* free functions.
-*
-* @param queue - Target priority queue to be deallocated. If priority queue is NULL nothing will be
-* 		done
-*/
-void pqDestroy(PriorityQueue queue);
+void pqDestroy(PriorityQueue queue)
+{
+    if(queue)
+    {
+        pqClear(queue);
+        free(queue);
+    }
+}
 
 PriorityQueue pqCopy(PriorityQueue queue)
 {
@@ -243,7 +243,6 @@ PriorityQueueResult pqRemove(PriorityQueue queue)
     return PQ_SUCCESS;
 }
 
-
 PriorityQueueResult pqRemoveElement(PriorityQueue queue, PQElement element)
 {
     if (!queue)
@@ -282,16 +281,16 @@ PQElement pqGetNext(PriorityQueue queue)
     return queue->current_node->element;
 }
 
-/**
-* pqClear: Removes all elements and priorities from target priority queue.
-* The elements are deallocated using the stored free functions.
-* @param queue
-* 	Target priority queue to remove all element from.
-* @return
-* 	MAP_NULL_ARGUMENT - if a NULL pointer was sent.
-* 	MAP_SUCCESS - Otherwise.
-*/
-PriorityQueueResult pqClear(PriorityQueue queue);
+PriorityQueueResult pqClear(PriorityQueue queue)
+{
+    if(!queue)
+        return PQ_NULL_ARGUMENT;
+    while(queue->first_node)
+    {
+        pqRemove(queue);
+    }
+    return PQ_SUCCESS;
+}
 
 /*!
 * Macro for iterating over a priority queue.
