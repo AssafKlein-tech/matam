@@ -1,6 +1,5 @@
 #include "priority_queue.h"
 #include <stdbool.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 struct PriorityQueue_t
@@ -208,7 +207,7 @@ static PriorityQueueResult pqRemoveElementWithPriority(PriorityQueue queue, PQEl
             struct Node_element_t * node_to_delete = queue->current_node->next;
             queue->free_element(node_to_delete->element);
             queue->free_priority(node_to_delete->priority); 
-            queue->current_node  = node_to_delete->next;
+            queue->current_node->next  = node_to_delete->next;
             free(node_to_delete);
             queue->current_node = NULL;
             return PQ_SUCCESS;
