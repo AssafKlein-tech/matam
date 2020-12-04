@@ -66,7 +66,7 @@ Date dateCopy(Date date)
 
 bool dateGet(Date date, int* day, int* month, int* year)
 {
-    if (!date || !date->day || !date->month || !date->year)
+    if (!date || !day || !month || !year)
         return false;
     *day = date->day;
     *month = date->month;
@@ -76,7 +76,7 @@ bool dateGet(Date date, int* day, int* month, int* year)
 
 static int dateToDays(Date date)
 {
-    return date->day + date->month*MAX_DAY + date->year * DAYS_IN_YEAR;
+    return date->day + (date->month - 1)*MAX_DAY + date->year * DAYS_IN_YEAR;
 }
 
 int dateCompare(Date date1, Date date2)
@@ -90,7 +90,7 @@ static void daysToDate(Date date, int days)
 {
     date->year = days / DAYS_IN_YEAR;
     days = days % DAYS_IN_YEAR;
-    date->month = days / MAX_DAY;
+    date->month = days / MAX_DAY + 1;
     date->day = days % MAX_DAY;
 }
 
