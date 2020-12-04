@@ -51,7 +51,9 @@ bool dateGet(Date date, int* day, int* month, int* year);
 
 /**
 * dateCompare: compares to dates and return which comes first
-*
+*@param date1 - first Date
+*@param date2 - second Date
+
 * @return
 * 		A negative integer if date1 occurs first;
 * 		0 if they're equal or one of the given dates is NULL;

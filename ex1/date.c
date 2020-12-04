@@ -84,15 +84,7 @@ int dateCompare(Date date1, Date date2)
     {
         return NULL;
     }
-    if (date1->year != date2->year)
-    {
-        return  date1->year > date2->year;
-    }
-    if (date1->month != date2->month)
-    {
-        return  date1->month > date2->month;
-    }
-    return date1->day > date2->day;
+    return dateToDays(date1) - dateToDays(date2);
 }
 
 static dateToDays(Date date)
