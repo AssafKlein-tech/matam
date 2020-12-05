@@ -23,32 +23,130 @@ typedef enum EventManagerResult_t {
     EM_ERROR
 } EventManagerResult;
 
-
+/**
+ * @brief Create a Event Manager object
+ * 
+ * @param date 
+ * @return EventManager 
+ */
 EventManager createEventManager(Date date);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ */
 void destroyEventManager(EventManager em);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param event_name 
+ * @param date 
+ * @param event_id 
+ * @return EventManagerResult 
+ */
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param event_name 
+ * @param days 
+ * @param event_id 
+ * @return EventManagerResult 
+ */
 EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days, int event_id);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param event_id 
+ * @return EventManagerResult 
+ */
 EventManagerResult emRemoveEvent(EventManager em, int event_id);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param event_id 
+ * @param new_date 
+ * @return EventManagerResult 
+ */
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param member_name 
+ * @param member_id 
+ * @return EventManagerResult 
+ */
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param member_id 
+ * @param event_id 
+ * @return EventManagerResult 
+ */
 EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_id);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param member_id 
+ * @param event_id 
+ * @return EventManagerResult 
+ */
 EventManagerResult emRemoveMemberFromEvent (EventManager em, int member_id, int event_id);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param days 
+ * @return EventManagerResult 
+ */
 EventManagerResult emTick(EventManager em, int days);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @return int 
+ */
 int emGetEventsAmount(EventManager em);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @return char* 
+ */
 char* emGetNextEvent(EventManager em);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param file_name 
+ */
 void emPrintAllEvents(EventManager em, const char* file_name);
 
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @param file_name 
+ */
 void emPrintAllResponsibleMembers(EventManager em, const char* file_name);
 #endif //EVENT_MANAGER_H
