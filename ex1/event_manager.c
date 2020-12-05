@@ -1,17 +1,18 @@
 #include "event_manager.h"
 #include "date.h"
 #include "priority_queue.h"
+#include "member.h"
+#include "event.h"
 
 typedef struct EventManager_t* EventManager{
-    PriorityQueue event_manager;
-     event* events;
+    PriorityQueue ;
+     events;
      member* members;
      Date* dates;  
 };
 
 EventManager createEventManager(Date date){
     pqCreate()
-
 
 
 
