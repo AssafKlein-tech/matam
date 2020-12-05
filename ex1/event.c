@@ -40,7 +40,7 @@ int getEventsId(Event event)
     return event->event_id;
 }
 
-char* getEventsId(Event event)
+char* getEventsName(Event event)
 {
     return event->event_name;
 }
