@@ -2,18 +2,6 @@
 #include "date.h"
 #include "priority_queue.h"
 
-typedef struct event{
-        char* event_name;
-        int event_id;
-         struct event *next_event;
-    };
-
-typedef struct member {
-        char* member_name;
-        int member_id;
-        struct member *next_member;
-    };
-
 typedef struct EventManager_t* EventManager{
     PriorityQueue event_manager;
      event* events;
