@@ -3,6 +3,11 @@
 
 #include <stdbool.h>
 
+typedef enum MemberResult_t {
+    MEMBER_NULL_ARGUMENT = 0,
+    MEMBER_SUCCESS,
+} MemberResult;
+
 /** Type for defining the priority queue */
 typedef struct Member_t *Member;
 
@@ -20,14 +25,14 @@ Member memberCreate(char* name, int member_id);
  * 
  * @param member - The member to add a event to.
  */
-void memberAddEvent(Member member);
+MemberResult memberAddEvent(Member member);
 
 /**
  * @brief memberRemoveEvent: decreasing the number of events the member responsible to
  * 
  * @param member - The member to remove a event from.
  */
-void memberRemoveEvent(Member member);
+MemberResult memberRemoveEvent(Member member);
 
 /**
  * @brief memberGetName: Get the name of the member
@@ -59,7 +64,7 @@ int memberGetNumberOfEvents(Member member);
  * @param member1 - First member
  * @param member2 - Second member
  * @return true - if the id's are equal 
- * @return false - otherwise
+ * @return false - if they are diffrent or one if the arrguments are NULL
  */
 bool memberEqualIDs(Member member1,Member member2);
 
@@ -68,6 +73,6 @@ bool memberEqualIDs(Member member1,Member member2);
  * 
  * @param member - The member to dealocate
  */
-void freeMember(Member member);
+MemberResult freeMember(Member member);
 
 #endif /* MEMBER_H_ */
