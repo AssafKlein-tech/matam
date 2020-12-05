@@ -1,12 +1,13 @@
 #include "event.h"
 #include <stdbool.h>
 #include <stdlib.h>
+#include "member.h"
 
 struct Event_t
 {
     char* event_name;
     int event_id;
-    member* members;
+    Member* members;
 
 };
 
@@ -16,7 +17,7 @@ Event event = malloc(sizeof(*event));
 		return NULL;
 	}
 	event->event_id = event_id;
-	date->event_name = event_name;
+	event->event_name = event_name;
 	return event;
 }
 
@@ -30,7 +31,7 @@ Event eventCopy(Event event)
         return NULL;
     return eventCreate(event->event_name,event->event_id);
 }
-bool eventCompare(Event event1, Event event2);
+bool eventCompare(Event event1, Event event2)
 {
     return (getEventsId(event1)==getEventsId(event2));
 }

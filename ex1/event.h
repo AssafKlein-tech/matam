@@ -65,5 +65,5 @@ int getEventsId(Event event);
 *@param event -  Target Event
 */
 
-char* getEventsName(Event event)
+char* getEventsName(Event event);
 #endif //EVENT_H_
