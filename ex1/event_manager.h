@@ -1,6 +1,5 @@
 #ifndef EVENT_MANAGER_H
 #define EVENT_MANAGER_H
-
 #include "date.h"
 
 typedef struct EventManager_t* EventManager;
@@ -24,10 +23,11 @@ typedef enum EventManagerResult_t {
 } EventManagerResult;
 
 /**
- * @brief Create a Event Manager object
+ * @brief Create a Event Manager 
  * 
- * @param date 
- * @return EventManager 
+ * @param date - the current date
+ * @return EventManager pointer to the struct.
+ *         return NULL if the date given is NULL or an error occurs.
  */
 EventManager createEventManager(Date date);
 
@@ -80,12 +80,17 @@ EventManagerResult emRemoveEvent(EventManager em, int event_id);
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date);
 
 /**
- * @brief 
+ * @brief Creates and adds a new member to the manger. the member have a name and an id.
  * 
- * @param em 
- * @param member_name 
- * @param member_id 
- * @return EventManagerResult 
+ * @param em the em to add the member to
+ * @param member_name the name of the member
+ * @param member_id the ID of the member 
+ * @return EventManagerResult: \n
+ *          EM_NULL_ARGUMENT if one of the arguments is NULL;
+ *          EM_INVALID_MEMBER_ID if the member ID is negative;
+ *          EM_MEMBER_ID_ALREADY_EXISTS if there is already a member with the same ID;
+ *          EM_OUT_OF_MEMORY - if the llocation fails;
+ *          EM_SUCCESS - The member has been added safely.
  */
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id);
 
