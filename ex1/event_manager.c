@@ -48,6 +48,39 @@ static bool emCheckMemberIDExist(EventManager em, int member_id)
     return false;
 }
 
+/**
+ * @brief Removes all the events that are earlier then the current date
+ * 
+ * @param em Target eventManager
+ * @return EventManagerResult
+ *         EM_SUCCESS if the action succeeded
+ *         EM_ERROR if any error occurs 
+ */
+static EventManagerResult emRemoveEarlyEvents(EventManager em)
+{
+    if(!em)
+        return EM_ERROR;
+    while(dateCompare(em->date, eventGetDate(pqGetFirst(em->events))) > 0)
+    {
+        if(emRemoveFirstEvent(em) == EM_ERROR)
+            return EM_ERROR;
+    }
+    return EM_SUCCESS;
+}
+
+/**
+ * @brief 
+ * 
+ * @param em 
+ * @return EventManagerResult 
+ */
+static EventManagerResult emRemoveFirstEvent(EventManager em)
+{
+    if(!em)
+        return EM_ERROR;
+    
+}
+
 EventManager createEventManager(Date date)
 {
     if (!date)
@@ -96,7 +129,18 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
 
 EventManagerResult emRemoveMemberFromEvent (EventManager em, int member_id, int event_id);
 
-EventManagerResult emTick(EventManager em, int days);
+EventManagerResult emTick(EventManager em, int days)
+{
+    if(!em || days)
+        return EM_NULL_ARGUMENT;
+    if(days <= 0)
+        return EM_INVALID_DATE;
+    for(int i = 1; i <= days; i++)
+    {
+        dateTick(em->date);
+    }
+    return emRemoveEarlyEvents(em);
+}
 
 int emGetEventsAmount(EventManager em);
 

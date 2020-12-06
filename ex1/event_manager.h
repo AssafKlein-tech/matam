@@ -115,11 +115,15 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
 EventManagerResult emRemoveMemberFromEvent (EventManager em, int member_id, int event_id);
 
 /**
- * @brief 
+ * @brief advance the time of the manger by 'days'
  * 
- * @param em 
- * @param days 
- * @return EventManagerResult 
+ * @param em Target eventManager
+ * @param days - the number of day to advance
+ * @return EventManagerResult: 
+            EM_NULL_ARGUMENT if one of the arguments is NULL;
+            EM_INVALID_DATE if the number of days given is not positive
+            EM_OUT_OF_MEMORY if allocation has failed
+ *          EM_SUCCESS if the action succeeded
  */
 EventManagerResult emTick(EventManager em, int days);
 
