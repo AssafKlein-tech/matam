@@ -66,4 +66,55 @@ int getEventsId(Event event);
 */
 
 char* getEventsName(Event event);
+
+
+/**
+* getFirstMemberID: returns the ID of the first member in Target event.
+*@param event -  Target Event
+*/
+
+int getFirstMemberID(Event event);
+
+
+/**
+* getNextMemberID: returns the next ID of member in Target event.
+*@param event -  Target Event
+*/
+
+int getNextMemberID(Event event);
+
+
+/**
+*  insertNewMember: inserts a new member by ID in target event.
+*@param event -  Target Event
+*@param member_id - the ID of the member
+*/
+
+void insertNewMember(Event event,int member_id);
+
+
+/**
+* removeMemberByID: removes from the IDs list of target event ID of a member. 
+*@param event -  Target Event
+*@param member_id - the ID of the member
+*/
+
+bool removeMemberByID(Event event,int member_id);
+
+
+/**
+* removeAllMembers: remove all members from target event
+*@param event -  Target Event
+*/
+
+void removeAllMembers(Event event);
+
+
+/**
+* eventGetDate: returns date of Target event.
+*@param event -  Target Event
+*/
+
+Date eventGetDate(Event event);
+
 #endif //EVENT_H_
