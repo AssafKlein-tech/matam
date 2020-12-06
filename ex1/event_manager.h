@@ -128,10 +128,10 @@ EventManagerResult emRemoveMemberFromEvent (EventManager em, int member_id, int 
 EventManagerResult emTick(EventManager em, int days);
 
 /**
- * @brief 
+ * @brief returns number of events saved in the Manger
  * 
- * @param em 
- * @return int 
+ * @param em Target eventManager
+ * @return int number of events (-1 if the arrgument given is NULL)
  */
 int emGetEventsAmount(EventManager em);
 

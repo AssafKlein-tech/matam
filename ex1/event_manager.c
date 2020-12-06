@@ -69,10 +69,12 @@ static EventManagerResult emRemoveEarlyEvents(EventManager em)
 }
 
 /**
- * @brief 
+ * @brief Dellocate and remove the first event. Decreasing number of events of the members of the first event
  * 
- * @param em 
+ * @param em - Target eventManager
  * @return EventManagerResult 
+ *          EM_ERROR for any ERROR
+ *          EM_SUCCESS if the action succeeded 
  */
 static EventManagerResult emRemoveFirstEvent(EventManager em)
 {
@@ -127,7 +129,7 @@ EventManagerResult emAddMember(EventManager em, char* member_name, int member_id
 
 EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_id);
 
-EventManagerResult emRemoveMemberFromEvent (EventManager em, int member_id, int event_id);
+EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int event_id);
 
 EventManagerResult emTick(EventManager em, int days)
 {
@@ -142,7 +144,12 @@ EventManagerResult emTick(EventManager em, int days)
     return emRemoveEarlyEvents(em);
 }
 
-int emGetEventsAmount(EventManager em);
+int emGetEventsAmount(EventManager em)
+{
+    if(!em)
+        return -1;
+    return pqGetSize(em->events);
+}
 
 char* emGetNextEvent(EventManager em);
 
