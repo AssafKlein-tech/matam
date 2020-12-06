@@ -8,7 +8,7 @@ typedef enum MemberResult_t {
     MEMBER_SUCCESS,
 } MemberResult;
 
-/** Type for defining the priority queue */
+/** Type for defining the member */
 typedef struct Member_t *Member;
 
 /**
