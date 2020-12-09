@@ -17,6 +17,46 @@ struct EventManager_t
     Date date;  
 };
 
+
+
+/**
+ * @brief - Search for an event by it's ID.
+ * 
+ * @param em Target event manager
+ * @param event_id target event's ID
+ * @return - returns the event in case it was found and NULL otherwise.
+ */
+
+static Event emfindEventByID(EventManager em, int event_id)
+{
+    PQ_FOREACH(Event,event,em->events)
+    {
+        if(eventGetId(event)==event_id)
+            return event;
+    }
+    return NULL;
+}
+
+/**
+ * @brief - Search for an event in a specific date.
+ * 
+ * @param em Target event manager
+ * @param event_name target event's name
+ * @param date target date 
+ * @return - returns the event in case it was found and NULL otherwise.
+ */
+
+
+static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, Date date)
+{
+    PQ_FOREACH(Event,event,em->events)
+    {
+        if(eventGetName(event)==event_name&&dateCompare(eventGetDate(event),date)==0)
+            return event;
+    }
+    return NULL;
+}
+
 /**
  * @brief Construct a new Date Compare object
  * 
@@ -145,7 +185,7 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
         return EM_NULL_ARGUMENT;
     if(dateCompare(em->date,date)>0)
         return EM_INVALID_DATE;
-    if(event_id>0)
+    if(event_id<0)
         return EM_INVALID_EVENT_ID;
     if(emfindEventByNameInSpecificDate(em,event_name,date))
     return EM_EVENT_ALREADY_EXISTS;
@@ -153,51 +193,42 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
         return EM_EVENT_ID_ALREADY_EXISTS;
     Event event= eventCreate(event_name,event_id,date);
     if(!event)
-    return NULL;
+    return EM_OUT_OF_MEMORY;
     em->events=pqInsert(em,event,date);
+    return EM_SUCCESS;
 }
 
 EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days, int event_id)
 {
-    if (!em)
-        return NULL;
-    Event event= eventCreate(event_name,event_id);
-    if(!event)
-        return NULL;
     Date date=dateCopy(em->date);
+    if (!days||!em||!event_name||!event_id)
+        return EM_NULL_ARGUMENT;
+    if(days<0)
+        return EM_INVALID_DATE;
+    if(emfindEventByNameInSpecificDate(em,event_name,date))
+    return EM_EVENT_ALREADY_EXISTS;
+    if(emfindEventByID(em,event_id))
+        return EM_EVENT_ID_ALREADY_EXISTS;
     for(int i=0; i<days; i++)
         dateTick(date);
-        em->events=pqInsert(em,event,date);
+    Event event= eventCreate(event_name,event_id,date);
+    if(!event)
+      return EM_OUT_OF_MEMORY;
+    em->events=pqInsert(em,event,date);
+     return EM_SUCCESS;
 }
 
 EventManagerResult emRemoveEvent(EventManager em, int event_id);
 
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date)
 {
+    if(!em || !event_id || !new_date)
+        return EM_NULL_ARGUMENT;
+    
 
     Event target_event=emfindEventByID(em,event_id);
     Date old_date=eventGetDate(target_event);
     pqChangePriority(em,target_event,old_date,new_date);
-}
-
-static Event emfindEventByID(EventManager em, int event_id)
-{
-    PQ_FOREACH(Event,event,em->events)
-    {
-        if(eventGetId(event)==event_id)
-            return event;
-    }
-    return NULL;
-}
-
-static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, Date date)
-{
-    PQ_FOREACH(Event,event,em->events)
-    {
-        if(eventGetName(event)==event_name&&dateCompare(eventGetDate(event),date)==0)
-            return event;
-    }
-    return NULL;
 }
 
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id) //האם צריך לשחרר זכרון במקרה של שגיאה?
