@@ -147,7 +147,7 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
         return NULL;
     Event event= eventCreate(event_name,event_id);
     if(!event)
-    return NULL;
+        return NULL;
     em->events=pqInsert(em,event,date);
 }
 
