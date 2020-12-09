@@ -2,7 +2,6 @@
 #define EVENT_H_
 
 #include "date.h"
-#include "member.h"
 #include <stdbool.h>
 
 /** Type for defining the event */
@@ -13,7 +12,7 @@ typedef enum EventResult_t {
     EVENT_OUT_OF_MEMORY,
     EVENT_NULL_ARGUMENT,
     EVENT_MEMBER_ID_ALREADY_EXISTS
-} EventManagerResult;
+} EventResult;
 
 /**
 * eventCreate: Allocates a new event.
@@ -67,17 +66,23 @@ int eventGetId(Event event);
 char* eventGetName(Event event);
 
 /**
-* getFirstMemberID: returns the ID of the first member in Target event.
+* getFirstMemberID: returns the ID of the first member in Target event. after this function the iterator will be linked to the first node
 *@param event -  Target Event
 */
 int eventGetFirstMemberID(Event event);
 
 /**
-*  insertNewMember: inserts a new member by ID in target event.
-*@param event -  Target Event
-*@param member_id - the ID of the member
-*/
-bool eventInsertNewMember(Event event,int member_id);
+ * @brief enter a new member to the event. if the member already in the event, the function does nothing and return EVENT_MEMBER_ID_ALREADY_EXISTS
+ * 
+ * @param event Target event
+ * @param member_id The Id of the new member
+ * @return EventResult 
+ *         EVENT_SUCCESS - the member added successfully
+ *         EVENT_OUT_OF_MEMORY the allocation failed
+ *         EVENT_NULL_ARGUMENT - one of the arguments given is NULL
+ *         EVENT_MEMBER_ID_ALREADY_EXISTS there is already a member with the same id in the event
+ */
+EventResult eventInsertNewMember(Event event,int member_id);
 
 /**
 * removeMemberByID: removes from the IDs list of target event ID of a member. 

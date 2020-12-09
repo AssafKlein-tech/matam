@@ -73,48 +73,78 @@ int eventGetFirstMemberID(Event event)
     if(!event)
         return NULL;
     event->current_member=event->first_member;
+    if (!event->first_member)
+        return NULL;
     return event->first_member->member_id;
 }
 
-bool eventInsertNewMember(Event event,int member_id)
+EventResult eventInsertNewMember(Event event,int member_id)
 {
     if(!event || !member_id)
-        return false;
+        return EVENT_NULL_ARGUMENT;
+    struct member* new_member = malloc(sizeof(new_member));
+    if(!new_member)
+        return EVENT_OUT_OF_MEMORY;
+    new_member->member_id = member_id;
     if (!event->first_member)
-       { 
-        event->first_member=malloc(sizeof(event->first_member));
-        if(!event->first_member)
-            return false;
-        event->first_member->member_id=member_id;
-       }
-    else event->current_member->next_member=malloc(sizeof(event->current_member->next_member));
     {
-        if(!event->current_member->next_member)
-            return false;
-        event->current_member->next_member->member_id=member_id;
+        event->first_member=new_member;
+        return EVENT_SUCCESS;
     }
-    return true;
+    if(member_id < event->first_member->member_id)
+    {
+        new_member->next_member = event->first_member;
+        event->first_member->next_member = new_member;
+        return EVENT_SUCCESS;
+    }
+    event->current_member = event->first_member;
+    while(event->current_member->next_member && member_id > event->current_member->next_member->member_id)
+    {
+        event->current_member = event->current_member->next_member;
+    }
+    if (!event->current_member->next_member)
+    {
+        event->current_member->next_member = new_member;
+        return EVENT_SUCCESS;
+    }
+    if (member_id = event->current_member->next_member->member_id)
+    {
+        free(new_member);
+        return EVENT_MEMBER_ID_ALREADY_EXISTS;
+    }
+    new_member->next_member = event->current_member->next_member;
+    event->current_member->next_member = new_member;
+    return EVENT_SUCCESS;
 }
 
 bool removeMemberByID(Event event,int member_id)
 {
     if(!event || !member_id)
         return NULL;
-    int id=getFirstMemberID(event);
-    while (id != member_id)
-    {
-         id=event->current_member->next_member->member_id;
-        if(id==NULL)
+    int id = eventGetFirstMemberID(event);
+    if(!id)
         return false;
-        if(id==member_id)
-        break;
+    if(id == member_id)
+    {
+        event->first_member = event->first_member->next_member;
+        free(event->current_member);
+        return true;
+    }
+    while (event->current_member->next_member)
+    {
+        id = event->current_member->next_member->member_id;
+        if(!id)
+            return false;
+        if(id == member_id)
+        {
+            struct member* member_copy=event->current_member->next_member;
+            event->current_member->next_member=event->current_member->next_member->next_member;
+            free(member_copy);
+            return true;
+        }
        event->current_member=event->current_member->next_member;
     }
-    Member *member_copy=event->current_member->next_member;
-    dateDestroy(event->event_date);
-    event->current_member->next_member=event->current_member->next_member->next_member;
-    free(member_copy);
-    return true;
+    return false;
 }
 
 void removeAllMembers(Event event)
