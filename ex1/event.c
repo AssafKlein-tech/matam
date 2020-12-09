@@ -135,7 +135,7 @@ bool removeMemberByID(Event event,int member_id)
         id = event->current_member->next_member->member_id;
         if(!id)
             return false;
-        if(id==member_id)
+        if(id == member_id)
         {
             struct member* member_copy=event->current_member->next_member;
             event->current_member->next_member=event->current_member->next_member->next_member;
