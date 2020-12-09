@@ -29,26 +29,6 @@ static newDateCompare(Date date1, Date date2)
 }
 
 /**
- * @brief find a member with the given id
- * 
- * @param em - Target event manager
- * @param member_id - the id of the member to find
- * @return Member the member wuth the given id
- *          if member not found return NULL
- */
-static Member emFindMemberById(EventManager em, int member_id)
-{
-    struct Members_list *member_iterator = em->members;
-    while (member_iterator)
-    {
-        if (memberGetID(member_iterator->member) == member_id)
-            return member_iterator->member;
-        member_iterator = member_iterator->next;
-    }
-    return NULL;
-}
-
-/**
  * @brief checks if the member_id already in the members list
  * 
  * @param em the Target event_element
@@ -58,8 +38,13 @@ static Member emFindMemberById(EventManager em, int member_id)
  */
 static bool emCheckMemberIDExist(EventManager em, int member_id)
 {
-    if (emFindMemberById(em,member_id))
-        return true;
+    struct Members_list *member_iterator = em->members;
+    while (member_iterator)
+    {
+        if (memberGetID(member_iterator->member) == member_id)
+            return true;
+        member_iterator = member_iterator->next;
+    }
     return false;
 }
 
@@ -98,28 +83,14 @@ static EventManagerResult emRemoveFirstEvent(EventManager em)
     
 }
 
-/**
- * @brief decreasing the number of events the member responsible for
- * 
- * @param em - Target event manager
- * @param member_id - the member id of the member to decrease
- */
 static void emMemberEventDecrease(EventManager em, int member_id)
 {
-    Member member_to_decrease = emFindMemberById(em, member_id);
-    memberRemoveEvent(member_to_decrease);
+
 }
 
-/**
- * @brief increasing the number of events the member responsible for
- * 
- * @param em - Target event manager
- * @param member_id - the member id of the member to increase
- */
 static void emMemberEventIncrease(EventManager em, int member_id)
 {
-    Member member_to_increase = emFindMemberById(em, member_id);
-    memberAddEvent(member_to_increase);
+    
 }
 
 EventManager createEventManager(Date date)
@@ -147,7 +118,7 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
         return NULL;
     Event event= eventCreate(event_name,event_id);
     if(!event)
-        return NULL;
+    return NULL;
     em->events=pqInsert(em,event,date);
 }
 
