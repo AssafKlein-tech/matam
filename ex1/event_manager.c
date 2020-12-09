@@ -18,6 +18,32 @@ struct EventManager_t
 };
 
 /**
+ * @brief check if the arguments given are valid
+ * 
+ * @param em event manager argument
+ * @param member_id member id argument
+ * @param event_id event id argumnt
+ * @return EventManagerResult 
+ *          EM_NULL_ARGUMENT if one of the arguments is NULL;
+ *          EM_INVALID_EVENT_ID if inserted invalid event_id;
+ *          EM_INVALID_MEMBER_ID if inserted invalid member_id;
+ *          EM_MEMBER_ID_NOT_EXISTS if there is no member with the id given in the event manger;
+ *          EM_SUCCESS if the arguments fine;
+ */
+static EventManagerResult emCheckValidArguments(EventManager em, int member_id, int event_id)
+{
+    if(!em || !member_id || !event_id)
+        return EM_NULL_ARGUMENT;
+    if (event_id < 0)
+        return EM_INVALID_EVENT_ID;
+    if (member_id < 0)
+        return EM_INVALID_MEMBER_ID;
+    if(!emCheckMemberIDExist(em, member_id))
+        return EM_MEMBER_ID_NOT_EXISTS;
+    return EM_SUCCESS;
+}
+
+/**
  * @brief Construct a new Date Compare object
  * 
  * @param date1 - The target date
@@ -221,27 +247,32 @@ EventManagerResult emAddMember(EventManager em, char* member_name, int member_id
 
 EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_id)
 {
-    if(!em || !member_id || !event_id)
-        return EM_NULL_ARGUMENT;
-    if (event_id < 0)
-        return EM_INVALID_EVENT_ID;
-    if (member_id < 0)
-        return EM_INVALID_MEMBER_ID;
-    if(!emCheckMemberIDExist(member_id))
-        return EM_MEMBER_ID_NOT_EXISTS;
+    EventManagerResult em_result = emCheckValidArguments(em, member_id, event_id);
+    if(em_result != EM_SUCCESS)
+        return em_result;
     Event target_event = emFindEventById(em, event_id);
     if (!target_event)
         return EM_EVENT_ID_NOT_EXISTS;
-    EventResult  result = eventInsertNewMember(target_event,member_id);
-    if (result == EVENT_OUT_OF_MEMORY)
+    EventResult  event_result = eventInsertNewMember(target_event,member_id);
+    if (event_result == EVENT_OUT_OF_MEMORY)
         return EM_OUT_OF_MEMORY;
-    if (result == EVENT_MEMBER_ID_ALREADY_EXISTS)
+    if (event_result == EVENT_MEMBER_ID_ALREADY_EXISTS)
         return EM_EVENT_AND_MEMBER_ALREADY_LINKED;
     emMemberEventIncrease(em, member_id);
     return EM_SUCCESS;
 }
 
-EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int event_id);
+EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int event_id)
+{
+    EventManagerResult em_result = emCheckValidArguments(em, member_id, event_id);
+    if(em_result != EM_SUCCESS)
+        return em_result;
+    Event target_event = emFindEventById(em, event_id);
+    if (!target_event)
+        return EM_EVENT_ID_NOT_EXISTS;
+    EventResult  event_result = eventR(target_event,member_id); 
+        
+}
 
 EventManagerResult emTick(EventManager em, int days)
 {

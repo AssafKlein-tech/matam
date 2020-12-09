@@ -84,12 +84,19 @@ int eventGetFirstMemberID(Event event);
  */
 EventResult eventInsertNewMember(Event event,int member_id);
 
+
 /**
-* removeMemberByID: removes from the IDs list of target event ID of a member. 
-*@param event -  Target Event
-*@param member_id - the ID of the member
-*/
-bool removeMemberByID(Event event,int member_id);
+ * removeMemberByID: removes from the IDs list of target event ID of a member.
+ * 
+ * @param event -  Target Event
+ * @param member_id - the ID of the member
+ * @return EventResult 
+ *         EVENT_SUCCESS The member removed successfully
+ *         EVENT_OUT_OF_MEMORY the allocation failed
+ *         EVENT_NULL_ARGUMENT - one of the arguments given is NULL
+ *         EVENT_MEMBER_ID_NOT_EXISTS there isn't a member with the id in the event
+ */
+EventResult eventRemoveMemberByID(Event event,int member_id);
 
 /**
 * removeAllMembers: remove all members from target event

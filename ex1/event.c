@@ -117,10 +117,10 @@ EventResult eventInsertNewMember(Event event,int member_id)
     return EVENT_SUCCESS;
 }
 
-bool removeMemberByID(Event event,int member_id)
+EventResult eventRemoveMemberByID(Event event,int member_id)
 {
     if(!event || !member_id)
-        return NULL;
+        return EVENT_NULL_ARGUMENT;
     int id = eventGetFirstMemberID(event);
     if(!id)
         return false;
