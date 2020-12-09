@@ -112,10 +112,8 @@ void destroyEventManager(EventManager em);
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
 {
-    if (!date)
-        return NULL;
-    if (!em)
-        return NULL;
+    if (!date||!em||!event_name||!event_id)
+        return EM_NULL_ARGUMENT;
     Event event= eventCreate(event_name,event_id);
     if(!event)
     return NULL;
@@ -139,18 +137,20 @@ EventManagerResult emRemoveEvent(EventManager em, int event_id);
 
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date)
 {
-    
-    pqChangePriority(em,
 
-
+    Event target_event=emfindEventByID(em,event_id);
+    Date old_date=eventGetDate(target_event);
+    pqChangePriority(em,target_event,old_date,new_date);
 }
 
 static Event emfindEventByID(EventManager em, int event_id)
 {
-    event
-    PQ_FOREACH(Event,event)
-
-
+    PQ_FOREACH(Event,event,em->events)
+    {
+        if(eventGetId(event)==event_id)
+            return event;
+    }
+    return NULL;
 }
 
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id) //האם צריך לשחרר זכרון במקרה של שגיאה?
