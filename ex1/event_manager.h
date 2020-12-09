@@ -95,7 +95,7 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id);
 
 /**
- * @brief  add a member to the event members. and increacing the number of events the member responsible of by 1.
+ * @brief  add a member to the event members. And increasing the number of events the member responsible of by 1.
  * 
  * @param em Target event manger
  * @param member_id - the Id of the member to add
@@ -113,19 +113,19 @@ EventManagerResult emAddMember(EventManager em, char* member_name, int member_id
 EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_id);
 
 /**
- * @brief 
- * 
- * @param em 
- * @param member_id 
- * @param event_id 
+ * @brief remove the member from the event members. And decreasing the number of events the member responsible of by 1.
+ *
+ * @param em Target event manager
+ * @param member_id the id of the member to remove
+ * @param event_id the id of the event to remove the member from
  * @return EventManagerResult 
  *          EM_NULL_ARGUMENT if one of the arguments is NULL;
-            EM_INVALID_EVENT_ID if inserted invalid event_id;
-            EM_INVALID_MEMBER_ID if inserted invalid member_id;
-            EM_EVENT_ID_NOT_EXISTS if there is no event with the id given in the event manger;
-            EM_MEMBER_ID_NOT_EXISTS if there is no member with the id given in the event manger;
-            EM_EVENT_AND_MEMBER_ALREADY_LINKED if the member is already responsible for the event;
-            EM_OUT_OF_MEMORY if an allocation has failed;
+ *          EM_INVALID_EVENT_ID if inserted invalid event_id;
+ *          EM_INVALID_MEMBER_ID if inserted invalid member_id;
+ *          EM_EVENT_ID_NOT_EXISTS if there is no event with the id given in the event manger;
+ *          EM_MEMBER_ID_NOT_EXISTS if there is no member with the id given in the event manger;
+ *          EM_EVENT_AND_MEMBER_NOT_LINKED if the member is not responsible for the event;
+ *          EM_OUT_OF_MEMORY if an allocation has failed;
  *          EM_SUCCESS if the action succeeded;
  */
 EventManagerResult emRemoveMemberFromEvent (EventManager em, int member_id, int event_id);
@@ -159,31 +159,6 @@ int emGetEventsAmount(EventManager em);
  *          the name of the next event
  */
 char* emGetNextEvent(EventManager em);
-
-/**
- * @brief - Search for an event in a specific date.
- * 
- * @param em Target event manager
- * @param event_name target event's name
- * @param date target date 
- * @return - returns the event in case it was found and NULL otherwise.
- */
-
-static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, Date date);
-
-
-/**
- * @brief - Search for an event by it's ID.
- * 
- * @param em Target event manager
- * @param event_id target event's ID
- * @return - returns the event in case it was found and NULL otherwise.
- */
-
-static Event emfindEventByID(EventManager em, int event_id)
-
-
-
 
 /**
  * @brief 
