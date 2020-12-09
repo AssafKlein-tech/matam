@@ -136,10 +136,11 @@ EventManagerResult emTick(EventManager em, int days);
 int emGetEventsAmount(EventManager em);
 
 /**
- * @brief 
+ * @brief get the name of the next event
  * 
- * @param em 
- * @return char* 
+ * @param em - Target event manager
+ * @return char*
+ *          the name of the next event
  */
 char* emGetNextEvent(EventManager em);
 
