@@ -8,6 +8,13 @@
 /** Type for defining the event */
 typedef struct Event_t *Event;
 
+typedef enum EventResult_t {
+    EVENT_SUCCESS,
+    EVENT_OUT_OF_MEMORY,
+    EVENT_NULL_ARGUMENT,
+    EVENT_MEMBER_ID_ALREADY_EXISTS
+} EventManagerResult;
+
 /**
 * eventCreate: Allocates a new event.
 *
