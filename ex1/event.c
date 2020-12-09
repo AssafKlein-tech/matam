@@ -34,23 +34,25 @@ void eventDestroy(Event event)
     removeAllMembers(event);
       free(event);
 }
+
 Event eventCopy(Event event)
 {
      if (!event)
         return NULL;
     return eventCreate(event->event_name,event->event_id);
 }
+
 bool eventCompare(Event event1, Event event2)
 {
     return (getEventsId(event1)==getEventsId(event2));
 }
 
-int getEventsId(Event event)
+int eventGetId(Event event)
 {
     return event->event_id;
 }
 
-char* getEventsName(Event event)
+char* eventGetName(Event event)
 {
     return event->event_name;
 }

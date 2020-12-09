@@ -57,7 +57,7 @@ bool eventCompare(Event event1, Event event2);
 *@param event -  Target Event
 */
 
-int getEventsId(Event event);
+int eventGetId(Event event);
 
 
 /**
