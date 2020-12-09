@@ -39,7 +39,7 @@ Event eventCopy(Event event)
 {
      if (!event)
         return NULL;
-    return eventCreate(event->event_name,event->event_id);
+    return eventCreate(event->event_name,event->event_id,event->event_date);
 }
 
 bool eventCompare(Event event1, Event event2)

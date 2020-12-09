@@ -94,23 +94,54 @@ EventManager createEventManager(Date date)
     em->members = NULL;
     em->date = dateCopy(date);
     if (!em->events || !em->date)
-    {
-        pqDestroy(em->events);
-        dateDestroy(em->date);
         return NULL;
-    }
     return em;
 }
 
 void destroyEventManager(EventManager em);
 
-EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id);
+EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
+{
+    if (!date)
+        return NULL;
+    if (!em)
+        return NULL;
+    Event event= eventCreate(event_name,event_id);
+    if(!event)
+    return NULL;
+    em->events=pqInsert(em,event,date);
+}
 
-EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days, int event_id);
+EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days, int event_id)
+{
+    if (!em)
+        return NULL;
+    Event event= eventCreate(event_name,event_id);
+    if(!event)
+        return NULL;
+    Date date=dateCopy(em->date);
+    for(int i=0; i<days; i++)
+        dateTick(date);
+        em->events=pqInsert(em,event,date);
+}
 
 EventManagerResult emRemoveEvent(EventManager em, int event_id);
 
-EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date);
+EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date)
+{
+    
+    pqChangePriority(em,
+
+
+}
+
+static Event emfindEventByID(EventManager em, int event_id)
+{
+    event
+    PQ_FOREACH(Event,event)
+
+
+}
 
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id) //האם צריך לשחרר זכרון במקרה של שגיאה?
 {
@@ -155,12 +186,7 @@ int emGetEventsAmount(EventManager em)
     return pqGetSize(em->events);
 }
 
-char* emGetNextEvent(EventManager em)
-{
-    if(!em)
-        return NULL;
-    return eventGetName(pqGetFirst(em->events));
-}
+char* emGetNextEvent(EventManager em);
 
 void emPrintAllEvents(EventManager em, const char* file_name);
 
