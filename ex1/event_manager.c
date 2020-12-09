@@ -83,9 +83,14 @@ static EventManagerResult emRemoveFirstEvent(EventManager em)
     
 }
 
-static void emMemberEventIncreace(EventManager em, int member_id)
+static void emMemberEventDecrease(EventManager em, int member_id)
 {
 
+}
+
+static void emMemberEventIncrease(EventManager em, int member_id)
+{
+    
 }
 
 EventManager createEventManager(Date date)
@@ -175,8 +180,8 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
         return EM_INVALID_EVENT_ID;
     if (member_id < 0)
         return EM_INVALID_MEMBER_ID;
-    if(emCheckMemberIDExist(member_id))
-        return 
+    if(!emCheckMemberIDExist(member_id))
+        return EM_MEMBER_ID_NOT_EXISTS;
     Event target_event = emFindEventById(em, event_id);
     if (!target_event)
         return EM_EVENT_ID_NOT_EXISTS;
@@ -184,8 +189,8 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
     if (result == EVENT_OUT_OF_MEMORY)
         return EM_OUT_OF_MEMORY;
     if (result == EVENT_MEMBER_ID_ALREADY_EXISTS)
-        return EM_MEMBER_ID_ALREADY_EXISTS;
-    emMemberEventIncreace(em, member_id);
+        return EM_EVENT_AND_MEMBER_ALREADY_LINKED;
+    emMemberEventIncrease(em, member_id);
     return EM_SUCCESS;
 }
 
