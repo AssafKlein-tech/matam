@@ -161,6 +161,31 @@ int emGetEventsAmount(EventManager em);
 char* emGetNextEvent(EventManager em);
 
 /**
+ * @brief - Search for an event in a specific date.
+ * 
+ * @param em Target event manager
+ * @param event_name target event's name
+ * @param date target date 
+ * @return - returns the event in case it was found and NULL otherwise.
+ */
+
+static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, Date date);
+
+
+/**
+ * @brief - Search for an event by it's ID.
+ * 
+ * @param em Target event manager
+ * @param event_id target event's ID
+ * @return - returns the event in case it was found and NULL otherwise.
+ */
+
+static Event emfindEventByID(EventManager em, int event_id)
+
+
+
+
+/**
  * @brief 
  * 
  * @param em 
@@ -174,5 +199,8 @@ void emPrintAllEvents(EventManager em, const char* file_name);
  * @param em 
  * @param file_name 
  */
+
+
+
 void emPrintAllResponsibleMembers(EventManager em, const char* file_name);
 #endif //EVENT_MANAGER_H

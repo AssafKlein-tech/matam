@@ -114,7 +114,15 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
 {
     if (!date||!em||!event_name||!event_id)
         return EM_NULL_ARGUMENT;
-    Event event= eventCreate(event_name,event_id);
+    if(dateCompare(em->date,date)>0)
+        return EM_INVALID_DATE;
+    if(event_id>0)
+        return EM_INVALID_EVENT_ID;
+    if(emfindEventByNameInSpecificDate(em,event_name,date))
+    return EM_EVENT_ALREADY_EXISTS;
+    if(emfindEventByID(em,event_id))
+        return EM_EVENT_ID_ALREADY_EXISTS;
+    Event event= eventCreate(event_name,event_id,date);
     if(!event)
     return NULL;
     em->events=pqInsert(em,event,date);
@@ -148,6 +156,16 @@ static Event emfindEventByID(EventManager em, int event_id)
     PQ_FOREACH(Event,event,em->events)
     {
         if(eventGetId(event)==event_id)
+            return event;
+    }
+    return NULL;
+}
+
+static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, Date date)
+{
+    PQ_FOREACH(Event,event,em->events)
+    {
+        if(eventGetName(event)==event_name&&dateCompare(eventGetDate(event),date)==0)
             return event;
     }
     return NULL;
