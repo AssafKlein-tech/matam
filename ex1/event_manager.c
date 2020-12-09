@@ -131,7 +131,19 @@ EventManagerResult emAddMember(EventManager em, char* member_name, int member_id
     return EM_SUCCESS;
 }
 
-EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_id);
+EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_id)
+{
+    if(!em || !member_id || !event_id)
+        return EM_NULL_ARGUMENT;
+    if (event_id < 0)
+        return EM_INVALID_EVENT_ID;
+    if (member_id < 0)
+        return EM_INVALID_MEMBER_ID;
+    Event target_event = emFindEventById(em, event_id);
+    if (!target_event)
+        return EM_EVENT_ID_NOT_EXISTS;
+    if(event)
+}
 
 EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int event_id);
 

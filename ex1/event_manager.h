@@ -95,12 +95,20 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id);
 
 /**
- * @brief 
+ * @brief  add a member to the event members. and increacing the number of events the member responsible of by 1.
  * 
- * @param em 
- * @param member_id 
- * @param event_id 
+ * @param em Target event manger
+ * @param member_id - the Id of the member to add
+ * @param event_id - the target event to add the member to/
  * @return EventManagerResult 
+ *          EM_NULL_ARGUMENT if one of the arguments is NULL;
+            EM_INVALID_EVENT_ID if inserted invalid event_id;
+            EM_INVALID_MEMBER_ID if inserted invalid member_id;
+            EM_EVENT_ID_NOT_EXISTS if there is no event with the id given in the event manger;
+            EM_MEMBER_ID_NOT_EXISTS if there is no member with the id given in the event manger;
+            EM_EVENT_AND_MEMBER_ALREADY_LINKED if the member is already responsible for the event;
+            EM_OUT_OF_MEMORY if an allocation has failed;
+ *          EM_SUCCESS if the action succeeded;
  */
 EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_id);
 
@@ -111,6 +119,14 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
  * @param member_id 
  * @param event_id 
  * @return EventManagerResult 
+ *          EM_NULL_ARGUMENT if one of the arguments is NULL;
+            EM_INVALID_EVENT_ID if inserted invalid event_id;
+            EM_INVALID_MEMBER_ID if inserted invalid member_id;
+            EM_EVENT_ID_NOT_EXISTS if there is no event with the id given in the event manger;
+            EM_MEMBER_ID_NOT_EXISTS if there is no member with the id given in the event manger;
+            EM_EVENT_AND_MEMBER_ALREADY_LINKED if the member is already responsible for the event;
+            EM_OUT_OF_MEMORY if an allocation has failed;
+ *          EM_SUCCESS if the action succeeded;
  */
 EventManagerResult emRemoveMemberFromEvent (EventManager em, int member_id, int event_id);
 
