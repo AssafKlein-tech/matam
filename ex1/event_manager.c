@@ -248,17 +248,39 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
      return EM_SUCCESS;
 }
 
-EventManagerResult emRemoveEvent(EventManager em, int event_id);
+EventManagerResult emRemoveEvent(EventManager em, int event_id)
+{
+     if (!em||!event_id)
+        return EM_NULL_ARGUMENT;
+    if(event_id<0)
+        return EM_INVALID_EVENT_ID;
+    Event target_event=emfindEventByID(em,event_id);
+    int member_id=eventGetFirstMemberID(target_event);
+    while (member_id)
+    {
+        emMemberEventDecrease(em,member_id);
+        emRemoveMemberFromEvent(em,member_id,event_id);
+        member_id=eventGetFirstMemberID(target_event);
+    }
+    pqRemoveElement(em->events,target_event);
+    return EM_SUCCESS;
+
+}
 
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date)
 {
     if(!em || !event_id || !new_date)
         return EM_NULL_ARGUMENT;
-    
-
+    if(dateCompare(em->date,new_date)>0)
+        return EM_INVALID_DATE;
+    if(!emfindEventByID(event_id))
+        return EM_EVENT_ID_NOT_EXISTS;
+    if(emfindEventByNameInSpecificDate(em,eventGetName(emfindEventByID(em,event_id)),new_date))
+        return EM_EVENT_ALREADY_EXISTS;
     Event target_event=emfindEventByID(em,event_id);
     Date old_date=eventGetDate(target_event);
     pqChangePriority(em,target_event,old_date,new_date);
+    return EM_SUCCESS;
 }
 
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id) //האם צריך לשחרר זכרון במקרה של שגיאה?
