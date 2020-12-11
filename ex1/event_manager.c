@@ -243,7 +243,17 @@ EventManager createEventManager(Date date)
     return em;
 }
 
-void destroyEventManager(EventManager em);
+void destroyEventManager(EventManager em)
+{
+    pqDestroy(em->events);
+    dateDestroy(em->date);
+    while (em->members->next)
+    {  
+    freeMember(em->members->member);
+    em->members->member=em->members->next;
+    }
+    
+}
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
 {
@@ -291,6 +301,8 @@ EventManagerResult emRemoveEvent(EventManager em, int event_id)
     if(event_id<0)
         return EM_INVALID_EVENT_ID;
     Event target_event=emfindEventByID(em,event_id);
+    if(!target_event)
+        return EM_EVENT_NOT_EXISTS;
     int member_id=eventGetFirstMemberID(target_event);
     while (member_id)
     {
