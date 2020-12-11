@@ -1,8 +1,9 @@
 #ifndef EVENT_H_
 #define EVENT_H_
 
-#include "date.h"
+#include <stdio.h>
 #include <stdbool.h>
+#include "date.h"
 
 /** Type for defining the event */
 typedef struct Event_t *Event;
@@ -74,6 +75,14 @@ char* eventGetName(Event event);
 int eventGetFirstMemberID(Event event);
 
 /**
+ * @brief return the id of the next member
+ * 
+ * @param event - Target event
+ * @return int the ID of the member
+ */
+int  eventGetNextMemberID(Event event);
+
+/**
  * @brief enter a new member to the event. if the member already in the event, the function does nothing and return EVENT_MEMBER_ID_ALREADY_EXISTS
  * 
  * @param event Target event
@@ -85,7 +94,6 @@ int eventGetFirstMemberID(Event event);
  *         EVENT_MEMBER_ID_ALREADY_EXISTS there is already a member with the same id in the event
  */
 EventResult eventInsertNewMember(Event event,int member_id);
-
 
 /**
  * removeMemberByID: removes from the IDs list of target event ID of a member.
@@ -112,4 +120,16 @@ void eventRemoveAllMembers(Event event);
 */
 Date eventGetDate(Event event);
 
+/**
+ * @brief prints the the event to the given file
+ * 
+ * @param event The event to print
+ * @param output_file The file to print to 
+ */
+void eventPrintEventAndDate(Event event, FILE* output_file);
+
+#define EVENT_FOREACH_MEMBER(iterator, queue) \
+    for(int eventGetFirstMemberID(queue) ; \
+        iterator ;\
+        iterator = eventGetNextMemberID(queue))
 #endif //EVENT_H_

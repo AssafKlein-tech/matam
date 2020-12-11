@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "event_manager.h"
 #include "date.h"
 #include "priority_queue.h"
@@ -340,6 +341,26 @@ char* emGetNextEvent(EventManager em)
     return eventGetName(pqGetFirst(em->events));
 }
 
-void emPrintAllEvents(EventManager em, const char* file_name);
+void emPrintAllEvents(EventManager em, const char* file_name)
+{
+    if (em && file_name)
+    {
+        FILE* output_file = fopen(file_name,"w");
+        if (output_file)
+        {
+            PQ_FOREACH(Event,event,em->events)
+            {
+                eventPrintEventAndDate(event, output_file);
+                int member_id;
+                EVENT_FOREACH_MEMBER(member_id,event)
+                {
+                    fprintf(output_file,",%s",memberGetName(emFindMemberById(em, member_id)));
+                }
+                fprintf(output_file,"\n");
+            }
+            fclose (output_file);
+        }
+    }
+}
 
 void emPrintAllResponsibleMembers(EventManager em, const char* file_name);
