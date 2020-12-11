@@ -261,7 +261,7 @@ EventManagerResult emAddMember(EventManager em, char* member_name, int member_id
         return EM_NULL_ARGUMENT;
     if (member_id < 0)
         return EM_INVALID_MEMBER_ID;
-    if (emCheckMemberIDExist(member_id))
+    if (emCheckMemberIDExist(em, member_id))
         return EM_MEMBER_ID_ALREADY_EXISTS;
     struct Members_list *new_member = malloc(sizeof(*new_member));
     if(!new_member)
