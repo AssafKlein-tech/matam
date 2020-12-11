@@ -207,7 +207,17 @@ EventManager createEventManager(Date date)
     return em;
 }
 
-void destroyEventManager(EventManager em);
+void destroyEventManager(EventManager em)
+{
+    pqDestroy(em->events);
+    dateDestroy(em->date);
+    while (em->members->next)
+    {  
+    freeMember(em->members->member);
+    em->members->member=em->members->next;
+    }
+    
+}
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
 {
