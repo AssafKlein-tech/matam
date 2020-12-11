@@ -250,7 +250,7 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
 
 EventManagerResult emRemoveEvent(EventManager em, int event_id)
 {
-     if (!em||!event_id)
+    if (!em||!event_id)
         return EM_NULL_ARGUMENT;
     if(event_id<0)
         return EM_INVALID_EVENT_ID;
@@ -264,7 +264,6 @@ EventManagerResult emRemoveEvent(EventManager em, int event_id)
     }
     pqRemoveElement(em->events,target_event);
     return EM_SUCCESS;
-
 }
 
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date)
@@ -273,7 +272,7 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
         return EM_NULL_ARGUMENT;
     if(dateCompare(em->date,new_date)>0)
         return EM_INVALID_DATE;
-    if(!emfindEventByID(event_id))
+    if(!emfindEventByID(em, event_id))
         return EM_EVENT_ID_NOT_EXISTS;
     if(emfindEventByNameInSpecificDate(em,eventGetName(emfindEventByID(em,event_id)),new_date))
         return EM_EVENT_ALREADY_EXISTS;
