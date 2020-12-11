@@ -197,7 +197,12 @@ EventManager createEventManager(Date date)
     em->members = NULL;
     em->date = dateCopy(date);
     if (!em->events || !em->date)
+    {
+        pqDestroy(em->events);
+        dateDestroy(em->date);
+        free(em);
         return NULL;
+    }
     return em;
 }
 
@@ -328,7 +333,12 @@ int emGetEventsAmount(EventManager em)
     return pqGetSize(em->events);
 }
 
-char* emGetNextEvent(EventManager em);
+char* emGetNextEvent(EventManager em)
+{
+    if(!em)
+        return NULL;
+    return eventGetName(pqGetFirst(em->events));
+}
 
 void emPrintAllEvents(EventManager em, const char* file_name);
 
