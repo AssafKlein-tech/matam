@@ -45,8 +45,6 @@ static Event emfindEventByID(EventManager em, int event_id)
  * @param date target date 
  * @return - returns the event in case it was found and NULL otherwise.
  */
-
-
 static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, Date date)
 {
     PQ_FOREACH(Event,event,em->events)
@@ -199,7 +197,12 @@ EventManager createEventManager(Date date)
     em->members = NULL;
     em->date = dateCopy(date);
     if (!em->events || !em->date)
+    {
+        pqDestroy(em->events);
+        dateDestroy(em->date);
+        free(em);
         return NULL;
+    }
     return em;
 }
 
@@ -265,7 +268,7 @@ EventManagerResult emAddMember(EventManager em, char* member_name, int member_id
         return EM_NULL_ARGUMENT;
     if (member_id < 0)
         return EM_INVALID_MEMBER_ID;
-    if (emCheckMemberIDExist(member_id))
+    if (emCheckMemberIDExist(em, member_id))
         return EM_MEMBER_ID_ALREADY_EXISTS;
     struct Members_list *new_member = malloc(sizeof(*new_member));
     if(!new_member)
@@ -303,8 +306,13 @@ EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int e
     Event target_event = emFindEventById(em, event_id);
     if (!target_event)
         return EM_EVENT_ID_NOT_EXISTS;
-    EventResult  event_result = eventR(target_event,member_id); 
-        
+    EventResult  event_result = eventRemoveMemberByID(target_event,member_id); 
+    if (event_result == EVENT_MEMBER_ID_NOT_EXISTS)
+        return EM_EVENT_AND_MEMBER_NOT_LINKED;
+    if (event_result == EVENT_ERROR)
+        return EM_ERROR;
+    emMemberEventDecrease(em,member_id);       
+    return EM_SUCCESS;
 }
 
 EventManagerResult emTick(EventManager em, int days)
@@ -327,7 +335,12 @@ int emGetEventsAmount(EventManager em)
     return pqGetSize(em->events);
 }
 
-char* emGetNextEvent(EventManager em);
+char* emGetNextEvent(EventManager em)
+{
+    if(!em)
+        return NULL;
+    return eventGetName(pqGetFirst(em->events));
+}
 
 void emPrintAllEvents(EventManager em, const char* file_name);
 

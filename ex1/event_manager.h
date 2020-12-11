@@ -174,8 +174,6 @@ void emPrintAllEvents(EventManager em, const char* file_name);
  * @param em 
  * @param file_name 
  */
-
-
-
 void emPrintAllResponsibleMembers(EventManager em, const char* file_name);
+
 #endif //EVENT_MANAGER_H

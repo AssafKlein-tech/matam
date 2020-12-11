@@ -11,7 +11,9 @@ typedef enum EventResult_t {
     EVENT_SUCCESS,
     EVENT_OUT_OF_MEMORY,
     EVENT_NULL_ARGUMENT,
-    EVENT_MEMBER_ID_ALREADY_EXISTS
+    EVENT_MEMBER_ID_ALREADY_EXISTS,
+    EVENT_MEMBER_ID_NOT_EXISTS,
+    EVENT_ERROR
 } EventResult;
 
 /**
@@ -102,7 +104,7 @@ EventResult eventRemoveMemberByID(Event event,int member_id);
 * removeAllMembers: remove all members from target event
 *@param event -  Target Event
 */
-void removeAllMembers(Event event);
+void eventRemoveAllMembers(Event event);
 
 /**
 * eventGetDate: returns date of Target event.
