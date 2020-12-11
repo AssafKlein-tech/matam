@@ -18,7 +18,44 @@ struct EventManager_t
     Date date;  
 };
 
+static void emAddMemberSorted(struct Members_list* sorted_list,struct Members_list* new_member_node)
+{
+    if (memberIsGreater(new_member_node, sorted_list))
+    {
+        new_member_node->next = sorted_list;
+        sorted_list = new_member_node;
+    }
+    else
+    {
+        struct Members_list* current_node = sorted_list;
+        while(current_node->next || !memberIsGreater(new_member_node, current_node->next))
+        {
+            current_node = current_node->next;
+        }
+        new_member_node->next = current_node->next;
+        current_node->next = new_member_node;
+    }
+}
 
+/**
+ * @brief sorting the members of the event manager by the number of events
+ * 
+ * @param em Target event manager
+ */
+static void emSortMembers(EventManager em)
+{
+    if(em)
+    {
+        struct Members_list *ordered_member_list, *member_node;
+        while (em->members)
+        {
+            member_node = em->members;
+            em->members = em->members->next;
+            emAddMemberSorted(ordered_member_list, member_node);
+        }
+        em->members = ordered_member_list;
+    }
+}
 
 /**
  * @brief - Search for an event by it's ID.
@@ -27,7 +64,6 @@ struct EventManager_t
  * @param event_id target event's ID
  * @return - returns the event in case it was found and NULL otherwise.
  */
-
 static Event emfindEventByID(EventManager em, int event_id)
 {
     PQ_FOREACH(Event,event,em->events)
@@ -282,7 +318,7 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
     return EM_SUCCESS;
 }
 
-EventManagerResult emAddMember(EventManager em, char* member_name, int member_id) //האם צריך לשחרר זכרון במקרה של שגיאה?
+EventManagerResult emAddMember(EventManager em, char* member_name, int member_id) 
 {
     if(!em || !member_name || !member_id)
         return EM_NULL_ARGUMENT;
@@ -384,4 +420,21 @@ void emPrintAllEvents(EventManager em, const char* file_name)
     }
 }
 
-void emPrintAllResponsibleMembers(EventManager em, const char* file_name);
+void emPrintAllResponsibleMembers(EventManager em, const char* file_name)
+{
+    if(em && file_name)
+    {
+        FILE* output_file = fopen(file_name,"w");
+        if (output_file)
+        {
+            emSortMembers(em);
+            struct Members_list* member_iterator = em->members;
+            while (member_iterator)
+            {
+                fprinf(output_file,"%s, %d\n", memberGetName(member_iterator->member), memberGetNumberOfEvents(member_iterator->member));
+                member_iterator = member_iterator->next;
+            }
+            fclose(output_file);
+        }       
+    }
+}

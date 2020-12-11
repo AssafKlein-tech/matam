@@ -165,15 +165,15 @@ char* emGetNextEvent(EventManager em);
  *        Every line will be printed an event. it will print its date and the members of the event
  * 
  * @param em Target event manager
- * @param file_name the file to print the events to
+ * @param file_name The file to print the events to
  */
 void emPrintAllEvents(EventManager em, const char* file_name);
 
 /**
- * @brief 
+ * @brief Prints all the members and amount of events they respinsible for in decreasing order.
  * 
- * @param em 
- * @param file_name 
+ * @param em -Target event manager
+ * @param file_name The file to print the events to
  */
 void emPrintAllResponsibleMembers(EventManager em, const char* file_name);
 

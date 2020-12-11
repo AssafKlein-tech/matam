@@ -63,6 +63,11 @@ int memberGetNumberOfEvents(Member member)
     return member->number_of_events;
 }
 
+bool memberIsGreater(Member member1, Member member2)
+{
+    return member1->number_of_events > member2->number_of_events;
+}
+
 bool memberEqualIDs(Member member1,Member member2)
 {
     if(!member1 || !member2)

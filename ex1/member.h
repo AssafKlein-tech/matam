@@ -59,6 +59,16 @@ int memberGetID(Member member);
 int memberGetNumberOfEvents(Member member);
 
 /**
+ * @brief returns true if member1 has more events than member2
+ * 
+ * @param member1 a member
+ * @param member2 member to compare
+ * @return true member1>member2
+ * @return false otherwise
+ */
+bool memberIsGreater(Member member1, Member member2);
+
+/**
  * @brief memberEqualIDs: Checks if the id's are equals 
  * 
  * @param member1 - First member
