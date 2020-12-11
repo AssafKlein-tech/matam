@@ -78,6 +78,16 @@ int eventGetFirstMemberID(Event event)
     return event->first_member->member_id;
 }
 
+int  eventGetNextMemberID(Event event)
+{
+    if(!event)
+        return NULL;
+    event->current_member = event->current_member->next_member;
+    if (!event->current_member)
+        return NULL;
+    return event->current_member->member_id;
+}
+
 EventResult eventInsertNewMember(Event event,int member_id)
 {
     if(!event || !member_id)
@@ -166,4 +176,16 @@ Date eventGetDate(Event event)
     if(!event)
         return NULL;
     return event->event_date;
+}
+
+void eventPrintEventAndDate(Event event,FILE* output_file)
+{
+    if(event && output_file)
+    {
+        int *day, *month, *year;
+        if (dateGet(event->event_date, day, month, year))
+        {
+            fprintf(output_file,"%s, %d.%d.%d", event->event_name,*day,*month,*year);
+        }
+    }
 }

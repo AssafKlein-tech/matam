@@ -161,10 +161,11 @@ int emGetEventsAmount(EventManager em);
 char* emGetNextEvent(EventManager em);
 
 /**
- * @brief 
+ * @brief Prints all the event in the given file (file_name). 
+ *        Every line will be printed an event. it will print its date and the members of the event
  * 
- * @param em 
- * @param file_name 
+ * @param em Target event manager
+ * @param file_name the file to print the events to
  */
 void emPrintAllEvents(EventManager em, const char* file_name);
 

@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "event_manager.h"
 #include "date.h"
 #include "priority_queue.h"
@@ -265,7 +266,6 @@ EventManagerResult emRemoveEvent(EventManager em, int event_id)
     }
     pqRemoveElement(em->events,target_event);
     return EM_SUCCESS;
-
 }
 
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date)
@@ -274,7 +274,7 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
         return EM_NULL_ARGUMENT;
     if(dateCompare(em->date,new_date)>0)
         return EM_INVALID_DATE;
-    if(!emfindEventByID(event_id))
+    if(!emfindEventByID(em, event_id))
         return EM_EVENT_ID_NOT_EXISTS;
     if(emfindEventByNameInSpecificDate(em,eventGetName(emfindEventByID(em,event_id)),new_date))
         return EM_EVENT_ALREADY_EXISTS;
@@ -364,6 +364,26 @@ char* emGetNextEvent(EventManager em)
     return eventGetName(pqGetFirst(em->events));
 }
 
-void emPrintAllEvents(EventManager em, const char* file_name);
+void emPrintAllEvents(EventManager em, const char* file_name)
+{
+    if (em && file_name)
+    {
+        FILE* output_file = fopen(file_name,"w");
+        if (output_file)
+        {
+            PQ_FOREACH(Event,event,em->events)
+            {
+                eventPrintEventAndDate(event, output_file);
+                int member_id;
+                EVENT_FOREACH_MEMBER(member_id,event)
+                {
+                    fprintf(output_file,",%s",memberGetName(emFindMemberById(em, member_id)));
+                }
+                fprintf(output_file,"\n");
+            }
+            fclose (output_file);
+        }
+    }
+}
 
 void emPrintAllResponsibleMembers(EventManager em, const char* file_name);
