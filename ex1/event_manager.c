@@ -249,11 +249,13 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
 
 EventManagerResult emRemoveEvent(EventManager em, int event_id)
 {
-     if (!em||!event_id)
+    if (!em||!event_id)
         return EM_NULL_ARGUMENT;
     if(event_id<0)
         return EM_INVALID_EVENT_ID;
     Event target_event=emfindEventByID(em,event_id);
+    if(!target_event)
+        return EM_EVENT_NOT_EXISTS;
     int member_id=eventGetFirstMemberID(target_event);
     while (member_id)
     {
