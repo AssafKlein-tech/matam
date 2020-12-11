@@ -45,8 +45,6 @@ static Event emfindEventByID(EventManager em, int event_id)
  * @param date target date 
  * @return - returns the event in case it was found and NULL otherwise.
  */
-
-
 static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, Date date)
 {
     PQ_FOREACH(Event,event,em->events)
@@ -301,8 +299,13 @@ EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int e
     Event target_event = emFindEventById(em, event_id);
     if (!target_event)
         return EM_EVENT_ID_NOT_EXISTS;
-    EventResult  event_result = eventR(target_event,member_id); 
-        
+    EventResult  event_result = eventRemoveMemberByID(target_event,member_id); 
+    if (event_result == EVENT_MEMBER_ID_NOT_EXISTS)
+        return EM_EVENT_AND_MEMBER_NOT_LINKED;
+    if (event_result == EVENT_ERROR)
+        return EM_ERROR;
+    emMemberEventDecrease(em,member_id);       
+    return EM_SUCCESS;
 }
 
 EventManagerResult emTick(EventManager em, int days)

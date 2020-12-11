@@ -123,31 +123,31 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
         return EVENT_NULL_ARGUMENT;
     int id = eventGetFirstMemberID(event);
     if(!id)
-        return false;
+        return EVENT_MEMBER_ID_NOT_EXISTS;
     if(id == member_id)
     {
         event->first_member = event->first_member->next_member;
         free(event->current_member);
-        return true;
+        return EVENT_SUCCESS;
     }
     while (event->current_member->next_member)
     {
         id = event->current_member->next_member->member_id;
         if(!id)
-            return false;
+            return EVENT_ERROR;
         if(id == member_id)
         {
             struct member* member_copy=event->current_member->next_member;
             event->current_member->next_member=event->current_member->next_member->next_member;
             free(member_copy);
-            return true;
+            return EVENT_SUCCESS;
         }
        event->current_member=event->current_member->next_member;
     }
-    return false;
+    return EVENT_MEMBER_ID_NOT_EXISTS;
 }
 
-void removeAllMembers(Event event)
+void eventRemoveAllMembers(Event event)
 {
     if(event)
     {
