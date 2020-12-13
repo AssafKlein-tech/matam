@@ -18,6 +18,8 @@ struct EventManager_t
     Date date;  
 };
 
+
+
 /*function that will be used by the EM*/
 
 /**
@@ -28,7 +30,7 @@ struct EventManager_t
  */
 static PQElement emEventCopy(PQElement event)
 {
-    return eventCopy((Event*) event);
+    return eventCopy((Event) event);
 }
 
 /**
@@ -38,34 +40,45 @@ static PQElement emEventCopy(PQElement event)
  */
 static void emEventDestroy(PQElement event)
 {
-    eventDestroy((Event*) event);
+    eventDestroy((Event) event);
 }
 
 /**
- * @brief 
+ * @brief a equal element method for the pq - compares events using "eventCompare"
  * 
- * @param event1 
- * @param event2 
- * @return true 
- * @return false 
+ * @param event1 - the first element
+ * @param event2  - the second element
+ * @return true if the events have the same ID
+ * @return false otherwise
  */
 static bool emEventCompare(PQElement event1,PQElement event2)
 {
-    return eventCompare((Event*) event1 ,(Event*) event2);
-}
-
-static PQElementPriority emDateCopy(PQElementPriority date)
-{
-    return dateCopy((Date*) date);
-}
-
-static void emDateDestroy(PQElementPriority date)
-{
-    dateDestroy((Date*) date);
+    return eventCompare((Event) event1 ,(Event) event2);
 }
 
 /**
- * @brief Construct a new Date Compare object
+ * @brief a copy elementPriority for the pq - copy the date using "dateCopy"
+ * 
+ * @param date - the elementPriority
+ * @return PQElementPriority a new Date
+ */
+static PQElementPriority emDateCopy(PQElementPriority date)
+{
+    return dateCopy((Date) date);
+}
+
+/**
+ * @brief a free elementPriority mothod for the pq - free the date using "dateDestroy"
+ * 
+ * @param date  - the elementPriority
+ */
+static void emDateDestroy(PQElementPriority date)
+{
+    dateDestroy((Date) date);
+}
+
+/**
+ * @brief a copy elementPriority method for the pq - compare dates using "dateCompare"
  * 
  * @param date1 - The target date
  * @param date2 the date to compare to
@@ -76,8 +89,10 @@ static void emDateDestroy(PQElementPriority date)
  */
 static int emDateCompare(PQElementPriority date1, PQElementPriority date2)
 {
-    return dateCompare((Date*) date2 ,(Date*) date1);
+    return dateCompare((Date) date2 ,(Date) date1);
 }
+
+
 
 /*helping static function*/
 
@@ -115,7 +130,7 @@ static void emSortMembers(EventManager em)
 {
     if(em)
     {
-        struct Members_list *ordered_member_list, *member_node;
+        struct Members_list *ordered_member_list = NULL, *member_node;
         while (em->members)
         {
             member_node = em->members;
@@ -266,6 +281,10 @@ static void emMemberEventIncrease(EventManager em, int member_id)
     memberAddEvent(member_to_increase);
 }
 
+
+
+
+/*ADT methods*/
 
 EventManager createEventManager(Date date)
 {
