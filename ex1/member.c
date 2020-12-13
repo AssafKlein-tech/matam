@@ -52,7 +52,7 @@ char* memberGetName(Member member)
 int memberGetID(Member member)
 {
     if(!member)
-        return NULL;
+        return -1;
     return member->id;
 }
 
