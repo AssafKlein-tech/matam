@@ -5,7 +5,7 @@
 #include "date.h"
 struct Event_t
 {
-    Date *event_date;
+    Date event_date;
     char* event_name;
     int event_id;
     struct member {
@@ -30,13 +30,13 @@ Event eventCreate(char* event_name, int event_id, Date date)
     }
     strcpy(event->event_name, event_name);
 	event->event_id = event_id;
-    event->event_date=date;
+    event->event_date = date;
 	return event;
 }
 
 void eventDestroy(Event event)
 {  
-    removeAllMembers(event);
+    eventRemoveAllMembers(event);
       free(event);
 }
 
