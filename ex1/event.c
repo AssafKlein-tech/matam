@@ -5,7 +5,7 @@
 #include "date.h"
 struct Event_t
 {
-    Date *event_date;
+    Date event_date;
     char* event_name;
     int event_id;
     struct member {
