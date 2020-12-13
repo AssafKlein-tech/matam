@@ -26,7 +26,7 @@ struct EventManager_t
  */
 static void emAddMemberSorted(struct Members_list* sorted_list,struct Members_list* new_member_node)
 {
-    if (memberIsGreater(new_member_node, sorted_list))
+    if (memberIsGreater(new_member_node->member, sorted_list->member))
     {
         new_member_node->next = sorted_list;
         sorted_list = new_member_node;
@@ -99,6 +99,21 @@ static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, D
 }
 
 /**
+ * @brief checks if the member_id already in the members list
+ * 
+ * @param em the Target event_element
+ * @param member_id the id to check if exist
+ * @return true if there is a member with the same id
+ * @return false otherwise
+ */
+static bool emCheckMemberIDExist(EventManager em, int member_id)
+{
+    if (emFindMemberById(em,member_id))
+        return true;
+    return false;
+}
+
+/**
  * @brief check if the arguments given are valid
  * 
  * @param em event manager argument
@@ -129,8 +144,12 @@ static EventManagerResult emCheckValidArguments(EventManager em, int member_id, 
  * 
  * @param date1 - The target date
  * @param date2 the date to compare to
+ * @return int 
+ *  positive if date2 is greater than date1
+ *  0 if they are equal
+ *  negetive if date1 is greater thasn date2
  */
-static newDateCompare(Date date1, Date date2)
+static int newDateCompare(Date date1, Date date2)
 {
     return dateCompare(date2 ,date1);
 }
@@ -153,21 +172,6 @@ static Member emFindMemberById(EventManager em, int member_id)
         member_iterator = member_iterator->next;
     }
     return NULL;
-}
-
-/**
- * @brief checks if the member_id already in the members list
- * 
- * @param em the Target event_element
- * @param member_id the id to check if exist
- * @return true if there is a member with the same id
- * @return false otherwise
- */
-static bool emCheckMemberIDExist(EventManager em, int member_id)
-{
-    if (emFindMemberById(em,member_id))
-        return true;
-    return false;
 }
 
 /**
@@ -264,7 +268,11 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
     Event event= eventCreate(event_name,event_id,date);
     if(!event)
         return EM_OUT_OF_MEMORY;
-    em->events=pqInsert(em,event,date);
+    PriorityQueueResult result = pqInsert(em->events, event, date);
+    if(result == PQ_OUT_OF_MEMORY)
+        return EM_OUT_OF_MEMORY;
+    if(result == PQ_NULL_ARGUMENT)
+        return EM_ERROR;
     return EM_SUCCESS;
 }
 
@@ -284,7 +292,11 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
     Event event= eventCreate(event_name,event_id,date);
     if(!event)
       return EM_OUT_OF_MEMORY;
-    em->events=pqInsert(em,event,date);
+    PriorityQueueResult result = pqInsert(em->events, event, date);
+    if(result == PQ_OUT_OF_MEMORY)
+        return EM_OUT_OF_MEMORY;
+    if(result == PQ_NULL_ARGUMENT)
+        return EM_ERROR;
      return EM_SUCCESS;
 }
 
@@ -313,13 +325,15 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
         return EM_NULL_ARGUMENT;
     if(dateCompare(em->date,new_date)>0)
         return EM_INVALID_DATE;
-    if(!emfindEventByID(em, event_id))
-        return EM_EVENT_ID_NOT_EXISTS;
-    if(emfindEventByNameInSpecificDate(em,eventGetName(emfindEventByID(em,event_id)),new_date))
-        return EM_EVENT_ALREADY_EXISTS;
     Event target_event=emfindEventByID(em,event_id);
-    Date old_date=eventGetDate(target_event);
-    pqChangePriority(em,target_event,old_date,new_date);
+    if(!target_event)
+        return EM_EVENT_ID_NOT_EXISTS;
+    if(emfindEventByNameInSpecificDate(em,eventGetName(target_event),new_date))
+        return EM_EVENT_ALREADY_EXISTS;
+    Date old_date = eventGetDate(target_event);
+    PriorityQueueResult result = pqChangePriority(em->events, target_event, old_date, new_date);
+    if (result == PQ_OUT_OF_MEMORY)
+        return EM_OUT_OF_MEMORY;
     return EM_SUCCESS;
 }
 
@@ -347,7 +361,7 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
     EventManagerResult em_result = emCheckValidArguments(em, member_id, event_id);
     if(em_result != EM_SUCCESS)
         return em_result;
-    Event target_event = emFindEventById(em, event_id);
+    Event target_event = emfindEventByID(em, event_id);
     if (!target_event)
         return EM_EVENT_ID_NOT_EXISTS;
     EventResult  event_result = eventInsertNewMember(target_event,member_id);
@@ -364,7 +378,7 @@ EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int e
     EventManagerResult em_result = emCheckValidArguments(em, member_id, event_id);
     if(em_result != EM_SUCCESS)
         return em_result;
-    Event target_event = emFindEventById(em, event_id);
+    Event target_event = emfindEventByID(em, event_id);
     if (!target_event)
         return EM_EVENT_ID_NOT_EXISTS;
     EventResult  event_result = eventRemoveMemberByID(target_event,member_id); 
@@ -436,7 +450,7 @@ void emPrintAllResponsibleMembers(EventManager em, const char* file_name)
             struct Members_list* member_iterator = em->members;
             while (member_iterator)
             {
-                fprinf(output_file,"%s, %d\n", memberGetName(member_iterator->member), memberGetNumberOfEvents(member_iterator->member));
+                fprintf(output_file,"%s, %d\n", memberGetName(member_iterator->member), memberGetNumberOfEvents(member_iterator->member));
                 member_iterator = member_iterator->next;
             }
             fclose(output_file);

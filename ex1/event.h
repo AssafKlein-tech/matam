@@ -129,7 +129,7 @@ Date eventGetDate(Event event);
 void eventPrintEventAndDate(Event event, FILE* output_file);
 
 #define EVENT_FOREACH_MEMBER(iterator, queue) \
-    for(int eventGetFirstMemberID(queue) ; \
+    for(int iterator = eventGetFirstMemberID(queue) ; \
         iterator ;\
         iterator = eventGetNextMemberID(queue))
 #endif //EVENT_H_

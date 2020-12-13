@@ -37,7 +37,7 @@ Event eventCreate(char* event_name, int event_id, Date date)
 void eventDestroy(Event event)
 {  
     removeAllMembers(event);
-      free(event);
+    free(event);
 }
 
 Event eventCopy(Event event)
