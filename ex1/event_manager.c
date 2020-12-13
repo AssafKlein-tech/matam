@@ -18,6 +18,12 @@ struct EventManager_t
     Date date;  
 };
 
+/**
+ * @brief adding a member to the new list sorted
+ * 
+ * @param sorted_list the sorted list
+ * @param new_member_node a node to add
+ */
 static void emAddMemberSorted(struct Members_list* sorted_list,struct Members_list* new_member_node)
 {
     if (memberIsGreater(new_member_node, sorted_list))
@@ -28,7 +34,7 @@ static void emAddMemberSorted(struct Members_list* sorted_list,struct Members_li
     else
     {
         struct Members_list* current_node = sorted_list;
-        while(current_node->next || !memberIsGreater(new_member_node, current_node->next))
+        while(current_node->next || !memberIsGreater(new_member_node->member, current_node->next->member))
         {
             current_node = current_node->next;
         }
@@ -178,25 +184,10 @@ static EventManagerResult emRemoveEarlyEvents(EventManager em)
         return EM_ERROR;
     while(dateCompare(em->date, eventGetDate(pqGetFirst(em->events))) > 0)
     {
-        if(emRemoveFirstEvent(em) == EM_ERROR)
+        if(emRemoveEvent(em, eventGetId(pqGetFirst(em->events))) != EM_SUCCESS)
             return EM_ERROR;
     }
     return EM_SUCCESS;
-}
-
-/**
- * @brief Dellocate and remove the first event. Decreasing number of events of the members of the first event
- * 
- * @param em - Target eventManager
- * @return EventManagerResult 
- *          EM_ERROR for any ERROR
- *          EM_SUCCESS if the action succeeded 
- */
-static EventManagerResult emRemoveFirstEvent(EventManager em)
-{
-    if(!em)
-        return EM_ERROR;
-    
 }
 
 /**
@@ -247,12 +238,15 @@ void destroyEventManager(EventManager em)
 {
     pqDestroy(em->events);
     dateDestroy(em->date);
-    while (em->members->next)
+    struct Members_list* member_to_delete;
+    while (em->members)
     {  
-    freeMember(em->members->member);
-    em->members->member=em->members->next;
+        member_to_delete = em->members;
+        em->members=em->members->next;
+        freeMember(member_to_delete->member);
+        free(member_to_delete);
     }
-    
+    free(em);
 }
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
@@ -306,7 +300,6 @@ EventManagerResult emRemoveEvent(EventManager em, int event_id)
     int member_id=eventGetFirstMemberID(target_event);
     while (member_id)
     {
-        emMemberEventDecrease(em,member_id);
         emRemoveMemberFromEvent(em,member_id,event_id);
         member_id=eventGetFirstMemberID(target_event);
     }
