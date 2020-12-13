@@ -30,14 +30,14 @@ Event eventCreate(char* event_name, int event_id, Date date)
     }
     strcpy(event->event_name, event_name);
 	event->event_id = event_id;
-    event->event_date=date;
+    event->event_date = date;
 	return event;
 }
 
 void eventDestroy(Event event)
 {  
-    removeAllMembers(event);
-    free(event);
+    eventRemoveAllMembers(event);
+      free(event);
 }
 
 Event eventCopy(Event event)

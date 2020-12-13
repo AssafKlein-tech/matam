@@ -23,7 +23,7 @@ typedef enum EventManagerResult_t {
 } EventManagerResult;
 
 /**
- * @brief Create a Event Manager 
+ * @brief Creates an Event Manager 
  * 
  * @param date - the current date
  * @return EventManager pointer to the struct.
@@ -32,51 +32,76 @@ typedef enum EventManagerResult_t {
 EventManager createEventManager(Date date);
 
 /**
- * @brief 
+ * @brief Destroys an Event Manager
  * 
- * @param em 
+ * @param em - The target Event Manager 
  */
 void destroyEventManager(EventManager em);
 
 /**
  * @brief 
  * 
- * @param em 
- * @param event_name 
- * @param date 
- * @param event_id 
- * @return EventManagerResult 
+ * @param em - The target Event Manager
+ * @param event_name - The event's name to add.
+ * @param date - The event's date to add.
+ * @param event_id - The event's ID to add.
+ * @return  EventManagerResult: \n
+ *          EM_NULL_ARGUMENT if one of the arguments is NULL;
+ *          EM_INVALID_DATE - if the date is before the Event Manager's current date.
+ *          EM_INVALID_EVENT_ID - if the date's ID is negative;
+ *          EM_OUT_OF_MEMORY - if the llocation fails;
+ *          EM_EVENT_ALREADY_EXISTS - if there is already an event with the same ID;
+ *          EM_SUCCESS - The member has been added safely. 
  */
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id);
 
 /**
  * @brief 
  * 
- * @param em 
- * @param event_name 
- * @param days 
- * @param event_id 
- * @return EventManagerResult 
+ * @param em - The target Event Manager
+ * @param event_name - The event's name to add.
+ * @param days - The number of days from the current date to add the event. 
+ * @param event_id - The event's ID to add.
+ * @return EventManagerResult: \n
+ *          EM_NULL_ARGUMENT if one of the arguments is NULL;
+ *          EM_INVALID_DATE - if the date is before the Event Manager's current date.
+ *          EM_INVALID_EVENT_ID - if the event's ID is negative;
+ *          EM_OUT_OF_MEMORY - if the llocation fails;
+ *          EM_EVENT_ALREADY_EXISTS - if there is already an event with the same ID;
+ *          EM_SUCCESS - The event has been added safely. 
  */
 EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days, int event_id);
 
 /**
- * @brief 
+ * @brief removes event from Event Manager
  * 
- * @param em 
- * @param event_id 
- * @return EventManagerResult 
+ * @param em  - The target Event Manager
+ * @param event_id - The event's ID to remove.
+ * @return EventManagerResult: \n
+ *          EM_NULL_ARGUMENT if one of the arguments is NULL;
+ *          EM_INVALID_EVENT_ID - if the event's ID is negative;
+ *          EM_EVENT_ID_NOT_EXISTS - if the event's ID is not exists in the Event Manager.
+ *          EM_OUT_OF_MEMORY - if the llocation fails; 
+ *          EM_SUCCESS - The event has been removed safely. 
  */
 EventManagerResult emRemoveEvent(EventManager em, int event_id);
 
 /**
- * @brief 
+ * @brief changes event's date.
  * 
- * @param em 
- * @param event_id 
- * @param new_date 
- * @return EventManagerResult 
+ * @param em  - The target Event Manager
+ * @param event_id - The event's ID to change.
+ * @param new_date - the new date of the event.
+ * @return EventManagerResult: \n
+ *          EM_NULL_ARGUMENT if one of the arguments is NULL;
+ *          EM_INVALID_EVENT_ID - if the event's ID is negative;
+ *          EM_EVENT_ID_NOT_EXISTS - if the event's ID is not exists in the Event Manager.
+ *          EM_INVALID_DATE - if the date is before the Event Manager's current date.
+ *          EM_EVENT_ALREADY_EXISTS - if an event named event_name already exists in the target date
+ *          EM_OUT_OF_MEMORY - if the llocation fails; 
+ *          EM_SUCCESS - The event has been removed safely. 
  */
+
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date);
 
 /**
