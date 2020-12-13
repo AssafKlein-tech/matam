@@ -59,7 +59,7 @@ int memberGetID(Member member)
 int memberGetNumberOfEvents(Member member)
 {
     if(!member)
-        return NULL;
+        return -1;
     return member->number_of_events;
 }
 

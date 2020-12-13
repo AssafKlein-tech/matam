@@ -18,6 +18,69 @@ struct EventManager_t
     Date date;  
 };
 
+/*function that will be used by the EM*/
+
+/**
+ * @brief a copy element method for the pq - coping  event using "eventCopy"
+ * 
+ * @param event - the element
+ * @return PQElement copied event
+ */
+static PQElement emEventCopy(PQElement event)
+{
+    return eventCopy((Event*) event);
+}
+
+/**
+ * @brief a free element method for the pq - free event using "eventDestroy"
+ * 
+ * @param event - the element to free
+ */
+static void emEventDestroy(PQElement event)
+{
+    eventDestroy((Event*) event);
+}
+
+/**
+ * @brief 
+ * 
+ * @param event1 
+ * @param event2 
+ * @return true 
+ * @return false 
+ */
+static bool emEventCompare(PQElement event1,PQElement event2)
+{
+    return eventCompare((Event*) event1 ,(Event*) event2);
+}
+
+static PQElementPriority emDateCopy(PQElementPriority date)
+{
+    return dateCopy((Date*) date);
+}
+
+static void emDateDestroy(PQElementPriority date)
+{
+    dateDestroy((Date*) date);
+}
+
+/**
+ * @brief Construct a new Date Compare object
+ * 
+ * @param date1 - The target date
+ * @param date2 the date to compare to
+ * @return int 
+ *  positive if date2 is greater than date1
+ *  0 if they are equal
+ *  negetive if date1 is greater thasn date2
+ */
+static int emDateCompare(PQElementPriority date1, PQElementPriority date2)
+{
+    return dateCompare((Date*) date2 ,(Date*) date1);
+}
+
+/*helping static function*/
+
 /**
  * @brief adding a member to the new list sorted
  * 
@@ -106,7 +169,7 @@ static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, D
  * @return Member the member wuth the given id
  *          if member not found return NULL
  */
-static Member emFindMemberById(EventManager em, int member_id)
+static Member emFindMemberByID(EventManager em, int member_id)
 {
     struct Members_list *member_iterator = em->members;
     while (member_iterator)
@@ -160,21 +223,6 @@ static EventManagerResult emCheckValidArguments(EventManager em, int member_id, 
 }
 
 /**
- * @brief Construct a new Date Compare object
- * 
- * @param date1 - The target date
- * @param date2 the date to compare to
- * @return int 
- *  positive if date2 is greater than date1
- *  0 if they are equal
- *  negetive if date1 is greater thasn date2
- */
-static int newDateCompare(Date date1, Date date2)
-{
-    return dateCompare(date2 ,date1);
-}
-
-/**
  * @brief Removes all the events that are earlier then the current date
  * 
  * @param em Target eventManager
@@ -202,7 +250,7 @@ static EventManagerResult emRemoveEarlyEvents(EventManager em)
  */
 static void emMemberEventDecrease(EventManager em, int member_id)
 {
-    Member member_to_decrease = emFindMemberById(em, member_id);
+    Member member_to_decrease = emFindMemberByID(em, member_id);
     memberRemoveEvent(member_to_decrease);
 }
 
@@ -214,9 +262,10 @@ static void emMemberEventDecrease(EventManager em, int member_id)
  */
 static void emMemberEventIncrease(EventManager em, int member_id)
 {
-    Member member_to_increase = emFindMemberById(em, member_id);
+    Member member_to_increase = emFindMemberByID(em, member_id);
     memberAddEvent(member_to_increase);
 }
+
 
 EventManager createEventManager(Date date)
 {
@@ -225,7 +274,7 @@ EventManager createEventManager(Date date)
     EventManager em = malloc(sizeof(*em));
     if (!em)
         return NULL;
-    em->events = pqCreate(eventCopy,eventDestroy,eventCompare,dateCopy,dateDestroy,newDateCompare);
+    em->events = pqCreate(emEventCopy,emEventDestroy,emEventCompare,emDateCopy,emDateDestroy,emDateCompare);
     em->members = NULL;
     em->date = dateCopy(date);
     if (!em->events || !em->date)
@@ -427,10 +476,9 @@ void emPrintAllEvents(EventManager em, const char* file_name)
             PQ_FOREACH(Event,event,em->events)
             {
                 eventPrintEventAndDate(event, output_file);
-                int member_id;
                 EVENT_FOREACH_MEMBER(member_id,event)
                 {
-                    fprintf(output_file,",%s",memberGetName(emFindMemberById(em, member_id)));
+                    fprintf(output_file,",%s",memberGetName(emFindMemberByID(em, member_id)));
                 }
                 fprintf(output_file,"\n");
             }
