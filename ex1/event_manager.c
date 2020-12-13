@@ -258,12 +258,12 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
     if(event_id<0)
         return EM_INVALID_EVENT_ID;
     if(emfindEventByNameInSpecificDate(em,event_name,date))
-    return EM_EVENT_ALREADY_EXISTS;
+        return EM_EVENT_ALREADY_EXISTS;
     if(emfindEventByID(em,event_id))
         return EM_EVENT_ID_ALREADY_EXISTS;
     Event event= eventCreate(event_name,event_id,date);
     if(!event)
-    return EM_OUT_OF_MEMORY;
+        return EM_OUT_OF_MEMORY;
     em->events=pqInsert(em,event,date);
     return EM_SUCCESS;
 }
