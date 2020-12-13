@@ -99,6 +99,26 @@ static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, D
 }
 
 /**
+ * @brief find a member with the given id
+ * 
+ * @param em - Target event manager
+ * @param member_id - the id of the member to find
+ * @return Member the member wuth the given id
+ *          if member not found return NULL
+ */
+static Member emFindMemberById(EventManager em, int member_id)
+{
+    struct Members_list *member_iterator = em->members;
+    while (member_iterator)
+    {
+        if (memberGetID(member_iterator->member) == member_id)
+            return member_iterator->member;
+        member_iterator = member_iterator->next;
+    }
+    return NULL;
+}
+
+/**
  * @brief checks if the member_id already in the members list
  * 
  * @param em the Target event_element
@@ -108,7 +128,7 @@ static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, D
  */
 static bool emCheckMemberIDExist(EventManager em, int member_id)
 {
-    if (emFindMemberById(em,member_id))
+    if (emFindMemberByID(em,member_id))
         return true;
     return false;
 }
@@ -152,26 +172,6 @@ static EventManagerResult emCheckValidArguments(EventManager em, int member_id, 
 static int newDateCompare(Date date1, Date date2)
 {
     return dateCompare(date2 ,date1);
-}
-
-/**
- * @brief find a member with the given id
- * 
- * @param em - Target event manager
- * @param member_id - the id of the member to find
- * @return Member the member wuth the given id
- *          if member not found return NULL
- */
-static Member emFindMemberById(EventManager em, int member_id)
-{
-    struct Members_list *member_iterator = em->members;
-    while (member_iterator)
-    {
-        if (memberGetID(member_iterator->member) == member_id)
-            return member_iterator->member;
-        member_iterator = member_iterator->next;
-    }
-    return NULL;
 }
 
 /**
