@@ -31,7 +31,6 @@ Event eventCreate(char* event_name, int event_id, Date date)
     strcpy(event->event_name, event_name);
 	event->event_id = event_id;
     event->event_date = dateCopy(date);
-    event->first_member = NULL;
 	return event;
 }
 
@@ -75,7 +74,7 @@ int eventGetFirstMemberID(Event event)
 {
     if(!event)
         return INVALIDID;
-    event->current_member = event->first_member;
+    event->current_member=event->first_member;
     if (!event->first_member)
         return INVALIDID;
     return event->first_member->member_id;
@@ -93,7 +92,7 @@ int  eventGetNextMemberID(Event event)
 
 EventResult eventInsertNewMember(Event event,int member_id)
 {
-    if(!event)
+    if(!event || member_id==INVALIDID)
         return EVENT_NULL_ARGUMENT;
     struct member* new_member = malloc(sizeof(new_member));
     if(!new_member)
@@ -101,26 +100,20 @@ EventResult eventInsertNewMember(Event event,int member_id)
     new_member->member_id = member_id;
     if (!event->first_member)
     {
-        event->first_member = new_member;
+        event->first_member=new_member;
         return EVENT_SUCCESS;
     }
     if(member_id < event->first_member->member_id)
     {
         new_member->next_member = event->first_member;
-        event->first_member = new_member;
+        event->first_member->next_member = new_member;
         return EVENT_SUCCESS;
-    }
-    if (member_id == event->first_member->member_id)
-    {
-        free(new_member);
-        return EVENT_MEMBER_ID_ALREADY_EXISTS;
     }
     event->current_member = event->first_member;
     while(event->current_member->next_member && member_id > event->current_member->next_member->member_id)
     {
         event->current_member = event->current_member->next_member;
     }
-
     if (!event->current_member->next_member)
     {
         event->current_member->next_member = new_member;
@@ -138,10 +131,10 @@ EventResult eventInsertNewMember(Event event,int member_id)
 
 EventResult eventRemoveMemberByID(Event event,int member_id)
 {
-    if(!event || !member_id)
+    if(!event || member_id==INVALIDID)
         return EVENT_NULL_ARGUMENT;
     int id = eventGetFirstMemberID(event);
-    if(!id)
+    if(id==INVALIDID)
         return EVENT_MEMBER_ID_NOT_EXISTS;
     if(id == member_id)
     {
@@ -152,7 +145,7 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
     while (event->current_member->next_member)
     {
         id = event->current_member->next_member->member_id;
-        if(!id)
+        if(id==INVALIDID)
             return EVENT_ERROR;
         if(id == member_id)
         {
