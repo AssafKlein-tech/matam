@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "event_manager.h"
 #include "date.h"
 #include "priority_queue.h"
@@ -40,6 +41,7 @@ static PQElement emEventCopy(PQElement event)
  */
 static void emEventDestroy(PQElement event)
 {
+    if(event)
     eventDestroy((Event) event);
 }
 
@@ -150,9 +152,9 @@ static void emSortMembers(EventManager em)
  */
 static Event emfindEventByID(EventManager em, int event_id)
 {
-    PQ_FOREACH(Event,event,em->events)
+    PQ_FOREACH(Event, event, em->events)
     {
-        if(eventGetId(event)==event_id)
+        if(eventGetId(event) == event_id)
             return event;
     }
     return NULL;
@@ -170,7 +172,7 @@ static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, D
 {
     PQ_FOREACH(Event,event,em->events)
     {
-        if(eventGetName(event)==event_name&&dateCompare(eventGetDate(event),date)==0)
+        if(strcmp(eventGetName(event),event_name) && dateCompare(eventGetDate(event),date) == 0)
             return event;
     }
     return NULL;
@@ -282,8 +284,6 @@ static void emMemberEventIncrease(EventManager em, int member_id)
 }
 
 
-
-
 /*ADT methods*/
 
 EventManager createEventManager(Date date)
@@ -326,24 +326,30 @@ void destroyEventManager(EventManager em)
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
 {
-    if (!date||!em||!event_name||!event_id)
+    if (!date || !em || !event_name || !event_id)
         return EM_NULL_ARGUMENT;
-    if(dateCompare(em->date,date)>0)
+    if(dateCompare(em->date, date) > 0)
         return EM_INVALID_DATE;
-    if(event_id<0)
+    if(event_id < 0)
         return EM_INVALID_EVENT_ID;
-    if(emfindEventByNameInSpecificDate(em,event_name,date))
+    if(emfindEventByNameInSpecificDate(em, event_name, date))
         return EM_EVENT_ALREADY_EXISTS;
-    if(emfindEventByID(em,event_id))
+    if(emfindEventByID(em, event_id))
         return EM_EVENT_ID_ALREADY_EXISTS;
-    Event event= eventCreate(event_name,event_id,date);
+    Event event = eventCreate(event_name, event_id, date);
     if(!event)
         return EM_OUT_OF_MEMORY;
     PriorityQueueResult result = pqInsert(em->events, event, date);
     if(result == PQ_OUT_OF_MEMORY)
+    {
+        eventDestroy(event);
         return EM_OUT_OF_MEMORY;
+    }
     if(result == PQ_NULL_ARGUMENT)
+    {
+        eventDestroy(event);
         return EM_ERROR;
+    }
     return EM_SUCCESS;
 }
 

@@ -36,8 +36,10 @@ Event eventCreate(char* event_name, int event_id, Date date)
 
 void eventDestroy(Event event)
 {  
+    if(event){
     eventRemoveAllMembers(event);
     free(event);
+    }
 }
 
 Event eventCopy(Event event)
@@ -159,14 +161,13 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
 
 void eventRemoveAllMembers(Event event)
 {
-    if(event)
+    if(event && event->first_member)
     {
-        while (event->first_member->next_member)
+        while (event->first_member)
         {
-       struct member *member_to_delete=event->first_member;
-            dateDestroy(event->event_date);
-        event->first_member=event->first_member->next_member;
-        free(member_to_delete);
+            struct member *member_to_delete=event->first_member;
+            event->first_member=event->first_member->next_member;
+            free(member_to_delete);
         }
     }
 }
