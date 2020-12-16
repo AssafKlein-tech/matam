@@ -374,11 +374,11 @@ EventManagerResult emRemoveEvent(EventManager em, int event_id)
         return EM_NULL_ARGUMENT;
     if(event_id<0)
         return EM_INVALID_EVENT_ID;
-    Event target_event=emfindEventByID(em,event_id);
+    Event target_event = emfindEventByID(em,event_id);
     if(!target_event)
         return EM_EVENT_NOT_EXISTS;
-    int member_id=eventGetFirstMemberID(target_event);
-    while (member_id)
+    int member_id = eventGetFirstMemberID(target_event);
+    while (member_id != INVALIDID) 
     {
         emRemoveMemberFromEvent(em,member_id,event_id);
         member_id=eventGetFirstMemberID(target_event);

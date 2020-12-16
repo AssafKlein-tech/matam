@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "date.h"
+#define INVALIDID -1
 
 /** Type for defining the event */
 typedef struct Event_t *Event;

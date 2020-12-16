@@ -37,7 +37,7 @@ Event eventCreate(char* event_name, int event_id, Date date)
 void eventDestroy(Event event)
 {  
     eventRemoveAllMembers(event);
-      free(event);
+    free(event);
 }
 
 Event eventCopy(Event event)
@@ -57,7 +57,7 @@ bool eventCompare(Event event1, Event event2)
 int eventGetId(Event event)
 {
     if(!event)
-        return NULL;
+        return INVALIDID;
     return event->event_id;
 }
 
@@ -71,21 +71,11 @@ char* eventGetName(Event event)
 int eventGetFirstMemberID(Event event)
 {
     if(!event)
-        return NULL;
+        return INVALIDID;
     event->current_member=event->first_member;
     if (!event->first_member)
-        return NULL;
+        return INVALIDID;
     return event->first_member->member_id;
-}
-
-int  eventGetNextMemberID(Event event)
-{
-    if(!event)
-        return NULL;
-    event->current_member = event->current_member->next_member;
-    if (!event->current_member)
-        return NULL;
-    return event->current_member->member_id;
 }
 
 EventResult eventInsertNewMember(Event event,int member_id)
