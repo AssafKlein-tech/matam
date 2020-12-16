@@ -228,7 +228,7 @@ static bool emCheckMemberIDExist(EventManager em, int member_id)
  */
 static EventManagerResult emCheckValidArguments(EventManager em, int member_id, int event_id)
 {
-    if(!em || !member_id || !event_id)
+    if(!em)
         return EM_NULL_ARGUMENT;
     if (event_id < 0)
         return EM_INVALID_EVENT_ID;
@@ -326,12 +326,8 @@ void destroyEventManager(EventManager em)
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
 {
-<<<<<<< HEAD
 
     if (!date || !em || !event_name )
-=======
-    if (!date || !em || !event_name)
->>>>>>> 8bac7b4819b87d595b813d1b057384c2ba95615c
         return EM_NULL_ARGUMENT;
     if(dateCompare(em->date, date) > 0)
         return EM_INVALID_DATE;
@@ -360,7 +356,7 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
 EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days, int event_id)
 {
     Date date=dateCopy(em->date);
-    if (!days||!em||!event_name||!event_id)
+    if (!days||!em||!event_name)
         return EM_NULL_ARGUMENT;
     if(days < 0)
         return EM_INVALID_DATE;
@@ -383,7 +379,7 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
 
 EventManagerResult emRemoveEvent(EventManager em, int event_id)
 {
-    if (!em||!event_id)
+    if (!em)
         return EM_NULL_ARGUMENT;
     if(event_id<0)
         return EM_INVALID_EVENT_ID;
@@ -402,10 +398,12 @@ EventManagerResult emRemoveEvent(EventManager em, int event_id)
 
 EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_date)
 {
-    if(!em || !event_id || !new_date)
+    if(!em || !new_date)
         return EM_NULL_ARGUMENT;
     if(dateCompare(em->date,new_date) > 0)
         return EM_INVALID_DATE;
+    if(event_id<0)
+        return EM_INVALID_EVENT_ID;
     Event target_event = emfindEventByID(em,event_id);
     if(!target_event)
         return EM_EVENT_ID_NOT_EXISTS;
@@ -421,7 +419,7 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
 
 EventManagerResult emAddMember(EventManager em, char* member_name, int member_id) 
 {
-    if(!em || !member_name || !member_id)
+    if(!em || !member_name)
         return EM_NULL_ARGUMENT;
     if (member_id < 0)
         return EM_INVALID_MEMBER_ID;
@@ -474,7 +472,7 @@ EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int e
 
 EventManagerResult emTick(EventManager em, int days)
 {
-    if(!em || days)
+    if(!em)
         return EM_NULL_ARGUMENT;
     if(days <= 0)
         return EM_INVALID_DATE;
