@@ -51,7 +51,7 @@ bool eventCompare(Event event1, Event event2)
 {
     if(!event1 || !event2)
         return false;
-    return (getEventsId(event1)==getEventsId(event2));
+    return (event1->event_id == event2->event_id);
 }
 
 int eventGetId(Event event)
@@ -76,6 +76,16 @@ int eventGetFirstMemberID(Event event)
     if (!event->first_member)
         return INVALIDID;
     return event->first_member->member_id;
+}
+
+int  eventGetNextMemberID(Event event)
+{
+    if(!event)
+        return INVALIDID;
+    event->current_member = event->current_member->next_member;
+    if (!event->current_member)
+        return INVALIDID;
+    return event->current_member->member_id;
 }
 
 EventResult eventInsertNewMember(Event event,int member_id)
@@ -107,7 +117,7 @@ EventResult eventInsertNewMember(Event event,int member_id)
         event->current_member->next_member = new_member;
         return EVENT_SUCCESS;
     }
-    if (member_id = event->current_member->next_member->member_id)
+    if (member_id == event->current_member->next_member->member_id)
     {
         free(new_member);
         return EVENT_MEMBER_ID_ALREADY_EXISTS;
@@ -172,7 +182,7 @@ void eventPrintEventAndDate(Event event,FILE* output_file)
 {
     if(event && output_file)
     {
-        int *day, *month, *year;
+        int *day = NULL, *month = NULL, *year = NULL;
         if (dateGet(event->event_date, day, month, year))
         {
             fprintf(output_file,"%s, %d.%d.%d", event->event_name,*day,*month,*year);
