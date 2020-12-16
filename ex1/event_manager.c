@@ -308,17 +308,20 @@ EventManager createEventManager(Date date)
 
 void destroyEventManager(EventManager em)
 {
-    pqDestroy(em->events);
-    dateDestroy(em->date);
-    struct Members_list* member_to_delete;
-    while (em->members)
-    {  
-        member_to_delete = em->members;
-        em->members=em->members->next;
-        freeMember(member_to_delete->member);
-        free(member_to_delete);
+    if (em)
+    {
+        pqDestroy(em->events);
+        dateDestroy(em->date);
+        struct Members_list* member_to_delete;
+        while (em->members)
+        {  
+            member_to_delete = em->members;
+            em->members=em->members->next;
+            freeMember(member_to_delete->member);
+            free(member_to_delete);
+        }
+        free(em);
     }
-    free(em);
 }
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
