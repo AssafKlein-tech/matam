@@ -47,7 +47,10 @@ Event eventCopy(Event event)
 {
      if (!event)
         return NULL;
-    return eventCreate(event->event_name,event->event_id,event->event_date);
+    Event new_event = eventCreate(event->event_name,event->event_id,event->event_date);
+    EVENT_FOREACH_MEMBER(member_id, event)
+        eventInsertNewMember(new_event,member_id);
+    return new_event;
 }
 
 bool eventCompare(Event event1, Event event2)
@@ -75,7 +78,7 @@ int eventGetFirstMemberID(Event event)
 {
     if(!event)
         return INVALIDID;
-    event->current_member=event->first_member;
+    event->current_member = event->first_member;
     if (!event->first_member)
         return INVALIDID;
     return event->first_member->member_id;
@@ -101,7 +104,7 @@ EventResult eventInsertNewMember(Event event,int member_id)
     new_member->member_id = member_id;
     if (!event->first_member)
     {
-        event->first_member=new_member;
+        event->first_member = new_member;
         return EVENT_SUCCESS;
     }
     if (member_id == event->first_member->member_id)
@@ -112,7 +115,7 @@ EventResult eventInsertNewMember(Event event,int member_id)
     if(member_id < event->first_member->member_id)
     {
         new_member->next_member = event->first_member;
-        event->first_member->next_member = new_member;
+        event->first_member = new_member;
         return EVENT_SUCCESS;
     }
     event->current_member = event->first_member;
@@ -146,6 +149,8 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
         free(event->current_member);
         return EVENT_SUCCESS;
     }
+    if (event->first_member == NULL)
+        return EVENT_MEMBER_ID_NOT_EXISTS;
     while (event->current_member->next_member)
     {
         id = event->current_member->next_member->member_id;
