@@ -469,10 +469,14 @@ EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int e
 {
     EventManagerResult em_result = emCheckValidArguments(em, member_id, event_id);
     if(em_result != EM_SUCCESS)
+    {
         return em_result;
+    }
     Event target_event = emfindEventByID(em, event_id);
     if (!target_event)
+    {
         return EM_EVENT_ID_NOT_EXISTS;
+    }
     EventResult  event_result = eventRemoveMemberByID(target_event,member_id); 
     if (event_result == EVENT_MEMBER_ID_NOT_EXISTS)
         return EM_EVENT_AND_MEMBER_NOT_LINKED;

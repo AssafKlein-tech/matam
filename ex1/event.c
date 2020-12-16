@@ -139,8 +139,6 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
     if(!event || member_id < 0)
         return EVENT_NULL_ARGUMENT;
     int id = eventGetFirstMemberID(event);
-    if(id == INVALIDID)
-        return EVENT_MEMBER_ID_NOT_EXISTS;
     if(id == member_id)
     {
         event->first_member = event->first_member->next_member;
