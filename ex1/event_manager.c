@@ -326,8 +326,12 @@ void destroyEventManager(EventManager em)
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
 {
+<<<<<<< HEAD
 
     if (!date || !em || !event_name )
+=======
+    if (!date || !em || !event_name)
+>>>>>>> 8bac7b4819b87d595b813d1b057384c2ba95615c
         return EM_NULL_ARGUMENT;
     if(dateCompare(em->date, date) > 0)
         return EM_INVALID_DATE;
@@ -338,7 +342,6 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
     if(emfindEventByID(em, event_id))
         return EM_EVENT_ID_ALREADY_EXISTS;
     Event event = eventCreate(event_name, event_id, date);
-    if(!event)
         return EM_OUT_OF_MEMORY;
     PriorityQueueResult result = pqInsert(em->events, event, date);
     if(result == PQ_OUT_OF_MEMORY)
@@ -359,15 +362,15 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
     Date date=dateCopy(em->date);
     if (!days||!em||!event_name||!event_id)
         return EM_NULL_ARGUMENT;
-    if(days<0)
+    if(days < 0)
         return EM_INVALID_DATE;
-    if(emfindEventByNameInSpecificDate(em,event_name,date))
+    if(emfindEventByNameInSpecificDate(em, event_name, date))
     return EM_EVENT_ALREADY_EXISTS;
-    if(emfindEventByID(em,event_id))
+    if(emfindEventByID(em, event_id))
         return EM_EVENT_ID_ALREADY_EXISTS;
     for(int i=0; i<days; i++)
         dateTick(date);
-    Event event= eventCreate(event_name,event_id,date);
+    Event event= eventCreate(event_name, event_id, date);
     if(!event)
       return EM_OUT_OF_MEMORY;
     PriorityQueueResult result = pqInsert(em->events, event, date);

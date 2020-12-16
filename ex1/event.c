@@ -17,7 +17,7 @@ struct Event_t
 
 Event eventCreate(char* event_name, int event_id, Date date)
 {
-    if (!event_name || !event_id || !date)
+    if (!event_name || !date)
         return NULL;
     Event event = malloc(sizeof(*event));
 	if (!event) 
