@@ -360,13 +360,13 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
         return EM_NULL_ARGUMENT;
     if(days < 0)
         return EM_INVALID_DATE;
+    Date date = dateCopy(em->date);
+    for(int i = 0; i < days; i++)
+        dateTick(date);
     if(emfindEventByNameInSpecificDate(em, event_name, em->date))
         return EM_EVENT_ALREADY_EXISTS;
     if(emfindEventByID(em, event_id))
         return EM_EVENT_ID_ALREADY_EXISTS;
-    Date date = dateCopy(em->date);
-    for(int i = 0; i < days; i++)
-        dateTick(date);
     Event event= eventCreate(event_name, event_id, date);
     if(!event)
     {
