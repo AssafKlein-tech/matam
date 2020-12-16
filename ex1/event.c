@@ -142,6 +142,8 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
 {
     if(!event || member_id < 0)
         return EVENT_NULL_ARGUMENT;
+    if (!event->first_member)
+        return EVENT_MEMBER_ID_NOT_EXISTS;
     int id = eventGetFirstMemberID(event);
     if(id == member_id)
     {
@@ -149,8 +151,6 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
         free(event->current_member);
         return EVENT_SUCCESS;
     }
-    if (event->first_member == NULL)
-        return EVENT_MEMBER_ID_NOT_EXISTS;
     while (event->current_member->next_member)
     {
         id = event->current_member->next_member->member_id;
@@ -173,7 +173,7 @@ void eventRemoveAllMembers(Event event)
     if(event)
     {
         if(event->first_member)
-        {
+        {   
             while (event->first_member->next_member)
             {
                 struct member *member_to_delete = event->first_member;
