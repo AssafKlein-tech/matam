@@ -326,27 +326,43 @@ void destroyEventManager(EventManager em)
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
 {
-    if (!date || !em || !event_name || !event_id)
+    if (!date || !em || !event_name)
+    {
+        printf("1");
         return EM_NULL_ARGUMENT;
+    }
     if(dateCompare(em->date, date) > 0)
+
         return EM_INVALID_DATE;
     if(event_id < 0)
+
         return EM_INVALID_EVENT_ID;
     if(emfindEventByNameInSpecificDate(em, event_name, date))
+    {
+        printf("4");
         return EM_EVENT_ALREADY_EXISTS;
+    }
     if(emfindEventByID(em, event_id))
+    {
+        printf("5");
         return EM_EVENT_ID_ALREADY_EXISTS;
+    }
     Event event = eventCreate(event_name, event_id, date);
     if(!event)
+    {
+        printf("6");
         return EM_OUT_OF_MEMORY;
+    }
     PriorityQueueResult result = pqInsert(em->events, event, date);
     if(result == PQ_OUT_OF_MEMORY)
     {
+        printf("7");
         eventDestroy(event);
         return EM_OUT_OF_MEMORY;
     }
     if(result == PQ_NULL_ARGUMENT)
     {
+        printf("8");
         eventDestroy(event);
         return EM_ERROR;
     }
