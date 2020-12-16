@@ -104,26 +104,28 @@ static int emDateCompare(PQElementPriority date1, PQElementPriority date2)
  * @param sorted_list the sorted list
  * @param new_member_node a node to add
  */
-static void emAddMemberSorted(struct Members_list* sorted_list,struct Members_list* new_member_node)
+static struct Members_list* emAddMemberSorted(struct Members_list* sorted_list,struct Members_list* new_member_node)
 {
-    if(new_member_node && sorted_list)
+    if(!new_member_node || !sorted_list)
+        return NULL;
+    if (memberIsGreater(new_member_node->member, sorted_list->member))
     {
-        if (memberIsGreater(new_member_node->member, sorted_list->member))
-        {
-            new_member_node->next = sorted_list;
-            sorted_list = new_member_node;
-        }
-        else
-        {
-            struct Members_list* current_node = sorted_list;
-            while(current_node->next || !memberIsGreater(new_member_node->member, current_node->next->member))
-            {
-                current_node = current_node->next;
-            }
-            new_member_node->next = current_node->next;
-            current_node->next = new_member_node;
-        }
+        new_member_node->next = sorted_list;
+        return new_member_node;
     }
+    if (!sorted_list->next)
+    {
+        sorted_list->next = new_member_node;
+        return sorted_list;
+    }
+    struct Members_list* current_node = sorted_list;
+    while(current_node->next || !memberIsGreater(new_member_node->member, current_node->next->member))
+    {
+        current_node = current_node->next;
+    }
+    new_member_node->next = current_node->next;
+    current_node->next = new_member_node;
+    return sorted_list;
 }
 
 /**
@@ -135,18 +137,18 @@ static void emSortMembers(EventManager em)
 {
     if(em && em->members)
     {
-        struct Members_list *ordered_member_list = em->members;
+        struct Members_list *sorted_member_list = em->members;
         em->members = em->members->next;
-        ordered_member_list->next = NULL;
+        sorted_member_list->next = NULL;
         struct Members_list *temp_node = NULL;
         while (em->members)
         {
             temp_node = em->members;
             em->members = em->members->next;
             temp_node->next = NULL;
-            emAddMemberSorted(ordered_member_list, em->members);
+            sorted_member_list = emAddMemberSorted(sorted_member_list, temp_node);
         }
-        em->members = ordered_member_list;
+        em->members = sorted_member_list;
     }
 }
 
@@ -248,7 +250,6 @@ static EventManagerResult emCheckValidArguments(EventManager em, int member_id, 
         return EM_INVALID_MEMBER_ID;
     if(!emCheckMemberIDExist(em, member_id))
     {
-        printf("finale check");
         return EM_MEMBER_ID_NOT_EXISTS;
     }
     return EM_SUCCESS;
@@ -467,27 +468,15 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
 {
     EventManagerResult em_result = emCheckValidArguments(em, member_id, event_id);
     if(em_result != EM_SUCCESS)
-    {
-        printf("\na");
         return em_result;
-    }
     Event target_event = emfindEventByID(em, event_id);
     if (!target_event)
-    {
-        printf("\nb");
         return EM_EVENT_ID_NOT_EXISTS;
-    }
     EventResult  event_result = eventInsertNewMember(target_event,member_id);
     if (event_result == EVENT_OUT_OF_MEMORY)
-    {
-        printf("\nc");
         return EM_OUT_OF_MEMORY;
-    }
     if (event_result == EVENT_MEMBER_ID_ALREADY_EXISTS)
-    {
-        printf("\nd");
         return EM_EVENT_AND_MEMBER_ALREADY_LINKED;
-    }
     emMemberEventIncrease(em, member_id);
     return EM_SUCCESS;
 }
@@ -570,7 +559,7 @@ void emPrintAllResponsibleMembers(EventManager em, const char* file_name)
         {
             emSortMembers(em);
             struct Members_list* member_iterator = em->members;
-            while (member_iterator)
+            while (member_iterator && memberGetNumberOfEvents(member_iterator->member) != 0)
             {
                 fprintf(output_file,"%s,%d\n", memberGetName(member_iterator->member), memberGetNumberOfEvents(member_iterator->member));
                 member_iterator = member_iterator->next;
