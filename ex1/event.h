@@ -129,8 +129,15 @@ Date eventGetDate(Event event);
  */
 void eventPrintEventAndDate(Event event, FILE* output_file);
 
+/**
+ * @brief change the date of the given event. if one of the arguments is null it does nothing.
+ * 
+ */
+void eventChangeDate(Event event,Date new_date);
+
 #define EVENT_FOREACH_MEMBER(iterator, queue) \
     for(int iterator = eventGetFirstMemberID(queue) ; \
         iterator != -1;\
         iterator = eventGetNextMemberID(queue))
+
 #endif //EVENT_H_

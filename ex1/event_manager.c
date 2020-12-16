@@ -172,7 +172,7 @@ static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, D
 {
     PQ_FOREACH(Event,event,em->events)
     {
-        if(strcmp(eventGetName(event),event_name) && dateCompare(eventGetDate(event),date) == 0)
+        if(strcmp(eventGetName(event),event_name) == 0 && dateCompare(eventGetDate(event),date) == 0)
             return event;
     }
     return NULL;
@@ -400,14 +400,15 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
 {
     if(!em || !event_id || !new_date)
         return EM_NULL_ARGUMENT;
-    if(dateCompare(em->date,new_date)>0)
+    if(dateCompare(em->date,new_date) > 0)
         return EM_INVALID_DATE;
-    Event target_event=emfindEventByID(em,event_id);
+    Event target_event = emfindEventByID(em,event_id);
     if(!target_event)
         return EM_EVENT_ID_NOT_EXISTS;
     if(emfindEventByNameInSpecificDate(em,eventGetName(target_event),new_date))
         return EM_EVENT_ALREADY_EXISTS;
     Date old_date = eventGetDate(target_event);
+    eventChangeDate(target_event, new_date);
     PriorityQueueResult result = pqChangePriority(em->events, target_event, old_date, new_date);
     if (result == PQ_OUT_OF_MEMORY)
         return EM_OUT_OF_MEMORY;

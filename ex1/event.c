@@ -30,7 +30,7 @@ Event eventCreate(char* event_name, int event_id, Date date)
     }
     strcpy(event->event_name, event_name);
 	event->event_id = event_id;
-    event->event_date = date;
+    event->event_date = dateCopy(date);
 	return event;
 }
 
@@ -189,4 +189,10 @@ void eventPrintEventAndDate(Event event,FILE* output_file)
             fprintf(output_file,"%s, %d.%d.%d", event->event_name,*day,*month,*year);
         }
     }
+}
+
+void eventChangeDate(Event event,Date new_date)
+{
+    if (event && new_date)
+        event->event_date = dateCopy(new_date);
 }
