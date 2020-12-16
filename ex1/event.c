@@ -137,11 +137,7 @@ EventResult eventInsertNewMember(Event event,int member_id)
 
 EventResult eventRemoveMemberByID(Event event,int member_id)
 {
-<<<<<<< HEAD
     if(!event)
-=======
-    if(!event || member_id < 0)
->>>>>>> 4ba01f5a7975daf908bbab517b4e743e85d3490c
         return EVENT_NULL_ARGUMENT;
     int id = eventGetFirstMemberID(event);
     if(id == member_id)
