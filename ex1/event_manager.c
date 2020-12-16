@@ -106,20 +106,23 @@ static int emDateCompare(PQElementPriority date1, PQElementPriority date2)
  */
 static void emAddMemberSorted(struct Members_list* sorted_list,struct Members_list* new_member_node)
 {
-    if (memberIsGreater(new_member_node->member, sorted_list->member))
+    if(new_member_node && sorted_list)
     {
-        new_member_node->next = sorted_list;
-        sorted_list = new_member_node;
-    }
-    else
-    {
-        struct Members_list* current_node = sorted_list;
-        while(current_node->next || !memberIsGreater(new_member_node->member, current_node->next->member))
+        if (memberIsGreater(new_member_node->member, sorted_list->member))
         {
-            current_node = current_node->next;
+            new_member_node->next = sorted_list;
+            sorted_list = new_member_node;
         }
-        new_member_node->next = current_node->next;
-        current_node->next = new_member_node;
+        else
+        {
+            struct Members_list* current_node = sorted_list;
+            while(current_node->next || !memberIsGreater(new_member_node->member, current_node->next->member))
+            {
+                current_node = current_node->next;
+            }
+            new_member_node->next = current_node->next;
+            current_node->next = new_member_node;
+        }
     }
 }
 
