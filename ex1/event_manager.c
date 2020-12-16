@@ -326,7 +326,8 @@ void destroyEventManager(EventManager em)
 
 EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date, int event_id)
 {
-    if (!date || !em || !event_name || !event_id)
+
+    if (!date || !em || !event_name )
         return EM_NULL_ARGUMENT;
     if(dateCompare(em->date, date) > 0)
         return EM_INVALID_DATE;
