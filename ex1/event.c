@@ -203,11 +203,11 @@ void eventPrintEventAndDate(Event event,FILE* output_file)
      
     if(event && output_file)
     {
-        int day, month, year=0 ;
-        if (dateGet(event->event_date, day, month, year))
+        int day = -1,month = -1, year = -999;
+        if (dateGet(event->event_date, &day, &month, &year))
         {
-            printf("kaki");
-            fprintf(output_file,"%s, %d.%d.%d", event->event_name,day,month,year);
+            if(day && month && year)
+                fprintf(output_file,"%s,%d.%d.%d", event->event_name, day, month, year);
         }
     }
 }

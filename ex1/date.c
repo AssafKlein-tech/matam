@@ -1,8 +1,8 @@
 #include "date.h"
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-typedef enum Monthes {JAN = 1, FEB, MER, APR, MAY , JUN , JUL , AUG , SEP , OCT , NOV , DEC} Month;
 #define MIN_DAY 1
 #define MAX_DAY 30
 #define INVALID_MONTH 0
@@ -13,7 +13,7 @@ typedef enum Monthes {JAN = 1, FEB, MER, APR, MAY , JUN , JUL , AUG , SEP , OCT 
 struct Date_t
 {
     int day;
-    Month month;
+    int month;
     int year;
 };
 
@@ -64,21 +64,21 @@ Date dateCopy(Date date)
     return dateCreate(date->day,date->month,date->year);
 }
 
-bool dateGet(Date date, int day, int month, int year)
+bool dateGet(Date date, int* day, int* month, int* year)
 {
-    if (date && date->day && date->month && date->year)
+    if (date && day && month && year)
     {
-    day = date->day;
-    month = date->month;
-    year = date->year;
-    return true;
+        *day = date->day;
+        *month = date->month;
+        *year = date->year;
+        return true;
     }
     return false;
 }
 
 static int dateToDays(Date date)
 {
-    return date->day + (date->month - 1)*MAX_DAY + date->year * DAYS_IN_YEAR;
+    return (date->day - 1) + (date->month - 1)*MAX_DAY + date->year * DAYS_IN_YEAR;
 }
 
 int dateCompare(Date date1, Date date2)
@@ -93,7 +93,7 @@ static void daysToDate(Date date, int days)
     date->year = days / DAYS_IN_YEAR;
     days = days % DAYS_IN_YEAR;
     date->month = days / MAX_DAY + 1;
-    date->day = days % MAX_DAY;
+    date->day = days % MAX_DAY + 1;
 }
 
 void dateTick(Date date)
