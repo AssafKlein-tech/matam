@@ -8,9 +8,10 @@ struct Event_t
     Date event_date;
     char* event_name;
     int event_id;
-    struct member {
+    struct member 
+    {
 	int member_id;
-	struct member* next_member ;
+	struct member *next_member;
     } *first_member;
     struct member *current_member;
 };
@@ -32,6 +33,7 @@ Event eventCreate(char* event_name, int event_id, Date date)
 	event->event_id = event_id;
     event->event_date = dateCopy(date);
     event->first_member = NULL;
+    event->current_member = NULL;
 	return event;
 }
 
@@ -98,10 +100,11 @@ EventResult eventInsertNewMember(Event event,int member_id)
 {
     if(!event || member_id < 0)
         return EVENT_NULL_ARGUMENT;
-    struct member* new_member = malloc(sizeof(new_member));
+    struct member *new_member = malloc(sizeof(*new_member));
     if(!new_member)
         return EVENT_OUT_OF_MEMORY;
     new_member->member_id = member_id;
+    new_member->next_member = NULL;
     if (!event->first_member)
     {
         event->first_member = new_member;
@@ -158,8 +161,8 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
             return EVENT_ERROR;
         if(id == member_id)
         {
-            struct member* member_copy=event->current_member->next_member;
-            event->current_member->next_member=event->current_member->next_member->next_member;
+            struct member* member_copy = event->current_member->next_member;
+            event->current_member->next_member = event->current_member->next_member->next_member;
             free(member_copy);
             return EVENT_SUCCESS;
         }
@@ -173,14 +176,17 @@ void eventRemoveAllMembers(Event event)
     if(event)
     {
         if(event->first_member)
-        {   
-            while (event->first_member->next_member)
-            {
-                struct member *member_to_delete = event->first_member;
-                event->first_member = event->first_member->next_member;
-                free(member_to_delete);
+        {
+            struct member* first = event->first_member;
+            if(first->next_member)
+            {    
+                while (first->next_member)
+                {
+                    struct member *member_to_delete = first;
+                    first = first->next_member;
+                    free(member_to_delete);
+                }
             }
-            free(event->first_member);
         }
     }
 }
