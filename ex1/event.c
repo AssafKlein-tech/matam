@@ -98,7 +98,7 @@ EventResult eventInsertNewMember(Event event,int member_id)
 {
     if(!event || member_id < 0)
         return EVENT_NULL_ARGUMENT;
-    struct member* new_member = malloc(sizeof(new_member));
+    struct member* new_member = malloc(sizeof(*new_member));
     if(!new_member)
         return EVENT_OUT_OF_MEMORY;
     new_member->member_id = member_id;
