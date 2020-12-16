@@ -31,6 +31,7 @@ Event eventCreate(char* event_name, int event_id, Date date)
     strcpy(event->event_name, event_name);
 	event->event_id = event_id;
     event->event_date = dateCopy(date);
+    event->first_member = NULL;
 	return event;
 }
 
@@ -143,8 +144,6 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
 >>>>>>> 4ba01f5a7975daf908bbab517b4e743e85d3490c
         return EVENT_NULL_ARGUMENT;
     int id = eventGetFirstMemberID(event);
-    if(id == INVALIDID)
-        return EVENT_MEMBER_ID_NOT_EXISTS;
     if(id == member_id)
     {
         event->first_member = event->first_member->next_member;
