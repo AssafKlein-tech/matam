@@ -64,14 +64,16 @@ Date dateCopy(Date date)
     return dateCreate(date->day,date->month,date->year);
 }
 
-bool dateGet(Date date, int* day, int* month, int* year)
+bool dateGet(Date date, int day, int month, int year)
 {
-    if (!date || !day || !month || !year)
-        return false;
-    *day = date->day;
-    *month = date->month;
-    *year = date->year;
+    if (date && date->day && date->month && date->year)
+    {
+    day = date->day;
+    month = date->month;
+    year = date->year;
     return true;
+    }
+    return false;
 }
 
 static int dateToDays(Date date)

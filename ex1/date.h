@@ -47,7 +47,7 @@ Date dateCopy(Date date);
 * 	false if one of pointers is NULL.
 * 	Otherwise true and the date is assigned to the pointers.
 */
-bool dateGet(Date date, int* day, int* month, int* year);
+bool dateGet(Date date, int day, int month, int year);
 
 /**
 * dateCompare: compares to dates and return which comes first
