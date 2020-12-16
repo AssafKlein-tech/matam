@@ -337,6 +337,7 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
     if(emfindEventByID(em, event_id))
         return EM_EVENT_ID_ALREADY_EXISTS;
     Event event = eventCreate(event_name, event_id, date);
+    if(!event)
         return EM_OUT_OF_MEMORY;
     PriorityQueueResult result = pqInsert(em->events, event, date);
     if(result == PQ_OUT_OF_MEMORY)

@@ -161,13 +161,16 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
 
 void eventRemoveAllMembers(Event event)
 {
-    if(event && event->first_member)
+    if(event)
     {
-        while (event->first_member)
+        if(event->first_member)
         {
-            struct member *member_to_delete=event->first_member;
-            event->first_member=event->first_member->next_member;
-            free(member_to_delete);
+            while (event->first_member)
+            {
+                struct member *member_to_delete=event->first_member;
+                event->first_member=event->first_member->next_member;
+                free(member_to_delete);
+            }
         }
     }
 }
