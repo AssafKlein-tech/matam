@@ -133,14 +133,18 @@ static void emAddMemberSorted(struct Members_list* sorted_list,struct Members_li
  */
 static void emSortMembers(EventManager em)
 {
-    if(em)
+    if(em && em->members)
     {
-        struct Members_list *ordered_member_list = NULL, *member_node;
+        struct Members_list *ordered_member_list = em->members;
+        em->members = em->members->next;
+        ordered_member_list->next = NULL;
+        struct Members_list *temp_node = NULL;
         while (em->members)
         {
-            member_node = em->members;
+            temp_node = em->members;
             em->members = em->members->next;
-            emAddMemberSorted(ordered_member_list, member_node);
+            temp_node->next = NULL;
+            emAddMemberSorted(ordered_member_list, em->members);
         }
         em->members = ordered_member_list;
     }
@@ -211,8 +215,13 @@ static Member emFindMemberByID(EventManager em, int member_id)
  */
 static bool emCheckMemberIDExist(EventManager em, int member_id)
 {
-    if (emFindMemberByID(em,member_id))
-        return true;
+    if(em)
+    {
+        if (emFindMemberByID(em,member_id))
+        {
+            return true;
+        }
+    }
     return false;
 }
 
@@ -238,7 +247,10 @@ static EventManagerResult emCheckValidArguments(EventManager em, int member_id, 
     if (member_id < 0)
         return EM_INVALID_MEMBER_ID;
     if(!emCheckMemberIDExist(em, member_id))
+    {
+        printf("finale check");
         return EM_MEMBER_ID_NOT_EXISTS;
+    }
     return EM_SUCCESS;
 }
 
@@ -455,15 +467,27 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
 {
     EventManagerResult em_result = emCheckValidArguments(em, member_id, event_id);
     if(em_result != EM_SUCCESS)
+    {
+        printf("\na");
         return em_result;
+    }
     Event target_event = emfindEventByID(em, event_id);
     if (!target_event)
+    {
+        printf("\nb");
         return EM_EVENT_ID_NOT_EXISTS;
+    }
     EventResult  event_result = eventInsertNewMember(target_event,member_id);
     if (event_result == EVENT_OUT_OF_MEMORY)
+    {
+        printf("\nc");
         return EM_OUT_OF_MEMORY;
+    }
     if (event_result == EVENT_MEMBER_ID_ALREADY_EXISTS)
+    {
+        printf("\nd");
         return EM_EVENT_AND_MEMBER_ALREADY_LINKED;
+    }
     emMemberEventIncrease(em, member_id);
     return EM_SUCCESS;
 }
@@ -548,7 +572,7 @@ void emPrintAllResponsibleMembers(EventManager em, const char* file_name)
             struct Members_list* member_iterator = em->members;
             while (member_iterator)
             {
-                fprintf(output_file,"%s, %d\n", memberGetName(member_iterator->member), memberGetNumberOfEvents(member_iterator->member));
+                fprintf(output_file,"%s,%d\n", memberGetName(member_iterator->member), memberGetNumberOfEvents(member_iterator->member));
                 member_iterator = member_iterator->next;
             }
             fclose(output_file);
