@@ -31,6 +31,7 @@ Event eventCreate(char* event_name, int event_id, Date date)
     strcpy(event->event_name, event_name);
 	event->event_id = event_id;
     event->event_date = dateCopy(date);
+    event->first_member = NULL;
 	return event;
 }
 
