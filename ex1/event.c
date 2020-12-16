@@ -92,7 +92,7 @@ int  eventGetNextMemberID(Event event)
 
 EventResult eventInsertNewMember(Event event,int member_id)
 {
-    if(!event || member_id==INVALIDID)
+    if(!event || member_id < 0)
         return EVENT_NULL_ARGUMENT;
     struct member* new_member = malloc(sizeof(new_member));
     if(!new_member)
@@ -102,6 +102,11 @@ EventResult eventInsertNewMember(Event event,int member_id)
     {
         event->first_member=new_member;
         return EVENT_SUCCESS;
+    }
+    if (member_id == event->first_member->member_id)
+    {
+        free(new_member);
+        return EVENT_MEMBER_ID_ALREADY_EXISTS;
     }
     if(member_id < event->first_member->member_id)
     {
@@ -131,10 +136,10 @@ EventResult eventInsertNewMember(Event event,int member_id)
 
 EventResult eventRemoveMemberByID(Event event,int member_id)
 {
-    if(!event || member_id==INVALIDID)
+    if(!event || member_id < 0)
         return EVENT_NULL_ARGUMENT;
     int id = eventGetFirstMemberID(event);
-    if(id==INVALIDID)
+    if(id == INVALIDID)
         return EVENT_MEMBER_ID_NOT_EXISTS;
     if(id == member_id)
     {
@@ -145,7 +150,7 @@ EventResult eventRemoveMemberByID(Event event,int member_id)
     while (event->current_member->next_member)
     {
         id = event->current_member->next_member->member_id;
-        if(id==INVALIDID)
+        if(id == INVALIDID)
             return EVENT_ERROR;
         if(id == member_id)
         {
