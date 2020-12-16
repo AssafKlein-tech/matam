@@ -31,6 +31,7 @@ Event eventCreate(char* event_name, int event_id, Date date)
     strcpy(event->event_name, event_name);
 	event->event_id = event_id;
     event->event_date = dateCopy(date);
+    event->first_member = NULL;
 	return event;
 }
 
@@ -74,7 +75,7 @@ int eventGetFirstMemberID(Event event)
 {
     if(!event)
         return INVALIDID;
-    event->current_member=event->first_member;
+    event->current_member = event->first_member;
     if (!event->first_member)
         return INVALIDID;
     return event->first_member->member_id;
