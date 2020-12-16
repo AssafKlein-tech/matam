@@ -12,7 +12,7 @@ struct Member_t
 
 Member memberCreate(char* name, int member_id)
 {
-    if (!name || !member_id)
+    if (!name)
         return NULL;  
     Member member = malloc(sizeof(*member));
     if(!member)

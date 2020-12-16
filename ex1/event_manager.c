@@ -119,7 +119,7 @@ static struct Members_list* emAddMemberSorted(struct Members_list* sorted_list,s
         return sorted_list;
     }
     struct Members_list* current_node = sorted_list;
-    while(current_node->next || !memberIsGreater(new_member_node->member, current_node->next->member))
+    while(current_node->next && !memberIsGreater(new_member_node->member, current_node->next->member))
     {
         current_node = current_node->next;
     }
@@ -248,10 +248,10 @@ static EventManagerResult emCheckValidArguments(EventManager em, int member_id, 
         return EM_INVALID_EVENT_ID;
     if (member_id < 0)
         return EM_INVALID_MEMBER_ID;
+    if (!emfindEventByID(em, event_id))
+        return EM_EVENT_ID_NOT_EXISTS;
     if(!emCheckMemberIDExist(em, member_id))
-    {
         return EM_MEMBER_ID_NOT_EXISTS;
-    }
     return EM_SUCCESS;
 }
 
@@ -372,6 +372,7 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
 
 EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days, int event_id)
 {
+    printf("iteration ");
     if (!em||!event_name)
         return EM_NULL_ARGUMENT;
     if(days < 0)
@@ -381,6 +382,9 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
     Date date = dateCopy(em->date);
     for(int i = 0; i < days; i++)
         dateTick(date);
+    int *day = NULL, *month = NULL, *year = NULL;
+    if(dateGet(date, day, month, year))
+        printf("iteration %d.%d.%d\n",*day,*month,*year);
     if(emfindEventByNameInSpecificDate(em, event_name, date))
         return EM_EVENT_ALREADY_EXISTS;
     if(emfindEventByID(em, event_id))
@@ -458,7 +462,10 @@ EventManagerResult emAddMember(EventManager em, char* member_name, int member_id
         return EM_OUT_OF_MEMORY;
     new_member->member = memberCreate(member_name, member_id);
     if(!new_member->member)
+    {
+        free(new_member);
         return EM_OUT_OF_MEMORY;
+    }
     new_member->next = em->members;
     em->members = new_member;
     return EM_SUCCESS;
@@ -470,8 +477,6 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
     if(em_result != EM_SUCCESS)
         return em_result;
     Event target_event = emfindEventByID(em, event_id);
-    if (!target_event)
-        return EM_EVENT_ID_NOT_EXISTS;
     EventResult  event_result = eventInsertNewMember(target_event,member_id);
     if (event_result == EVENT_OUT_OF_MEMORY)
         return EM_OUT_OF_MEMORY;
@@ -485,14 +490,8 @@ EventManagerResult emRemoveMemberFromEvent(EventManager em, int member_id, int e
 {
     EventManagerResult em_result = emCheckValidArguments(em, member_id, event_id);
     if(em_result != EM_SUCCESS)
-    {
         return em_result;
-    }
     Event target_event = emfindEventByID(em, event_id);
-    if (!target_event)
-    {
-        return EM_EVENT_ID_NOT_EXISTS;
-    }
     EventResult  event_result = eventRemoveMemberByID(target_event,member_id); 
     if (event_result == EVENT_MEMBER_ID_NOT_EXISTS)
         return EM_EVENT_AND_MEMBER_NOT_LINKED;
