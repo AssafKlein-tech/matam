@@ -206,12 +206,7 @@ void eventPrintEventAndDate(Event event,FILE* output_file)
         int day = -1,month = -1, year = -999;
         if (dateGet(event->event_date, &day, &month, &year))
         {
-<<<<<<< HEAD
-            fprintf(output_file,"%s, %d.%d.%d", event->event_name,day,month,year);
-=======
-            if(day && month && year)
                 fprintf(output_file,"%s,%d.%d.%d", event->event_name, day, month, year);
->>>>>>> fe85d44ffaafbc43f738a9dbfa9d9331d3395b36
         }
     }
 }
