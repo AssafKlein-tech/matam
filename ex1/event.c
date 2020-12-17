@@ -3,6 +3,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include "date.h"
+
+#define DEFUALTE_DAY -1
+#define DEFUALTE_MONTH -1
+#define DEFUALTE_YEAR -999
+
 struct Event_t
 {
     Date event_date;
@@ -23,7 +28,7 @@ Event eventCreate(char* event_name, int event_id, Date date)
     Event event = malloc(sizeof(*event));
 	if (!event) 
 		return NULL;
-    event->event_name = malloc(strlen(event_name) + 1);
+    event->event_name = malloc((strlen(event_name) + 1));
     if(!event->event_name)
     {
         free(event);
@@ -200,14 +205,12 @@ Date eventGetDate(Event event)
 
 void eventPrintEventAndDate(Event event,FILE* output_file)
 {
-     
     if(event && output_file)
     {
-        int day = -1,month = -1, year = -999;
+        int day = DEFUALTE_DAY,month = DEFUALTE_MONTH, year = DEFUALTE_YEAR;
         if (dateGet(event->event_date, &day, &month, &year))
         {
-            if(day && month && year)
-                fprintf(output_file,"%s,%d.%d.%d", event->event_name, day, month, year);
+            fprintf(output_file,"%s,%d.%d.%d", event->event_name, day, month, year);
         }
     }
 }

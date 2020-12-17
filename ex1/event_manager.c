@@ -381,6 +381,11 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
     Date date = dateCopy(em->date);
     for(int i = 0; i < days; i++)
         dateTick(date);
+    int day = -1,month = -1, year = -999;
+    if (dateGet(date, &day, &month, &year))
+    {
+        printf("%d.%d.%d\n", day, month, year);
+    }
     if(emfindEventByNameInSpecificDate(em, event_name, date))
         return EM_EVENT_ALREADY_EXISTS;
     if(emfindEventByID(em, event_id))
