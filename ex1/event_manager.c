@@ -438,7 +438,7 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
 {
     if(!em || !new_date)
         return EM_NULL_ARGUMENT;
-    if(dateCompare(em->date,new_date) > 0)
+    if(dateCompare(em->date, new_date) > 0)
         return EM_INVALID_DATE;
     if(event_id<0)
         return EM_INVALID_EVENT_ID;
@@ -452,6 +452,7 @@ EventManagerResult emChangeEventDate(EventManager em, int event_id, Date new_dat
     PriorityQueueResult result = pqChangePriority(em->events, target_event, old_date, new_date);
     if (result == PQ_OUT_OF_MEMORY)
         return EM_OUT_OF_MEMORY;
+    dateDestroy(old_date);
     return EM_SUCCESS;
 }
 
