@@ -78,7 +78,7 @@ bool dateGet(Date date, int* day, int* month, int* year)
 
 static int dateToDays(Date date)
 {
-    return (date->day - 1) + (date->month - 1)*MAX_DAY + date->year * DAYS_IN_YEAR;
+    return (date->day - 1) + (date->month - 1)*MAX_DAY + (date->year-1) * DAYS_IN_YEAR;
 }
 
 int dateCompare(Date date1, Date date2)
@@ -88,20 +88,23 @@ int dateCompare(Date date1, Date date2)
     return dateToDays(date1) - dateToDays(date2);
 }
 
-static void daysToDate(Date date, int days)
-{
-    date->year = days / DAYS_IN_YEAR;
-    days = days % DAYS_IN_YEAR;
-    date->month = days / MAX_DAY + 1;
-    date->day = days % MAX_DAY + 1;
-}
-
 void dateTick(Date date)
 {
     if (date)
     {
-        int days_after_tick = dateToDays(date) + 1;
-        daysToDate(date, days_after_tick);
+        if(date->day == MAX_DAY)
+        {
+            date->day = 1;
+            if (date->month == MONTH_NUM)
+            {
+                date->month = 1;
+                date->year += 1;
+            }
+            else
+                date->month += 1;
+        }
+        else
+            date->day += 1;      
     }
 }
 

@@ -65,6 +65,8 @@ int memberGetNumberOfEvents(Member member)
 
 bool memberIsGreater(Member member1, Member member2)
 {
+    if (member1->number_of_events == member2->number_of_events)
+        return member1->id < member2->id;
     return member1->number_of_events > member2->number_of_events;
 }
 

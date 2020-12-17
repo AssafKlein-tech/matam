@@ -379,13 +379,15 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
     if(event_id < 0)
         return EM_INVALID_EVENT_ID;
     Date date = dateCopy(em->date);
+    if(!date)
+        return EM_OUT_OF_MEMORY;
     for(int i = 0; i < days; i++)
         dateTick(date);
     if(emfindEventByNameInSpecificDate(em, event_name, date))
         return EM_EVENT_ALREADY_EXISTS;
     if(emfindEventByID(em, event_id))
         return EM_EVENT_ID_ALREADY_EXISTS;
-    Event event= eventCreate(event_name, event_id, date);
+    Event event = eventCreate(event_name, event_id, date);
     if(!event)
     {
         dateDestroy(date);
@@ -394,11 +396,13 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
     PriorityQueueResult result = pqInsert(em->events, event, date);
     if(result == PQ_OUT_OF_MEMORY)
     {
+        eventDestroy(event);
         dateDestroy(date);
         return EM_OUT_OF_MEMORY;
     }
     if(result == PQ_NULL_ARGUMENT)
     {
+        eventDestroy(event);
         dateDestroy(date);
         return EM_ERROR;
     }
