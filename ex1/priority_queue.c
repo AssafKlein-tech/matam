@@ -19,7 +19,9 @@ struct PriorityQueue_t
     ComparePQElementPriorities compare_priorities;
 };
 
-PriorityQueue pqCreate(CopyPQElement copy_element, FreePQElement free_element, EqualPQElements equal_elements, CopyPQElementPriority copy_priority, FreePQElementPriority free_priority, ComparePQElementPriorities compare_priorities)
+PriorityQueue pqCreate(CopyPQElement copy_element, FreePQElement free_element,
+ EqualPQElements equal_elements, CopyPQElementPriority copy_priority, FreePQElementPriority free_priority,
+ComparePQElementPriorities compare_priorities)
 {
     if (!copy_element || !free_element || !equal_elements || !copy_priority || !free_priority || !compare_priorities)
         return NULL;
@@ -52,7 +54,8 @@ PriorityQueue pqCopy(PriorityQueue queue)
     {
         return NULL;
     }
-    PriorityQueue new_queue = pqCreate(queue->copy_element, queue->free_element, queue->equal_elements, queue->copy_priority, queue->free_priority, queue->compare_priorities);
+    PriorityQueue new_queue = pqCreate(queue->copy_element, queue->free_element, queue->equal_elements,
+     queue->copy_priority, queue->free_priority, queue->compare_priorities);
     if (!new_queue)
     {
         queue->current_node = NULL;
@@ -117,7 +120,8 @@ bool pqContains(PriorityQueue queue, PQElement element)
 *
 * @param queue - The priority queue for which to add the data element
 * @param priority - The priority of the new element.
-        the function find the place to enter the new node by the priority - the new node priority would be greater then all the next nodes in the queue
+*                   the function find the place to enter the new node by the priority -
+*                   the new node priority would be greater then all the next nodes in the queue
 * @return
 * 	a "struct Node_element_t*" node. the new node should be enter after this one
 */
@@ -200,16 +204,19 @@ static PQElementPriority pqGetHighestPriorityOfElement(PriorityQueue queue, PQEl
  * 	PQ_ELEMENT_DOES_NOT_EXISTS if given element does not exists.
  * 	PQ_SUCCESS the most prioritized element had been removed successfully.
  */
-static PriorityQueueResult pqRemoveElementWithPriority(PriorityQueue queue, PQElementPriority element, PQElementPriority highest_priority)
+static PriorityQueueResult pqRemoveElementWithPriority(PriorityQueue queue, PQElementPriority element,
+     PQElementPriority highest_priority)
 {
     queue->current_node = queue->first_node;
-    if (queue->compare_priorities(queue->current_node->priority, highest_priority) == 0 && queue->equal_elements(queue->current_node->element, element))
+    if (queue->compare_priorities(queue->current_node->priority, highest_priority) == 0 &&
+     queue->equal_elements(queue->current_node->element, element))
     {
         return pqRemove(queue);
     }
     while (queue->current_node->next)
     {
-        if (queue->compare_priorities(queue->current_node->next->priority, highest_priority) == 0 && queue->equal_elements(queue->current_node->next->element, element))
+        if (queue->compare_priorities(queue->current_node->next->priority, highest_priority) == 0 &&
+         queue->equal_elements(queue->current_node->next->element, element))
         {
             struct Node_element_t * node_to_delete = queue->current_node->next;
             queue->free_element(node_to_delete->element);
@@ -226,7 +233,8 @@ static PriorityQueueResult pqRemoveElementWithPriority(PriorityQueue queue, PQEl
 }
 
 
-PriorityQueueResult pqChangePriority(PriorityQueue queue, PQElement element, PQElementPriority old_priority, PQElementPriority new_priority)
+PriorityQueueResult pqChangePriority(PriorityQueue queue, PQElement element, PQElementPriority old_priority,
+ PQElementPriority new_priority)
 {
     if (!queue || !element || !old_priority || !new_priority)
         return PQ_NULL_ARGUMENT;
