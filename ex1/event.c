@@ -59,7 +59,7 @@ void eventDestroy(Event event)
 
 Event eventCopy(Event event)
 {
-     if (!event)
+    if (!event)
         return NULL;
     Event new_event = eventCreate(event->event_name,event->event_id,event->event_date);
     if (!new_event)
