@@ -7,8 +7,8 @@ CFLAGS = -std=c99 -Wall -Werror $(DEBUG)
 $(EXEC) : $(OBJS)
 	$(CC) $(DEBUG_FLAG) $(OBJS) -o $@
 	
-event_manager.o : event_manager.c event_manager.h priority_queue.h date.h event.h member.h
-priority_queue.o : priority_queue.c priority_queue.h
+event_manager.o : tests/event_manager_tests.c event_manager.c event_manager.h priority_queue.h date.h event.h member.h
+priority_queue.o : tests/priority_queue_tests.c priority_queue.c priority_queue.h
 date.o : date.c date.h 
 event.o : event.c event.h date.h
 member.o : member.c member.h
