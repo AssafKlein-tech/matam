@@ -2,7 +2,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-#include "date.h"
 
 #define DEFUALTE_DAY -1
 #define DEFUALTE_MONTH -1
