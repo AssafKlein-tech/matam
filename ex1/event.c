@@ -31,12 +31,17 @@ Event eventCreate(char* event_name, int event_id, Date date)
     event->event_name = malloc((strlen(event_name) + 1));
     if(!event->event_name)
     {
-        free(event);
+        eventDestroy(event);
         return NULL;
     }
     strcpy(event->event_name, event_name);
-	event->event_id = event_id;
     event->event_date = dateCopy(date);
+    if (!event->event_date)
+    {
+        eventDestroy(event);
+        return NULL;
+    }
+	event->event_id = event_id;
     event->first_member = NULL;
     event->current_member = NULL;
 	return event;
@@ -44,9 +49,12 @@ Event eventCreate(char* event_name, int event_id, Date date)
 
 void eventDestroy(Event event)
 {  
-    if(event){
-    eventRemoveAllMembers(event);
-    free(event);
+    if(event)
+    {
+        eventRemoveAllMembers(event);
+        free(event->event_name);
+        dateDestroy(event->event_date);
+        free(event);
     }
 }
 
@@ -55,6 +63,8 @@ Event eventCopy(Event event)
      if (!event)
         return NULL;
     Event new_event = eventCreate(event->event_name,event->event_id,event->event_date);
+    if (!new_event)
+        return NULL;
     EVENT_FOREACH_MEMBER(member_id, event)
         eventInsertNewMember(new_event,member_id);
     return new_event;
@@ -91,7 +101,7 @@ int eventGetFirstMemberID(Event event)
     return event->first_member->member_id;
 }
 
-int  eventGetNextMemberID(Event event)
+int eventGetNextMemberID(Event event)
 {
     if(!event)
         return INVALIDID;
