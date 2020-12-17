@@ -193,7 +193,7 @@ void eventRemoveAllMembers(Event event)
         if(event->first_member)
         {
             struct member* first = event->first_member;
-            if(first->next_member)
+            if(first)
             {    
                 while (first->next_member)
                 {
@@ -201,6 +201,7 @@ void eventRemoveAllMembers(Event event)
                     first = first->next_member;
                     free(member_to_delete);
                 }
+                free(first);
             }
         }
     }
