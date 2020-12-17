@@ -41,7 +41,6 @@ static PQElement emEventCopy(PQElement event)
  */
 static void emEventDestroy(PQElement event)
 {
-    if(event)
     eventDestroy((Event) event);
 }
 
@@ -314,9 +313,7 @@ EventManager createEventManager(Date date)
     em->date = dateCopy(date);
     if (!em->events || !em->date)
     {
-        pqDestroy(em->events);
-        dateDestroy(em->date);
-        free(em);
+        destroyEventManager(em);
         return NULL;
     }
     return em;
@@ -367,6 +364,8 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
         eventDestroy(event);
         return EM_ERROR;
     }
+    eventDestroy(event);
+    dateDestroy(date);
     return EM_SUCCESS;
 }
 
@@ -406,6 +405,8 @@ EventManagerResult emAddEventByDiff(EventManager em, char* event_name, int days,
         dateDestroy(date);
         return EM_ERROR;
     }
+    eventDestroy(event);
+    dateDestroy(date);
     return EM_SUCCESS;
 }
 
@@ -477,7 +478,7 @@ EventManagerResult emAddMemberToEvent(EventManager em, int member_id, int event_
     if(em_result != EM_SUCCESS)
         return em_result;
     Event target_event = emfindEventByID(em, event_id);
-    EventResult  event_result = eventInsertNewMember(target_event,member_id);
+    EventResult  event_result = eventInsertNewMember(target_event, member_id);
     if (event_result == EVENT_OUT_OF_MEMORY)
         return EM_OUT_OF_MEMORY;
     if (event_result == EVENT_MEMBER_ID_ALREADY_EXISTS)
