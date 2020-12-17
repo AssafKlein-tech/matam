@@ -29,14 +29,14 @@ Event eventCreate(char* event_name, int event_id, Date date)
 	if (!event) 
 		return NULL;
     event->event_name = malloc((strlen(event_name) + 1));
-    if(!event->event_name)
+    if(!(event->event_name))
     {
         eventDestroy(event);
         return NULL;
     }
     strcpy(event->event_name, event_name);
     event->event_date = dateCopy(date);
-    if (!event->event_date)
+    if (!(event->event_date))
     {
         eventDestroy(event);
         return NULL;
@@ -193,7 +193,7 @@ void eventRemoveAllMembers(Event event)
         if(event->first_member)
         {
             struct member* first = event->first_member;
-            if(first->next_member)
+            if(first)
             {    
                 while (first->next_member)
                 {
@@ -201,6 +201,7 @@ void eventRemoveAllMembers(Event event)
                     first = first->next_member;
                     free(member_to_delete);
                 }
+                free(first);
             }
         }
     }
