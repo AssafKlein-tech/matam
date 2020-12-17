@@ -9,6 +9,7 @@
 #define MONTH_NUM 12
 #define DAYS_IN_YEAR 360
 #define MONTH_STR_LEN 4
+#define ERROR_ARG_RESULT 0
 
 struct Date_t
 {
@@ -78,13 +79,13 @@ bool dateGet(Date date, int* day, int* month, int* year)
 
 static int dateToDays(Date date)
 {
-    return (date->day - 1) + (date->month - 1)*MAX_DAY + (date->year-1) * DAYS_IN_YEAR;
+    return (date->day - 1) + (date->month - 1) * MAX_DAY + (date->year -1 ) * DAYS_IN_YEAR;
 }
 
 int dateCompare(Date date1, Date date2)
 {
     if (!date1 || !date2)
-        return 0;
+        return ERROR_ARG_RESULT;
     return dateToDays(date1) - dateToDays(date2);
 }
 

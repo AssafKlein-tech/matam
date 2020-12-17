@@ -365,7 +365,6 @@ EventManagerResult emAddEventByDate(EventManager em, char* event_name, Date date
         return EM_ERROR;
     }
     eventDestroy(event);
-    dateDestroy(date);
     return EM_SUCCESS;
 }
 
