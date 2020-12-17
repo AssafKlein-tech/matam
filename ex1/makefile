@@ -2,7 +2,7 @@ CC = gcc
 OBJS = event_manager.o event.o priority_queue.o date.o member.o
 EXEC = prog
 DEBUG=# now empty, assign -g for debug
-CFLAGS = -std=c99 -Wall -Werror $(DEBUG)
+CFLAGS = -std=c99 -Wall -pedantic-errors -Werror -DNDEBUG
 
 $(EXEC) : $(OBJS)
 	$(CC) $(DEBUG_FLAG) $(OBJS) -o $@
