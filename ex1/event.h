@@ -70,7 +70,8 @@ int eventGetId(Event event);
 char* eventGetName(Event event);
 
 /**
-* getFirstMemberID: returns the ID of the first member in Target event. after this function the iterator will be linked to the first node
+* getFirstMemberID: returns the ID of the first member in Target event. 
+* after this function the iterator will be linked to the first node
 *@param event -  Target Event
 */
 int eventGetFirstMemberID(Event event);
@@ -84,7 +85,8 @@ int eventGetFirstMemberID(Event event);
 int  eventGetNextMemberID(Event event);
 
 /**
- * @brief enter a new member to the event. if the member already in the event, the function does nothing and return EVENT_MEMBER_ID_ALREADY_EXISTS
+ * @brief enter a new member to the event. if the member already in the event, the function
+ *  does nothing and return EVENT_MEMBER_ID_ALREADY_EXISTS
  * 
  * @param event Target event
  * @param member_id The Id of the new member

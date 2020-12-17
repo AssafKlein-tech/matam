@@ -135,7 +135,8 @@ PriorityQueue pqCopy(PriorityQueue queue)
     {
         return NULL;
     }
-    PriorityQueue new_queue = pqCreate(queue->copy_element, queue->free_element, queue->equal_elements, queue->copy_priority, queue->free_priority, queue->compare_priorities);
+    PriorityQueue new_queue = pqCreate(queue->copy_element, queue->free_element, queue->equal_elements,
+     queue->copy_priority, queue->free_priority, queue->compare_priorities);
     if (!new_queue)
     {
         queue->current_node = NULL;
