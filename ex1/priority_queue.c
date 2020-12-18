@@ -1,6 +1,7 @@
 #include "priority_queue.h"
 #include <stdlib.h>
 
+#define INVALID_SIZE -1
 struct PriorityQueue_t
 {
     struct Node_element_t
@@ -163,7 +164,7 @@ PriorityQueue pqCopy(PriorityQueue queue)
 int pqGetSize(PriorityQueue queue)
 {
     if (!queue)
-        return -1;
+        return INVALID_SIZE;
     struct Node_element_t *copy_of_current_node = queue->current_node;
     if (!pqGetFirst(queue))
         return 0;
@@ -176,9 +177,7 @@ int pqGetSize(PriorityQueue queue)
 
 bool pqContains(PriorityQueue queue, PQElement element)
 {
-
-
-    if(!queue||!element||queue->first_node==NULL)
+    if(!queue || !element || queue->first_node == NULL)
         return NULL;
     struct Node_element_t *copy_of_current_node = queue->current_node;
     queue->current_node = queue->first_node;
@@ -237,7 +236,7 @@ PriorityQueueResult pqChangePriority(PriorityQueue queue, PQElement element, PQE
     PQElement new_element = queue->copy_element(element);
     PriorityQueueResult result = pqRemoveElementWithPriority(queue, element, old_priority);
     if (result == PQ_SUCCESS)
-        result =  pqInsert(queue, new_element, new_priority);
+        result = pqInsert(queue, new_element, new_priority);
     queue->free_element(new_element);
     return result;
 }
@@ -246,7 +245,7 @@ PriorityQueueResult pqRemove(PriorityQueue queue)
 {
     if(!queue)
         return PQ_NULL_ARGUMENT;
-    if(queue->first_node==NULL)
+    if(queue->first_node == NULL)
         return PQ_SUCCESS;
     queue->free_element(queue->first_node->element);
     queue->free_priority(queue->first_node->priority);
@@ -278,9 +277,7 @@ PriorityQueueResult pqRemoveElement(PriorityQueue queue, PQElement element)
 PQElement pqGetFirst(PriorityQueue queue)
 {
     if (!queue || !queue->first_node)
-    {
         return NULL;
-    }
     queue->current_node = queue->first_node;
     return queue->first_node->element;
 }
