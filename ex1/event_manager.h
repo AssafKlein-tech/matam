@@ -4,6 +4,7 @@
 
 typedef struct EventManager_t* EventManager;
 
+
 typedef enum EventManagerResult_t {
     EM_SUCCESS,
     EM_OUT_OF_MEMORY,
