@@ -1,5 +1,4 @@
 #include "priority_queue.h"
-#include <stdbool.h>
 #include <stdlib.h>
 
 struct PriorityQueue_t
@@ -9,7 +8,7 @@ struct PriorityQueue_t
         PQElementPriority priority;
         PQElement element;
         struct Node_element_t *next;
-    } * first_node;
+    } *first_node;
     struct Node_element_t *current_node;
     CopyPQElement copy_element;
     FreePQElement free_element;
@@ -23,10 +22,10 @@ struct PriorityQueue_t
 /* static functions*/
 
 /**
-* pqGetHighestPriorityOfElement: find the first appearence of the element given in the queue
+* pqGetHighestPriorityOfElement: Finds the first appearence of the element given in the queue
 *
 * @param queue - The priority queue to search in
-* @param element - The eklement we search in the queue
+* @param element - The element we search in the queue
         
 * @return
 * 	the priority of the element to remove
@@ -44,25 +43,25 @@ static PQElementPriority pqGetHighestPriorityOfElement(PriorityQueue queue, PQEl
 }
 
 /**
- * @brief pqRemoveElementWithPriority: removes the node with the element and priority given 
+ * @brief pqRemoveElementWithPriority: Removes the node with the element and priority given. 
  * 
- * @param queue a PQ to remove the element from
- * @param element the element to remove
- * @param highest_priority the priority of the element to remove
+ * @param queue A priority queue to remove the element from.
+ * @param element The element to remove.
+ * @param priority The priority of the element to remove.
  * @return PriorityQueueResult 
  * 	PQ_ELEMENT_DOES_NOT_EXISTS if given element does not exists.
- * 	PQ_SUCCESS the most prioritized element had been removed successfully.
+ * 	PQ_SUCCESS if thed element had been removed successfully.
  */
-static PriorityQueueResult pqRemoveElementWithPriority(PriorityQueue queue, PQElementPriority element, PQElementPriority highest_priority)
+static PriorityQueueResult pqRemoveElementWithPriority(PriorityQueue queue, PQElementPriority element, PQElementPriority priority)
 {
     queue->current_node = queue->first_node;
-    if (queue->compare_priorities(queue->current_node->priority, highest_priority) == 0 && queue->equal_elements(queue->current_node->element, element))
+    if (queue->compare_priorities(queue->current_node->priority, priority) == 0 && queue->equal_elements(queue->current_node->element, element))
     {
         return pqRemove(queue);
     }
     while (queue->current_node->next)
     {
-        if (queue->compare_priorities(queue->current_node->next->priority, highest_priority) == 0 && queue->equal_elements(queue->current_node->next->element, element))
+        if (queue->compare_priorities(queue->current_node->next->priority, priority) == 0 && queue->equal_elements(queue->current_node->next->element, element))
         {
             struct Node_element_t * node_to_delete = queue->current_node->next;
             queue->free_element(node_to_delete->element);
@@ -79,11 +78,12 @@ static PriorityQueueResult pqRemoveElementWithPriority(PriorityQueue queue, PQEl
 }
 
 /**
-* PqGetInsertionPlace: return a node pointer. the new node will be insert after this node
+* PqGetInsertionPlace: The function finds the place to enter the new node by the priority. And returns a pointer to * the place to enter the new node after. the new node priority would be greater then all the next nodes in the
+* priority queue
 *
-* @param queue - The priority queue for which to add the data element
+* @param queue - The priority queue for which to add the new element
 * @param priority - The priority of the new element.
-        the function find the place to enter the new node by the priority - the new node priority would be greater then all the next nodes in the queue
+*       
 * @return
 * 	a "struct Node_element_t*" node. the new node should be enter after this one
 */
@@ -132,9 +132,7 @@ void pqDestroy(PriorityQueue queue)
 PriorityQueue pqCopy(PriorityQueue queue)
 {
     if (!queue)
-    {
         return NULL;
-    }
     PriorityQueue new_queue = pqCreate(queue->copy_element, queue->free_element, queue->equal_elements,
      queue->copy_priority, queue->free_priority, queue->compare_priorities);
     if (!new_queue)

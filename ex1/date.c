@@ -1,14 +1,12 @@
 #include "date.h"
 #include <stdbool.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 #define MIN_DAY 1
 #define MAX_DAY 30
-#define INVALID_MONTH 0
+#define MIN_MONTH 1
 #define MONTH_NUM 12
 #define DAYS_IN_YEAR 360
-#define MONTH_STR_LEN 4
 #define ERROR_ARG_RESULT 0
 
 struct Date_t
@@ -17,6 +15,8 @@ struct Date_t
     int month;
     int year;
 };
+
+/*static function*/
 
 /** Checks if the day given is valid
 *@param day  - the day of the date
@@ -31,22 +31,22 @@ static bool isDayValid(int day)
 /** Checks if the month given is valid
 *@param month  - the month of the date
 *@return 
-    true if day is valid (1-30), else otherwise
+    true if month is valid (1-12), else otherwise
 **/
 static bool isMonthNumberValid(int month)
 {
-   return month > INVALID_MONTH && month <= MONTH_NUM; 
+   return month >= MIN_MONTH && month <= MONTH_NUM; 
 }
+
+/*ADT methods*/
 
 Date dateCreate(int day, int month, int year)
 {
-    if (!isDayValid(day) || !isMonthNumberValid(month)) {
+    if (!isDayValid(day) || !isMonthNumberValid(month))
 		return NULL;
-	}
 	Date date = malloc(sizeof(*date));
-	if (!date) {
+	if (!date) 
 		return NULL;
-	}
 	date->day = day;
 	date->month = month;
 	date->year = year;
@@ -79,7 +79,7 @@ bool dateGet(Date date, int* day, int* month, int* year)
 
 static int dateToDays(Date date)
 {
-    return (date->day - 1) + (date->month - 1) * MAX_DAY + (date->year -1 ) * DAYS_IN_YEAR;
+    return date->day + date->month * MAX_DAY + date->year * DAYS_IN_YEAR;
 }
 
 int dateCompare(Date date1, Date date2)
@@ -95,10 +95,10 @@ void dateTick(Date date)
     {
         if(date->day == MAX_DAY)
         {
-            date->day = 1;
+            date->day = MIN_DAY;
             if (date->month == MONTH_NUM)
             {
-                date->month = 1;
+                date->month = MIN_MONTH;
                 date->year += 1;
             }
             else

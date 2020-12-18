@@ -3,6 +3,8 @@
 #include <string.h>
 #include "member.h"
 
+#define NULL_ARGUMENT -1
+
 struct Member_t
 {
     int id;
@@ -26,20 +28,16 @@ Member memberCreate(char* name, int member_id)
     return member;
 }
 
-MemberResult memberAddEvent(Member member)
+void memberAddEvent(Member member)
 {
-    if(!member)
-        return MEMBER_NULL_ARGUMENT;
-    member->number_of_events++;
-    return MEMBER_SUCCESS;
+    if(member)
+        member->number_of_events++;
 }
 
-MemberResult memberRemoveEvent(Member member)
+void memberRemoveEvent(Member member)
 {
-    if(!member)
-        return MEMBER_NULL_ARGUMENT;
-    member->number_of_events--;
-    return MEMBER_SUCCESS;
+    if(member)
+        member->number_of_events--;
 }
 
 char* memberGetName(Member member)
@@ -52,14 +50,14 @@ char* memberGetName(Member member)
 int memberGetID(Member member)
 {
     if(!member)
-        return -1;
+        return NULL_ARGUMENT;
     return member->id;
 }
 
 int memberGetNumberOfEvents(Member member)
 {
     if(!member)
-        return -1;
+        return NULL_ARGUMENT;
     return member->number_of_events;
 }
 
@@ -70,18 +68,11 @@ bool memberIsGreater(Member member1, Member member2)
     return member1->number_of_events > member2->number_of_events;
 }
 
-bool memberEqualIDs(Member member1,Member member2)
+void freeMember(Member member)
 {
-    if(!member1 || !member2)
-        return false;
-    return member1->id == member2->id;
-}
-
-MemberResult freeMember(Member member)
-{
-    if(!member)
-        return MEMBER_NULL_ARGUMENT;
-    free(member->name);
-    free(member);
-    return MEMBER_SUCCESS;
+    if(member)
+    {
+        free(member->name);
+        free(member);
+    }
 }

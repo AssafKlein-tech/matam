@@ -568,7 +568,7 @@ void emPrintAllResponsibleMembers(EventManager em, const char* file_name)
             while (member_iterator && memberGetNumberOfEvents(member_iterator->member) != 0)
             {
                 fprintf(output_file,"%s,%d\n", memberGetName(member_iterator->member),
-                 memberGetNumberOfEvents(member_iterator->member));
+                memberGetNumberOfEvents(member_iterator->member));
                 member_iterator = member_iterator->next;
             }
             fclose(output_file);

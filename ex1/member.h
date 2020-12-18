@@ -3,41 +3,36 @@
 
 #include <stdbool.h>
 
-typedef enum MemberResult_t {
-    MEMBER_NULL_ARGUMENT = 0,
-    MEMBER_SUCCESS,
-} MemberResult;
-
 /** Type for defining the member */
 typedef struct Member_t *Member;
 
 /**
- * @brief  memberCreate: create a new member instance
+ * @brief  memberCreate: Allocating a new member. 
  * 
  * @param name - The name of the member
- * @param member_id - The id of the memeber
+ * @param member_id - The id of the member
  * @return Member - a pointer to member object
  */
 Member memberCreate(char* name, int member_id);
 
 /**
- * @brief memberAddEvent: increasing the number of events the member responsible to
+ * @brief memberAddEvent: increasing the number of events the member responsible for
  * 
  * @param member - The member to add a event to.
  */
-MemberResult memberAddEvent(Member member);
+void memberAddEvent(Member member);
 
 /**
- * @brief memberRemoveEvent: decreasing the number of events the member responsible to
+ * @brief memberRemoveEvent: decreasing the number of events the member responsible for
  * 
  * @param member - The member to remove a event from.
  */
-MemberResult memberRemoveEvent(Member member);
+void memberRemoveEvent(Member member);
 
 /**
  * @brief memberGetName: Get the name of the member
  * 
- * @param member - Taget member
+ * @param member - Target member
  * @return char* - The name of the member
  */
 char* memberGetName(Member member);
@@ -51,7 +46,7 @@ char* memberGetName(Member member);
 int memberGetID(Member member);
 
 /**
- * @brief memberGetNumberOfEvents: Get the number of events the member responsible to
+ * @brief memberGetNumberOfEvents: Get the number of events the member responsible for
  * 
  * @param member - Target member
  * @return int  - The number of events
@@ -59,30 +54,21 @@ int memberGetID(Member member);
 int memberGetNumberOfEvents(Member member);
 
 /**
- * @brief returns true if member1 has more events than member2
+ * @brief returns true if member1 is greater than member2.
  * 
  * @param member1 a member
  * @param member2 member to compare
- * @return true member1>member2
+ * @return true member1 has more events than member2. if number of events 
+ *              equal return true if the id of member1 is lower.
  * @return false otherwise
  */
 bool memberIsGreater(Member member1, Member member2);
 
 /**
- * @brief memberEqualIDs: Checks if the id's are equals 
- * 
- * @param member1 - First member
- * @param member2 - Second member
- * @return true - if the id's are equal 
- * @return false - if they are diffrent or one if the arrguments are NULL
- */
-bool memberEqualIDs(Member member1,Member member2);
-
-/**
- * @brief freeMember - dealocating the instance
+ * @brief freeMember - Deallocating the member.
  * 
  * @param member - The member to dealocate
  */
-MemberResult freeMember(Member member);
+void freeMember(Member member);
 
 #endif /* MEMBER_H_ */
