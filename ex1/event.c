@@ -1,5 +1,4 @@
 #include "event.h"
-#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -14,8 +13,8 @@ struct Event_t
     int event_id;
     struct member 
     {
-	int member_id;
-	struct member *next_member;
+	    int member_id;
+	    struct member *next_member;
     } *first_member;
     struct member *current_member;
 };
