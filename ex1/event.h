@@ -133,7 +133,8 @@ void eventPrintEventAndDate(Event event, FILE* output_file);
 
 /**
  * @brief change the date of the given event. if one of the arguments is null it does nothing.
- * 
+ * @param event The target event
+ * @param new_date The new date to change to. 
  */
 void eventChangeDate(Event event,Date new_date);
 
