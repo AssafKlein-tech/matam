@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "event_manager.h"
-#include "date.h"
 #include "priority_queue.h"
 #include "member.h"
 #include "event.h"
@@ -45,7 +44,7 @@ static void emEventDestroy(PQElement event)
 }
 
 /**
- * @brief a equal element method for the pq - compares events using "eventCompare"
+ * @brief aמ equal element method for the pq - compares events using "eventCompare"
  * 
  * @param event1 - the first element
  * @param event2  - the second element
@@ -169,7 +168,7 @@ static Event emfindEventByID(EventManager em, int event_id)
 }
 
 /**
- * @brief - Search for an event in a specific date.
+ * @brief - Searchs for an event in a specific date.
  * 
  * @param em Target event manager
  * @param event_name target event's name
@@ -187,7 +186,7 @@ static Event emfindEventByNameInSpecificDate(EventManager em,char* event_name, D
 }
 
 /**
- * @brief find a member with the given id
+ * @brief Find a member with the given id
  * 
  * @param em - Target event manager
  * @param member_id - the id of the member to find
@@ -207,12 +206,12 @@ static Member emFindMemberByID(EventManager em, int member_id)
 }
 
 /**
- * @brief checks if the member_id already in the members list
+ * @brief Checks if the member_id already in the members list
  * 
- * @param em the Target event_element
- * @param member_id the id to check if exist
- * @return true if there is a member with the same id
- * @return false otherwise
+ * @param em The Target event_element
+ * @param member_id The id to check if exist
+ * @return True if there is a member with the same id
+ * @return False otherwise
  */
 static bool emCheckMemberIDExist(EventManager em, int member_id)
 {
@@ -227,11 +226,11 @@ static bool emCheckMemberIDExist(EventManager em, int member_id)
 }
 
 /**
- * @brief check if the arguments given are valid
+ * @brief Checks if the arguments given are valid
  * 
- * @param em event manager argument
- * @param member_id member id argument
- * @param event_id event id argumnt
+ * @param em Event manager argument
+ * @param member_id Member id argument
+ * @param event_id Event id argumnt
  * @return EventManagerResult 
  *          EM_NULL_ARGUMENT if one of the arguments is NULL;
  *          EM_INVALID_EVENT_ID if inserted invalid event_id;
@@ -275,7 +274,7 @@ static EventManagerResult emRemoveEarlyEvents(EventManager em)
 }
 
 /**
- * @brief decreasing the number of events the member responsible for
+ * @brief Decreasing the number of events the member responsible for
  * 
  * @param em - Target event manager
  * @param member_id - the member id of the member to decrease
@@ -287,7 +286,7 @@ static void emMemberEventDecrease(EventManager em, int member_id)
 }
 
 /**
- * @brief increasing the number of events the member responsible for
+ * @brief Increasing the number of events the member responsible for
  * 
  * @param em - Target event manager
  * @param member_id - the member id of the member to increase
