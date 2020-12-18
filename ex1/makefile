@@ -1,7 +1,7 @@
 CC = gcc
-OBJS1 = event_manager.o event.o priority_queue.o date.o member.o tests/event_manager_example_tests.o
+OBJS1 = event_manager.o event.o priority_queue.o date.o member.o tests/event_manager_tests.o
 EXEC1 = event_manager
-OBJS2 = priority_queue.o pq_example_tests.o
+OBJS2 = priority_queue.o tests/priority_queue_tests.o
 EXEC2 = priority_queue
 CFLAGS = -std=c99 -Wall -pedantic-errors -Werror -DNDEBUG
 
