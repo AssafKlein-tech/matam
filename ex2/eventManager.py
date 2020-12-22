@@ -5,13 +5,15 @@ K = 4
 
 def printYoungestStudents(in_file_path: str, out_file_path: str, k: int):
     #fileCorrect(in_file_path, out_file_path)
-    file_in = open(in_file_path,"r")
-    file_out = open(out_file_path,"w")
-    stream = file_in.read()
-    print(stream)
-    file_out.write(stream)
-    file_out.close()
-    file_in.close()
+    if k < 1:
+        return -1
+    with open(in_file_path,"r") as rfile:
+        members = rfile.readlines()
+        members.sort()
+        members.sort(key=lambda member: int((member.split(","))[2].strip(" ")))
+        with open(out_file_path, "w") as wfile:
+            wfile.writelines(members[:k])
+    return 1
 
 if __name__ == "__main__":
     printYoungestStudents(SRC_FILE, DST_FILE, K)
