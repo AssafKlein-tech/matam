@@ -6,14 +6,19 @@ NAME = 1
 
 
 def printYoungestStudents(in_file_path: str, out_file_path: str, k: int):
-    #fileCorrect(in_file_path, out_file_path)
-    file_in = open(in_file_path,"r")
-    file_out = open(out_file_path,"w")
-    stream = file_in.read()
-    print(stream)
-    file_out.write(stream)
-    file_out.close()
-    file_in.close()
+    if k < 1:
+        return -1
+    fileCorrect(in_file_path, out_file_path)
+    with open(in_file_path,"r") as rfile:
+        members = rfile.readlines()
+        if (len(members) < k):
+            k = len(members)
+        members.sort()
+        members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
+        with open(out_file_path, "w") as wfile:
+            for member in members[:k]:
+                wfile.write((member.split(","))[NAME] + "\n")
+    return k
 
 def fileCorrect(in_file_path: str, out_file_path: str):
     students_dict={
@@ -67,6 +72,6 @@ def fileCorrect(in_file_path: str, out_file_path: str):
     file_in.close()
 
 if __name__ == "__main__":
-    fileCorrect(SRC_FILE, DST_FILE)
+    printYoungestStudents(SRC_FILE, DST_FILE,4)
 
 
