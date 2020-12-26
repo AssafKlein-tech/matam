@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 545485249, Chnun Chnun, 33, 2010 , 5
 313521551   , Guy       Hackmon,      25     ,     1995,   8
 313289555, Assaf klein, 25      , 1995, 2
@@ -6,3 +7,12 @@ b99   , Jake Paralta , 35  , 1985 , 3
 900000001, Son Goku, 50, 1970, 7
 999999999, BiBi Melech, 70, 1950, -1
 545485249, Aba kadabra, 34, 1986 , 5
+=======
+54548524, Chnun Chnun, 34, 2010 , 5
+31328955, Assaf klein, 25      , 1995, 2
+31352155   , Guy       Hackmon,      25     ,     1995,   8
+00986555   , Jake Paralta , 35  , 1985 , 3
+19876574,Harry  P1oter, 16, 2004, 5
+90000000, Son Goku, 50, 1970, 7
+99999999, BiBi Melech, 70, 1950, -1
+>>>>>>> ef3725299cff7e6a151dd596704a3c6ae8c25ed6
