@@ -2,7 +2,6 @@ SRC_FILE = r".\ex2\member_list.txt"
 DST_FILE = r".\ex2\member_list_out.txt"
 K = 4
 
-
 def printYoungestStudents(in_file_path: str, out_file_path: str, k: int):
     #fileCorrect(in_file_path, out_file_path)
     file_in = open(in_file_path,"r")
@@ -33,14 +32,37 @@ def fileCorrect(in_file_path: str, out_file_path: str):
     students_dict['age']=student_data_list_no_space[2::5]
     students_dict['year of birth']=student_data_list_no_space[3::5]
     students_dict['semester']=student_data_list_no_space[4::5]
+   
     for i in range(len(students_dict['id'])):
-         if int(students_dict['id'][i])/100000000==0 or not students_dict['name'][i].isalpha() or 16<int(students_dict['age'][i])<120 or 2020-int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or int(students_dict['semester'][i])>0 :
-            students_dict['id'].pop(i)
-            students_dict['name'].pop(i)
-            students_dict['age'].pop(i)
-            students_dict['year of birth'].pop(i)
-            students_dict['semester'].pop(i)
- 
+        if int(students_dict['id'][i])//10000000==0 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<int(students_dict['age'][i])<120 or not 2020-int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
+            students_dict['id'][i]=None
+            students_dict['name'][i]=None
+            students_dict['age'][i]=None
+            students_dict['year of birth'][i]=None
+            students_dict['semester'][i]=None
+    
+    if len(students_dict['id'])>1:
+        for i in range(len(students_dict['id'])-1,0,-1):
+             for j in range(i-1,-1,-1):
+                 if students_dict['id'][i]== students_dict['id'][j] and students_dict['id'][i]!=None:
+                    students_dict['id'][j]=None
+                    students_dict['name'][j]=None
+                    students_dict['age'][j]=None
+                    students_dict['year of birth'][j]=None
+                    students_dict['semester'][j]=None
+   
+    sorted_id_list=students_dict['id'].copy()
+    sorted_id_list = [int(i) for i in sorted_id_list if i!=None ]
+    sorted_id_list.sort()     
+
+    for id in sorted_id_list:
+         for i in range(len(students_dict['id'])-1,0,-1):
+             if students_dict['id'][i]!=None and id==int(students_dict['id'][i]):
+                file_out.write(students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n')
+
+    file_out.close()
+    file_in.close()
+
 if __name__ == "__main__":
     fileCorrect(SRC_FILE, DST_FILE)
 

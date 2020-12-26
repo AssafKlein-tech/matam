@@ -1,7 +1,7 @@
-545485249, Chnun Chnun, 34, 2010 , 5
-313289555, Assaf klein, 25      , 1995, 2
-313521551   , Guy       Hackmon,      25     ,     1995,   8
-009865554   , Jake Paralta , 35  , 1985 , 3
-198765748,Harry  Poter, 16, 2004, 5
-900000001, Son Goku, 50, 1970, 7
-999999999, BiBi Melech, 70, 1950, -1
+54548524, Chnun Chnun, 34, 2010 , 5
+31328955, Assaf klein, 25      , 1995, 2
+31352155   , Guy       Hackmon,      25     ,     1995,   8
+00986555   , Jake Paralta , 35  , 1985 , 3
+19876574,Harry  P1oter, 16, 2004, 5
+90000000, Son Goku, 50, 1970, 7
+99999999, BiBi Melech, 70, 1950, -1
