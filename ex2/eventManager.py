@@ -1,6 +1,6 @@
 SRC_FILE = r".\ex2\member_list.txt"
 DST_FILE = r".\ex2\member_list_out.txt"
-K = 5
+K = 20
 AGE = 2
 NAME = 1
 
