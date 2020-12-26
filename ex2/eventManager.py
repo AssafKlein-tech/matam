@@ -1,6 +1,9 @@
 SRC_FILE = r".\ex2\member_list.txt"
 DST_FILE = r".\ex2\member_list_out.txt"
-K = 4
+K = 20
+AGE = 2
+NAME = 1
+
 
 def printYoungestStudents(in_file_path: str, out_file_path: str, k: int):
     #fileCorrect(in_file_path, out_file_path)
