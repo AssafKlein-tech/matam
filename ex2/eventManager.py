@@ -48,13 +48,14 @@ def stringCorrect(stream: str):
 
     
     sorted_id_list=students_dict['id'].copy()
-    sorted_id_list = [int(i) for i in sorted_id_list if i!=None ]
+    
+    sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit() ]
     sorted_id_list.sort()     
 
     s=""
     for id in sorted_id_list:
          for i in range(len(students_dict['id'])-1,0,-1):
-             if students_dict['id'][i]!=None and id==int(students_dict['id'][i]):
+             if students_dict['id'][i]!=None and students_dict['id'][i].isdigit() and id==int(students_dict['id'][i]):
                 s+=students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
     return s
 
