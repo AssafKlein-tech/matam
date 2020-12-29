@@ -29,7 +29,7 @@ def stringCorrect(stream: str):
    
    
     for i in range(len(students_dict['id'])):
-         if not students_dict['id'][i].isalpha() and not students_dict['age'][i].isalpha() and not students_dict['year of birth'][i].isalpha() and not students_dict['semester'][i].isalpha():
+         if  students_dict['id'][i].lstrip("-").isdigit() and  students_dict['age'][i].lstrip("-").isdigit() and students_dict['year of birth'][i].lstrip("-").isdigit() and  students_dict['semester'][i].lstrip("-").isdigit():
             if  int(students_dict['id'][i])//10000000==0 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
                 students_dict['id'][i] = None
                 students_dict['name'][i] = None
