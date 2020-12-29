@@ -1,4 +1,5 @@
-313289555, Assaf klein, 25, 1995, 2
-313521551, Guy Hackmon, 25, 1995, 8
-545485249, Aba kadabra, 34, 1986, 5
-900000001, Son Goku, 50, 1970, 6
+ Assaf klein
+ Guy Hackmon
+ Yohay Hamelech
+ Aba kadabra
+ Son Goku
