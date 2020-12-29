@@ -1,6 +1,7 @@
 #### IMPORTS ####
 #import event_manager as EM
 SRC_FILE = r".\ex2\member_list.txt"
+SRC_FILE2 = r".\ex2\input_2.txt"
 DST_FILE = r".\ex2\member_list_out.txt"
 K = 20
 AGE = 2
@@ -27,9 +28,8 @@ def stringCorrect(stream: str):
     students_dict['semester']=student_data_list_no_space[4::5]
    
    
-   
     for i in range(len(students_dict['id'])):
-        if int(students_dict['id'][i])//10000000==0 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<int(students_dict['age'][i])<120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
+        if int(students_dict['id'][i])//10000000 == 0 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<int(students_dict['age'][i]) and int(students_dict['age'][i]) <120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
             students_dict['id'][i] = None
             students_dict['name'][i] = None
             students_dict['age'][i] = None
@@ -63,10 +63,10 @@ def stringCorrect(stream: str):
 # Filters a file of students' subscription to specific event:
 #   orig_file_path: The path to the unfiltered subscription file
 #   filtered_file_path: The path to the new filtered file
-def fileCorrect(in_file_path: str, out_file_path: str):
+def fileCorrect(orig_file_path: str, filtered_file_path: str):
     
-    file_in = open(in_file_path,"r")
-    file_out = open(out_file_path,"w")
+    file_in = open(orig_file_path,"r")
+    file_out = open(filtered_file_path,"w")
     stream = file_in.read()
     s = stringCorrect(stream)
     file_out.write(s)
@@ -108,7 +108,7 @@ def correctAgeAvg(in_file_path: str, semester: int) -> float:
         if int(member_seperated[SEMESTER].strip()) == semester:
             counter += 1
             total_age += int(member_seperated[AGE])
-    if counter is 0:
+    if counter == 0:
         return 0
     return float(total_age) / counter
 
@@ -135,5 +135,5 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    print(printYoungestStudents(SRC_FILE, DST_FILE,K))
-    print(correctAgeAvg(SRC_FILE,S))
+    #print(fileCorrect(SRC_FILE2, DST_FILE))
+    print(correctAgeAvg(SRC_FILE2,1))

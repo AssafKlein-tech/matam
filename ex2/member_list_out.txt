@@ -1,5 +1,4 @@
- Assaf klein
- Guy Hackmon
- Yohay Hamelech
- Aba kadabra
- Son Goku
+10000000, stude, 20, 2000, 1
+10000008, studen, 23, 1997, 1
+30000000, stu, 18, 2002, 3
+40000000, st, 17, 2003, 2
