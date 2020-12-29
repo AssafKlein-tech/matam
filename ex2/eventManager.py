@@ -29,12 +29,13 @@ def stringCorrect(stream: str):
    
    
     for i in range(len(students_dict['id'])):
-        if int(students_dict['id'][i])//10000000 == 0 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<int(students_dict['age'][i]) and int(students_dict['age'][i]) <120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
-            students_dict['id'][i] = None
-            students_dict['name'][i] = None
-            students_dict['age'][i] = None
-            students_dict['year of birth'][i] = None
-            students_dict['semester'][i] = None
+         if students_dict['id'][i].isdigit() and  students_dict['age'][i].isdigit() and students_dict['year of birth'][i].isdigit() and students_dict['semester'][i].isdigit():
+            if  int(students_dict['id'][i])//10000000==0 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
+                students_dict['id'][i] = None
+                students_dict['name'][i] = None
+                students_dict['age'][i] = None
+                students_dict['year of birth'][i] = None
+                students_dict['semester'][i] = None
     
     if len(students_dict['id'])>1:
         for i in range(len(students_dict['id'])-1,0,-1):
@@ -54,7 +55,7 @@ def stringCorrect(stream: str):
 
     s=""
     for id in sorted_id_list:
-         for i in range(len(students_dict['id'])-1,0,-1):
+         for i in range(len(students_dict['id'])-1,-1,-1):
              if students_dict['id'][i]!=None and students_dict['id'][i].isdigit() and id==int(students_dict['id'][i]):
                 s+=students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
     return s
@@ -137,4 +138,4 @@ def testPrintEventsList(file_path :str):
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
     #print(fileCorrect(SRC_FILE2, DST_FILE))
-    print(correctAgeAvg(SRC_FILE2,1))
+    print(correctAgeAvg(SRC_FILE2,2))
