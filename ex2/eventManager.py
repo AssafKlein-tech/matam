@@ -30,7 +30,7 @@ def stringCorrect(stream: str):
    
     for i in range(len(students_dict['id'])):
          if  students_dict['id'][i].lstrip("-").isdigit() and  students_dict['age'][i].lstrip("-").isdigit() and students_dict['year of birth'][i].lstrip("-").isdigit() and  students_dict['semester'][i].lstrip("-").isdigit():
-            if  int(students_dict['id'][i])//10000000==0 or int(students_dict['id'][i]) > 999999999 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
+            if  int(students_dict['id'][i])//10000000==0 or int(students_dict['id'][i]) > 99999999 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
                 students_dict['id'][i] = None
                 students_dict['name'][i] = None
                 students_dict['age'][i] = None
@@ -92,7 +92,7 @@ def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
         members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
     with open(out_file_path, "w") as wfile:
         for member in members[:k]:
-            wfile.write((member.split(","))[NAME] + "\n")
+            wfile.write((member.split(","))[NAME].strip() + "\n")
     return k
 
 # Calculates the avg age for a given semester
