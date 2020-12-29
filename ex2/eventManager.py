@@ -29,7 +29,7 @@ def stringCorrect(stream: str):
    
    
     for i in range(len(students_dict['id'])):
-         if students_dict['id'][i].isdigit() and  students_dict['age'][i].isdigit() and students_dict['year of birth'][i].isdigit() and students_dict['semester'][i].isdigit():
+         if not students_dict['id'][i].isalpha() and not students_dict['age'][i].isalpha() and not students_dict['year of birth'][i].isalpha() and not students_dict['semester'][i].isalpha():
             if  int(students_dict['id'][i])//10000000==0 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
                 students_dict['id'][i] = None
                 students_dict['name'][i] = None
@@ -137,5 +137,5 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    #print(fileCorrect(SRC_FILE2, DST_FILE))
-    print(correctAgeAvg(SRC_FILE2,2))
+    fileCorrect(SRC_FILE2, DST_FILE)
+    print(correctAgeAvg(SRC_FILE2,1))
