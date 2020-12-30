@@ -48,7 +48,7 @@ def stringCorrect(stream: str):
                     students_dict['year of birth'][j]=None
                     students_dict['semester'][j]=None
 
-    print()
+    print(students_dict['id'])
     sorted_id_list=students_dict['id'].copy()
     
     sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit() ]
