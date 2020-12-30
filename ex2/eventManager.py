@@ -65,12 +65,11 @@ def stringCorrect(stream: str):
 #   orig_file_path: The path to the unfiltered subscription file
 #   filtered_file_path: The path to the new filtered file
 def fileCorrect(orig_file_path: str, filtered_file_path: str):
-    
     file_in = open(orig_file_path,"r")
     file_out = open(filtered_file_path,"w")
     stream = file_in.read()
-    s = stringCorrect(stream)
-    file_out.write(s)
+    data_to_write = stringCorrect(stream)
+    file_out.write(data_to_write)
     file_out.close()
     file_in.close()
 
@@ -82,13 +81,12 @@ def fileCorrect(orig_file_path: str, filtered_file_path: str):
 def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
     if type(k) is not int or k < 1:
         return -1
-    fileCorrect(in_file_path, out_file_path)
-    with open(out_file_path,"r") as rfile:
-        members = rfile.readlines()
-        if (len(members) < k):
-            k = len(members)
-        members.sort()
-        members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
+    with open(in_file_path, "r") as input_file:
+        members = stringCorrect(input_file.read()).strip().split("\n")
+    if (len(members) < k):
+        k = len(members)
+    members.sort()
+    members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
     with open(out_file_path, "w") as wfile:
         for member in members[:k]:
             wfile.write((member.split(","))[NAME].strip() + "\n")
