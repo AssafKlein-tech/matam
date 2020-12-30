@@ -125,6 +125,9 @@ def correctAgeAvg(in_file_path: str, semester: int) -> float:
         return 0
     return float(total_age) / counter
 
+# return the earliest date in the events list
+#   events: list of dictionaries
+#   retuns the earliest date 
 def getMinDate(events :list):
     dates = list(zip(*[j.values() for j in events]))[DATES]
     min_date = dates[0]
