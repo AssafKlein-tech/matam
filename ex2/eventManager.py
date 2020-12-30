@@ -85,7 +85,6 @@ def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
     fileCorrect(in_file_path, out_file_path)
     with open(out_file_path,"r") as rfile:
         members = rfile.readlines()
-        print(members)
         if (len(members) < k):
             k = len(members)
         members.sort()
@@ -149,5 +148,5 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    testPrintEventsList(DST_FILE)
+    printYoungestStudents(SRC_FILE,DST_FILE, 5)
     
