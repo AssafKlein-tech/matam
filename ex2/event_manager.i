@@ -3,6 +3,7 @@
 #include "event_manager.h"
 #include "date.h"
 %}
+
 EventManager createEventManager(Date date);
 
 void destroyEventManager(EventManager em);

@@ -28,9 +28,8 @@ def stringCorrect(stream: str):
     students_dict['year of birth']=student_data_list_no_space[3::5]
     students_dict['semester']=student_data_list_no_space[4::5]
    
-   
     for i in range(len(students_dict['id'])):
-         if  students_dict['id'][i].lstrip("-").isdigit() and  students_dict['age'][i].lstrip("-").isdigit() and students_dict['year of birth'][i].lstrip("-").isdigit() and  students_dict['semester'][i].lstrip("-").isdigit():
+        if  students_dict['id'][i].lstrip("-").isdigit() and  students_dict['age'][i].lstrip("-").isdigit() and students_dict['year of birth'][i].lstrip("-").isdigit() and  students_dict['semester'][i].lstrip("-").isdigit():
             if  int(students_dict['id'][i])//10000000==0 or int(students_dict['id'][i]) > 99999999 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
                 students_dict['id'][i] = None
                 students_dict['name'][i] = None
@@ -48,7 +47,6 @@ def stringCorrect(stream: str):
                     students_dict['year of birth'][j]=None
                     students_dict['semester'][j]=None
 
-    print(students_dict['id'])
     sorted_id_list=students_dict['id'].copy()
     
     sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit() ]
@@ -120,7 +118,7 @@ def getMinDate(events :list):
     dates = list(zip(*[j.values() for j in events]))[DATES]
     min_date = dates[0]
     for date in dates:
-        if EM.dateCompare(min_date, date):
+        if EM.dateCompare(min_date, date) > 0:
             min_date = date
     return min_date
 
@@ -133,8 +131,8 @@ def printEventsList(events :list,file_path :str): #em, event_names: list, event_
     min_date = getMinDate(events)
     em = EM.createEventManager(min_date)
     for event in events:
-        EM.emAddEventByDate(em,event["name"],event["date"],event["id"])
-    EM.emPrintAllEvents(em,file_path)
+        EM.emAddEventByDate(em,event["name"],event["date"],int(event["id"]))
+    EM.emPrintAllEvents(em, file_path)
     return em
 
 def testPrintEventsList(file_path :str):
@@ -151,5 +149,5 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    print(printYoungestStudents(SRC_FILE, DST_FILE, 5))
+    testPrintEventsList(DST_FILE)
     
