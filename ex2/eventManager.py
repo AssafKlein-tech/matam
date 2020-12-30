@@ -28,15 +28,7 @@ def removeMember(students_dict:dict, i:int):
     students_dict['year of birth'][i] = None
     students_dict['semester'][i] = None
 
-def stringCorrect(stream: str):
-    students_dict={
-        'id':[],
-        'name':[],
-        'age':[],
-        'year of birth':[],
-        'semester':[]
-    }
-    fillDict(stream,students_dict)
+def organizeDict(students_dict:dict):
     for i in range(len(students_dict['id'])):
         if  students_dict['id'][i].lstrip("-").isdigit() and students_dict['age'][i].lstrip("-").isdigit() \
             and students_dict['year of birth'][i].lstrip("-").isdigit() \
@@ -46,24 +38,35 @@ def stringCorrect(stream: str):
                     or not  2020 - int(students_dict['age'][i]) == int(students_dict['year of birth'][i]) \
                         or not int(students_dict['semester'][i]) > 0 :
                removeMember(students_dict,i)
-    
     if len(students_dict['id']) > 1:
         for i in range(len(students_dict['id'])-1, 0, -1):
             for j in range(i-1, -1, -1):
                 if students_dict['id'][i] == students_dict['id'][j] and students_dict['id'][i] != None:
                     removeMember(students_dict,i)
 
-    sorted_id_list = students_dict['id'].copy()
-    
-    sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit()]
-    sorted_id_list.sort()     
 
-    final_string = ""
+def dictTostring(students_dict:dict,final_string:str):
+    sorted_id_list = students_dict['id'].copy()
+    sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit()]
+    sorted_id_list.sort() 
     for id in sorted_id_list:
          for i in range(len(students_dict['id'])-1,-1,-1):
              if students_dict['id'][i]!=None and students_dict['id'][i].isdigit() and id==int(students_dict['id'][i]):
                 final_string += students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+\
                     students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
+
+def stringCorrect(stream: str):
+    students_dict={
+        'id':[],
+        'name':[],
+        'age':[],
+        'year of birth':[],
+        'semester':[]
+    }
+    fillDict(stream,students_dict)
+    organizeDict(students_dict)
+    final_string = ""
+    dictTostring(students_dict,final_string)    
     return final_string
 
 
