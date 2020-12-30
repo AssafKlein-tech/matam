@@ -93,6 +93,7 @@ def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
         return -1
     with open(in_file_path, "r") as input_file:
         members = stringCorrect(input_file.read()).strip().split("\n")
+        print(input_file.read())
     if (len(members) < k):
         k = len(members)
     members.sort()
