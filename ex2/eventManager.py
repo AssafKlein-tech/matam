@@ -1,64 +1,73 @@
 #### IMPORTS ####
-#import event_manager as EM
-SRC_FILE = r".\ex2\member_list.txt"
-SRC_FILE2 = r".\ex2\input_2.txt"
-DST_FILE = r".\ex2\member_list_out.txt"
-K = 20
+import event_manager as EM
+
+SRC_FILE = r"member_list"
+SRC_FILE2 = r"input_2.txt"
+DST_FILE = r"member_list_out"
 AGE = 2
 NAME = 1
 SEMESTER = 4
-S = 2
+DATES = 2
+
+def fillDict(stream: str,students_dict:dict):
+    one_line_stream = stream.replace('\n',',')
+    one_line_stream_no_space = " ".join(one_line_stream.split())
+    student_data_list = one_line_stream_no_space.split(',')
+    student_data_list_no_space = [student_data.strip() for student_data in student_data_list]
+    students_dict['id'] = student_data_list_no_space[0::5]
+    students_dict['name'] = student_data_list_no_space[1::5]
+    students_dict['age'] = student_data_list_no_space[2::5]
+    students_dict['year of birth'] = student_data_list_no_space[3::5]
+    students_dict['semester'] = student_data_list_no_space[4::5]
+
+def removeMember(students_dict:dict, i:int):
+    students_dict['id'][i] = None
+    students_dict['name'][i] = None
+    students_dict['age'][i] = None
+    students_dict['year of birth'][i] = None
+    students_dict['semester'][i] = None
+
+def organizeDict(students_dict:dict):
+    for i in range(len(students_dict['id'])):
+        if  students_dict['id'][i].lstrip("-").isdigit() and students_dict['age'][i].lstrip("-").isdigit() \
+            and students_dict['year of birth'][i].lstrip("-").isdigit() \
+                and  students_dict['semester'][i].lstrip("-").isdigit():
+            if  int(students_dict['id'][i]) // 10000000 == 0 or int(students_dict['id'][i]) > 99999999 \
+                or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 \
+                    or not  2020 - int(students_dict['age'][i]) == int(students_dict['year of birth'][i]) \
+                        or not int(students_dict['semester'][i]) > 0 :
+                removeMember(students_dict,i)
+    if len(students_dict['id']) > 1:
+        for i in range(len(students_dict['id'])-1, -1, -1):
+            for j in range(i-1, -1, -1):
+                if students_dict['id'][i] == students_dict['id'][j] and students_dict['id'][i] != None:
+                    removeMember(students_dict,j)
+
+
+def dictTostring(students_dict:dict,final_string:str):
+    sorted_id_list = students_dict['id'].copy()
+    sorted_id_list = [int(i) for i in students_dict['id'] if i!=None and i.isdigit()]
+    sorted_id_list.sort() 
+    for id in sorted_id_list:
+         for i in range(len(students_dict['id'])-1,-1,-1):
+             if students_dict['id'][i]!=None and students_dict['id'][i].isdigit() and id==int(students_dict['id'][i]):
+                final_string += students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+\
+                    students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
+    return final_string
 
 def stringCorrect(stream: str):
-    students_dict={
+    students_dict = {
         'id':[],
         'name':[],
         'age':[],
         'year of birth':[],
         'semester':[]
     }
-    one_line_stream=stream.replace('\n',',')
-    one_line_stream_no_space=" ".join(one_line_stream.split())
-    student_data_list=one_line_stream_no_space.split(',')
-    student_data_list_no_space= [student_data.strip() for student_data in student_data_list]
-    students_dict['id']=student_data_list_no_space[0::5]
-    students_dict['name']=student_data_list_no_space[1::5]
-    students_dict['age']=student_data_list_no_space[2::5]
-    students_dict['year of birth']=student_data_list_no_space[3::5]
-    students_dict['semester']=student_data_list_no_space[4::5]
-   
-   
-    for i in range(len(students_dict['id'])):
-         if  students_dict['id'][i].lstrip("-").isdigit() and  students_dict['age'][i].lstrip("-").isdigit() and students_dict['year of birth'][i].lstrip("-").isdigit() and  students_dict['semester'][i].lstrip("-").isdigit():
-            if  int(students_dict['id'][i])//10000000==0 or int(students_dict['id'][i]) > 99999999 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
-                students_dict['id'][i] = None
-                students_dict['name'][i] = None
-                students_dict['age'][i] = None
-                students_dict['year of birth'][i] = None
-                students_dict['semester'][i] = None
-    
-    if len(students_dict['id'])>1:
-        for i in range(len(students_dict['id'])-1,0,-1):
-            for j in range(i-1,-1,-1):
-                if students_dict['id'][i]== students_dict['id'][j] and students_dict['id'][i]!=None:
-                    students_dict['id'][j]=None
-                    students_dict['name'][j]=None
-                    students_dict['age'][j]=None
-                    students_dict['year of birth'][j]=None
-                    students_dict['semester'][j]=None
-
-    
-    sorted_id_list=students_dict['id'].copy()
-    
-    sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit() ]
-    sorted_id_list.sort()     
-
-    s=""
-    for id in sorted_id_list:
-         for i in range(len(students_dict['id'])-1,-1,-1):
-             if students_dict['id'][i]!=None and students_dict['id'][i].isdigit() and id==int(students_dict['id'][i]):
-                s+=students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
-    return s
+    fillDict(stream,students_dict)
+    organizeDict(students_dict)
+    final_string = ""
+    final_string = dictTostring(students_dict,final_string)   
+    return final_string
 
 
 #### PART 1 ####
@@ -66,12 +75,11 @@ def stringCorrect(stream: str):
 #   orig_file_path: The path to the unfiltered subscription file
 #   filtered_file_path: The path to the new filtered file
 def fileCorrect(orig_file_path: str, filtered_file_path: str):
-    
     file_in = open(orig_file_path,"r")
     file_out = open(filtered_file_path,"w")
     stream = file_in.read()
-    s = stringCorrect(stream)
-    file_out.write(s)
+    data_to_write = stringCorrect(stream)
+    file_out.write(data_to_write)
     file_out.close()
     file_in.close()
 
@@ -83,13 +91,13 @@ def fileCorrect(orig_file_path: str, filtered_file_path: str):
 def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
     if type(k) is not int or k < 1:
         return -1
-    fileCorrect(in_file_path, out_file_path)
-    with open(out_file_path,"r") as rfile:
-        members = rfile.readlines()
-        if (len(members) < k):
-            k = len(members)
-        members.sort()
-        members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
+    with open(in_file_path, "r") as input_file:
+        members = stringCorrect(input_file.read()).strip().split("\n")
+        print(input_file.read())
+    if (len(members) < k):
+        k = len(members)
+    members.sort()
+    members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
     with open(out_file_path, "w") as wfile:
         for member in members[:k]:
             wfile.write((member.split(","))[NAME].strip() + "\n")
@@ -114,17 +122,29 @@ def correctAgeAvg(in_file_path: str, semester: int) -> float:
         return 0
     return float(total_age) / counter
 
+def getMinDate(events :list):
+    dates = list(zip(*[j.values() for j in events]))[DATES]
+    min_date = dates[0]
+    for date in dates:
+        if EM.dateCompare(min_date, date) > 0:
+            min_date = date
+    return min_date
+
 #### PART 2 ####
 # Use SWIG :)
 # print the events in the list "events" using the functions from hw1
 #   events: list of dictionaries
 #   file_path: file path of the output file
 def printEventsList(events :list,file_path :str): #em, event_names: list, event_id_list: list, day: int, month: int, year: int):
-    pass
-    #TODO 
+    min_date = getMinDate(events)
+    em = EM.createEventManager(min_date)
+    for event in events:
+        EM.emAddEventByDate(em,event["name"],event["date"],int(event["id"]))
+    EM.emPrintAllEvents(em, file_path)
+    return em
 
 def testPrintEventsList(file_path :str):
-    events_lists=[{"name":"New Year's Eve","id":1,"date": EM.dateCreate(30, 12, 2020)},\
+    events_lists=[{"name":"New Year's Eve","id":1,"date": EM.dateCreate(30, 12, 2020)}, \
                     {"name" : "annual Rock & Metal party","id":2,"date":  EM.dateCreate(21, 4, 2021)}, \
                                  {"name" : "Improv","id":3,"date": EM.dateCreate(13, 3, 2021)}, \
                                      {"name" : "Student Festival","id":4,"date": EM.dateCreate(13, 5, 2021)},    ]
@@ -137,5 +157,7 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    fileCorrect(SRC_FILE2, DST_FILE)
-    print(correctAgeAvg(SRC_FILE2,2))
+    import sys
+    fileCorrect(SRC_FILE, DST_FILE)
+    if len(sys.argv)>1:
+        testPrintEventsList(sys.argv[1])
