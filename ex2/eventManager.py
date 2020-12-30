@@ -1,9 +1,9 @@
 #### IMPORTS ####
 import event_manager as EM
 
-SRC_FILE = r".\ex2\member_list.txt"
-SRC_FILE2 = r".\ex2\input_2.txt"
-DST_FILE = r".\ex2\member_list_out.txt"
+SRC_FILE = r"member_list.txt"
+SRC_FILE2 = r"input_2.txt"
+DST_FILE = r"member_list_out.txt"
 AGE = 2
 NAME = 1
 SEMESTER = 4
@@ -130,7 +130,11 @@ def getMinDate(events :list):
 #   file_path: file path of the output file
 def printEventsList(events :list,file_path :str): #em, event_names: list, event_id_list: list, day: int, month: int, year: int):
     min_date = getMinDate(events)
-    print (min_date)
+    em = EM.createEventManager(min_date)
+    for event in events:
+        EM.emAddEventByDate(em,event["name"],event["date"],event["id"])
+    EM.emPrintAllEvents(em,file_path)
+    return em
 
 def testPrintEventsList(file_path :str):
     events_lists=[{"name":"New Year's Eve","id":1,"date": EM.dateCreate(30, 12, 2020)},\
@@ -139,13 +143,12 @@ def testPrintEventsList(file_path :str):
                                      {"name" : "Student Festival","id":4,"date": EM.dateCreate(13, 5, 2021)},    ]
     em = printEventsList(events_lists,file_path)
     for event in events_lists:
-        print(event["date"])
         EM.dateDestroy(event["date"])
-    #EM.destroyEventManager(em)
+    EM.destroyEventManager(em)
 
 #### Main #### 
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    testPrintEventsList(DST_FILE)
+    fileCorrect(SRC_FILE, DST_FILE)
     
