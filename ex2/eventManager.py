@@ -1,9 +1,6 @@
 #### IMPORTS ####
 import event_manager as EM
 
-SRC_FILE = r"member_list"
-SRC_FILE2 = r"input_2.txt"
-DST_FILE = r"member_list_out"
 AGE = 2
 NAME = 1
 SEMESTER = 4
@@ -176,6 +173,5 @@ def testPrintEventsList(file_path :str):
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
     import sys
-    fileCorrect(SRC_FILE, DST_FILE)
     if len(sys.argv)>1:
         testPrintEventsList(sys.argv[1])
