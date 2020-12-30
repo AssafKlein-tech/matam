@@ -10,6 +10,18 @@ SEMESTER = 4
 DATES = 2
 
 
+def fillDict(stream: str, students_ids:list, students_names:list, students_ages:list, students_birth:list, students_semester:list):
+    one_line_stream=stream.replace('\n',',')
+    one_line_stream_no_space=" ".join(one_line_stream.split())
+    student_data_list=one_line_stream_no_space.split(',')
+    student_data_list_no_space= [student_data.strip() for student_data in student_data_list]
+    students_ids=student_data_list_no_space[0::5]
+    students_names=student_data_list_no_space[1::5]
+    students_ages=student_data_list_no_space[2::5]
+    students_birth=student_data_list_no_space[3::5]
+    students_semester=student_data_list_no_space[4::5]
+
+
 def stringCorrect(stream: str):
     students_dict={
         'id':[],
@@ -18,17 +30,8 @@ def stringCorrect(stream: str):
         'year of birth':[],
         'semester':[]
     }
-    one_line_stream=stream.replace('\n',',')
-    one_line_stream_no_space=" ".join(one_line_stream.split())
-    student_data_list=one_line_stream_no_space.split(',')
-    student_data_list_no_space= [student_data.strip() for student_data in student_data_list]
-    students_dict['id']=student_data_list_no_space[0::5]
-    students_dict['name']=student_data_list_no_space[1::5]
-    students_dict['age']=student_data_list_no_space[2::5]
-    students_dict['year of birth']=student_data_list_no_space[3::5]
-    students_dict['semester']=student_data_list_no_space[4::5]
-   
-   
+    fillDict(stream,students_dict['id'],students_dict['name'],students_dict['age'],students_dict['year of birth'],students_dict['semester'])
+
     for i in range(len(students_dict['id'])):
          if  students_dict['id'][i].lstrip("-").isdigit() and  students_dict['age'][i].lstrip("-").isdigit() and students_dict['year of birth'][i].lstrip("-").isdigit() and  students_dict['semester'][i].lstrip("-").isdigit():
             if  int(students_dict['id'][i])//10000000==0 or int(students_dict['id'][i]) > 99999999 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
@@ -48,7 +51,7 @@ def stringCorrect(stream: str):
                     students_dict['year of birth'][j]=None
                     students_dict['semester'][j]=None
 
-    print()
+    
     sorted_id_list=students_dict['id'].copy()
     
     sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit() ]
@@ -87,7 +90,6 @@ def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
     fileCorrect(in_file_path, out_file_path)
     with open(out_file_path,"r") as rfile:
         members = rfile.readlines()
-        print(members)
         if (len(members) < k):
             k = len(members)
         members.sort()
@@ -151,5 +153,6 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    print(printYoungestStudents(SRC_FILE, DST_FILE, 5))
+    
+    printYoungestStudents(SRC_FILE, DST_FILE, 5)
     
