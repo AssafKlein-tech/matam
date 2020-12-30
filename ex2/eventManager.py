@@ -38,27 +38,33 @@ def stringCorrect(stream: str):
     }
     fillDict(stream,students_dict)
     for i in range(len(students_dict['id'])):
-        if  students_dict['id'][i].lstrip("-").isdigit() and  students_dict['age'][i].lstrip("-").isdigit() and students_dict['year of birth'][i].lstrip("-").isdigit() and  students_dict['semester'][i].lstrip("-").isdigit():
-            if  int(students_dict['id'][i])//10000000==0 or int(students_dict['id'][i]) > 99999999 or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 or not 2020 - int(students_dict['age'][i])==int(students_dict['year of birth'][i]) or not int(students_dict['semester'][i])>0 :
-                removeMember(students_dict,i)
+        if  students_dict['id'][i].lstrip("-").isdigit() and students_dict['age'][i].lstrip("-").isdigit() \
+            and students_dict['year of birth'][i].lstrip("-").isdigit() \
+                and  students_dict['semester'][i].lstrip("-").isdigit():
+            if  int(students_dict['id'][i]) // 10000000 == 0 or int(students_dict['id'][i]) > 99999999 \
+                or not students_dict['name'][i].replace(' ','').isalpha() or not 16<=int(students_dict['age'][i])<=120 \
+                    or not  2020 - int(students_dict['age'][i]) == int(students_dict['year of birth'][i]) \
+                        or not int(students_dict['semester'][i]) > 0 :
+               removeMember(students_dict,i)
     
-    if len(students_dict['id'])>1:
-        for i in range(len(students_dict['id'])-1,0,-1):
-            for j in range(i-1,-1,-1):
-                if students_dict['id'][i]== students_dict['id'][j] and students_dict['id'][i]!=None:
-                   removeMember(students_dict,i)
+    if len(students_dict['id']) > 1:
+        for i in range(len(students_dict['id'])-1, 0, -1):
+            for j in range(i-1, -1, -1):
+                if students_dict['id'][i] == students_dict['id'][j] and students_dict['id'][i] != None:
+                    removeMember(students_dict,i)
 
-    sorted_id_list=students_dict['id'].copy()
+    sorted_id_list = students_dict['id'].copy()
     
-    sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit() ]
+    sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit()]
     sorted_id_list.sort()     
 
-    s=""
+    final_string = ""
     for id in sorted_id_list:
          for i in range(len(students_dict['id'])-1,-1,-1):
              if students_dict['id'][i]!=None and students_dict['id'][i].isdigit() and id==int(students_dict['id'][i]):
-                s+=students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
-    return s
+                final_string += students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+\
+                    students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
+    return final_string
 
 
 #### PART 1 ####
@@ -66,12 +72,11 @@ def stringCorrect(stream: str):
 #   orig_file_path: The path to the unfiltered subscription file
 #   filtered_file_path: The path to the new filtered file
 def fileCorrect(orig_file_path: str, filtered_file_path: str):
-    
     file_in = open(orig_file_path,"r")
     file_out = open(filtered_file_path,"w")
     stream = file_in.read()
-    s = stringCorrect(stream)
-    file_out.write(s)
+    data_to_write = stringCorrect(stream)
+    file_out.write(data_to_write)
     file_out.close()
     file_in.close()
 
@@ -83,13 +88,12 @@ def fileCorrect(orig_file_path: str, filtered_file_path: str):
 def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
     if type(k) is not int or k < 1:
         return -1
-    fileCorrect(in_file_path, out_file_path)
-    with open(out_file_path,"r") as rfile:
-        members = rfile.readlines()
-        if (len(members) < k):
-            k = len(members)
-        members.sort()
-        members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
+    with open(in_file_path, "r") as input_file:
+        members = stringCorrect(input_file.read()).strip().split("\n")
+    if (len(members) < k):
+        k = len(members)
+    members.sort()
+    members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
     with open(out_file_path, "w") as wfile:
         for member in members[:k]:
             wfile.write((member.split(","))[NAME].strip() + "\n")
@@ -136,7 +140,7 @@ def printEventsList(events :list,file_path :str): #em, event_names: list, event_
     return em
 
 def testPrintEventsList(file_path :str):
-    events_lists=[{"name":"New Year's Eve","id":1,"date": EM.dateCreate(30, 12, 2020)},\
+    events_lists=[{"name":"New Year's Eve","id":1,"date": EM.dateCreate(30, 12, 2020)}, \
                     {"name" : "annual Rock & Metal party","id":2,"date":  EM.dateCreate(21, 4, 2021)}, \
                                  {"name" : "Improv","id":3,"date": EM.dateCreate(13, 3, 2021)}, \
                                      {"name" : "Student Festival","id":4,"date": EM.dateCreate(13, 5, 2021)},    ]
@@ -149,5 +153,6 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    fileCorrect(SRC_FILE,DST_FILE)
-    
+    import sys
+    if len(sys.argv)>1:
+        testPrintEventsList(sys.argv[1])
