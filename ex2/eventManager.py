@@ -1,17 +1,14 @@
 #### IMPORTS ####
-#import event_manager as EM
-SRC_FILE = r".\ex2\member_list.txt"
-SRC_FILE2 = r".\ex2\input_2.txt"
-DST_FILE = r".\ex2\member_list_out.txt"
+import event_manager as EM
+
+SRC_FILE = r"member_list"
+SRC_FILE2 = r"input_2.txt"
+DST_FILE = r"member_list_out"
 AGE = 2
 NAME = 1
 SEMESTER = 4
 DATES = 2
 
-EVENTS = [{"name":"New Year's Eve","id":1,"date": 4},\
-                    {"name" : "annual Rock & Metal party","id":2,"date":  5}, \
-                                 {"name" : "Improv","id":3,"date": 6}, \
-                                     {"name" : "Student Festival","id":4,"date": 3},    ]
 
 def stringCorrect(stream: str):
     students_dict={
@@ -51,7 +48,7 @@ def stringCorrect(stream: str):
                     students_dict['year of birth'][j]=None
                     students_dict['semester'][j]=None
 
-    
+    print()
     sorted_id_list=students_dict['id'].copy()
     
     sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit() ]
@@ -90,6 +87,7 @@ def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
     fileCorrect(in_file_path, out_file_path)
     with open(out_file_path,"r") as rfile:
         members = rfile.readlines()
+        print(members)
         if (len(members) < k):
             k = len(members)
         members.sort()
@@ -118,13 +116,11 @@ def correctAgeAvg(in_file_path: str, semester: int) -> float:
         return 0
     return float(total_age) / counter
 
-
-
 def getMinDate(events :list):
     dates = list(zip(*[j.values() for j in events]))[DATES]
     min_date = dates[0]
     for date in dates:
-        if EM.compare(min_date, date):
+        if EM.dateCompare(min_date, date):
             min_date = date
     return min_date
 
@@ -135,7 +131,11 @@ def getMinDate(events :list):
 #   file_path: file path of the output file
 def printEventsList(events :list,file_path :str): #em, event_names: list, event_id_list: list, day: int, month: int, year: int):
     min_date = getMinDate(events)
-    print (min_date)
+    em = EM.createEventManager(min_date)
+    for event in events:
+        EM.emAddEventByDate(em,event["name"],event["date"],event["id"])
+    EM.emPrintAllEvents(em,file_path)
+    return em
 
 def testPrintEventsList(file_path :str):
     events_lists=[{"name":"New Year's Eve","id":1,"date": EM.dateCreate(30, 12, 2020)},\
@@ -151,5 +151,5 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    printEventsList(EVENTS, DST_FILE)
-
+    print(printYoungestStudents(SRC_FILE, DST_FILE, 5))
+    
