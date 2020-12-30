@@ -53,8 +53,7 @@ def dictTostring(students_dict:dict,final_string:str):
          for i in range(len(students_dict['id'])-1,-1,-1):
              if students_dict['id'][i]!=None and students_dict['id'][i].isdigit() and id==int(students_dict['id'][i]):
                 final_string += students_dict['id'][i]+', '+students_dict['name'][i]+', '+students_dict['age'][i]+', '+\
-                    students_dict['year of birth'
-                    ][i]+', '+students_dict['semester'][i]+'\n'
+                    students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
     return final_string
 
 def stringCorrect(stream: str):
