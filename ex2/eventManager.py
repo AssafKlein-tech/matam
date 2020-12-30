@@ -93,15 +93,17 @@ def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
         return -1
     with open(in_file_path, "r") as input_file:
         members = stringCorrect(input_file.read()).strip().split("\n")
-        if members[0] == '':
-            return 0
+    if members[0] == '':
+        out_file = open(out_file_path, "w")
+        out_file.close()
+        return 0
     if (len(members) < k):
         k = len(members)
     members.sort()
     members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
-    with open(out_file_path, "w") as wfile:
+    with open(out_file_path, "w") as out_file:
         for member in members[:k]:
-            wfile.write((member.split(","))[NAME].strip() + "\n")
+            out_file.write((member.split(","))[NAME].strip() + "\n")
     return k
 
 # Calculates the avg age for a given semester
