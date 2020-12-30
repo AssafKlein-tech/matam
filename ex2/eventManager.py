@@ -53,8 +53,7 @@ def stringCorrect(stream: str):
                 if students_dict['id'][i] == students_dict['id'][j] and students_dict['id'][i] != None:
                     removeMember(students_dict,i)
 
-    sorted_id_list = students_dict['id'].copy()
-    
+    sorted_id_list = students_dict['id'].copy()   
     sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit()]
     sorted_id_list.sort()     
 
