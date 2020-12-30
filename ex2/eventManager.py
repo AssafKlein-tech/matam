@@ -1,13 +1,13 @@
 #### IMPORTS ####
-#import event_manager as EM
+import event_manager as EM
+
 SRC_FILE = r".\ex2\member_list.txt"
 SRC_FILE2 = r".\ex2\input_2.txt"
 DST_FILE = r".\ex2\member_list_out.txt"
-K = 20
 AGE = 2
 NAME = 1
 SEMESTER = 4
-S = 2
+
 
 def stringCorrect(stream: str):
     students_dict={
