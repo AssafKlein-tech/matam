@@ -9,17 +9,16 @@ NAME = 1
 SEMESTER = 4
 DATES = 2
 
-
 def fillDict(stream: str,students_dict:dict):
-    one_line_stream=stream.replace('\n',',')
-    one_line_stream_no_space=" ".join(one_line_stream.split())
-    student_data_list=one_line_stream_no_space.split(',')
-    student_data_list_no_space= [student_data.strip() for student_data in student_data_list]
-    students_dict['id']=student_data_list_no_space[0::5]
-    students_dict['name']=student_data_list_no_space[1::5]
-    students_dict['age']=student_data_list_no_space[2::5]
-    students_dict['year of birth']=student_data_list_no_space[3::5]
-    students_dict['semester']=student_data_list_no_space[4::5]
+    one_line_stream = stream.replace('\n',',')
+    one_line_stream_no_space = " ".join(one_line_stream.split())
+    student_data_list = one_line_stream_no_space.split(',')
+    student_data_list_no_space = [student_data.strip() for student_data in student_data_list]
+    students_dict['id'] = student_data_list_no_space[0::5]
+    students_dict['name'] = student_data_list_no_space[1::5]
+    students_dict['age'] = student_data_list_no_space[2::5]
+    students_dict['year of birth'] = student_data_list_no_space[3::5]
+    students_dict['semester'] = student_data_list_no_space[4::5]
 
 def removeMember(students_dict:dict, i:int):
     students_dict['id'][i] = None
@@ -39,15 +38,15 @@ def organizeDict(students_dict:dict):
                         or not int(students_dict['semester'][i]) > 0 :
                 removeMember(students_dict,i)
     if len(students_dict['id']) > 1:
-        for i in range(len(students_dict['id'])-1, 0, -1):
+        for i in range(len(students_dict['id'])-1, -1, -1):
             for j in range(i-1, -1, -1):
                 if students_dict['id'][i] == students_dict['id'][j] and students_dict['id'][i] != None:
-                    removeMember(students_dict,i)
+                    removeMember(students_dict,j)
 
 
 def dictTostring(students_dict:dict,final_string:str):
     sorted_id_list = students_dict['id'].copy()
-    sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit()]
+    sorted_id_list = [int(i) for i in students_dict['id'] if i!=None and i.isdigit()]
     sorted_id_list.sort() 
     for id in sorted_id_list:
          for i in range(len(students_dict['id'])-1,-1,-1):
