@@ -9,6 +9,9 @@ NAME = 1
 SEMESTER = 4
 DATES = 2
 
+# fills the dictionary with data from the stream
+# stream: the string which created from the input file.
+# student_dict: the dictionary of the students.
 def fillDict(stream: str,students_dict:dict):
     one_line_stream = stream.replace('\n',',')
     one_line_stream_no_space = " ".join(one_line_stream.split())
@@ -20,6 +23,9 @@ def fillDict(stream: str,students_dict:dict):
     students_dict['year of birth'] = student_data_list_no_space[3::5]
     students_dict['semester'] = student_data_list_no_space[4::5]
 
+# removes member from the dictionary
+# student_dict: the dictionary of the students.
+# i: index of member to remove.
 def removeMember(students_dict:dict, i:int):
     students_dict['id'][i] = None
     students_dict['name'][i] = None
@@ -27,6 +33,8 @@ def removeMember(students_dict:dict, i:int):
     students_dict['year of birth'][i] = None
     students_dict['semester'][i] = None
 
+# removes non legal members from the dictionary and duplications
+# student_dict: the dictionary of the students.
 def organizeDict(students_dict:dict):
     for i in range(len(students_dict['id'])):
         if  students_dict['id'][i].lstrip("-").isdigit() and students_dict['age'][i].lstrip("-").isdigit() \
@@ -43,7 +51,9 @@ def organizeDict(students_dict:dict):
                 if students_dict['id'][i] == students_dict['id'][j] and students_dict['id'][i] != None:
                     removeMember(students_dict,j)
 
-
+#transfers the data from the dictionary to a string
+# student_dict: the dictionary of the students.
+# final_string: the string which get the data from the dictionary 
 def dictTostring(students_dict:dict,final_string:str):
     sorted_id_list = students_dict['id'].copy()
     sorted_id_list = [int(i) for i in students_dict['id'] if i!=None and i.isdigit()]
@@ -55,6 +65,8 @@ def dictTostring(students_dict:dict,final_string:str):
                     students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
     return final_string
 
+# corrects the string by the demmands of the task 
+# stream: the string which created from the input file.
 def stringCorrect(stream: str):
     students_dict = {
         'id':[],
