@@ -7,6 +7,7 @@ DST_FILE = r".\ex2\member_list_out.txt"
 AGE = 2
 NAME = 1
 SEMESTER = 4
+DATES = 2
 
 
 def stringCorrect(stream: str):
@@ -114,14 +115,22 @@ def correctAgeAvg(in_file_path: str, semester: int) -> float:
         return 0
     return float(total_age) / counter
 
+def getMinDate(events :list):
+    dates = list(zip(*[j.values() for j in events]))[DATES]
+    min_date = dates[0]
+    for date in dates:
+        if EM.dateCompare(min_date, date):
+            min_date = date
+    return min_date
+
 #### PART 2 ####
 # Use SWIG :)
 # print the events in the list "events" using the functions from hw1
 #   events: list of dictionaries
 #   file_path: file path of the output file
 def printEventsList(events :list,file_path :str): #em, event_names: list, event_id_list: list, day: int, month: int, year: int):
-    pass
-    #TODO 
+    min_date = getMinDate(events)
+    print (min_date)
 
 def testPrintEventsList(file_path :str):
     events_lists=[{"name":"New Year's Eve","id":1,"date": EM.dateCreate(30, 12, 2020)},\
@@ -130,12 +139,13 @@ def testPrintEventsList(file_path :str):
                                      {"name" : "Student Festival","id":4,"date": EM.dateCreate(13, 5, 2021)},    ]
     em = printEventsList(events_lists,file_path)
     for event in events_lists:
+        print(event["date"])
         EM.dateDestroy(event["date"])
-    EM.destroyEventManager(em)
+    #EM.destroyEventManager(em)
 
 #### Main #### 
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    fileCorrect(SRC_FILE2, DST_FILE)
-    print(correctAgeAvg(SRC_FILE2,2))
+    testPrintEventsList(DST_FILE)
+    
