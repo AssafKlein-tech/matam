@@ -1,9 +1,9 @@
 #### IMPORTS ####
 import event_manager as EM
 
-SRC_FILE = r"member_list.txt"
+SRC_FILE = r"member_list"
 SRC_FILE2 = r"input_2.txt"
-DST_FILE = r"member_list_out.txt"
+DST_FILE = r"member_list_out"
 AGE = 2
 NAME = 1
 SEMESTER = 4
@@ -48,7 +48,7 @@ def stringCorrect(stream: str):
                     students_dict['year of birth'][j]=None
                     students_dict['semester'][j]=None
 
-    
+    print()
     sorted_id_list=students_dict['id'].copy()
     
     sorted_id_list = [int(i) for i in sorted_id_list if i!=None and i.isdigit() ]
@@ -87,6 +87,7 @@ def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
     fileCorrect(in_file_path, out_file_path)
     with open(out_file_path,"r") as rfile:
         members = rfile.readlines()
+        print(members)
         if (len(members) < k):
             k = len(members)
         members.sort()
@@ -150,5 +151,5 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    fileCorrect(SRC_FILE, DST_FILE)
+    print(printYoungestStudents(SRC_FILE, DST_FILE, 5))
     
