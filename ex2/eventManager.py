@@ -156,5 +156,6 @@ def testPrintEventsList(file_path :str):
 # feel free to add more tests and change that section. 
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
-    printYoungestStudents(SRC_FILE,DST_FILE, 5)
-    
+    import sys
+    if len(sys.argv)>1:
+        testPrintEventsList(sys.argv[1])
