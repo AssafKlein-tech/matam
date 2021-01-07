@@ -1,15 +1,18 @@
 #### IMPORTS ####
 import event_manager as EM
 
-SRC_FILE = r"member_list"
-SRC_FILE2 = r"input_2.txt"
-DST_FILE = r"member_list_out"
 AGE = 2
 NAME = 1
 SEMESTER = 4
 DATES = 2
 
+<<<<<<< HEAD
 #fills the dictionary with data from the stream
+=======
+# fills the dictionary with data from the stream
+# stream: the string which created from the input file.
+# student_dict: the dictionary of the students.
+>>>>>>> 937c1c16aa7b75485e82d7658e56d76252eedcf7
 def fillDict(stream: str,students_dict:dict):
     one_line_stream = stream.replace('\n',',')
     one_line_stream_no_space = " ".join(one_line_stream.split())
@@ -21,7 +24,13 @@ def fillDict(stream: str,students_dict:dict):
     students_dict['year of birth'] = student_data_list_no_space[3::5]
     students_dict['semester'] = student_data_list_no_space[4::5]
 
+<<<<<<< HEAD
 #removes a member from the dictionary
+=======
+# removes member from the dictionary
+# student_dict: the dictionary of the students.
+# i: index of member to remove.
+>>>>>>> 937c1c16aa7b75485e82d7658e56d76252eedcf7
 def removeMember(students_dict:dict, i:int):
     students_dict['id'][i] = None
     students_dict['name'][i] = None
@@ -29,7 +38,12 @@ def removeMember(students_dict:dict, i:int):
     students_dict['year of birth'][i] = None
     students_dict['semester'][i] = None
 
+<<<<<<< HEAD
 #organizes the dictionary - removes not legal members and duplications 
+=======
+# removes non legal members from the dictionary and duplications
+# student_dict: the dictionary of the students.
+>>>>>>> 937c1c16aa7b75485e82d7658e56d76252eedcf7
 def organizeDict(students_dict:dict):
     for i in range(len(students_dict['id'])):
         if  students_dict['id'][i].lstrip("-").isdigit() and students_dict['age'][i].lstrip("-").isdigit() \
@@ -47,6 +61,11 @@ def organizeDict(students_dict:dict):
                     removeMember(students_dict,j)
 
 #transfers the data from the dictionary to a string
+<<<<<<< HEAD
+=======
+# student_dict: the dictionary of the students.
+# final_string: the string which get the data from the dictionary 
+>>>>>>> 937c1c16aa7b75485e82d7658e56d76252eedcf7
 def dictTostring(students_dict:dict,final_string:str):
     sorted_id_list = students_dict['id'].copy()
     sorted_id_list = [int(i) for i in students_dict['id'] if i!=None and i.isdigit()]
@@ -58,7 +77,12 @@ def dictTostring(students_dict:dict,final_string:str):
                     students_dict['year of birth'][i]+', '+students_dict['semester'][i]+'\n'
     return final_string
 
+<<<<<<< HEAD
 #corrects a string
+=======
+# corrects the string by the demmands of the task 
+# stream: the string which created from the input file.
+>>>>>>> 937c1c16aa7b75485e82d7658e56d76252eedcf7
 def stringCorrect(stream: str):
     students_dict = {
         'id':[],
@@ -97,13 +121,17 @@ def printYoungestStudents(in_file_path: str, out_file_path: str, k: int) -> int:
         return -1
     with open(in_file_path, "r") as input_file:
         members = stringCorrect(input_file.read()).strip().split("\n")
+    if members[0] == '':
+        out_file = open(out_file_path, "w")
+        out_file.close()
+        return 0
     if (len(members) < k):
         k = len(members)
     members.sort()
     members.sort(key=lambda member: int((member.split(","))[AGE].strip(" ")))
-    with open(out_file_path, "w") as wfile:
+    with open(out_file_path, "w") as out_file:
         for member in members[:k]:
-            wfile.write((member.split(","))[NAME].strip() + "\n")
+            out_file.write((member.split(","))[NAME].strip() + "\n")
     return k
 
 # Calculates the avg age for a given semester
@@ -125,6 +153,9 @@ def correctAgeAvg(in_file_path: str, semester: int) -> float:
         return 0
     return float(total_age) / counter
 
+# return the earliest date in the events list
+#   events: list of dictionaries
+#   retuns the earliest date 
 def getMinDate(events :list):
     dates = list(zip(*[j.values() for j in events]))[DATES]
     min_date = dates[0]
@@ -161,6 +192,5 @@ def testPrintEventsList(file_path :str):
 # sys.argv - list of the arguments passed to the python script
 if __name__ == "__main__":
     import sys
-    fileCorrect(SRC_FILE, DST_FILE)
     if len(sys.argv)>1:
         testPrintEventsList(sys.argv[1])
