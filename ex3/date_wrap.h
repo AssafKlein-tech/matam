@@ -1,3 +1,5 @@
 namespace mtm{
-    class 
+    extern "C" {
+    #include "date.h"
+    }
 }
