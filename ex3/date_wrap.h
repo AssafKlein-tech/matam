@@ -29,7 +29,8 @@ public:
     bool operator++(const DateWrap& datewrap);
     DateWrap& operator++(const DateWrap& datewrap);
     DateWrap& operator+=(const DateWrap& datewrap, int days_to_add);
-    DateWrap operator+(const DateWrap& datewrap);
 };
+
+DateWrap DateWrap::operator+(const DateWrap& datewrap, const DateWrap& datewrap);
 
 
