@@ -1,6 +1,8 @@
 {
     "cmake.sourceDirectory": "${workspaceFolder}/.",
     "files.associations": {
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "*.tcc": "cpp",
+        "type_traits": "cpp"
     }
 }

@@ -49,6 +49,15 @@ int DateWrap::year()
 	return year;
 }
 
+bool DateWrap::operator>(const DateWrap& datewrap)
+{
+	dateCompare()
+}
+
+bool DateWrap::operator<(const DateWrap& datewrap)
+{
+
+}
 DateWrap& DateWrap::operator+=(const int days_to_add) 
 {
 	for(int i = 0; i < days_to_add; i++)
@@ -60,7 +69,7 @@ DateWrap& DateWrap::operator+=(const int days_to_add)
 
 DateWrap operator+(const DateWrap& a, const DateWrap& b) 
 {
-	DateWrap date_a(a), date_b(b)  ;
+	DateWrap date_a(a), date_b(b);
 	if (date_a > date_b):
 		return date_a += date_b.toDays();
 	return date_b += date_a.toDays();
