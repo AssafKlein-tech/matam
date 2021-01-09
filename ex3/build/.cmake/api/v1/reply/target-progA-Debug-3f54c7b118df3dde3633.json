@@ -42,7 +42,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "g++ -std=c++11 -Wall -Werror -pedantic-errors -DNDEBUG -g  "
+					"fragment" : "-g  "
 				}
 			],
 			"language" : "CXX",
@@ -59,7 +59,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "g++ -std=c++11 -Wall -Werror -pedantic-errors -DNDEBUG -g",
+				"fragment" : "-g",
 				"role" : "flags"
 			},
 			{
@@ -103,7 +103,7 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "partA/date_wrap.h",
+			"path" : "date.h",
 			"sourceGroupIndex" : 0
 		},
 		{
