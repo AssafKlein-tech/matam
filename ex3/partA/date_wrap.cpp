@@ -1,4 +1,5 @@
 #include "date_wrap.h"
+using namespace mtm;
 
 DateWrap::DateWrap(const int day,const int month, const int year)
 {

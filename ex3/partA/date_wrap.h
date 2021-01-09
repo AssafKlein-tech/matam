@@ -4,6 +4,7 @@
 using std::ostream;
 #include <stdbool.h>
 
+namespace mtm{
 extern "C" {
     #include "date.h"
 }
@@ -36,5 +37,5 @@ public:
 
 DateWrap operator+(const DateWrap& datewrap1, const DateWrap& datewrap2);
 
-
+}
 #endif
