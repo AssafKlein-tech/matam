@@ -11,6 +11,6 @@ set(CMAKE_C_FLAGS ${MTM_FLAGS_DEBUG})
 
 //(.)link_directories
 include_directories(provided)
-add_executable(final_executable ./ex3/date.h ./ex3/date_wrap.h ./ex3/date_wrap.cpp)
-target_link_libraries(final_executable ./ex3/libdate.a)
+add_executable(final_executable ./date.h ./date_wrap.h ./date_wrap.cpp)
+target_link_libraries(final_executable ./libdate.a)
 

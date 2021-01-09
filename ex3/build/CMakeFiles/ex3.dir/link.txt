@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/ex3.dir/main.cpp.o  -o ex3 

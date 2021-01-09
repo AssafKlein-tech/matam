@@ -1,0 +1,5 @@
+/home/assafklein/mtm/matam/ex3/build/CMakeFiles/rebuild_cache.dir
+/home/assafklein/mtm/matam/ex3/build/CMakeFiles/final_executable.dir
+/home/assafklein/mtm/matam/ex3/build/CMakeFiles/package.dir
+/home/assafklein/mtm/matam/ex3/build/CMakeFiles/package_source.dir
+/home/assafklein/mtm/matam/ex3/build/CMakeFiles/edit_cache.dir
