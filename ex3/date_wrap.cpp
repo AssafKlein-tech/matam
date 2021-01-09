@@ -9,9 +9,9 @@ DateWrap::DateWrap(const int day,const int month, const int year)
 
 DateWrap::DateWrap(const int num_of_days)
 {
-	int year = num_of_days/365;
-	int month = (num_of_days-365*year)/30;
-	int day = (num_of_days-365*year)%30;
+	int year = num_of_days/360;
+	int month = (num_of_days-360*year)/30;
+	int day = (num_of_days-360*year)%30;
     //if date illegall raise InvalidDate
     date = dateCreate(day,month,year);
 }
