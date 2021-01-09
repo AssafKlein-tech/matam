@@ -8,5 +8,6 @@
         "ostream": "cpp",
         "system_error": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "C_Cpp.intelliSenseEngineFallback": "Enabled"
 }

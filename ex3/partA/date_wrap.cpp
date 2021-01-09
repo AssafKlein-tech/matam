@@ -10,8 +10,8 @@ namespace mtm{
 	DateWrap::DateWrap(const int num_of_days)
 	{
 		int year = num_of_days/360 + 1;
-		int month = (num_of_days-360*year)/30 + 1;
-		int day = (num_of_days-360*year)%30;
+		int month = (num_of_days)/30 + 1;
+		int day = (num_of_days)%30;
 		if(day == 0)
 		{
 			day = 30;
@@ -33,7 +33,7 @@ namespace mtm{
 
 	DateWrap::DateWrap(const DateWrap& datewrap)
 	{
-		date = dateCopy(date);
+		date = dateCopy(datewrap.date);
 	}
 
 	DateWrap& DateWrap::operator=(const DateWrap& datewrap)
@@ -117,8 +117,10 @@ namespace mtm{
 
 	DateWrap operator+(const DateWrap& date1, const DateWrap& date2) 
 	{
-		if (date1.operator>(date2))
+		if (date1 > date2)
+		{
 			return DateWrap(date1) += toDays(date2);
+		}
 		return DateWrap(date2) += toDays(date1);
 	}
 		
