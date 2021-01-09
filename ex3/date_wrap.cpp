@@ -27,7 +27,11 @@ DateWrap::DateWrap(const DateWrap& datewrap)
 
 DateWrap::DateWrap& operator=(const DateWrap& datewrap)
 {
-
+	if(this == &datewrap)
+		return *this;
+	dateDestroy() date;
+	date = dateCreate(datewrap->day(),datewrap->month(),datewrap->year())
+	return *this;
 }
 
 bool getDateParameter(int& day, int& month, int& year)
@@ -37,9 +41,7 @@ bool getDateParameter(int& day, int& month, int& year)
 
 int toDays()
 {
-	int day = 0, month = 0, year = 0;
-	getDateParameter(day, month,year);
-	return day + month*30 + year * 360; 
+	return day() + month()*30 + year() * 360; 
 }
 
 int DateWrap::day()
@@ -104,7 +106,7 @@ DateWrap& DateWrap::operator+=(const int days_to_add)
 
 DateWrap operator+(const DateWrap& date1, const DateWrap& date2) 
 {
-	if (date1 > date2):
+	if (date1 > date2)
 		return DateWrap(date1) += date2.toDays();
 	return DateWrap(date2) += date1.toDays();
 }
