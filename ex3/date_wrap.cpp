@@ -109,3 +109,9 @@ DateWrap operator+(const DateWrap& date1, const DateWrap& date2)
 	return DateWrap(date2) += date1.toDays();
 }
 	
+DateWrap operator++(int)
+{
+	DateWrap copy=this;
+	dateTick(date);
+	return copy;
+}

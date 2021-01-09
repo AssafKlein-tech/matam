@@ -29,7 +29,7 @@ public:
     bool operator<=(const DateWrap& datewrap);
     bool operator>=(const DateWrap& datewrap);
     bool operator!=(const DateWrap& datewrap);
-    DateWrap& operator++();
+    DateWrap operator++(int);
     DateWrap& operator+=(const int days_to_add);
 
 };
