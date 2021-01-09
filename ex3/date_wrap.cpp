@@ -49,31 +49,12 @@ int DateWrap::year()
 	return year;
 }
 
-<<<<<<< HEAD
-"""
-write c'tor for 1 int argument
-
-"""
-
-friend ostream& operator<<(ostream& os, const DateWrap& c)
-{
-	
-	
-
-
-}
-
-DateWrap DateWrap::operator+=(const Complex& c) {
-	re += c.re;
-	im += c.im;
-=======
 DateWrap& DateWrap::operator+=(const int days_to_add) 
 {
 	for(int i = 0; i < days_to_add; i++)
 	{
 		dateTick(date);
 	}
->>>>>>> 30d152547f66d275b662e4ef38ce4aab4d1717e3
 	return *this;
 }
 
