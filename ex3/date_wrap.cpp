@@ -1,5 +1,4 @@
 #include "date_wrap.h"
-usu
 //using namespace mtm
 
 DateWrap::DateWrap(const int day,const int month, const int year)
@@ -11,6 +10,13 @@ DateWrap::DateWrap(const int day,const int month, const int year)
 bool getDateParameter(int& day, int& month, int& year)
 {
     return dateGet(date, &day, &month, &year);
+}
+
+int toDays()
+{
+	int day = 0, month = 0, year = 0;
+	getDateParameter(day, month,year);
+	return day + month*30 + year * 360; 
 }
 
 int DateWrap::day()
@@ -34,26 +40,20 @@ int DateWrap::year()
 	return year;
 }
 
-"""
-write c'tor for 1 int argument
+/*
+* create c'tor for 1 
+* += using 
+*/
 
-"""
-
-
-
-DateWrap DateWrap::operator+=(const Complex& c) {
-	re += c.re;
-	im += c.im;
+DateWrap& DateWrap::operator+=(const int days_to_add) 
+{
+	for(int i = 0; i < days_to_add; i++)
+	{
+		dateTick(date);
+	}
 	return *this;
 }
- 
-Complex& DateWrap::operator-=(const Complex& c) {
-	return *this += -c;
-}
- 
-Complex DateWrap::operator-() const {
-	return Complex(-re, -im);
-}
+
 
 Complex operator-(const Complex& a, const Complex& b) {
 	return Complex(a) -= b;
@@ -72,8 +72,11 @@ bool operator==(const Complex& a, const Complex& b) {
 	return a.re == b.re && a.im == b.im;
 }
 
-DateWrap operator+(const Complex& a, const Complex& b) {
-	//check which is bigger and using += with the lesser converted to int
-	return Complex(a) += b;
-	}
+DateWrap operator+(const DateWrap& a, const DateWrap& b) 
+{
+	DateWrap date_a(a), date_b(b)  ;
+	if (date_a > date_b):
+		return date_a += date_b.toDays();
+	return date_b += date_a.toDays();
+}
 	
