@@ -1,0 +1,1 @@
+/usr/bin/g++  g++ -std=c++11 -Wall -Werror -pedantic-errors -DNDEBUG -g  -rdynamic CMakeFiles/progA.dir/partA/date_wrap.cpp.o CMakeFiles/progA.dir/provided/test_partA.cpp.o  -o progA  -l./provided/libdate.a 

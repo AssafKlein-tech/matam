@@ -3,6 +3,9 @@
     "files.associations": {
         "iosfwd": "cpp",
         "*.tcc": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "string": "cpp",
+        "ostream": "cpp",
+        "system_error": "cpp"
     }
 }
