@@ -3,7 +3,7 @@
 DateWrap::DateWrap(const int day,const int month, const int year)
 {
     //if date illegall raise InvalidDate
-    date(dateCreate(day,month,year));
+    date = dateCreate(day,month,year);
 }
 
 DateWrap::DateWrap(const int num_of_days)
@@ -13,6 +13,21 @@ DateWrap::DateWrap(const int num_of_days)
 	int day = (num_of_days-360*year)%30;
     //if date illegall raise InvalidDate
     date = dateCreate(day,month,year);
+}
+
+DateWrap::~DateWrap()
+{
+	dateDestroy(date);
+}
+
+DateWrap::DateWrap(const DateWrap& datewrap)
+{
+	date = dateCopy(date);
+}
+
+DateWrap::DateWrap& operator=(const DateWrap& datewrap)
+{
+
 }
 
 bool getDateParameter(int& day, int& month, int& year)
@@ -65,17 +80,17 @@ bool DateWrap::operator<(const DateWrap& datewrap)
 
 bool DateWrap::operator<=(const DateWrap& datewrap)
 {
-	return (dateCompare(date, datewrap->date) == 0)
+	return (dateCompare(date, datewrap->date) <= 0)
 }
 
 bool DateWrap::operator>=(const DateWrap& datewrap)
 {
-
+	return (dateCompare(date, datewrap->date) >= 0)
 }
 
 bool DateWrap::operator!=(const DateWrap& datewrap)
 {
-
+	return (dateCompare(date, datewrap->date) != 0)
 }
 
 DateWrap& DateWrap::operator+=(const int days_to_add) 
@@ -87,16 +102,16 @@ DateWrap& DateWrap::operator+=(const int days_to_add)
 	return *this;
 }
 
-DateWrap operator+(const DateWrap& a, const DateWrap& b) 
+DateWrap operator+(const DateWrap& date1, const DateWrap& date2) 
 {
-	if (date_a > date_b):
-		return DateWrap(date_a) += date_b.toDays();
-	return DateWrap(date_b) += date_a.toDays();
+	if (date1 > date2):
+		return DateWrap(date1) += date2.toDays();
+	return DateWrap(date2) += date1.toDays();
 }
 	
-DateWrap operator++(int)
+DateWrap DateWrap::operator++(int)
 {
-	DateWrap copy=this;
+	DateWrap copy(*this);
 	dateTick(date);
 	return copy;
 }

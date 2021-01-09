@@ -15,6 +15,9 @@ public:
 
     DateWrap(int day,int month,int year);
     DateWrap(int date);
+    ~DateWrap();
+    DateWrap(const DateWrap& datewrap);
+	DateWrap& operator=(const DateWrap& datewrap);
 
     int day();
     int month();
@@ -28,6 +31,7 @@ public:
     bool operator!=(const DateWrap& datewrap);
     DateWrap operator++(int);
     DateWrap& operator+=(const int days_to_add);
+
 };
 
 DateWrap operator+(const DateWrap& datewrap1, const DateWrap& datewrap2);
