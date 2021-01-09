@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/final_executable.dir/partA/date_wrap.cpp.o"
+  "CMakeFiles/final_executable.dir/provided/test_partA.cpp.o"
   "final_executable"
   "final_executable.pdb"
 )
