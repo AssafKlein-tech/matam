@@ -30,8 +30,8 @@ DateWrap::DateWrap& operator=(const DateWrap& datewrap)
 {
 	if(this == &datewrap)
 		return *this;
-	dateDestroy() date;
-	date = dateCreate(datewrap->day(),datewrap->month(),datewrap->year())
+	dateDestroy(this->date);
+	date = dateCreate(datewrap.day(),datewrap.month(),datewrap.year())
 	return *this;
 }
 
@@ -42,7 +42,7 @@ bool getDateParameter(int& day, int& month, int& year)
 
 int toDays()
 {
-	return day() + month()*30 + year() * 360; 
+	return DateWrap::day() + month()*30 + year() * 360; 
 }
 
 int DateWrap::day()
@@ -68,32 +68,32 @@ int DateWrap::year()
 
 bool DateWrap::operator==(const DateWrap& datewrap)
 {
-	return (dateCompare(date, datewrap->date) == 0)
+	return (dateCompare(date, &datewrap->date) == 0);
 }
 
 bool DateWrap::operator>(const DateWrap& datewrap)
 {
-	return (dateCompare(date, datewrap->date) > 0)
+	return (dateCompare(date, &datewrap->date) > 0);
 }
 
 bool DateWrap::operator<(const DateWrap& datewrap)
 {
-	return (dateCompare(date, datewrap->date) < 0)
+	return (dateCompare(date, datewrap->date) < 0);
 }
 
 bool DateWrap::operator<=(const DateWrap& datewrap)
 {
-	return (dateCompare(date, datewrap->date) <= 0)
+	return (dateCompare(date, datewrap->date) <= 0);
 }
 
 bool DateWrap::operator>=(const DateWrap& datewrap)
 {
-	return (dateCompare(date, datewrap->date) >= 0)
+	return (dateCompare(date, datewrap->date) >= 0);
 }
 
 bool DateWrap::operator!=(const DateWrap& datewrap)
 {
-	return (dateCompare(date, datewrap->date) != 0)
+	return (dateCompare(date, datewrap->date) != 0);
 }
 
 DateWrap& DateWrap::operator+=(const int days_to_add) 
@@ -120,11 +120,6 @@ DateWrap DateWrap::operator++(int)
 }
 friend ostream& operator<<(ostream& os, const DateWrap& c)
 {
-
-	return os<<date.day<<"/"<<date.month<<"/"<<date.year;
-
-
+	return os<<date.day()<<"/"<<date.month()<<"/"<<date.year();
 }
 
-
- }

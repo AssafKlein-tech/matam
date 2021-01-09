@@ -189,6 +189,33 @@ partA/date_wrap.cpp.s:
 	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/partA/date_wrap.cpp.s
 .PHONY : partA/date_wrap.cpp.s
 
+provided/test_partA.o: provided/test_partA.cpp.o
+
+.PHONY : provided/test_partA.o
+
+# target to build an object file
+provided/test_partA.cpp.o:
+	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/provided/test_partA.cpp.o
+.PHONY : provided/test_partA.cpp.o
+
+provided/test_partA.i: provided/test_partA.cpp.i
+
+.PHONY : provided/test_partA.i
+
+# target to preprocess a source file
+provided/test_partA.cpp.i:
+	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/provided/test_partA.cpp.i
+.PHONY : provided/test_partA.cpp.i
+
+provided/test_partA.s: provided/test_partA.cpp.s
+
+.PHONY : provided/test_partA.s
+
+# target to generate assembly for a file
+provided/test_partA.cpp.s:
+	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/provided/test_partA.cpp.s
+.PHONY : provided/test_partA.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -203,6 +230,9 @@ help:
 	@echo "... partA/date_wrap.o"
 	@echo "... partA/date_wrap.i"
 	@echo "... partA/date_wrap.s"
+	@echo "... provided/test_partA.o"
+	@echo "... provided/test_partA.i"
+	@echo "... provided/test_partA.s"
 .PHONY : help
 
 
