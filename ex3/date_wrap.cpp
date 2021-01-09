@@ -117,3 +117,13 @@ DateWrap DateWrap::operator++(int)
 	dateTick(date);
 	return copy;
 }
+friend ostream& operator<<(ostream& os, const DateWrap& c)
+{
+
+	return os<<date.day<<"/"<<date.month<<"/"<<date.year;
+
+
+}
+
+
+ }
