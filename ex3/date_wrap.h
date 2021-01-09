@@ -6,7 +6,7 @@ using std::ostream
 
 extern "C" {
     #include "date.h"
-};
+}
 
 class DateWrap{
     Date date;

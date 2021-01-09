@@ -8,6 +8,15 @@ DateWrap::DateWrap(const int day,const int month, const int year)
     date = dateCreate(day,month,year);
 }
 
+DateWrap::DateWrap(const int num_of_days)
+{
+	int year = num_of_days/365;
+	int month = (num_of_days-365*year)/30;
+	int day = (num_of_days-365*year)%30;
+    //if date illegall raise InvalidDate
+    date = dateCreate(day,month,year);
+}
+
 bool getDateParameter(int& day, int& month, int& year)
 {
     return dateGet(date, &day, &month, &year);
