@@ -33,3 +33,4 @@ public:
 DateWrap operator+(const DateWrap& datewrap1, const DateWrap& datewrap2);
 
 
+#endif

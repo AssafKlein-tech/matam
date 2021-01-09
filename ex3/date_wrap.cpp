@@ -48,24 +48,19 @@ int DateWrap::year()
 	return year;
 }
 
-bool DateWrap::operator==(const DateWrap& datewrap);
+bool DateWrap::operator==(const DateWrap& datewrap)
+{
+	return (dateCompare(date, datewrap->date) == 0)
+}
 
 bool DateWrap::operator>(const DateWrap& datewrap)
 {
-	if (dateCompare(date, datewrap->date) > 0)
-	{
-		return true;
-	}
-	return false
+	return (dateCompare(date, datewrap->date) > 0)
 }
 
 bool DateWrap::operator<(const DateWrap& datewrap)
 {
-	if (dateCompare(date, datewrap->date) < 0)
-	{
-		return true;
-	}
-	return false
+	return (dateCompare(date, datewrap->date) < 0)
 }
 
 DateWrap& DateWrap::operator+=(const int days_to_add) 
