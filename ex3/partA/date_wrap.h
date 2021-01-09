@@ -57,9 +57,9 @@ namespace mtm{
         DateWrap(const DateWrap& datewrap);
         DateWrap& operator=(const DateWrap& datewrap);
 
-        int day();
-        int month();
-        int year();
+        int day() const;
+        int month() const;
+        int year() const;
         friend ostream& operator<<(ostream& os, const DateWrap& c);
         bool operator==(const DateWrap& datewrap);
         bool operator>(const DateWrap& datewrap);
@@ -70,6 +70,9 @@ namespace mtm{
         DateWrap operator++(int);
         DateWrap& operator+=(const int days_to_add);
 
+    private:
+        int toDays();
+        bool getDateParameter(int& day, int& month, int& year) const;
     };
 
     DateWrap operator+(const DateWrap& datewrap1, const DateWrap& datewrap2);
