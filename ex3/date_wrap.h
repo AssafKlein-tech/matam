@@ -1,11 +1,11 @@
 #ifndef DATE_WRAP_H_
 #define DATE_WRAP_H_
 #include <iostream>
-using std::ostream 
+using std::ostream
 #include <stdbool.h>
 
 extern "C" {
- #include "date.h"
+    #include "date.h"
 };
 
 class DateWrap{
@@ -30,6 +30,6 @@ public:
     DateWrap& operator+=(int days_to_add);
 };
 
-DateWrap operator+(const DateWrap& datewrap, const DateWrap& datewrap);
+DateWrap operator+(const DateWrap& datewrap1, const DateWrap& datewrap2);
 
 
