@@ -22,3 +22,9 @@ stdbool.h
 date.h
 /home/assafklein/mtm/matam/ex3/partA/date.h
 
+/home/assafklein/mtm/matam/ex3/provided/test_partA.cpp
+date_wrap.h
+/home/assafklein/mtm/matam/ex3/provided/date_wrap.h
+iostream
+-
+

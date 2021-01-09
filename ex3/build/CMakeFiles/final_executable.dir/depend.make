@@ -5,3 +5,5 @@ CMakeFiles/final_executable.dir/partA/date_wrap.cpp.o: ../partA/date.h
 CMakeFiles/final_executable.dir/partA/date_wrap.cpp.o: ../partA/date_wrap.cpp
 CMakeFiles/final_executable.dir/partA/date_wrap.cpp.o: ../partA/date_wrap.h
 
+CMakeFiles/final_executable.dir/provided/test_partA.cpp.o: ../provided/test_partA.cpp
+
