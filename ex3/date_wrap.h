@@ -1,7 +1,7 @@
 #ifndef DATE_WRAP_H_
 #define DATE_WRAP_H_
 #include <iostream>
-using std::ostream
+using std::ostream;
 #include <stdbool.h>
 
 extern "C" {
