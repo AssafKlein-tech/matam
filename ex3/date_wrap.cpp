@@ -1,6 +1,6 @@
 #include "date_wrap.h"
-//using namespace mtm
 
+//using namespace mtm
 DateWrap::DateWrap(const int day,const int month, const int year)
 {
     //if date illegall raise InvalidDate
