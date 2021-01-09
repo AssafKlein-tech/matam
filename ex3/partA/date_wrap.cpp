@@ -9,9 +9,19 @@ DateWrap::DateWrap(const int day,const int month, const int year)
 
 DateWrap::DateWrap(const int num_of_days)
 {
-	int year = num_of_days/360;
-	int month = (num_of_days-360*year)/30;
+	int year = num_of_days/360 + 1;
+	int month = (num_of_days-360*year)/30 + 1;
 	int day = (num_of_days-360*year)%30;
+	if(day == 0)
+	{
+		day = 30;
+		month--;
+		if(month == 0)
+		{
+			month = 12;
+			year--;
+		}
+	}
     //if date illegall raise InvalidDate
     date = dateCreate(day,month,year);
 }
@@ -26,40 +36,40 @@ DateWrap::DateWrap(const DateWrap& datewrap)
 	date = dateCopy(date);
 }
 
-DateWrap::DateWrap& operator=(const DateWrap& datewrap)
+DateWrap& DateWrap::operator=(const DateWrap& datewrap)
 {
 	if(this == &datewrap)
 		return *this;
-	dateDestroy(this->date);
-	date = dateCreate(datewrap.day(),datewrap.month(),datewrap.year())
+	dateDestroy(date);
+	date = dateCreate(datewrap.day(),datewrap.month(),datewrap.year());
 	return *this;
 }
 
-bool getDateParameter(int& day, int& month, int& year)
+bool DateWrap::getDateParameter(int& day, int& month, int& year) const
 {
     return dateGet(date, &day, &month, &year);
 }
 
-int toDays()
+int DateWrap::toDays()
 {
-	return DateWrap::day() + month()*30 + year() * 360; 
+	return day() + month()*30 + year() * 360; 
 }
 
-int DateWrap::day()
+int DateWrap::day() const
 {
     int day = 0, month = 0, year = 0;
 	getDateParameter(day, month,year);
 	return day;
 }
 
-int DateWrap::month()
+int DateWrap::month() const
 {
     int day = 0, month = 0, year = 0;
 	getDateParameter(day, month,year);
 	return month;
 }
 
-int DateWrap::year()
+int DateWrap::year() const
 {
     int day = 0, month = 0, year = 0;
 	getDateParameter(day, month,year);
@@ -118,8 +128,8 @@ DateWrap DateWrap::operator++(int)
 	dateTick(date);
 	return copy;
 }
-friend ostream& operator<<(ostream& os, const DateWrap& c)
+ostream& operator<<(ostream& os, const DateWrap& c)
 {
-	return os<<date.day()<<"/"<<date.month()<<"/"<<date.year();
+	return os<<c.day()<<"/"<<c.month()<<"/"<<c.year();
 }
 
