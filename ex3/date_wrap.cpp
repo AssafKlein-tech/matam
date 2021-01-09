@@ -1,5 +1,4 @@
 #include "date_wrap.h"
-//using namespace mtm
 
 DateWrap::DateWrap(const int day,const int month, const int year)
 {
@@ -49,15 +48,26 @@ int DateWrap::year()
 	return year;
 }
 
+bool DateWrap::operator==(const DateWrap& datewrap);
+
 bool DateWrap::operator>(const DateWrap& datewrap)
 {
-	dateCompare()
+	if (dateCompare(date, datewrap->date) > 0)
+	{
+		return true;
+	}
+	return false
 }
 
 bool DateWrap::operator<(const DateWrap& datewrap)
 {
-
+	if (dateCompare(date, datewrap->date) < 0)
+	{
+		return true;
+	}
+	return false
 }
+
 DateWrap& DateWrap::operator+=(const int days_to_add) 
 {
 	for(int i = 0; i < days_to_add; i++)
