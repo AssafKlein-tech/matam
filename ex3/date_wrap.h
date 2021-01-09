@@ -6,7 +6,7 @@ using std::ostream
 
 extern "C" {
  #include "date.h"
-}
+};
 
 class DateWrap{
     Date date;
@@ -20,17 +20,16 @@ public:
     int month();
     int year();
     friend ostream& operator<<(ostream& os, const DateWrap& c);
-    bool operator==(const DateWrap& datewrap1, const DateWrap& datewrap2);
-    bool operator>(const DateWrap& datewrap1, const DateWrap& datewrap2);
-    bool operator<(>const DateWrap& datewrap1, const DateWrap& datewrap2);
-    bool operator<=(const DateWrap& datewrap1, const DateWrap& datewrap2);
-    bool operator>=(const DateWrap& datewrap1, const DateWrap& datewrap2);
-    bool operator!=(const DateWrap& datewrap1, const DateWrap& datewrap2);
-    bool operator++(const DateWrap& datewrap);
-    DateWrap& operator++(const DateWrap& datewrap);
-    DateWrap& operator+=(const DateWrap& datewrap, int days_to_add);
+    bool operator==(const DateWrap& datewrap);
+    bool operator>(const DateWrap& datewrap);
+    bool operator<(const DateWrap& datewrap);
+    bool operator<=(const DateWrap& datewrap2);
+    bool operator>=(const DateWrap& datewrap2);
+    bool operator!=(const DateWrap& datewrap2);
+    DateWrap& operator++();
+    DateWrap& operator+=(int days_to_add);
 };
 
-DateWrap DateWrap::operator+(const DateWrap& datewrap, const DateWrap& datewrap);
+DateWrap operator+(const DateWrap& datewrap, const DateWrap& datewrap);
 
 
