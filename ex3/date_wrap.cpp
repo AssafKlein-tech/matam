@@ -48,7 +48,13 @@ write c'tor for 1 int argument
 
 """
 
+friend ostream& operator<<(ostream& os, const DateWrap& c)
+{
+	
+	
 
+
+}
 
 DateWrap DateWrap::operator+=(const Complex& c) {
 	re += c.re;
