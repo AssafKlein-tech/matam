@@ -40,11 +40,6 @@ int DateWrap::year()
 	return year;
 }
 
-/*
-* create c'tor for 1 
-* += using 
-*/
-
 DateWrap& DateWrap::operator+=(const int days_to_add) 
 {
 	for(int i = 0; i < days_to_add; i++)
@@ -52,24 +47,6 @@ DateWrap& DateWrap::operator+=(const int days_to_add)
 		dateTick(date);
 	}
 	return *this;
-}
-
-
-Complex operator-(const Complex& a, const Complex& b) {
-	return Complex(a) -= b;
-}
- 
-ostream& operator<<(ostream& os, const Complex& c) {
-	const char* sign = c.im < 0 ? "-" : "+";
-	return os << c.re << sign << c.im << "i";
-}
- 
-istream& operator>>(istream& is, Complex& c) {
-	return is >> c.re >> c.im;
-}
-
-bool operator==(const Complex& a, const Complex& b) {
-	return a.re == b.re && a.im == b.im;
 }
 
 DateWrap operator+(const DateWrap& a, const DateWrap& b) 
