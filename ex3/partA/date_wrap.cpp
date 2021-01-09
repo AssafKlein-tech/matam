@@ -50,9 +50,9 @@ bool DateWrap::getDateParameter(int& day, int& month, int& year) const
     return dateGet(date, &day, &month, &year);
 }
 
-int DateWrap::toDays()
+int toDays(DateWrap date)
 {
-	return day() + month()*30 + year() * 360; 
+	return date.day() + date.month()*30 + date.year() * 360; 
 }
 
 int DateWrap::day() const
@@ -76,34 +76,34 @@ int DateWrap::year() const
 	return year;
 }
 
-bool DateWrap::operator==(const DateWrap& datewrap)
+bool DateWrap::operator==(const DateWrap& datewrap) const
 {
-	return (dateCompare(date, &datewrap->date) == 0);
+	return (dateCompare(date, datewrap.date) == 0);
 }
 
-bool DateWrap::operator>(const DateWrap& datewrap)
+bool DateWrap::operator>(const DateWrap& datewrap) const
 {
-	return (dateCompare(date, &datewrap->date) > 0);
+	return (dateCompare(date, datewrap.date) > 0);
 }
 
-bool DateWrap::operator<(const DateWrap& datewrap)
+bool DateWrap::operator<(const DateWrap& datewrap) const
 {
-	return (dateCompare(date, datewrap->date) < 0);
+	return (dateCompare(date, datewrap.date) < 0);
 }
 
-bool DateWrap::operator<=(const DateWrap& datewrap)
+bool DateWrap::operator<=(const DateWrap& datewrap) const
 {
-	return (dateCompare(date, datewrap->date) <= 0);
+	return (dateCompare(date, datewrap.date) <= 0);
 }
 
-bool DateWrap::operator>=(const DateWrap& datewrap)
+bool DateWrap::operator>=(const DateWrap& datewrap) const
 {
-	return (dateCompare(date, datewrap->date) >= 0);
+	return (dateCompare(date, datewrap.date) >= 0);
 }
 
-bool DateWrap::operator!=(const DateWrap& datewrap)
+bool DateWrap::operator!=(const DateWrap& datewrap) const
 {
-	return (dateCompare(date, datewrap->date) != 0);
+	return (dateCompare(date, datewrap.date) != 0);
 }
 
 DateWrap& DateWrap::operator+=(const int days_to_add) 
@@ -117,9 +117,9 @@ DateWrap& DateWrap::operator+=(const int days_to_add)
 
 DateWrap operator+(const DateWrap& date1, const DateWrap& date2) 
 {
-	if (date1 > date2)
-		return DateWrap(date1) += date2.toDays();
-	return DateWrap(date2) += date1.toDays();
+	if (date1.operator>(date2))
+		return DateWrap(date1) += toDays(date2);
+	return DateWrap(date2) += toDays(date1);
 }
 	
 DateWrap DateWrap::operator++(int)
