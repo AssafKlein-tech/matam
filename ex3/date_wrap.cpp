@@ -10,7 +10,6 @@ DateWrap::DateWrap(const int day,const int month, const int year)
 DateWrap::DateWrap(const int num_of_days)
 {
 	int year = num_of_days/360;
-<<<<<<< HEAD
 	int month = (num_of_days-360*year)/30+1;
 	int day = num_of_days%30;
 	if(day==0)
@@ -22,10 +21,6 @@ DateWrap::DateWrap(const int num_of_days)
 				month=12;
 			}
 		}
-=======
-	int month = (num_of_days-360*year)/30;
-	int day = (num_of_days-360*year)%30;
->>>>>>> bd4618e35841b82770db2efeaca8f65e54a1e00c
     //if date illegall raise InvalidDate
     date = dateCreate(day,month,year);
 }
@@ -63,15 +58,6 @@ int DateWrap::year()
 	return year;
 }
 
-bool DateWrap::operator>(const DateWrap& datewrap)
-{
-	dateCompare()
-}
-
-bool DateWrap::operator<(const DateWrap& datewrap)
-{
-
-}
 DateWrap& DateWrap::operator+=(const int days_to_add) 
 {
 	for(int i = 0; i < days_to_add; i++)
@@ -83,7 +69,7 @@ DateWrap& DateWrap::operator+=(const int days_to_add)
 
 DateWrap operator+(const DateWrap& a, const DateWrap& b) 
 {
-	DateWrap date_a(a), date_b(b);
+	DateWrap date_a(a), date_b(b)  ;
 	if (date_a > date_b):
 		return date_a += date_b.toDays();
 	return date_b += date_a.toDays();

@@ -13,7 +13,7 @@ class DateWrap{
 
 public:
 
-    DateWrap(int day,int month,int year);
+    DateWrap(const int day,const int month, const int year);
     DateWrap(int date);
 
     int day();
@@ -31,5 +31,3 @@ public:
 };
 
 DateWrap operator+(const DateWrap& datewrap1, const DateWrap& datewrap2);
-
-
