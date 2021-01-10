@@ -1078,6 +1078,18 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "DATE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/home/assafklein/mtm/matam/ex3/provided/libdate.a"
+		},
+		{
 			"name" : "ex3_BINARY_DIR",
 			"properties" : 
 			[
