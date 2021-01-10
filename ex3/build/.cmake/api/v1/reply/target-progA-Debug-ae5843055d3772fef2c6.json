@@ -32,13 +32,19 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 15,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 16,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 19,
 				"parent" : 0
 			}
 		]
@@ -65,6 +71,14 @@
 				{
 					"backtrace" : 3,
 					"path" : "/home/assafklein/mtm/matam/ex3/provided"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/assafklein/mtm/matam/ex3/progB"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/assafklein/mtm/matam/ex3/partB"
 				}
 			],
 			"language" : "CXX",

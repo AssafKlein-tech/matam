@@ -12,7 +12,11 @@ set(MTM_FLAGS_RELEASE "${MTM_FLAGS_DEBUG} -DNDEBUG")
 
 find_library(DATE date ./provided)
 add_executable(progA partA/date_wrap.cpp provided/test_partA.cpp)
+add_executable(progB provided/test_partB.cpp)
 target_link_libraries(progA ${DATE})
+target_link_libraries(progB ${DATE})
 include_directories(progA partA provided)
+include_directories(progB partB provided)
+
 
 

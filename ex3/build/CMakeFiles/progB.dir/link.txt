@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/progB.dir/provided/test_partB.cpp.o  -o progB  ../provided/libdate.a 

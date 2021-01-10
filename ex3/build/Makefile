@@ -73,17 +73,6 @@ CMAKE_BINARY_DIR = /home/assafklein/mtm/matam/ex3/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/mtm/cmake-3.17.0-Linux-x86_64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -94,6 +83,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/mtm/cmake-3.17.0-Linux-x86_64/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -126,6 +126,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named progB
+
+# Build rule for target.
+progB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 progB
+.PHONY : progB
+
+# fast build rule for target.
+progB/fast:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/build
+.PHONY : progB/fast
 
 #=============================================================================
 # Target rules for targets named progA
@@ -194,6 +207,33 @@ provided/test_partA.cpp.s:
 	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/provided/test_partA.cpp.s
 .PHONY : provided/test_partA.cpp.s
 
+provided/test_partB.o: provided/test_partB.cpp.o
+
+.PHONY : provided/test_partB.o
+
+# target to build an object file
+provided/test_partB.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/provided/test_partB.cpp.o
+.PHONY : provided/test_partB.cpp.o
+
+provided/test_partB.i: provided/test_partB.cpp.i
+
+.PHONY : provided/test_partB.i
+
+# target to preprocess a source file
+provided/test_partB.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/provided/test_partB.cpp.i
+.PHONY : provided/test_partB.cpp.i
+
+provided/test_partB.s: provided/test_partB.cpp.s
+
+.PHONY : provided/test_partB.s
+
+# target to generate assembly for a file
+provided/test_partB.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/provided/test_partB.cpp.s
+.PHONY : provided/test_partB.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -203,12 +243,16 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... progA"
+	@echo "... progB"
 	@echo "... partA/date_wrap.o"
 	@echo "... partA/date_wrap.i"
 	@echo "... partA/date_wrap.s"
 	@echo "... provided/test_partA.o"
 	@echo "... provided/test_partA.i"
 	@echo "... provided/test_partA.s"
+	@echo "... provided/test_partB.o"
+	@echo "... provided/test_partB.i"
+	@echo "... provided/test_partB.s"
 .PHONY : help
 
 

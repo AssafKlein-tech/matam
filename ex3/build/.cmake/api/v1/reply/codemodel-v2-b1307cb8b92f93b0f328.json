@@ -14,7 +14,8 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -29,7 +30,8 @@
 					"name" : "ex3",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				}
 			],
@@ -38,8 +40,15 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "progA::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-progA-Debug-dc21dccdeb98f0771306.json",
+					"jsonFile" : "target-progA-Debug-ae5843055d3772fef2c6.json",
 					"name" : "progA",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "progB::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-progB-Debug-8be46f8cae301d2407ee.json",
+					"name" : "progB",
 					"projectIndex" : 0
 				}
 			]
