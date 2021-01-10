@@ -84,28 +84,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target package
-package: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	/home/mtm/cmake-3.17.0-Linux-x86_64/bin/cpack --config ./CPackConfig.cmake
-.PHONY : package
-
-# Special rule for the target package
-package/fast: package
-
-.PHONY : package/fast
-
-# Special rule for the target package_source
-package_source:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/home/mtm/cmake-3.17.0-Linux-x86_64/bin/cpack --config ./CPackSourceConfig.cmake /home/assafklein/mtm/matam/ex3/build/CPackSourceConfig.cmake
-.PHONY : package_source
-
-# Special rule for the target package_source
-package_source/fast: package_source
-
-.PHONY : package_source/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -150,17 +128,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named final_executable
+# Target rules for targets named progA
 
 # Build rule for target.
-final_executable: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 final_executable
-.PHONY : final_executable
+progA: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 progA
+.PHONY : progA
 
 # fast build rule for target.
-final_executable/fast:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/build
-.PHONY : final_executable/fast
+progA/fast:
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/build
+.PHONY : progA/fast
 
 partA/date_wrap.o: partA/date_wrap.cpp.o
 
@@ -168,7 +146,7 @@ partA/date_wrap.o: partA/date_wrap.cpp.o
 
 # target to build an object file
 partA/date_wrap.cpp.o:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/partA/date_wrap.cpp.o
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/partA/date_wrap.cpp.o
 .PHONY : partA/date_wrap.cpp.o
 
 partA/date_wrap.i: partA/date_wrap.cpp.i
@@ -177,7 +155,7 @@ partA/date_wrap.i: partA/date_wrap.cpp.i
 
 # target to preprocess a source file
 partA/date_wrap.cpp.i:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/partA/date_wrap.cpp.i
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/partA/date_wrap.cpp.i
 .PHONY : partA/date_wrap.cpp.i
 
 partA/date_wrap.s: partA/date_wrap.cpp.s
@@ -186,7 +164,7 @@ partA/date_wrap.s: partA/date_wrap.cpp.s
 
 # target to generate assembly for a file
 partA/date_wrap.cpp.s:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/partA/date_wrap.cpp.s
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/partA/date_wrap.cpp.s
 .PHONY : partA/date_wrap.cpp.s
 
 provided/test_partA.o: provided/test_partA.cpp.o
@@ -195,7 +173,7 @@ provided/test_partA.o: provided/test_partA.cpp.o
 
 # target to build an object file
 provided/test_partA.cpp.o:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/provided/test_partA.cpp.o
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/provided/test_partA.cpp.o
 .PHONY : provided/test_partA.cpp.o
 
 provided/test_partA.i: provided/test_partA.cpp.i
@@ -204,7 +182,7 @@ provided/test_partA.i: provided/test_partA.cpp.i
 
 # target to preprocess a source file
 provided/test_partA.cpp.i:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/provided/test_partA.cpp.i
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/provided/test_partA.cpp.i
 .PHONY : provided/test_partA.cpp.i
 
 provided/test_partA.s: provided/test_partA.cpp.s
@@ -213,7 +191,7 @@ provided/test_partA.s: provided/test_partA.cpp.s
 
 # target to generate assembly for a file
 provided/test_partA.cpp.s:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/provided/test_partA.cpp.s
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/provided/test_partA.cpp.s
 .PHONY : provided/test_partA.cpp.s
 
 # Help Target
@@ -223,10 +201,8 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... package"
-	@echo "... package_source"
 	@echo "... rebuild_cache"
-	@echo "... final_executable"
+	@echo "... progA"
 	@echo "... partA/date_wrap.o"
 	@echo "... partA/date_wrap.i"
 	@echo "... partA/date_wrap.s"

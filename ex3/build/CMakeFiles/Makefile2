@@ -70,7 +70,7 @@ CMAKE_BINARY_DIR = /home/assafklein/mtm/matam/ex3/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/final_executable.dir/all
+all: CMakeFiles/progA.dir/all
 
 .PHONY : all
 
@@ -80,36 +80,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/final_executable.dir/clean
+clean: CMakeFiles/progA.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/final_executable.dir
+# Target rules for target CMakeFiles/progA.dir
 
 # All Build rule for target.
-CMakeFiles/final_executable.dir/all:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/depend
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=1,2,3 "Built target final_executable"
-.PHONY : CMakeFiles/final_executable.dir/all
+CMakeFiles/progA.dir/all:
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/depend
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=1,2,3 "Built target progA"
+.PHONY : CMakeFiles/progA.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/final_executable.dir/rule: cmake_check_build_system
+CMakeFiles/progA.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/final_executable.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/progA.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 0
-.PHONY : CMakeFiles/final_executable.dir/rule
+.PHONY : CMakeFiles/progA.dir/rule
 
 # Convenience name for target.
-final_executable: CMakeFiles/final_executable.dir/rule
+progA: CMakeFiles/progA.dir/rule
 
-.PHONY : final_executable
+.PHONY : progA
 
 # clean rule for target.
-CMakeFiles/final_executable.dir/clean:
-	$(MAKE) -f CMakeFiles/final_executable.dir/build.make CMakeFiles/final_executable.dir/clean
-.PHONY : CMakeFiles/final_executable.dir/clean
+CMakeFiles/progA.dir/clean:
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/clean
+.PHONY : CMakeFiles/progA.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
