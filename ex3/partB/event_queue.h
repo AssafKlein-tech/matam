@@ -4,12 +4,17 @@
 #include "base_event.h"
 
 namespace mtm{
+    class Node_event
+    {
+        BaseEvent event;
+        Node_event *next;
+    }
+
     class EventQueue{
-        class Node_event
-        {
-            DateWrap priority;
-            BaseEvent event
-        }
+        Node_event *head,*tail;
+
+    public:
+        
     }
 }
 #endif
