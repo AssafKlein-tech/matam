@@ -70,7 +70,7 @@ CMAKE_BINARY_DIR = /home/assafklein/mtm/matam/ex3/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/progA.dir/all
+all: CMakeFiles/progA1.dir/all
 
 .PHONY : all
 
@@ -80,36 +80,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/progA.dir/clean
+clean: CMakeFiles/progA1.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/progA.dir
+# Target rules for target CMakeFiles/progA1.dir
 
 # All Build rule for target.
-CMakeFiles/progA.dir/all:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/depend
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=1,2,3 "Built target progA"
-.PHONY : CMakeFiles/progA.dir/all
+CMakeFiles/progA1.dir/all:
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/depend
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=1,2,3 "Built target progA1"
+.PHONY : CMakeFiles/progA1.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/progA.dir/rule: cmake_check_build_system
+CMakeFiles/progA1.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/progA.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/progA1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 0
-.PHONY : CMakeFiles/progA.dir/rule
+.PHONY : CMakeFiles/progA1.dir/rule
 
 # Convenience name for target.
-progA: CMakeFiles/progA.dir/rule
+progA1: CMakeFiles/progA1.dir/rule
 
-.PHONY : progA
+.PHONY : progA1
 
 # clean rule for target.
-CMakeFiles/progA.dir/clean:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/clean
-.PHONY : CMakeFiles/progA.dir/clean
+CMakeFiles/progA1.dir/clean:
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/clean
+.PHONY : CMakeFiles/progA1.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

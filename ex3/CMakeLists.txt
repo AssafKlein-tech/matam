@@ -10,8 +10,9 @@ set(MTM_FLAGS_RELEASE "${MTM_FLAGS_DEBUG} -DNDEBUG")
 
 #set(CMAKE_CXX_FLAGS ${MTM_FLAGS_DEBUG})
 
-
-add_executable(progA ./date.h ./partA/date_wrap.cpp ./provided/test_partA.cpp)
-target_link_libraries(progA ./provided/libdate.a)
+find_library(DATE date ./provided)
+add_executable(progA1 partA/date_wrap.cpp provided/test_partA.cpp)
+target_link_libraries(progA1 ${DATE})
+include_directories(progA1 partA provided)
 
 

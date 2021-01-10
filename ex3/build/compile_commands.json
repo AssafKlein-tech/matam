@@ -1,12 +1,12 @@
 [
 {
   "directory": "/home/assafklein/mtm/matam/ex3/build",
-  "command": "/usr/bin/g++    -g   -o CMakeFiles/progA.dir/partA/date_wrap.cpp.o -c /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp",
+  "command": "/usr/bin/g++   -I/home/assafklein/mtm/matam/ex3/progA1 -I/home/assafklein/mtm/matam/ex3/partA -I/home/assafklein/mtm/matam/ex3/provided  -g   -o CMakeFiles/progA1.dir/partA/date_wrap.cpp.o -c /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp",
   "file": "/home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp"
 },
 {
   "directory": "/home/assafklein/mtm/matam/ex3/build",
-  "command": "/usr/bin/g++    -g   -o CMakeFiles/progA.dir/provided/test_partA.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp",
+  "command": "/usr/bin/g++   -I/home/assafklein/mtm/matam/ex3/progA1 -I/home/assafklein/mtm/matam/ex3/partA -I/home/assafklein/mtm/matam/ex3/provided  -g   -o CMakeFiles/progA1.dir/provided/test_partA.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp",
   "file": "/home/assafklein/mtm/matam/ex3/provided/test_partA.cpp"
 }
 ]

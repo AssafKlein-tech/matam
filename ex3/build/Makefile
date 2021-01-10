@@ -128,17 +128,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named progA
+# Target rules for targets named progA1
 
 # Build rule for target.
-progA: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 progA
-.PHONY : progA
+progA1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 progA1
+.PHONY : progA1
 
 # fast build rule for target.
-progA/fast:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/build
-.PHONY : progA/fast
+progA1/fast:
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/build
+.PHONY : progA1/fast
 
 partA/date_wrap.o: partA/date_wrap.cpp.o
 
@@ -146,7 +146,7 @@ partA/date_wrap.o: partA/date_wrap.cpp.o
 
 # target to build an object file
 partA/date_wrap.cpp.o:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/partA/date_wrap.cpp.o
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/partA/date_wrap.cpp.o
 .PHONY : partA/date_wrap.cpp.o
 
 partA/date_wrap.i: partA/date_wrap.cpp.i
@@ -155,7 +155,7 @@ partA/date_wrap.i: partA/date_wrap.cpp.i
 
 # target to preprocess a source file
 partA/date_wrap.cpp.i:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/partA/date_wrap.cpp.i
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/partA/date_wrap.cpp.i
 .PHONY : partA/date_wrap.cpp.i
 
 partA/date_wrap.s: partA/date_wrap.cpp.s
@@ -164,7 +164,7 @@ partA/date_wrap.s: partA/date_wrap.cpp.s
 
 # target to generate assembly for a file
 partA/date_wrap.cpp.s:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/partA/date_wrap.cpp.s
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/partA/date_wrap.cpp.s
 .PHONY : partA/date_wrap.cpp.s
 
 provided/test_partA.o: provided/test_partA.cpp.o
@@ -173,7 +173,7 @@ provided/test_partA.o: provided/test_partA.cpp.o
 
 # target to build an object file
 provided/test_partA.cpp.o:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/provided/test_partA.cpp.o
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/provided/test_partA.cpp.o
 .PHONY : provided/test_partA.cpp.o
 
 provided/test_partA.i: provided/test_partA.cpp.i
@@ -182,7 +182,7 @@ provided/test_partA.i: provided/test_partA.cpp.i
 
 # target to preprocess a source file
 provided/test_partA.cpp.i:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/provided/test_partA.cpp.i
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/provided/test_partA.cpp.i
 .PHONY : provided/test_partA.cpp.i
 
 provided/test_partA.s: provided/test_partA.cpp.s
@@ -191,7 +191,7 @@ provided/test_partA.s: provided/test_partA.cpp.s
 
 # target to generate assembly for a file
 provided/test_partA.cpp.s:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/provided/test_partA.cpp.s
+	$(MAKE) -f CMakeFiles/progA1.dir/build.make CMakeFiles/progA1.dir/provided/test_partA.cpp.s
 .PHONY : provided/test_partA.cpp.s
 
 # Help Target
@@ -202,7 +202,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... progA"
+	@echo "... progA1"
 	@echo "... partA/date_wrap.o"
 	@echo "... partA/date_wrap.i"
 	@echo "... partA/date_wrap.s"

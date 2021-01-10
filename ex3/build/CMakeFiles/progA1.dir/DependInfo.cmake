@@ -4,13 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progA.dir/partA/date_wrap.cpp.o"
-  "/home/assafklein/mtm/matam/ex3/provided/test_partA.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progA.dir/provided/test_partA.cpp.o"
+  "/home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progA1.dir/partA/date_wrap.cpp.o"
+  "/home/assafklein/mtm/matam/ex3/provided/test_partA.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progA1.dir/provided/test_partA.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../progA1"
   "../partA"
   "../provided"
   )
