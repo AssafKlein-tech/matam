@@ -7,24 +7,22 @@ using std::ostream;
 
 namespace mtm{
     class BaseEvent{
-         DateWrap date;
+    public:
+    BaseEvent::BaseEvent(DateWrap date, std::string name);
+    virtual void BaseEvent::registerParticipant(int student)=0;
+    virtual void BaseEvent::unregisterParticipant(int student);
+    virtual void BaseEvent::printShort(std::ostream stream);
+    virtual void BaseEvent::printLong(std::ostream stream);
+    virtual BaseEvent& BaseEvent::clone();
+    
+    protected:    
+        DateWrap date;
          std::string name;
          struct Members_list
     {
         int member;
         struct Members_list *next;
     } *members; 
-     
-    public:
-    BaseEvent(DateWrap date, std::string name);
-    registerParticipant(int student)
-    unregisterParticipant(int student)
-    printShort(std::ostream stream)
-    printLong(std::ostream stream)
-    clone()
-    
-    protected:    
-
     };
 
 }
