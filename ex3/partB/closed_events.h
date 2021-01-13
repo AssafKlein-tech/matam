@@ -8,7 +8,7 @@ namespace mtm{
      void ClosedEvent::unregisterParticipant(int student);
      void ClosedEvent::printShort(std::ostream stream);
      void ClosedEvent::printLong(std::ostream stream);
-     ClosedEvent& ClosedEvent::clone();
+     ClosedEvent* clone() override {return new ClosedEvent(*this);}
     
     };
 

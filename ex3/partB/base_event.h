@@ -5,6 +5,7 @@ using std::ostream;
 #include <iostream>
 #include "date_wrap.h"
 
+// we need <,>,==, copyC'tor
 namespace mtm{
     class BaseEvent{
     public:
@@ -13,7 +14,7 @@ namespace mtm{
     virtual void BaseEvent::unregisterParticipant(int student);
     virtual void BaseEvent::printShort(std::ostream stream);
     virtual void BaseEvent::printLong(std::ostream stream);
-    virtual BaseEvent& BaseEvent::clone();
+    virtual BaseEvent* clone() = 0;
     
     protected:    
         DateWrap date;

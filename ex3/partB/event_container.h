@@ -16,7 +16,7 @@ namespace mtm{
     virtual add(BaseEvent& event) = 0;
     virtual EventIterator begin() const;
     virtual EventIterator end() const;
-    virtual ~EventContainer() {}
+    virtual ~EventContainer();
 
     class NotSupported: public Exception {};
 
