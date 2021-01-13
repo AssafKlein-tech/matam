@@ -3,13 +3,43 @@
 namespace mtm{
 
     //Event_Node
-    Node_event::Node_event(BaseEvent event)
+    Node_event::~Node_event()
     {
-        this->event = event;
-        next = NULL;
+        delete event_ptr;
+    }
+/*
+    Node_event& Node_event::operator=(const Node_event& node)
+    {
+        if (this == &node)
+            return *this;
+        delete event_ptr;
+        event_ptr = node.event_ptr.clone();
+        next = node.next;
+        return *this;
     }
 
-    //EventQueue
+    Node_event::Node_event(const Node_event& node)
+    {
+
+    }
+*/
+
+    //EventQueue Private
+    Node_event* EventQueue::getInsertionPlace(const BaseEvent& event)
+    {
+        current = head;
+        if (!head)
+        {
+            return NULL;
+        }
+        while (current->next && event > *(current->next->event_ptr))
+        {
+            current = current->next;
+        }
+        return current;
+    }
+
+    //EventQueue methodes
     EventQueue::~EventQueue()
     {
         current = head;
@@ -27,7 +57,7 @@ namespace mtm{
         Node_event *tmp = head;
         while(tmp)
         {
-            if(tmp->event == event)
+            if(*(tmp->event_ptr) == event)
             {
                 return true;
             }
@@ -38,19 +68,54 @@ namespace mtm{
 
     void EventQueue::Insert(const BaseEvent& event)
     {
-        Node_event *tmp = head;
-        while(tmp)
+        if (!contains(event))
         {
-            if(tmp->event == event)
+            Node_event* new_node = new Node_event(event);
+            if (!head)
             {
-                return true;
+                head = new_node;
             }
-            tmp = tmp->next;
+            else if (event < *(head->event_ptr))
+                {
+                    new_node->next = head;
+                    head = new_node;
+                }
+            else
+            {
+                current = getInsertionPlace(event);
+                new_node->next = current->next;
+                current->next = new_node;
+            }
+            current = NULL;
         }
-        return false;
     }
 
-    BaseEvent& EventQueue::getFirst() const{}
-    BaseEvent& EventQueue::getnext() const{}
-    BaseEvent& EventQueue::getlast() const{}
+    BaseEvent* EventQueue::getFirst() 
+    {
+        if(head)
+        {
+            current = head;
+            return head->event_ptr;
+        }
+        return NULL;
+    }
+
+    BaseEvent* EventQueue::getNext() 
+    {
+        if(!current)
+        {
+            return NULL;
+        }
+        if(!current->next)
+        {
+            return NULL;
+        }
+        current = current->next;
+        return current->event_ptr;
+    }
+
+    BaseEvent* EventQueue::getLast() 
+    {
+        return NULL;
+    }
 }

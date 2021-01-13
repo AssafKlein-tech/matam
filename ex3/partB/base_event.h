@@ -5,6 +5,7 @@ using std::ostream;
 #include <iostream>
 #include "date_wrap.h"
 
+// we need <,>,==, copyC'tor
 namespace mtm{
     class BaseEvent{
     public:
