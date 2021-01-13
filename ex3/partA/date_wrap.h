@@ -31,6 +31,7 @@ namespace mtm{
         bool operator<=(const DateWrap& datewrap) const;
         bool operator>=(const DateWrap& datewrap) const;
         bool operator!=(const DateWrap& datewrap) const;
+        DateWrap operator+(const int days);
         DateWrap operator++(int);
         DateWrap& operator+=(const int days_to_add);
 
@@ -38,7 +39,7 @@ namespace mtm{
         bool getDateParameter(int& day, int& month, int& year) const;
     };
 
-    DateWrap operator+(const DateWrap& datewrap1, const DateWrap& datewrap2);
+    DateWrap operator+(const int days, const DateWrap& date);
 }
 
 #endif

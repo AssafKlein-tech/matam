@@ -115,13 +115,14 @@ namespace mtm{
 		return *this;
 	}
 
-	DateWrap operator+(const DateWrap& date1, const DateWrap& date2) 
+	DateWrap DateWrap::operator+(const int days)
 	{
-		if (date1 > date2)
-		{
-			return DateWrap(date1) += toDays(date2);
-		}
-		return DateWrap(date2) += toDays(date1);
+		return DateWrap(*this) += days;
+	}
+
+	DateWrap operator+(const int days, const DateWrap& date) 
+	{
+		return DateWrap(date) += days;
 	}
 		
 	DateWrap DateWrap::operator++(int)
@@ -130,6 +131,7 @@ namespace mtm{
 		dateTick(date);
 		return copy;
 	}
+
 	ostream& operator<<(ostream& os, const DateWrap& c)
 	{
 		return os<<c.day()<<"/"<<c.month()<<"/"<<c.year();

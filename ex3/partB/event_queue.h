@@ -5,13 +5,18 @@
 
 namespace mtm{
 
-    class EventQueue{
+    class Node_event
+    {
+        friend class EventQueue;
+        BaseEvent event;
+        Node_event *next;
+        
+        public:
+            Node_event(BaseEvent event);
+    };
 
-        class Node_event
-        {
-            BaseEvent event;
-            Node_event *next;
-        };
+    
+    class EventQueue{
 
         Node_event *head,*current,*tail;
 
@@ -19,7 +24,7 @@ namespace mtm{
 
         EventQueue() = default;
         ~EventQueue();
-        bool contains(const BaseEvent& event) const;
+        bool contains(const BaseEvent& event);
         void Insert(const BaseEvent& event);
         BaseEvent& getFirst() const;
         BaseEvent& getnext() const;
