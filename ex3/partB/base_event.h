@@ -9,22 +9,30 @@ using std::ostream;
 namespace mtm{
     class BaseEvent{
     public:
-    BaseEvent::BaseEvent(DateWrap date, std::string name);
-    virtual void BaseEvent::registerParticipant(int student)=0;
-    virtual void BaseEvent::unregisterParticipant(int student);
-    virtual void BaseEvent::printShort(std::ostream stream);
-    virtual void BaseEvent::printLong(std::ostream stream);
-    virtual BaseEvent* clone() = 0;
+    BaseEvent(DateWrap& date, std::string name);
+    virtual void registerParticipant(int student)=0;
+    virtual void unregisterParticipant(int student);
+    virtual void printShort(std::ostream stream);
+    virtual void printLong(std::ostream stream);
+    virtual BaseEvent* BaseEvent::clone();
     
     protected:    
+
         DateWrap date;
          std::string name;
-         struct Members_list
-    {
-        int member;
-        struct Members_list *next;
-    } *members; 
+         Members_list *current_memeber;
+
     };
+
+     class Members_list
+    {
+        friend class BaseEvent;
+        int member;
+        Members_list *next;
+
+    }; 
+
+
 
 }
 
