@@ -9,7 +9,13 @@ set(CMAKE_DEPENDS_CHECK_CXX
 =======
   "/home/assafklein/mtm/matam/ex3/partB/base_event.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progB.dir/partB/base_event.cpp.o"
   "/home/assafklein/mtm/matam/ex3/partB/event_container.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progB.dir/partB/event_container.cpp.o"
+<<<<<<< HEAD
+  "/home/assafklein/mtm/matam/ex3/partB/event_queue.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progB.dir/partB/event_queue.cpp.o"
   "/home/assafklein/mtm/matam/ex3/partB/festival.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progB.dir/partB/festival.cpp.o"
+  "/home/assafklein/mtm/matam/ex3/partB/recurring_event.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progB.dir/partB/recurring_event.cpp.o"
+=======
+  "/home/assafklein/mtm/matam/ex3/partB/festival.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progB.dir/partB/festival.cpp.o"
+>>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
   "/home/assafklein/mtm/matam/ex3/provided/test_partB.cpp" "/home/assafklein/mtm/matam/ex3/build/CMakeFiles/progB.dir/provided/test_partB.cpp.o"
 >>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
   )

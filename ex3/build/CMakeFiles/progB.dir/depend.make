@@ -14,6 +14,16 @@ CMakeFiles/progB.dir/partB/event_container.cpp.o: ../partB/base_event.h
 CMakeFiles/progB.dir/partB/event_container.cpp.o: ../partB/event_container.cpp
 CMakeFiles/progB.dir/partB/event_container.cpp.o: ../partB/event_container.h
 
+<<<<<<< HEAD
+CMakeFiles/progB.dir/partB/event_queue.cpp.o: ../partA/date_wrap.h
+CMakeFiles/progB.dir/partB/event_queue.cpp.o: ../partA/exceptions.h
+CMakeFiles/progB.dir/partB/event_queue.cpp.o: ../provided/date.h
+CMakeFiles/progB.dir/partB/event_queue.cpp.o: ../partB/base_event.h
+CMakeFiles/progB.dir/partB/event_queue.cpp.o: ../partB/event_container.h
+CMakeFiles/progB.dir/partB/event_queue.cpp.o: ../partB/event_queue.cpp
+
+=======
+>>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
 CMakeFiles/progB.dir/partB/festival.cpp.o: ../partA/date_wrap.h
 CMakeFiles/progB.dir/partB/festival.cpp.o: ../partA/exceptions.h
 CMakeFiles/progB.dir/partB/festival.cpp.o: ../provided/date.h
@@ -21,6 +31,17 @@ CMakeFiles/progB.dir/partB/festival.cpp.o: ../partB/base_event.h
 CMakeFiles/progB.dir/partB/festival.cpp.o: ../partB/event_container.h
 CMakeFiles/progB.dir/partB/festival.cpp.o: ../partB/festival.cpp
 CMakeFiles/progB.dir/partB/festival.cpp.o: ../partB/festival.h
+<<<<<<< HEAD
+
+CMakeFiles/progB.dir/partB/recurring_event.cpp.o: ../partA/date_wrap.h
+CMakeFiles/progB.dir/partB/recurring_event.cpp.o: ../partA/exceptions.h
+CMakeFiles/progB.dir/partB/recurring_event.cpp.o: ../provided/date.h
+CMakeFiles/progB.dir/partB/recurring_event.cpp.o: ../partB/base_event.h
+CMakeFiles/progB.dir/partB/recurring_event.cpp.o: ../partB/event_container.h
+CMakeFiles/progB.dir/partB/recurring_event.cpp.o: ../partB/recurring_event.cpp
+CMakeFiles/progB.dir/partB/recurring_event.cpp.o: ../partB/recurring_event.h
+=======
+>>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
 
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: ../partA/date_wrap.h
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: ../partA/exceptions.h

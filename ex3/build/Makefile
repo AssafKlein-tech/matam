@@ -261,6 +261,60 @@ partB/festival.cpp.s:
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.s
 .PHONY : partB/festival.cpp.s
 
+partB/festival.o: partB/festival.cpp.o
+
+.PHONY : partB/festival.o
+
+# target to build an object file
+partB/festival.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.o
+.PHONY : partB/festival.cpp.o
+
+partB/festival.i: partB/festival.cpp.i
+
+.PHONY : partB/festival.i
+
+# target to preprocess a source file
+partB/festival.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.i
+.PHONY : partB/festival.cpp.i
+
+partB/festival.s: partB/festival.cpp.s
+
+.PHONY : partB/festival.s
+
+# target to generate assembly for a file
+partB/festival.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.s
+.PHONY : partB/festival.cpp.s
+
+partB/recurring_event.o: partB/recurring_event.cpp.o
+
+.PHONY : partB/recurring_event.o
+
+# target to build an object file
+partB/recurring_event.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.o
+.PHONY : partB/recurring_event.cpp.o
+
+partB/recurring_event.i: partB/recurring_event.cpp.i
+
+.PHONY : partB/recurring_event.i
+
+# target to preprocess a source file
+partB/recurring_event.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.i
+.PHONY : partB/recurring_event.cpp.i
+
+partB/recurring_event.s: partB/recurring_event.cpp.s
+
+.PHONY : partB/recurring_event.s
+
+# target to generate assembly for a file
+partB/recurring_event.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.s
+.PHONY : partB/recurring_event.cpp.s
+
 provided/test_partA.o: provided/test_partA.cpp.o
 
 .PHONY : provided/test_partA.o
@@ -334,9 +388,21 @@ help:
 	@echo "... partB/event_container.o"
 	@echo "... partB/event_container.i"
 	@echo "... partB/event_container.s"
+<<<<<<< HEAD
+	@echo "... partB/event_queue.o"
+	@echo "... partB/event_queue.i"
+	@echo "... partB/event_queue.s"
 	@echo "... partB/festival.o"
 	@echo "... partB/festival.i"
 	@echo "... partB/festival.s"
+	@echo "... partB/recurring_event.o"
+	@echo "... partB/recurring_event.i"
+	@echo "... partB/recurring_event.s"
+=======
+	@echo "... partB/festival.o"
+	@echo "... partB/festival.i"
+	@echo "... partB/festival.s"
+>>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
 	@echo "... provided/test_partA.o"
 	@echo "... provided/test_partA.i"
 	@echo "... provided/test_partA.s"

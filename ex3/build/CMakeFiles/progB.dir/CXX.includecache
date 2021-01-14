@@ -64,10 +64,6 @@ date_wrap.h
 generic_stack.h
 /home/assafklein/mtm/matam/ex3/partB/generic_stack.h
 
-/home/assafklein/mtm/matam/ex3/partB/event_container.cpp
-event_container.h
-/home/assafklein/mtm/matam/ex3/partB/event_container.h
-
 /home/assafklein/mtm/matam/ex3/partB/event_container.h
 stdbool.h
 -
@@ -83,6 +79,17 @@ festival.h
 /home/assafklein/mtm/matam/ex3/partB/festival.h
 event_container.h
 /home/assafklein/mtm/matam/ex3/partB/event_container.h
+<<<<<<< HEAD
+
+/home/assafklein/mtm/matam/ex3/partB/recurring_event.cpp
+recurring_event.h
+/home/assafklein/mtm/matam/ex3/partB/recurring_event.h
+
+/home/assafklein/mtm/matam/ex3/partB/recurring_event.h
+event_container.h
+/home/assafklein/mtm/matam/ex3/partB/event_container.h
+=======
+>>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
 
 /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp
 base_event.h
