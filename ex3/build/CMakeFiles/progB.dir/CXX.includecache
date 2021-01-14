@@ -27,8 +27,8 @@ iostream
 -
 date_wrap.h
 ../partB/date_wrap.h
-generic_stack.h
-../partB/generic_stack.h
+generic_queue.h
+../partB/generic_queue.h
 
 ../partB/event_container.h
 stdbool.h
@@ -42,6 +42,12 @@ exceptions.h
 event_container.h
 ../partB/event_container.h
 
+../partB/generic_queue.h
+date_wrap.h
+../partB/date_wrap.h
+base_event.h
+../partB/base_event.h
+
 ../partB/recurring_event.h
 event_container.h
 ../partB/event_container.h
@@ -50,50 +56,11 @@ event_container.h
 stdbool.h
 -
 
-/home/assafklein/mtm/matam/ex3/partB/base_event.cpp
-base_event.h
-/home/assafklein/mtm/matam/ex3/partB/base_event.h
-
-/home/assafklein/mtm/matam/ex3/partB/base_event.h
-string.h
--
-iostream
--
-date_wrap.h
-/home/assafklein/mtm/matam/ex3/partB/date_wrap.h
-generic_stack.h
-/home/assafklein/mtm/matam/ex3/partB/generic_stack.h
-
-/home/assafklein/mtm/matam/ex3/partB/event_container.h
-stdbool.h
--
-base_event.h
-/home/assafklein/mtm/matam/ex3/partB/base_event.h
-exceptions.h
-/home/assafklein/mtm/matam/ex3/partB/exceptions.h
-
-/home/assafklein/mtm/matam/ex3/partB/festival.cpp
-festival.h
-/home/assafklein/mtm/matam/ex3/partB/festival.h
-
-/home/assafklein/mtm/matam/ex3/partB/festival.h
-event_container.h
-/home/assafklein/mtm/matam/ex3/partB/event_container.h
-<<<<<<< HEAD
-
-/home/assafklein/mtm/matam/ex3/partB/recurring_event.cpp
-recurring_event.h
-/home/assafklein/mtm/matam/ex3/partB/recurring_event.h
-
-/home/assafklein/mtm/matam/ex3/partB/recurring_event.h
-event_container.h
-/home/assafklein/mtm/matam/ex3/partB/event_container.h
-=======
->>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
-
 /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp
 base_event.h
 /home/assafklein/mtm/matam/ex3/provided/base_event.h
+custom_event.h
+/home/assafklein/mtm/matam/ex3/provided/custom_event.h
 date_wrap.h
 /home/assafklein/mtm/matam/ex3/provided/date_wrap.h
 event_container.h
