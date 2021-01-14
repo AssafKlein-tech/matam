@@ -1,9 +1,25 @@
 #include "date_wrap.h"
-
 namespace mtm{
+	const int MIN_DAY = 1;
+	const int MAX_DAY = 30;
+	const int MIN_MONTH = 1;
+	const int MAX_MONTH = 12;
+
+	bool DateWrap::checkDateValidation(const int day,const int month)
+	{
+		if (day < MIN_DAY || day > MAX_DAY || month < MIN_MONTH || month > MAX_MONTH)
+		{
+			return false;
+		}
+		return true;
+	}
+
 	DateWrap::DateWrap(const int day,const int month, const int year)
 	{
-		//if date illegall raise InvalidDate
+		if (!checkDateValidation(day,month))	
+		{
+			throw InvalidDate();
+		}
 		date = dateCreate(day,month,year);
 	}
 
@@ -108,6 +124,10 @@ namespace mtm{
 
 	DateWrap& DateWrap::operator+=(const int days_to_add) 
 	{
+		if(days_to_add < 0)
+		{
+			throw NegativeDays();
+		}
 		for(int i = 0; i < days_to_add; i++)
 		{
 			dateTick(date);
