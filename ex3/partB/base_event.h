@@ -4,6 +4,7 @@
 using std::ostream;
 #include <iostream>
 #include "date_wrap.h"
+#include "generic_stack.h"
 
 // we need <,>,==, copyC'tor
 namespace mtm{
@@ -20,19 +21,9 @@ namespace mtm{
 
         DateWrap date;
          std::string name;
-         Members_list *current_memeber;
+         Stack<int> *member_stack;
 
     };
-
-     class Members_list
-    {
-        friend class BaseEvent;
-        int member;
-        Members_list *next;
-
-    }; 
-
-
 
 }
 
