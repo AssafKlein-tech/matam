@@ -1,8 +1,8 @@
 #ifndef BASE_EVENT_H_
 #define BASE_EVENT_H_
 #include<string.h>
-using std::ostream;
 #include <iostream>
+using std::ostream;
 #include "date_wrap.h"
 #include "generic_queue.h"
 using std::string;

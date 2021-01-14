@@ -26,13 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 21,
+				"line" : 20,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 22,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
@@ -44,7 +44,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 20,
+				"line" : 19,
 				"parent" : 0
 			}
 		]
@@ -55,7 +55,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g  "
+					"fragment" : "-O3 -DNDEBUG  "
 				}
 			],
 			"includes" : 
@@ -66,11 +66,11 @@
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/assafklein/mtm/matam/ex3/provided"
+					"path" : "/home/assafklein/mtm/matam/ex3/./partB"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/assafklein/mtm/matam/ex3/partB"
+					"path" : "/home/assafklein/mtm/matam/ex3/./provided"
 				},
 				{
 					"backtrace" : 4,
@@ -79,6 +79,10 @@
 				{
 					"backtrace" : 4,
 					"path" : "/home/assafklein/mtm/matam/ex3/partA"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/home/assafklein/mtm/matam/ex3/provided"
 				}
 			],
 			"language" : "CXX",
@@ -95,7 +99,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-O3 -DNDEBUG",
 				"role" : "flags"
 			},
 			{
