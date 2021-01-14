@@ -1,10 +1,12 @@
-#ifndef FESTIVAL_H_
-#define FESTIVAL_H_
+#ifndef RECURRING_EVENT_H_
+#define RECURRING_EVENT_H_
 #include "event_container.h"
+
 
 namespace mtm{
 
-    class Festival: public EventContainer{
+    template <class EventType>
+    class Recurring: public EventContainer{
         DateWrap date;
     public:
         Festival(DateWrap& date);

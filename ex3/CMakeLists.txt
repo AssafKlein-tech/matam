@@ -10,13 +10,14 @@ set(MTM_FLAGS_RELEASE "${MTM_FLAGS_DEBUG} -DNDEBUG")
 
 #set(CMAKE_CXX_FLAGS ${MTM_FLAGS_DEBUG})
 
-include_directories(progB partB provided)
-include_directories(progA partA provided)
 find_library(DATE date ./provided)
-add_executable(progA partA/date_wrap.cpp provided/test_partA.cpp)
-target_link_libraries(progA ${DATE})
-add_executable(progB provided/test_partB.cpp partB/event_container.cpp partB/event_queue.cpp)
+
+include_directories(progB partB provided)
+add_executable(progB provided/test_partB.cpp partB/event_container.cpp partB/base_event.cpp partB/festival.cpp)
 target_link_libraries(progB ${DATE})
 
+include_directories(progA partA provided)
+add_executable(progA partA/date_wrap.cpp provided/test_partA.cpp)
+target_link_libraries(progA ${DATE})
 
 
