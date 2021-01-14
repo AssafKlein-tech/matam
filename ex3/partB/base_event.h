@@ -7,7 +7,7 @@ using std::ostream;
 #include "generic_queue.h"
 using std::string;
 
-// we need <,>,==, copyC'tor
+// we need <,>,==,!= (regular, and with date to compare) copyC'tor
 namespace mtm{
     class BaseEvent{
     public: 
