@@ -6,6 +6,16 @@
 },
 {
   "directory": "/home/assafklein/mtm/matam/ex3/build",
+  "command": "/usr/bin/g++   -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/partB -I/home/assafklein/mtm/matam/ex3/provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA  -g   -o CMakeFiles/progB.dir/partB/event_container.cpp.o -c /home/assafklein/mtm/matam/ex3/partB/event_container.cpp",
+  "file": "/home/assafklein/mtm/matam/ex3/partB/event_container.cpp"
+},
+{
+  "directory": "/home/assafklein/mtm/matam/ex3/build",
+  "command": "/usr/bin/g++   -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/partB -I/home/assafklein/mtm/matam/ex3/provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA  -g   -o CMakeFiles/progB.dir/partB/event_queue.cpp.o -c /home/assafklein/mtm/matam/ex3/partB/event_queue.cpp",
+  "file": "/home/assafklein/mtm/matam/ex3/partB/event_queue.cpp"
+},
+{
+  "directory": "/home/assafklein/mtm/matam/ex3/build",
   "command": "/usr/bin/g++   -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/partB -I/home/assafklein/mtm/matam/ex3/provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA  -g   -o CMakeFiles/progA.dir/partA/date_wrap.cpp.o -c /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp",
   "file": "/home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp"
 },

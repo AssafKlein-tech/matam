@@ -4,6 +4,10 @@
 CMakeFiles/progA.dir/partA/date_wrap.cpp.o: ../provided/date.h
 CMakeFiles/progA.dir/partA/date_wrap.cpp.o: ../partA/date_wrap.cpp
 CMakeFiles/progA.dir/partA/date_wrap.cpp.o: ../partA/date_wrap.h
+CMakeFiles/progA.dir/partA/date_wrap.cpp.o: ../partA/exceptions.h
 
+CMakeFiles/progA.dir/provided/test_partA.cpp.o: ../partA/date_wrap.h
+CMakeFiles/progA.dir/provided/test_partA.cpp.o: ../partA/exceptions.h
+CMakeFiles/progA.dir/provided/test_partA.cpp.o: ../provided/date.h
 CMakeFiles/progA.dir/provided/test_partA.cpp.o: ../provided/test_partA.cpp
 

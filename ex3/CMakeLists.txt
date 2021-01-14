@@ -15,7 +15,7 @@ include_directories(progA partA provided)
 find_library(DATE date ./provided)
 add_executable(progA partA/date_wrap.cpp provided/test_partA.cpp)
 target_link_libraries(progA ${DATE})
-add_executable(progB provided/test_partB partB)
+add_executable(progB provided/test_partB.cpp partB/event_container.cpp partB/event_queue.cpp)
 target_link_libraries(progB ${DATE})
 
 

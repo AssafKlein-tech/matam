@@ -180,6 +180,60 @@ partA/date_wrap.cpp.s:
 	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/partA/date_wrap.cpp.s
 .PHONY : partA/date_wrap.cpp.s
 
+partB/event_container.o: partB/event_container.cpp.o
+
+.PHONY : partB/event_container.o
+
+# target to build an object file
+partB/event_container.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_container.cpp.o
+.PHONY : partB/event_container.cpp.o
+
+partB/event_container.i: partB/event_container.cpp.i
+
+.PHONY : partB/event_container.i
+
+# target to preprocess a source file
+partB/event_container.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_container.cpp.i
+.PHONY : partB/event_container.cpp.i
+
+partB/event_container.s: partB/event_container.cpp.s
+
+.PHONY : partB/event_container.s
+
+# target to generate assembly for a file
+partB/event_container.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_container.cpp.s
+.PHONY : partB/event_container.cpp.s
+
+partB/event_queue.o: partB/event_queue.cpp.o
+
+.PHONY : partB/event_queue.o
+
+# target to build an object file
+partB/event_queue.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.o
+.PHONY : partB/event_queue.cpp.o
+
+partB/event_queue.i: partB/event_queue.cpp.i
+
+.PHONY : partB/event_queue.i
+
+# target to preprocess a source file
+partB/event_queue.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.i
+.PHONY : partB/event_queue.cpp.i
+
+partB/event_queue.s: partB/event_queue.cpp.s
+
+.PHONY : partB/event_queue.s
+
+# target to generate assembly for a file
+partB/event_queue.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.s
+.PHONY : partB/event_queue.cpp.s
+
 provided/test_partA.o: provided/test_partA.cpp.o
 
 .PHONY : provided/test_partA.o
@@ -247,6 +301,12 @@ help:
 	@echo "... partA/date_wrap.o"
 	@echo "... partA/date_wrap.i"
 	@echo "... partA/date_wrap.s"
+	@echo "... partB/event_container.o"
+	@echo "... partB/event_container.i"
+	@echo "... partB/event_container.s"
+	@echo "... partB/event_queue.o"
+	@echo "... partB/event_queue.i"
+	@echo "... partB/event_queue.s"
 	@echo "... provided/test_partA.o"
 	@echo "... provided/test_partA.i"
 	@echo "... provided/test_partA.s"
