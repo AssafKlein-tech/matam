@@ -120,20 +120,12 @@ CMakeFiles/progA.dir/clean:
 CMakeFiles/progB.dir/all:
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/depend
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/build
-<<<<<<< HEAD
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=4,5,6,7,8,9,10 "Built target progB"
-=======
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=4,5,6,7,8 "Built target progB"
->>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=4,5,6,7,8,9 "Built target progB"
 .PHONY : CMakeFiles/progB.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/progB.dir/rule: cmake_check_build_system
-<<<<<<< HEAD
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 7
-=======
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 5
->>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/progB.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 0
 .PHONY : CMakeFiles/progB.dir/rule
