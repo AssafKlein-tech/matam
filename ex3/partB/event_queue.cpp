@@ -1,4 +1,4 @@
-#include "event_queue.h"
+#include "event_container.h"
 
 namespace mtm{
 
@@ -7,52 +7,22 @@ namespace mtm{
     {
         delete event_ptr;
     }
-/*
-    Node_event& Node_event::operator=(const Node_event& node)
-    {
-        if (this == &node)
-            return *this;
-        delete event_ptr;
-        event_ptr = node.event_ptr.clone();
-        next = node.next;
-        return *this;
-    }
 
-    Node_event::Node_event(const Node_event& node)
+    //EventContainer protected
+    Node_event* EventContainer::getInsertionPlace(const BaseEvent& event)
     {
-
-    }
-*/
-
-    //EventQueue Private
-    Node_event* EventQueue::getInsertionPlace(const BaseEvent& event)
-    {
-        current = head;
+        Node_event* tmp_ptr = head;
         if (!head)
         {
             return NULL;
         }
-        while (current->next && event > *(current->next->event_ptr))
+        while (tmp_ptr->next && event > *(tmp_ptr->next->event_ptr))
         {
-            current = current->next;
+            tmp_ptr = tmp_ptr->next;
         }
-        return current;
+        return tmp_ptr;
     }
-
-    //EventQueue methodes
-    EventQueue::~EventQueue()
-    {
-        current = head;
-        Node_event *next_to_delete;
-        while(current)
-        {
-            next_to_delete = current->next;
-            delete current;
-            current = next_to_delete;
-        }
-    }
-
-    bool EventQueue::contains(const BaseEvent& event)
+    bool EventContainer::contains(const BaseEvent& event)
     {
         Node_event *tmp = head;
         while(tmp)
@@ -65,58 +35,91 @@ namespace mtm{
         }
         return false;
     }
-
-    void EventQueue::Insert(const BaseEvent& event)
+    void EventContainer::Insert(BaseEvent& event)
     {
         if (!contains(event))
         {
-            Node_event* new_node = new Node_event(event);
-            if (!head)
-            {
-                head = new_node;
-            }
-            else if (event < *(head->event_ptr))
+            try{
+                Node_event* new_node = new Node_event(event);
+                if (!head)
                 {
-                    new_node->next = head;
                     head = new_node;
                 }
-            else
-            {
-                current = getInsertionPlace(event);
-                new_node->next = current->next;
-                current->next = new_node;
+                else if (event < *(head->event_ptr))
+                    {
+                        new_node->next = head;
+                        head = new_node;
+                    }
+                else
+                {
+                    Node_event* current = getInsertionPlace(event);
+                    new_node->next = current->next;
+                    current->next = new_node;
+                }
+            } catch (std::bad_alloc){
+                throw NotSupported();
             }
-            current = NULL;
         }
     }
 
-    BaseEvent* EventQueue::getFirst() 
+   //EventContainer methods
+    EventContainer::EventIterator EventContainer::begin()
     {
-        if(head)
-        {
-            current = head;
-            return head->event_ptr;
-        }
-        return NULL;
+        return EventContainer::EventIterator(head);
     }
 
-    BaseEvent* EventQueue::getNext() 
+    EventContainer::EventIterator EventContainer::end()
     {
-        if(!current)
+        Node_event* tmp_node = head;
+        if (!tmp_node)
         {
-            return NULL;
+            return EventContainer::EventIterator(head);
         }
-        if(!current->next)
+        while (tmp_node->next)
         {
-            return NULL;
+            tmp_node = tmp_node->next;
         }
-        current = current->next;
-        return current->event_ptr;
+        return EventContainer::EventIterator(tmp_node->next);
     }
 
-    BaseEvent* EventQueue::getLast() 
-    {
-        
-        return NULL;
+
+    //EventIterator methods
+    EventContainer::EventIterator::EventIterator(Node_event* pointer):
+        current_event(pointer)
+    {     
     }
+
+    EventContainer::EventIterator& EventContainer::EventIterator::operator++()
+    {
+        current_event = current_event->next;
+        return *this;
+    }
+
+    BaseEvent& EventContainer::EventIterator::operator*() const
+    {
+        return *(current_event->event_ptr);
+    }
+
+    bool EventContainer::EventIterator::operator==(const EventIterator& iterator) const
+    {
+        return current_event == iterator.current_event;
+    }
+
+    bool EventContainer::EventIterator::operator!=(const EventIterator& iterator) const
+    {
+        return current_event != iterator.current_event;
+    }
+
+    EventContainer::~EventContainer()
+    {
+        Node_event *current = head;
+        Node_event *next_to_delete;
+        while(current)
+        {
+            next_to_delete = current->next;
+            delete current;
+            current = next_to_delete;
+        }
+    }
+
 }

@@ -20,5 +20,7 @@ CMakeFiles/progB.dir/provided/test_partB.cpp.o
  ../partA/exceptions.h
  ../partB/base_event.h
  ../partB/event_container.h
+ ../partB/festival.h
+ ../partB/recurring_event.h
  ../provided/date.h
  /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp

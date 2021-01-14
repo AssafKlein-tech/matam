@@ -38,6 +38,12 @@ base_event.h
 exceptions.h
 ../partB/exceptions.h
 
+../partB/festival.h
+
+../partB/recurring_event.h
+event_container.h
+../partB/event_container.h
+
 ../provided/date.h
 stdbool.h
 -
