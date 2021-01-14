@@ -1,17 +1,17 @@
 [
 {
-  "directory": "/home/assafklein/mtm/matam/ex3/build",
-  "command": "/usr/bin/g++   -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/partB -I/home/assafklein/mtm/matam/ex3/provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA  -g   -o CMakeFiles/progB.dir/provided/test_partB.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp",
-  "file": "/home/assafklein/mtm/matam/ex3/provided/test_partB.cpp"
+  "directory": "/home/guyhakmon/mtm/matam/ex3/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/partB -I/home/guyhakmon/mtm/matam/ex3/provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA  -g   -o CMakeFiles/progB.dir/provided/test_partB.cpp.o -c /home/guyhakmon/mtm/matam/ex3/provided/test_partB.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/provided/test_partB.cpp"
 },
 {
-  "directory": "/home/assafklein/mtm/matam/ex3/build",
-  "command": "/usr/bin/g++   -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/partB -I/home/assafklein/mtm/matam/ex3/provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA  -g   -o CMakeFiles/progA.dir/partA/date_wrap.cpp.o -c /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp",
-  "file": "/home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp"
+  "directory": "/home/guyhakmon/mtm/matam/ex3/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/partB -I/home/guyhakmon/mtm/matam/ex3/provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA  -g   -o CMakeFiles/progA.dir/partA/date_wrap.cpp.o -c /home/guyhakmon/mtm/matam/ex3/partA/date_wrap.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/partA/date_wrap.cpp"
 },
 {
-  "directory": "/home/assafklein/mtm/matam/ex3/build",
-  "command": "/usr/bin/g++   -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/partB -I/home/assafklein/mtm/matam/ex3/provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA  -g   -o CMakeFiles/progA.dir/provided/test_partA.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp",
-  "file": "/home/assafklein/mtm/matam/ex3/provided/test_partA.cpp"
+  "directory": "/home/guyhakmon/mtm/matam/ex3/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/partB -I/home/guyhakmon/mtm/matam/ex3/provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA  -g   -o CMakeFiles/progA.dir/provided/test_partA.cpp.o -c /home/guyhakmon/mtm/matam/ex3/provided/test_partA.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/provided/test_partA.cpp"
 }
 ]

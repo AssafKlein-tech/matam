@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/partB -I/home/assafklein/mtm/matam/ex3/provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA 
+CXX_INCLUDES = -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/partB -I/home/guyhakmon/mtm/matam/ex3/provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA 
 
