@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/guyhakmon/mtm/matam/ex3/partA/date_wrap.cpp
+date_wrap.h
+/home/guyhakmon/mtm/matam/ex3/partA/date_wrap.h
+
+/home/guyhakmon/mtm/matam/ex3/partA/date_wrap.h
+iostream
+-
+stdbool.h
+-
+exceptions.h
+/home/guyhakmon/mtm/matam/ex3/partA/exceptions.h
+date.h
+/home/guyhakmon/mtm/matam/ex3/partA/date.h
+
+/home/guyhakmon/mtm/matam/ex3/partA/exceptions.h
+iostream
+-
+
+/home/guyhakmon/mtm/matam/ex3/provided/date.h
+stdbool.h
+-
+
+/home/guyhakmon/mtm/matam/ex3/provided/test_partA.cpp
+date_wrap.h
+/home/guyhakmon/mtm/matam/ex3/provided/date_wrap.h
+exceptions.h
+/home/guyhakmon/mtm/matam/ex3/provided/exceptions.h
+iostream
+-
+

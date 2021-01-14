@@ -6,12 +6,13 @@ namespace mtm{
     BaseEvent::BaseEvent(DateWrap& date, std::string name):
         name(name),
         date(date)
-        {this}
+        {member_queue->clear();}
 
 
     void BaseEvent::unregisterParticipant(int student)
     {
-
+        int start=0;
+        while(start!=member_queue->size())
 
     }
 

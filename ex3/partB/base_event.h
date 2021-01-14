@@ -22,7 +22,7 @@ namespace mtm{
 
         DateWrap date;
         string name;
-        Stack<int> *member_stack;
+        queue<int> *member_queue;
 
     };
 
