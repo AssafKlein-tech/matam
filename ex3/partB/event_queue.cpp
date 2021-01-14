@@ -116,6 +116,7 @@ namespace mtm{
 
     BaseEvent* EventQueue::getLast() 
     {
+        
         return NULL;
     }
 }
