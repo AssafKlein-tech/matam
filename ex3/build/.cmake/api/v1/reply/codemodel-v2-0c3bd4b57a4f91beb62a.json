@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -40,14 +40,14 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "progA::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-progA-Debug-4625877139da681f3692.json",
+					"jsonFile" : "target-progA-Release-4d36ab70a534b68e09be.json",
 					"name" : "progA",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "progB::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-progB-Debug-8e090b74328072724a51.json",
+					"jsonFile" : "target-progB-Release-a47586c6b5d415980940.json",
 					"name" : "progB",
 					"projectIndex" : 0
 				}

@@ -1,15 +1,4 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/.",
-    "files.associations": {
-        "*.h": "cpp",
-        "iosfwd": "cpp",
-        "*.tcc": "cpp",
-        "type_traits": "cpp",
-        "string": "cpp",
-        "ostream": "cpp",
-        "system_error": "cpp",
-        "iostream": "cpp",
-        "exception": "cpp"
-    },
-    "C_Cpp.intelliSenseEngineFallback": "Enabled"
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -261,6 +261,33 @@ partB/festival.cpp.s:
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.s
 .PHONY : partB/festival.cpp.s
 
+partB/recurring_event.o: partB/recurring_event.cpp.o
+
+.PHONY : partB/recurring_event.o
+
+# target to build an object file
+partB/recurring_event.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.o
+.PHONY : partB/recurring_event.cpp.o
+
+partB/recurring_event.i: partB/recurring_event.cpp.i
+
+.PHONY : partB/recurring_event.i
+
+# target to preprocess a source file
+partB/recurring_event.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.i
+.PHONY : partB/recurring_event.cpp.i
+
+partB/recurring_event.s: partB/recurring_event.cpp.s
+
+.PHONY : partB/recurring_event.s
+
+# target to generate assembly for a file
+partB/recurring_event.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.s
+.PHONY : partB/recurring_event.cpp.s
+
 provided/test_partA.o: provided/test_partA.cpp.o
 
 .PHONY : provided/test_partA.o
@@ -337,6 +364,9 @@ help:
 	@echo "... partB/festival.o"
 	@echo "... partB/festival.i"
 	@echo "... partB/festival.s"
+	@echo "... partB/recurring_event.o"
+	@echo "... partB/recurring_event.i"
+	@echo "... partB/recurring_event.s"
 	@echo "... provided/test_partA.o"
 	@echo "... provided/test_partA.i"
 	@echo "... provided/test_partA.s"
