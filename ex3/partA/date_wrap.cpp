@@ -16,7 +16,7 @@ namespace mtm{
 
 	DateWrap::DateWrap(const int day,const int month, const int year)
 	{
-		if( (!checkDateValidation(day,month))
+		if (!checkDateValidation(day,month))	
 		{
 			throw InvalidDate();
 		}

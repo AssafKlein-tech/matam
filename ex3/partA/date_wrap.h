@@ -3,6 +3,7 @@
 #include <iostream>
 using std::ostream;
 #include <stdbool.h>
+#include "exceptions.h"
 
 
 extern "C"{
@@ -22,6 +23,7 @@ namespace mtm{
          * @return false otherwise
          */
         bool checkDateValidation(const int day,const int month);
+
     public:
 
         DateWrap(int day,int month,int year);
@@ -44,13 +46,12 @@ namespace mtm{
         DateWrap operator++(int);
         DateWrap& operator+=(const int days_to_add);
 
-        class InvalidDate: public Exception {};
-        class NegativeDays: public Exception {};
-
     private:
         bool getDateParameter(int& day, int& month, int& year) const;
     };
-
+    class InvalidDate: public Exception {};
+    class NegativeDays: public Exception {};
+    
     DateWrap operator+(const int days, const DateWrap& date);
 }
 

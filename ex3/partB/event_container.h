@@ -4,7 +4,6 @@
 using std::ostream;
 #include <stdbool.h>
 #include "base_event.h"
-#include "event_queue.h"
 #include "exceptions.h"
 
 namespace mtm{

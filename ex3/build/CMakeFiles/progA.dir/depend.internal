@@ -5,5 +5,9 @@ CMakeFiles/progA.dir/partA/date_wrap.cpp.o
  ../provided/date.h
  /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp
  /home/assafklein/mtm/matam/ex3/partA/date_wrap.h
+ /home/assafklein/mtm/matam/ex3/partA/exceptions.h
 CMakeFiles/progA.dir/provided/test_partA.cpp.o
+ ../partA/date_wrap.h
+ ../partA/exceptions.h
+ ../provided/date.h
  /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp
