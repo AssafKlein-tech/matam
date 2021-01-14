@@ -6,12 +6,12 @@
 namespace mtm{
 
     template <class EventType>
-    class Recurring: public EventContainer{
+    class RecurringEvent: public EventContainer{
         DateWrap date;
     public:
-        Festival(DateWrap& date);
+        RecurringEvent(DateWrap& first_date, string name, int num_occurrences, int interval_days);
         void add(BaseEvent& event);
-        ~Festival(){}
+        ~RecurringEvent(){}
     };
 
 }

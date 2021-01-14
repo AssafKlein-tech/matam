@@ -1,15 +1,20 @@
 {
 	"folders": [
 		{
-			"name": "matam",
-			"path": ".."
+			"path": "."
 		}
 	],
 	"settings": {
 		"files.associations": {
+			"*.h": "cpp",
 			"iosfwd": "cpp",
+			"*.tcc": "cpp",
+			"type_traits": "cpp",
+			"string": "cpp",
+			"ostream": "cpp",
 			"system_error": "cpp",
-			"xlocale": "cpp"
+			"iostream": "cpp",
+			"exception": "cpp"
 		}
 	}
 }

@@ -11,6 +11,5 @@ namespace mtm{
         void add(BaseEvent& event);
         ~Festival(){}
     };
-
 }
 #endif
