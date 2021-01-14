@@ -1,7 +1,5 @@
 #ifndef EVENT_CONTAINER_H_
 #define EVENT_CONTAINER_H_
-#include <iostream>
-using std::ostream;
 #include <stdbool.h>
 #include "base_event.h"
 #include "exceptions.h"
@@ -30,9 +28,6 @@ namespace mtm{
 
     class EventContainer
     {
-    public:
-
-    private:
         Node_event *head;
 
     protected:

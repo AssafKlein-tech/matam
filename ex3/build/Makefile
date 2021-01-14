@@ -234,32 +234,32 @@ partB/event_container.cpp.s:
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_container.cpp.s
 .PHONY : partB/event_container.cpp.s
 
-partB/event_queue.o: partB/event_queue.cpp.o
+partB/festival.o: partB/festival.cpp.o
 
-.PHONY : partB/event_queue.o
+.PHONY : partB/festival.o
 
 # target to build an object file
-partB/event_queue.cpp.o:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.o
-.PHONY : partB/event_queue.cpp.o
+partB/festival.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.o
+.PHONY : partB/festival.cpp.o
 
-partB/event_queue.i: partB/event_queue.cpp.i
+partB/festival.i: partB/festival.cpp.i
 
-.PHONY : partB/event_queue.i
+.PHONY : partB/festival.i
 
 # target to preprocess a source file
-partB/event_queue.cpp.i:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.i
-.PHONY : partB/event_queue.cpp.i
+partB/festival.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.i
+.PHONY : partB/festival.cpp.i
 
-partB/event_queue.s: partB/event_queue.cpp.s
+partB/festival.s: partB/festival.cpp.s
 
-.PHONY : partB/event_queue.s
+.PHONY : partB/festival.s
 
 # target to generate assembly for a file
-partB/event_queue.cpp.s:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.s
-.PHONY : partB/event_queue.cpp.s
+partB/festival.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.s
+.PHONY : partB/festival.cpp.s
 
 partB/festival.o: partB/festival.cpp.o
 
@@ -388,6 +388,7 @@ help:
 	@echo "... partB/event_container.o"
 	@echo "... partB/event_container.i"
 	@echo "... partB/event_container.s"
+<<<<<<< HEAD
 	@echo "... partB/event_queue.o"
 	@echo "... partB/event_queue.i"
 	@echo "... partB/event_queue.s"
@@ -397,6 +398,11 @@ help:
 	@echo "... partB/recurring_event.o"
 	@echo "... partB/recurring_event.i"
 	@echo "... partB/recurring_event.s"
+=======
+	@echo "... partB/festival.o"
+	@echo "... partB/festival.i"
+	@echo "... partB/festival.s"
+>>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
 	@echo "... provided/test_partA.o"
 	@echo "... provided/test_partA.i"
 	@echo "... provided/test_partA.s"
