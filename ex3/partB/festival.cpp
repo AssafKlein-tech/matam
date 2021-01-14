@@ -7,7 +7,11 @@ namespace mtm{
 
     void Festival::add(BaseEvent& event)
     {
+<<<<<<< HEAD
         if(event != date)
+=======
+        if(event != BaseEvent(date,""))
+>>>>>>> f084deb... חדש
         {
             throw DateMismatch();
         }

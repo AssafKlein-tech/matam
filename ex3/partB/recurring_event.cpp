@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "recurring_event.h"
 
 namespace mtm{
@@ -14,4 +15,18 @@ namespace mtm{
     {
         throw NotSupported();
     }
+=======
+#include "recurring_event.h"
+
+namespace mtm{
+    RecurringEvent::RecurringEvent(DateWrap& date): date(DateWrap(date))
+    {
+        this.
+    }
+
+    void RecurringEvent::add(BaseEvent& event)
+    {
+        throw NotSupported();
+    }
+>>>>>>> f084deb... חדש
 }
