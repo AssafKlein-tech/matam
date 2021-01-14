@@ -35,25 +35,29 @@ namespace mtm{
         }
         return false;
     }
-    void EventContainer::Insert(const BaseEvent& event)
+    void EventContainer::Insert(BaseEvent& event)
     {
         if (!contains(event))
         {
-            Node_event* new_node = new Node_event(event);
-            if (!head)
-            {
-                head = new_node;
-            }
-            else if (event < *(head->event_ptr))
+            try{
+                Node_event* new_node = new Node_event(event);
+                if (!head)
                 {
-                    new_node->next = head;
                     head = new_node;
                 }
-            else
-            {
-                Node_event* current = getInsertionPlace(event);
-                new_node->next = current->next;
-                current->next = new_node;
+                else if (event < *(head->event_ptr))
+                    {
+                        new_node->next = head;
+                        head = new_node;
+                    }
+                else
+                {
+                    Node_event* current = getInsertionPlace(event);
+                    new_node->next = current->next;
+                    current->next = new_node;
+                }
+            } catch (std::bad_alloc){
+                throw NotSupported();
             }
         }
     }

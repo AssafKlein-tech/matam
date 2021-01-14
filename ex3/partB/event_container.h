@@ -50,7 +50,7 @@ namespace mtm{
          * 
          * @param event the event to enter to the node
          */
-        void Insert(const BaseEvent& event);
+        void Insert(BaseEvent& event);
 
         /**
          * @brief checks if the Events queue contains the event
