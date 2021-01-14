@@ -1,10 +1,7 @@
 #ifndef EVENT_CONTAINER_H_
 #define EVENT_CONTAINER_H_
-#include <iostream>
-using std::ostream;
 #include <stdbool.h>
 #include "base_event.h"
-#include "event_queue.h"
 #include "exceptions.h"
 
 namespace mtm{
@@ -31,9 +28,6 @@ namespace mtm{
 
     class EventContainer
     {
-    public:
-
-    private:
         Node_event *head;
 
     protected:
@@ -50,7 +44,7 @@ namespace mtm{
          * 
          * @param event the event to enter to the node
          */
-        void Insert(const BaseEvent& event);
+        void Insert(BaseEvent& event);
 
         /**
          * @brief checks if the Events queue contains the event
@@ -77,10 +71,7 @@ namespace mtm{
         virtual void add(BaseEvent& event) = 0;
         EventIterator begin();
         EventIterator end();
-        virtual ~EventContainer() {}
-
-        class NotSupported: public Exception {};
-
+        virtual ~EventContainer();
     };
 
 }

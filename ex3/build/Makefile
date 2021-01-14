@@ -128,19 +128,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named progB
-
-# Build rule for target.
-progB: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 progB
-.PHONY : progB
-
-# fast build rule for target.
-progB/fast:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/build
-.PHONY : progB/fast
-
-#=============================================================================
 # Target rules for targets named progA
 
 # Build rule for target.
@@ -152,6 +139,19 @@ progA: cmake_check_build_system
 progA/fast:
 	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/build
 .PHONY : progA/fast
+
+#=============================================================================
+# Target rules for targets named progB
+
+# Build rule for target.
+progB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 progB
+.PHONY : progB
+
+# fast build rule for target.
+progB/fast:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/build
+.PHONY : progB/fast
 
 partA/date_wrap.o: partA/date_wrap.cpp.o
 
@@ -180,6 +180,33 @@ partA/date_wrap.cpp.s:
 	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/partA/date_wrap.cpp.s
 .PHONY : partA/date_wrap.cpp.s
 
+partB/base_event.o: partB/base_event.cpp.o
+
+.PHONY : partB/base_event.o
+
+# target to build an object file
+partB/base_event.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/base_event.cpp.o
+.PHONY : partB/base_event.cpp.o
+
+partB/base_event.i: partB/base_event.cpp.i
+
+.PHONY : partB/base_event.i
+
+# target to preprocess a source file
+partB/base_event.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/base_event.cpp.i
+.PHONY : partB/base_event.cpp.i
+
+partB/base_event.s: partB/base_event.cpp.s
+
+.PHONY : partB/base_event.s
+
+# target to generate assembly for a file
+partB/base_event.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/base_event.cpp.s
+.PHONY : partB/base_event.cpp.s
+
 partB/event_container.o: partB/event_container.cpp.o
 
 .PHONY : partB/event_container.o
@@ -207,32 +234,32 @@ partB/event_container.cpp.s:
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_container.cpp.s
 .PHONY : partB/event_container.cpp.s
 
-partB/event_queue.o: partB/event_queue.cpp.o
+partB/festival.o: partB/festival.cpp.o
 
-.PHONY : partB/event_queue.o
+.PHONY : partB/festival.o
 
 # target to build an object file
-partB/event_queue.cpp.o:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.o
-.PHONY : partB/event_queue.cpp.o
+partB/festival.cpp.o:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.o
+.PHONY : partB/festival.cpp.o
 
-partB/event_queue.i: partB/event_queue.cpp.i
+partB/festival.i: partB/festival.cpp.i
 
-.PHONY : partB/event_queue.i
+.PHONY : partB/festival.i
 
 # target to preprocess a source file
-partB/event_queue.cpp.i:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.i
-.PHONY : partB/event_queue.cpp.i
+partB/festival.cpp.i:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.i
+.PHONY : partB/festival.cpp.i
 
-partB/event_queue.s: partB/event_queue.cpp.s
+partB/festival.s: partB/festival.cpp.s
 
-.PHONY : partB/event_queue.s
+.PHONY : partB/festival.s
 
 # target to generate assembly for a file
-partB/event_queue.cpp.s:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_queue.cpp.s
-.PHONY : partB/event_queue.cpp.s
+partB/festival.cpp.s:
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.s
+.PHONY : partB/festival.cpp.s
 
 provided/test_partA.o: provided/test_partA.cpp.o
 
@@ -301,12 +328,15 @@ help:
 	@echo "... partA/date_wrap.o"
 	@echo "... partA/date_wrap.i"
 	@echo "... partA/date_wrap.s"
+	@echo "... partB/base_event.o"
+	@echo "... partB/base_event.i"
+	@echo "... partB/base_event.s"
 	@echo "... partB/event_container.o"
 	@echo "... partB/event_container.i"
 	@echo "... partB/event_container.s"
-	@echo "... partB/event_queue.o"
-	@echo "... partB/event_queue.i"
-	@echo "... partB/event_queue.s"
+	@echo "... partB/festival.o"
+	@echo "... partB/festival.i"
+	@echo "... partB/festival.s"
 	@echo "... provided/test_partA.o"
 	@echo "... provided/test_partA.i"
 	@echo "... provided/test_partA.s"
