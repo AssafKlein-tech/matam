@@ -8,7 +8,6 @@ namespace mtm{
         date(date)
         {}
 
-
     void BaseEvent::unregisterParticipant(int student)
     {
         while(this->current_memeber)
