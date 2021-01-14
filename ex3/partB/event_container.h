@@ -5,33 +5,41 @@ using std::ostream;
 #include <stdbool.h>
 #include "base_event.h"
 #include "event_queue.h"
+#include "exceptions.h"
 
 namespace mtm{
-    class EventContainer{
-        // base event in a priority queue
-        EventIterator itrator;
+    class EventContainer
+    {
+    
     public:
 
-    EventContainer() {}
-    virtual add(BaseEvent& event) = 0;
-    virtual EventIterator begin() const;
-    virtual EventIterator end() const;
-    virtual ~EventContainer();
-
-    class NotSupported: public Exception {};
-
-    class EventIterator:{
-        BaseEvent* event; 
+    private:
+        EventQueue events;
+    protected:
+        void primitiveAdd(BaseEvent& event);
 
     public:
-        EventIterator();
-        EventIterator& operator++();
-        BaseEvent& operator*() const;
-        bool operator==(const EventIterator& iterator) const;
-        bool operator!=(const EventIterator& iterator) const;
-    }
-    protected:    
+        class EventIterator{};
 
+        EventContainer() {}
+        virtual void add(BaseEvent& event) = 0;
+        EventIterator begin();
+        EventIterator end();
+        virtual ~EventContainer() {}
+
+        class NotSupported: public Exception {};
+
+        class EventIterator{
+                BaseEvent* current_event;
+                EventContainer& container;
+        public:
+            EventIterator(EventContainer& container);
+            EventIterator& operator++();
+            BaseEvent& operator*() const;
+            bool operator==(const EventIterator& iterator) const;
+            bool operator!=(const EventIterator& iterator) const;
+        protected:
+        };  
     };
 
 }

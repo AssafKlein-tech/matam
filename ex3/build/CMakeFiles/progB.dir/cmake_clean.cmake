@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/progB.dir/partB/event_container.cpp.o"
+  "CMakeFiles/progB.dir/partB/event_queue.cpp.o"
   "CMakeFiles/progB.dir/provided/test_partB.cpp.o"
   "progB"
   "progB.pdb"
