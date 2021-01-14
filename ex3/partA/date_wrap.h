@@ -49,8 +49,6 @@ namespace mtm{
     private:
         bool getDateParameter(int& day, int& month, int& year) const;
     };
-    class InvalidDate: public Exception {};
-    class NegativeDays: public Exception {};
     
     DateWrap operator+(const int days, const DateWrap& date);
 }

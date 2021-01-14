@@ -110,4 +110,16 @@ namespace mtm{
         return current_event != iterator.current_event;
     }
 
+    EventContainer::~EventContainer()
+    {
+        Node_event *current = head;
+        Node_event *next_to_delete;
+        while(current)
+        {
+            next_to_delete = current->next;
+            delete current;
+            current = next_to_delete;
+        }
+    }
+
 }

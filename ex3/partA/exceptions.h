@@ -6,6 +6,9 @@ using std::exception;
 
 namespace mtm{
     class Exception: public exception {};
+    class InvalidDate: public Exception {};
+    class NegativeDays: public Exception {};
+    class NotSupported: public Exception {};
 }
 
 #endif

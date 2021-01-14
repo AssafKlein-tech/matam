@@ -76,10 +76,7 @@ namespace mtm{
         virtual void add(BaseEvent& event) = 0;
         EventIterator begin();
         EventIterator end();
-        virtual ~EventContainer() {}
-
-        class NotSupported: public Exception {};
-
+        virtual ~EventContainer();
     };
 
 }
