@@ -8,7 +8,7 @@ using std::ostream;
 // we need <,>,==, copyC'tor
 namespace mtm{
     class BaseEvent{
-    public:
+    public: 
     BaseEvent(DateWrap& date, std::string name);
     virtual void registerParticipant(int student)=0;
     virtual void unregisterParticipant(int student);

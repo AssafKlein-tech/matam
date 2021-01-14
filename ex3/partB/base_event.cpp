@@ -30,7 +30,8 @@ namespace mtm{
     }
     void BaseEvent::printLong(std::ostream stream)
     {
-        printShort(stream);
+        stream<< name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
+        //printShort(stream);
          Members_list *clone=this->current_memeber;
         while (clone)
         {
