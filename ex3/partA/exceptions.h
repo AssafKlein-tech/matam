@@ -13,6 +13,8 @@ namespace mtm{
     //EventContainer exceptions
     class NotSupported: public Exception {};
     class DateMismatch: public Exception {};
+    class InvalidNumber: public Exception {};
+    class InvalidInterval: public Exception {};
 }
 
 #endif
