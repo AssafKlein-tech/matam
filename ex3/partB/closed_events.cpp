@@ -1,10 +1,10 @@
-#include "close_event.h"
+#include "closed_event.h"
 
 
 namespace mtm{
 
     ClosedEvent::ClosedEvent(DateWrap date, std::string name) 
-        name(name),
+        this->name(name),
         date(date)
         {}//צריך לאתחל את רשימת המוזמנים
 

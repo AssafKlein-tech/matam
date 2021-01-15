@@ -4,7 +4,7 @@
 #include <iostream>
 using std::ostream;
 #include "date_wrap.h"
-#include "generic_queue.h"
+#include "generic_linked_list.h"
 using std::string;
 
 // we need <,>,==,!= (regular, and with date to compare) copyC'tor
@@ -22,7 +22,7 @@ namespace mtm{
 
         DateWrap date;
         string name;
-        queue<int> *member_queue;
+        LinkedList<int> *member_list;
 
     };
 

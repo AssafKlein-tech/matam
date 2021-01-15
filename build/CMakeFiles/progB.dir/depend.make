@@ -5,7 +5,7 @@ CMakeFiles/progB.dir/partB/base_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partA
 CMakeFiles/progB.dir/partB/base_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partA/exceptions.h
 CMakeFiles/progB.dir/partB/base_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/base_event.cpp
 CMakeFiles/progB.dir/partB/base_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/base_event.h
-CMakeFiles/progB.dir/partB/base_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_queue.h
+CMakeFiles/progB.dir/partB/base_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_linked_list.h
 CMakeFiles/progB.dir/partB/base_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/provided/date.h
 
 CMakeFiles/progB.dir/partB/event_container.cpp.o: /home/guyhakmon/mtm/matam/ex3/partA/date_wrap.h
@@ -13,7 +13,7 @@ CMakeFiles/progB.dir/partB/event_container.cpp.o: /home/guyhakmon/mtm/matam/ex3/
 CMakeFiles/progB.dir/partB/event_container.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/base_event.h
 CMakeFiles/progB.dir/partB/event_container.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/event_container.cpp
 CMakeFiles/progB.dir/partB/event_container.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/event_container.h
-CMakeFiles/progB.dir/partB/event_container.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_queue.h
+CMakeFiles/progB.dir/partB/event_container.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_linked_list.h
 CMakeFiles/progB.dir/partB/event_container.cpp.o: /home/guyhakmon/mtm/matam/ex3/provided/date.h
 
 CMakeFiles/progB.dir/partB/festival.cpp.o: /home/guyhakmon/mtm/matam/ex3/partA/date_wrap.h
@@ -22,14 +22,14 @@ CMakeFiles/progB.dir/partB/festival.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/b
 CMakeFiles/progB.dir/partB/festival.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/event_container.h
 CMakeFiles/progB.dir/partB/festival.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/festival.cpp
 CMakeFiles/progB.dir/partB/festival.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/festival.h
-CMakeFiles/progB.dir/partB/festival.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_queue.h
+CMakeFiles/progB.dir/partB/festival.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_linked_list.h
 CMakeFiles/progB.dir/partB/festival.cpp.o: /home/guyhakmon/mtm/matam/ex3/provided/date.h
 
 CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partA/date_wrap.h
 CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partA/exceptions.h
 CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/base_event.h
 CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/event_container.h
-CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_queue.h
+CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_linked_list.h
 CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/recurring_event.cpp
 CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/recurring_event.h
 CMakeFiles/progB.dir/partB/recurring_event.cpp.o: /home/guyhakmon/mtm/matam/ex3/provided/date.h
@@ -39,7 +39,7 @@ CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/pa
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/base_event.h
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/event_container.h
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/festival.h
-CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_queue.h
+CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/generic_linked_list.h
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/partB/recurring_event.h
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/provided/date.h
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: /home/guyhakmon/mtm/matam/ex3/provided/test_partB.cpp
