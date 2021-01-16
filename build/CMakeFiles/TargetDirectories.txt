@@ -1,0 +1,4 @@
+/home/guyhakmon/mtm/matam/build/CMakeFiles/edit_cache.dir
+/home/guyhakmon/mtm/matam/build/CMakeFiles/progA.dir
+/home/guyhakmon/mtm/matam/build/CMakeFiles/rebuild_cache.dir
+/home/guyhakmon/mtm/matam/build/CMakeFiles/progB.dir

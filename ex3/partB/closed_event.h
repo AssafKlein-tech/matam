@@ -14,16 +14,10 @@ namespace mtm{
      ClosedEvent* clone() override {return new ClosedEvent(*this);}
     
     protected:    
-         invited_list *current_memeber;
+          LinkedList<int> invited_list;
 
     };
-     class invited_list
-    {
-        friend class ClosedEvent;
-        int invited_guest;
-       invited_list *next;
 
-    }; 
 
 
     };

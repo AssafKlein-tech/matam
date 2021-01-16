@@ -6,11 +6,15 @@ namespace mtm{
     BaseEvent::BaseEvent(DateWrap& date, std::string name):
         name(name),
         date(date)
-        {this}
+        {member_list->clear();
+        }
 
 
     void BaseEvent::unregisterParticipant(int student)
     {
+    if(!member_list->sub(student))
+        //להחזיר שגיאה מסוג סטודנט לא נמצא במאגר
+
 
 
     }
@@ -30,7 +34,7 @@ namespace mtm{
     }
     BaseEvent* BaseEvent::clone()
     {
-        return new BaseEvent(*this);
+        return new BaseEvent&(this);
 
     }
 }
