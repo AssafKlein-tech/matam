@@ -3,31 +3,50 @@
 
 namespace mtm{
 
-    ClosedEvent::ClosedEvent(DateWrap date, std::string name)
+    ClosedEvent::ClosedEvent(DateWrap date, std::string name):
+    BaseEvent(date,name)
     {
         invited_list->clear();
-        member_list->clear();
-        BaseEvent:date=date;
-        BaseEvent:name=name;
     }
 
     void ClosedEvent::addinvitee (int student){
+        node<int>* curr_invited=invited_list->first;
+        while (curr_invited)
+        {
+            if(student==curr_invited->data)
+            throw AlreadyInvited();
+        }
+        
        invited_list->add(student);
      }
 
     void ClosedEvent::registerParticipant(int student)
     {
-        int i=0;
-        int* start_copy=invited_list->first;
-        while(invited_list->first!=invited_list->last)
+        node<int>* curr_invited=invited_list->first;
+        node<int>* curr_member=member_list->first;
+        while(curr_invited)
         {
-        if(student==invited_list->get(i))
-        {member_list->add(student);
-        return;}
-        
+            if(student==curr_invited->data)
+            {
+                while(curr_member)
+                    if(curr_member->data==student)
+                        throw AlreadyRegistered();
+
+                member_list->add(student);
+                return;
+            }
+        curr_invited=curr_invited->next;
         }
-        //אם הגעתי לכאן הפעולה נכשלה
+       throw(RegistrationBlocked());
     }
+
+     ClosedEvent* clone()
+     {
+         
+
+
+
+     }
 
     
 

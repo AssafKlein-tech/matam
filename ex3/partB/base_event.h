@@ -6,7 +6,7 @@ using std::ostream;
 #include "date_wrap.h"
 #include "generic_linked_list.h"
 using std::string;
-
+#include "exceptions.h"
 // we need <,>,==,!= (regular, and with date to compare) copyC'tor
 namespace mtm{
     class BaseEvent{
@@ -17,9 +17,13 @@ namespace mtm{
         virtual void printShort(ostream stream);
         virtual void printLong(ostream stream);
         virtual BaseEvent* clone();
-    
+        bool operator==(const BaseEvent& event) const;
+        bool operator!=(const BaseEvent& event) const;
+        bool operator>(const BaseEvent& event) const;
+        bool operator<(const BaseEvent& event) const;
+        bool compareEventsDateWithADate(DateWrap& date);
+        
     protected:    
-        BaseEvent();
         DateWrap date;
         string name;
         LinkedList<int> *member_list;

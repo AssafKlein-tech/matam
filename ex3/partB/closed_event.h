@@ -9,9 +9,7 @@ namespace mtm{
      ClosedEvent::ClosedEvent(DateWrap date, std::string name);
      void ClosedEvent::addinvitee (int student);
      void ClosedEvent::registerParticipant(int student) override;
-     void ClosedEvent::printShort(std::ostream stream);
-     void ClosedEvent::printLong(std::ostream stream);
-     ClosedEvent* clone() override {return new ClosedEvent(*this);}
+     ClosedEvent* clone() override;
     
     protected:    
           LinkedList<int> *invited_list;
