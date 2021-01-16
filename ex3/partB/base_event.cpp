@@ -8,7 +8,13 @@ namespace mtm{
         date(date)
         {member_list->clear();
         }
-
+    
+    BaseEvent::BaseEvent():
+            name(NULL),
+            date(NULL)
+            {
+                member_list->clear();
+            }
 
     void BaseEvent::unregisterParticipant(int student)
     {

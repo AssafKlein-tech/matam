@@ -19,7 +19,7 @@ namespace mtm{
         virtual BaseEvent* clone();
     
     protected:    
-
+        BaseEvent();
         DateWrap date;
         string name;
         LinkedList<int> *member_list;
