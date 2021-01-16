@@ -15,11 +15,12 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -31,7 +32,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -40,15 +42,22 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "progA::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-progA-Debug-3969d84f3fb992c65e3d.json",
+					"jsonFile" : "target-progA-Release-4e1752cf7ca574bc05ff.json",
 					"name" : "progA",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "progB::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-progB-Debug-2dc858e626d89ca52037.json",
+					"jsonFile" : "target-progB-Release-cb930cb42a155eb7da42.json",
 					"name" : "progB",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "progC::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-progC-Release-0b05ed965021fc30445f.json",
+					"name" : "progC",
 					"projectIndex" : 0
 				}
 			]
@@ -57,8 +66,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/guyhakmon/mtm/matam/ex3/build",
-		"source" : "/home/guyhakmon/mtm/matam/ex3"
+		"build" : "/home/assafklein/mtm/matam/ex3/build",
+		"source" : "/home/assafklein/mtm/matam/ex3"
 	},
 	"version" : 
 	{

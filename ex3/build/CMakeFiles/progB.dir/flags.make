@@ -6,13 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-CXX_INCLUDES = -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/partB -I/home/guyhakmon/mtm/matam/ex3/provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA 
-=======
-CXX_INCLUDES = -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/provided -I/home/assafklein/mtm/matam/ex3/partB -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA 
->>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
-=======
-CXX_INCLUDES = -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/./partB -I/home/assafklein/mtm/matam/ex3/./provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA -I/home/assafklein/mtm/matam/ex3/provided 
->>>>>>> d13dddf434d1fa7afc853c2fe57e810b1fb3afba
+CXX_INCLUDES = -I/home/assafklein/mtm/matam/ex3/progC -I/home/assafklein/mtm/matam/ex3/./partC -I/home/assafklein/mtm/matam/ex3/./partB -I/home/assafklein/mtm/matam/ex3/./partA -I/home/assafklein/mtm/matam/ex3/./provided -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA -I/home/assafklein/mtm/matam/ex3/provided 
 

@@ -60,10 +60,10 @@ RM = /home/mtm/cmake-3.17.0-Linux-x86_64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/guyhakmon/mtm/matam/ex3
+CMAKE_SOURCE_DIR = /home/assafklein/mtm/matam/ex3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/guyhakmon/mtm/matam/ex3/build
+CMAKE_BINARY_DIR = /home/assafklein/mtm/matam/ex3/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/progB.dir/depend.make
@@ -76,16 +76,16 @@ include CMakeFiles/progB.dir/flags.make
 
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: CMakeFiles/progB.dir/flags.make
 CMakeFiles/progB.dir/provided/test_partB.cpp.o: ../provided/test_partB.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guyhakmon/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/progB.dir/provided/test_partB.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progB.dir/provided/test_partB.cpp.o -c /home/guyhakmon/mtm/matam/ex3/provided/test_partB.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/progB.dir/provided/test_partB.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progB.dir/provided/test_partB.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp
 
 CMakeFiles/progB.dir/provided/test_partB.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progB.dir/provided/test_partB.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guyhakmon/mtm/matam/ex3/provided/test_partB.cpp > CMakeFiles/progB.dir/provided/test_partB.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp > CMakeFiles/progB.dir/provided/test_partB.cpp.i
 
 CMakeFiles/progB.dir/provided/test_partB.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progB.dir/provided/test_partB.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guyhakmon/mtm/matam/ex3/provided/test_partB.cpp -o CMakeFiles/progB.dir/provided/test_partB.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp -o CMakeFiles/progB.dir/provided/test_partB.cpp.s
 
 CMakeFiles/progB.dir/partB/event_container.cpp.o: CMakeFiles/progB.dir/flags.make
 CMakeFiles/progB.dir/partB/event_container.cpp.o: ../partB/event_container.cpp
@@ -150,34 +150,19 @@ progB_OBJECTS = \
 # External object files for target progB
 progB_EXTERNAL_OBJECTS =
 
-progB: CMakeFiles/progB.dir/provided/test_partB.cpp.o
-progB: CMakeFiles/progB.dir/partB/event_container.cpp.o
-progB: CMakeFiles/progB.dir/partB/base_event.cpp.o
-progB: CMakeFiles/progB.dir/partB/festival.cpp.o
-progB: CMakeFiles/progB.dir/partB/recurring_event.cpp.o
-progB: CMakeFiles/progB.dir/build.make
-progB: ../provided/libdate.a
-progB: CMakeFiles/progB.dir/link.txt
-<<<<<<< HEAD
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable progB"
-=======
-progB: CMakeFiles/progB.dir/partB/base_event.cpp.o
-progB: CMakeFiles/progB.dir/partB/festival.cpp.o
-progB: CMakeFiles/progB.dir/build.make
-progB: ../provided/libdate.a
-progB: CMakeFiles/progB.dir/link.txt
-<<<<<<< HEAD
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/guyhakmon/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable progB"
-=======
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable progB"
->>>>>>> bce1169b88b6d3dbdb7ba1504b46e131a04fd5b5
-=======
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable progB"
->>>>>>> d13dddf434d1fa7afc853c2fe57e810b1fb3afba
+$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB: CMakeFiles/progB.dir/provided/test_partB.cpp.o
+$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB: CMakeFiles/progB.dir/partB/event_container.cpp.o
+$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB: CMakeFiles/progB.dir/partB/base_event.cpp.o
+$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB: CMakeFiles/progB.dir/partB/festival.cpp.o
+$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB: CMakeFiles/progB.dir/partB/recurring_event.cpp.o
+$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB: CMakeFiles/progB.dir/build.make
+$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB: ../provided/libdate.a
+$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB: CMakeFiles/progB.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ======progB"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/progB.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/progB.dir/build: progB
+CMakeFiles/progB.dir/build: $(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progB
 
 .PHONY : CMakeFiles/progB.dir/build
 
@@ -186,6 +171,6 @@ CMakeFiles/progB.dir/clean:
 .PHONY : CMakeFiles/progB.dir/clean
 
 CMakeFiles/progB.dir/depend:
-	cd /home/guyhakmon/mtm/matam/ex3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/guyhakmon/mtm/matam/ex3 /home/guyhakmon/mtm/matam/ex3 /home/guyhakmon/mtm/matam/ex3/build /home/guyhakmon/mtm/matam/ex3/build /home/guyhakmon/mtm/matam/ex3/build/CMakeFiles/progB.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/assafklein/mtm/matam/ex3/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/assafklein/mtm/matam/ex3 /home/assafklein/mtm/matam/ex3 /home/assafklein/mtm/matam/ex3/build /home/assafklein/mtm/matam/ex3/build /home/assafklein/mtm/matam/ex3/build/CMakeFiles/progB.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/progB.dir/depend
 

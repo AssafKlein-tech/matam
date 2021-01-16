@@ -1,1 +1,1 @@
-/usr/bin/g++  -O3 -DNDEBUG  -rdynamic CMakeFiles/progA.dir/partA/date_wrap.cpp.o CMakeFiles/progA.dir/provided/test_partA.cpp.o  -o progA  ../provided/libdate.a 
+/usr/bin/g++  -O3 -DNDEBUG  -rdynamic CMakeFiles/progA.dir/partA/date_wrap.cpp.o CMakeFiles/progA.dir/provided/test_partA.cpp.o  -o ======progA  ../provided/libdate.a 

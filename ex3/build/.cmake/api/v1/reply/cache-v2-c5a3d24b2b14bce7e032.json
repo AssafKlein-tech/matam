@@ -2,6 +2,18 @@
 	"entries" : 
 	[
 		{
+			"name" : "",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : ""
+				}
+			],
+			"type" : "UNINITIALIZED",
+			"value" : "======"
+		},
+		{
 			"name" : "CMAKE_ADDR2LINE",
 			"properties" : 
 			[
@@ -487,7 +499,7 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Source directory with the top level CMakeLists.txt file for this project"
+					"value" : ""
 				}
 			],
 			"type" : "INTERNAL",
@@ -1083,7 +1095,7 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Path to a library."
+					"value" : ""
 				}
 			],
 			"type" : "FILEPATH",

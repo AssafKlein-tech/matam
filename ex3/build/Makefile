@@ -65,24 +65,13 @@ RM = /home/mtm/cmake-3.17.0-Linux-x86_64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/guyhakmon/mtm/matam/ex3
+CMAKE_SOURCE_DIR = /home/assafklein/mtm/matam/ex3
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/guyhakmon/mtm/matam/ex3/build
+CMAKE_BINARY_DIR = /home/assafklein/mtm/matam/ex3/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/home/mtm/cmake-3.17.0-Linux-x86_64/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -95,11 +84,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/home/mtm/cmake-3.17.0-Linux-x86_64/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guyhakmon/mtm/matam/ex3/build/CMakeFiles /home/guyhakmon/mtm/matam/ex3/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles /home/assafklein/mtm/matam/ex3/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guyhakmon/mtm/matam/ex3/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,17 +128,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named progA
+# Target rules for targets named progC
 
 # Build rule for target.
-progA: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 progA
-.PHONY : progA
+progC: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 progC
+.PHONY : progC
 
 # fast build rule for target.
-progA/fast:
-	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/build
-.PHONY : progA/fast
+progC/fast:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/build
+.PHONY : progC/fast
 
 #=============================================================================
 # Target rules for targets named progB
@@ -152,6 +152,19 @@ progB: cmake_check_build_system
 progB/fast:
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/build
 .PHONY : progB/fast
+
+#=============================================================================
+# Target rules for targets named progA
+
+# Build rule for target.
+progA: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 progA
+.PHONY : progA
+
+# fast build rule for target.
+progA/fast:
+	$(MAKE) -f CMakeFiles/progA.dir/build.make CMakeFiles/progA.dir/build
+.PHONY : progA/fast
 
 partA/date_wrap.o: partA/date_wrap.cpp.o
 
@@ -288,6 +301,33 @@ partB/recurring_event.cpp.s:
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.s
 .PHONY : partB/recurring_event.cpp.s
 
+partC/schedule.o: partC/schedule.cpp.o
+
+.PHONY : partC/schedule.o
+
+# target to build an object file
+partC/schedule.cpp.o:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partC/schedule.cpp.o
+.PHONY : partC/schedule.cpp.o
+
+partC/schedule.i: partC/schedule.cpp.i
+
+.PHONY : partC/schedule.i
+
+# target to preprocess a source file
+partC/schedule.cpp.i:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partC/schedule.cpp.i
+.PHONY : partC/schedule.cpp.i
+
+partC/schedule.s: partC/schedule.cpp.s
+
+.PHONY : partC/schedule.s
+
+# target to generate assembly for a file
+partC/schedule.cpp.s:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partC/schedule.cpp.s
+.PHONY : partC/schedule.cpp.s
+
 provided/test_partA.o: provided/test_partA.cpp.o
 
 .PHONY : provided/test_partA.o
@@ -342,6 +382,33 @@ provided/test_partB.cpp.s:
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/provided/test_partB.cpp.s
 .PHONY : provided/test_partB.cpp.s
 
+provided/test_partC.o: provided/test_partC.cpp.o
+
+.PHONY : provided/test_partC.o
+
+# target to build an object file
+provided/test_partC.cpp.o:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/provided/test_partC.cpp.o
+.PHONY : provided/test_partC.cpp.o
+
+provided/test_partC.i: provided/test_partC.cpp.i
+
+.PHONY : provided/test_partC.i
+
+# target to preprocess a source file
+provided/test_partC.cpp.i:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/provided/test_partC.cpp.i
+.PHONY : provided/test_partC.cpp.i
+
+provided/test_partC.s: provided/test_partC.cpp.s
+
+.PHONY : provided/test_partC.s
+
+# target to generate assembly for a file
+provided/test_partC.cpp.s:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/provided/test_partC.cpp.s
+.PHONY : provided/test_partC.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -352,6 +419,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... progA"
 	@echo "... progB"
+	@echo "... progC"
 	@echo "... partA/date_wrap.o"
 	@echo "... partA/date_wrap.i"
 	@echo "... partA/date_wrap.s"
@@ -367,12 +435,18 @@ help:
 	@echo "... partB/recurring_event.o"
 	@echo "... partB/recurring_event.i"
 	@echo "... partB/recurring_event.s"
+	@echo "... partC/schedule.o"
+	@echo "... partC/schedule.i"
+	@echo "... partC/schedule.s"
 	@echo "... provided/test_partA.o"
 	@echo "... provided/test_partA.i"
 	@echo "... provided/test_partA.s"
 	@echo "... provided/test_partB.o"
 	@echo "... provided/test_partB.i"
 	@echo "... provided/test_partB.s"
+	@echo "... provided/test_partC.o"
+	@echo "... provided/test_partC.i"
+	@echo "... provided/test_partC.s"
 .PHONY : help
 
 
