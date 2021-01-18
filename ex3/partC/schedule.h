@@ -5,13 +5,19 @@
 #include <memory>
 #include <list>
 using std::list;
-using std::p;
+using std::shared_ptr;
+typedef list<std::shared_ptr<mtm::BaseEvent>> EventList;
 
 namespace mtm{
 
    
     class Schedule{
-        list<EventWrap> event_list;
+        EventList event_list;
+
+
+        EventList::iterator insertEvent(BaseEvent& event);
+        bool contains(EventContainer& container);
+        void insert(EventContainer& container);
         
     public:
         

@@ -1,11 +1,50 @@
 #include "schedule.h"
+typedef mtm::EventContainer::EventIterator EventIter;
+typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
 
 namespace mtm{
 
-    Schedule::Schedule() {}
+    EventList::iterator Schedule::insertEvent(BaseEvent& event)
+    {
+        EventList::iterator pos = event_list.begin();
+        EventPointer event_ptr((&event)->clone());
+        if(pos == event_list.end())
+        {
+            event_list.push_back(event_ptr);
+        }
+        while (pos != event_list.end() && (*pos)->operator<(*event_ptr))
+        {
+            ++pos;
+        }
+        event_list.insert(pos, event_ptr);
+    }
+
+    bool Schedule::contains(EventContainer& container)
+    {
+        for (EventPointer event_ptr: event_list)
+        {
+
+        }
+    }
+
+    void Schedule::insert(EventContainer& container)
+    {
+        for (EventIter iter = container.begin(); iter!= container.end(); ++iter)
+        {
+            EventList::iterator pos = insertEvent(*iter);
+        }
+    }
+
+    Schedule::Schedule(){}
+
+
     void Schedule::addEvent(EventContainer& container)
     {
-
+        if(contains(container))
+        {
+            throw EventAlreadyExists();
+        }
+        insert(container);
     }
     
     void Schedule::registerToEvent(DateWrap& date, string& name, int& student)
