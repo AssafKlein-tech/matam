@@ -21,10 +21,18 @@ namespace mtm{
 
     bool Schedule::contains(EventContainer& container)
     {
-        for (EventPointer event_ptr: event_list)
+        for (EventIter iter = container.begin(); iter!= container.end(); ++iter)
         {
-
+            for (EventPointer event_ptr: event_list)
+            {  
+                if (*iter == *event_ptr)
+                {
+                    return true;
+                }
+                
+            }
         }
+        return false;
     }
 
     void Schedule::insert(EventContainer& container)
