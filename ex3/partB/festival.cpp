@@ -7,7 +7,7 @@ namespace mtm{
 
     void Festival::add(BaseEvent& event)
     {
-        if(event != date)
+        if(!event.compareEventsDateWithADate(date))
         {
             throw DateMismatch();
         }

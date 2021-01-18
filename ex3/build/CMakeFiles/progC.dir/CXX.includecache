@@ -27,6 +27,8 @@ date_wrap.h
 ../partB/date_wrap.h
 generic_linked_list.h
 ../partB/generic_linked_list.h
+exceptions.h
+../partB/exceptions.h
 
 ../partB/closed_event.h
 base_event.h
@@ -49,6 +51,10 @@ event_container.h
 ../partB/one_time_event.h
 event_container.h
 ../partB/event_container.h
+
+../partB/open_event.h
+base_event.h
+../partB/base_event.h
 
 ../partB/recurring_event.h
 event_container.h

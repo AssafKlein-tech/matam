@@ -19,6 +19,7 @@ CMakeFiles/progC.dir/provided/test_partC.cpp.o
  ../partB/festival.h
  ../partB/generic_linked_list.h
  ../partB/one_time_event.h
+ ../partB/open_event.h
  ../partB/recurring_event.h
  ../partC/schedule.h
  ../provided/date.h

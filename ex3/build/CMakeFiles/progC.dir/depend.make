@@ -18,6 +18,7 @@ CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/event_container.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/festival.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/generic_linked_list.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/one_time_event.h
+CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/open_event.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/recurring_event.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partC/schedule.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../provided/date.h

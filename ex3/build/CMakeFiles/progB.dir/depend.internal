@@ -26,14 +26,6 @@ CMakeFiles/progB.dir/partB/festival.cpp.o
  /home/assafklein/mtm/matam/ex3/partB/festival.h
  /home/assafklein/mtm/matam/ex3/partB/generic_linked_list.h
 CMakeFiles/progB.dir/partB/recurring_event.cpp.o
- ../partA/date_wrap.h
- ../partA/exceptions.h
- ../provided/date.h
- /home/assafklein/mtm/matam/ex3/partB/base_event.h
- /home/assafklein/mtm/matam/ex3/partB/event_container.h
- /home/assafklein/mtm/matam/ex3/partB/generic_linked_list.h
- /home/assafklein/mtm/matam/ex3/partB/recurring_event.cpp
- /home/assafklein/mtm/matam/ex3/partB/recurring_event.h
 CMakeFiles/progB.dir/provided/test_partB.cpp.o
  ../partA/date_wrap.h
  ../partA/exceptions.h
@@ -43,6 +35,7 @@ CMakeFiles/progB.dir/provided/test_partB.cpp.o
  ../partB/festival.h
  ../partB/generic_linked_list.h
  ../partB/one_time_event.h
+ ../partB/open_event.h
  ../partB/recurring_event.h
  ../provided/date.h
  /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp

@@ -1,6 +1,6 @@
 #include "base_event.h"
 #include "closed_event.h"
-#include "custom_event.h"
+//#include "custom_event.h"
 #include "date_wrap.h"
 #include "event_container.h"
 #include "exceptions.h"
@@ -23,6 +23,7 @@ void printEventsShort(mtm::EventContainer& events) {
 void test1() {
     mtm::Festival festival(mtm::DateWrap(21, 10, 2020));
     festival.add(mtm::OpenEvent(mtm::DateWrap(21, 10, 2020), "Performance 1"));
+    
     mtm::ClosedEvent closed(mtm::DateWrap(21, 10, 2020), "Performance 2");
     closed.addInvitee(1);
     closed.addInvitee(500);
