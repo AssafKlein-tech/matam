@@ -1,16 +1,16 @@
 #ifndef SCHEDULE_H_
 #define SCHEDULE_H_
 #include "event_container.h"
-#include "exceptions.h"
+#include <memory>
 #include <list>
+
 using std::list;
 
 namespace mtm{
 
    
     class Schedule{
-
-        list<BaseEvent> event_list;
+        list<std::shared_ptr<BaseEvent*>> event_list;
         
     public:
         
