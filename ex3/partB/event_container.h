@@ -19,7 +19,8 @@ namespace mtm{
          */
         Node_event(BaseEvent& base_event):
             event_ptr((&base_event)->clone()){
-            }
+        }
+
         /**
          * @brief Destroy the Node_event object 
          */
@@ -44,7 +45,7 @@ namespace mtm{
          * 
          * @param event the event to enter to the node
          */
-        void Insert(BaseEvent& event);
+        void insert(BaseEvent& event);
 
         /**
          * @brief checks if the Events queue contains the event
@@ -64,14 +65,18 @@ namespace mtm{
             BaseEvent& operator*() const;
             bool operator==(const EventIterator& iterator) const;
             bool operator!=(const EventIterator& iterator) const;
+            ~EventIterator() {}
         protected:
         }; 
 
         EventContainer() {}
+        //EventContainer(const EventContainer& events);
+        //virtual EventContainer& operator=(const EventContainer& event);
+        virtual ~EventContainer();
+
         virtual void add(BaseEvent& event) = 0;
         EventIterator begin();
         EventIterator end();
-        virtual ~EventContainer();
     };
 
 }

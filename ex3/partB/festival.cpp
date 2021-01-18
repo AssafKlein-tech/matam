@@ -11,7 +11,7 @@ namespace mtm{
         {
             throw DateMismatch();
         }
-        Insert(event);
+        insert(event);
     }
 
 }

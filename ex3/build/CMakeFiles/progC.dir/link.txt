@@ -1,1 +1,1 @@
-/usr/bin/g++  -O3 -DNDEBUG  -rdynamic CMakeFiles/progC.dir/provided/test_partC.cpp.o CMakeFiles/progC.dir/partC/schedule.cpp.o  -o ======progC  ../provided/libdate.a 
+/usr/local/bin/g++  g++ -std=c++11 -Wall -Werror -pedantic-errors -g  -rdynamic CMakeFiles/progC.dir/provided/test_partC.cpp.o CMakeFiles/progC.dir/partC/schedule.cpp.o  -o progC  ../provided/libdate.a 

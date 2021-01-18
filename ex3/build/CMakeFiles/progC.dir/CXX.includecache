@@ -63,7 +63,11 @@ event_container.h
 ../partC/schedule.h
 event_container.h
 ../partC/event_container.h
+base_event.h
+../partC/base_event.h
 memory
+-
+iostream
 -
 list
 -
@@ -79,7 +83,11 @@ schedule.h
 /home/assafklein/mtm/matam/ex3/partC/schedule.h
 event_container.h
 /home/assafklein/mtm/matam/ex3/partC/event_container.h
+base_event.h
+/home/assafklein/mtm/matam/ex3/partC/base_event.h
 memory
+-
+iostream
 -
 list
 -
@@ -89,8 +97,6 @@ base_event.h
 /home/assafklein/mtm/matam/ex3/provided/base_event.h
 closed_event.h
 /home/assafklein/mtm/matam/ex3/provided/closed_event.h
-custom_event.h
-/home/assafklein/mtm/matam/ex3/provided/custom_event.h
 date_wrap.h
 /home/assafklein/mtm/matam/ex3/provided/date_wrap.h
 event_container.h

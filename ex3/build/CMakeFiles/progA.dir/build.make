@@ -77,28 +77,28 @@ include CMakeFiles/progA.dir/flags.make
 CMakeFiles/progA.dir/partA/date_wrap.cpp.o: CMakeFiles/progA.dir/flags.make
 CMakeFiles/progA.dir/partA/date_wrap.cpp.o: ../partA/date_wrap.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/progA.dir/partA/date_wrap.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progA.dir/partA/date_wrap.cpp.o -c /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp
+	/usr/local/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progA.dir/partA/date_wrap.cpp.o -c /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp
 
 CMakeFiles/progA.dir/partA/date_wrap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progA.dir/partA/date_wrap.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp > CMakeFiles/progA.dir/partA/date_wrap.cpp.i
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp > CMakeFiles/progA.dir/partA/date_wrap.cpp.i
 
 CMakeFiles/progA.dir/partA/date_wrap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progA.dir/partA/date_wrap.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp -o CMakeFiles/progA.dir/partA/date_wrap.cpp.s
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partA/date_wrap.cpp -o CMakeFiles/progA.dir/partA/date_wrap.cpp.s
 
 CMakeFiles/progA.dir/provided/test_partA.cpp.o: CMakeFiles/progA.dir/flags.make
 CMakeFiles/progA.dir/provided/test_partA.cpp.o: ../provided/test_partA.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/progA.dir/provided/test_partA.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progA.dir/provided/test_partA.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp
+	/usr/local/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progA.dir/provided/test_partA.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp
 
 CMakeFiles/progA.dir/provided/test_partA.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progA.dir/provided/test_partA.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp > CMakeFiles/progA.dir/provided/test_partA.cpp.i
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp > CMakeFiles/progA.dir/provided/test_partA.cpp.i
 
 CMakeFiles/progA.dir/provided/test_partA.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progA.dir/provided/test_partA.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp -o CMakeFiles/progA.dir/provided/test_partA.cpp.s
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/provided/test_partA.cpp -o CMakeFiles/progA.dir/provided/test_partA.cpp.s
 
 # Object files for target progA
 progA_OBJECTS = \
@@ -108,16 +108,16 @@ progA_OBJECTS = \
 # External object files for target progA
 progA_EXTERNAL_OBJECTS =
 
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progA: CMakeFiles/progA.dir/partA/date_wrap.cpp.o
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progA: CMakeFiles/progA.dir/provided/test_partA.cpp.o
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progA: CMakeFiles/progA.dir/build.make
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progA: ../provided/libdate.a
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progA: CMakeFiles/progA.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ======progA"
+progA: CMakeFiles/progA.dir/partA/date_wrap.cpp.o
+progA: CMakeFiles/progA.dir/provided/test_partA.cpp.o
+progA: CMakeFiles/progA.dir/build.make
+progA: ../provided/libdate.a
+progA: CMakeFiles/progA.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable progA"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/progA.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/progA.dir/build: $(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progA
+CMakeFiles/progA.dir/build: progA
 
 .PHONY : CMakeFiles/progA.dir/build
 

@@ -1,4 +1,8 @@
 #include "event_container.h"
+#include <memory>
+
+std::unique_ptr<int> a(new int(4));
+std::shared_ptr<int> a = std::make_shared<int>
 
 namespace mtm{
 
@@ -35,7 +39,7 @@ namespace mtm{
         }
         return false;
     }
-    void EventContainer::Insert(BaseEvent& event)
+    void EventContainer::insert(BaseEvent& event)
     {
         if (!contains(event))
         {
@@ -63,6 +67,29 @@ namespace mtm{
     }
 
    //EventContainer methods
+    /*EventContainer::EventContainer(const EventContainer& events)
+    {
+        Node_event* tmp1 = events.head;
+        while (tmp1)
+        {
+            tmp1 = tmp1->next;
+            BaseEvent* a = tmp1->event_ptr;
+            this.insert(a);
+        }
+    }*/
+    
+    EventContainer::~EventContainer()
+    {
+        Node_event *current = head;
+        Node_event *next_to_delete;
+        while(current)
+        {
+            next_to_delete = current->next;
+            delete current;
+            current = next_to_delete;
+        }
+    }
+
     EventContainer::EventIterator EventContainer::begin()
     {
         return EventContainer::EventIterator(head);
@@ -110,16 +137,5 @@ namespace mtm{
         return current_event != iterator.current_event;
     }
 
-    EventContainer::~EventContainer()
-    {
-        Node_event *current = head;
-        Node_event *next_to_delete;
-        while(current)
-        {
-            next_to_delete = current->next;
-            delete current;
-            current = next_to_delete;
-        }
-    }
 
 }

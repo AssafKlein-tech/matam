@@ -77,28 +77,28 @@ include CMakeFiles/progC.dir/flags.make
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: CMakeFiles/progC.dir/flags.make
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../provided/test_partC.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/progC.dir/provided/test_partC.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/provided/test_partC.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partC.cpp
+	/usr/local/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/provided/test_partC.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partC.cpp
 
 CMakeFiles/progC.dir/provided/test_partC.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progC.dir/provided/test_partC.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/provided/test_partC.cpp > CMakeFiles/progC.dir/provided/test_partC.cpp.i
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/provided/test_partC.cpp > CMakeFiles/progC.dir/provided/test_partC.cpp.i
 
 CMakeFiles/progC.dir/provided/test_partC.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/provided/test_partC.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/provided/test_partC.cpp -o CMakeFiles/progC.dir/provided/test_partC.cpp.s
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/provided/test_partC.cpp -o CMakeFiles/progC.dir/provided/test_partC.cpp.s
 
 CMakeFiles/progC.dir/partC/schedule.cpp.o: CMakeFiles/progC.dir/flags.make
 CMakeFiles/progC.dir/partC/schedule.cpp.o: ../partC/schedule.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/progC.dir/partC/schedule.cpp.o"
-	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/partC/schedule.cpp.o -c /home/assafklein/mtm/matam/ex3/partC/schedule.cpp
+	/usr/local/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/partC/schedule.cpp.o -c /home/assafklein/mtm/matam/ex3/partC/schedule.cpp
 
 CMakeFiles/progC.dir/partC/schedule.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progC.dir/partC/schedule.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partC/schedule.cpp > CMakeFiles/progC.dir/partC/schedule.cpp.i
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partC/schedule.cpp > CMakeFiles/progC.dir/partC/schedule.cpp.i
 
 CMakeFiles/progC.dir/partC/schedule.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/partC/schedule.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partC/schedule.cpp -o CMakeFiles/progC.dir/partC/schedule.cpp.s
+	/usr/local/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partC/schedule.cpp -o CMakeFiles/progC.dir/partC/schedule.cpp.s
 
 # Object files for target progC
 progC_OBJECTS = \
@@ -108,16 +108,16 @@ progC_OBJECTS = \
 # External object files for target progC
 progC_EXTERNAL_OBJECTS =
 
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: CMakeFiles/progC.dir/provided/test_partC.cpp.o
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: CMakeFiles/progC.dir/partC/schedule.cpp.o
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: CMakeFiles/progC.dir/build.make
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: ../provided/libdate.a
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: CMakeFiles/progC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ======progC"
+progC: CMakeFiles/progC.dir/provided/test_partC.cpp.o
+progC: CMakeFiles/progC.dir/partC/schedule.cpp.o
+progC: CMakeFiles/progC.dir/build.make
+progC: ../provided/libdate.a
+progC: CMakeFiles/progC.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable progC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/progC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/progC.dir/build: $(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC
+CMakeFiles/progC.dir/build: progC
 
 .PHONY : CMakeFiles/progC.dir/build
 

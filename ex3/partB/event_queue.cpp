@@ -63,6 +63,32 @@ namespace mtm{
     }
 
    //EventContainer methods
+    EventContainer:EventContainer(const EventContainer& event)
+    {
+        for (size_t i = 0; i < count; i++)
+        {
+            /* code */
+        }
+        
+    }
+
+    EventContainer& operator=(const EventContainer& event)
+    {
+
+    }
+
+    EventContainer::~EventContainer()
+    {
+        Node_event *current = head;
+        Node_event *next_to_delete;
+        while(current)
+        {
+            next_to_delete = current->next;
+            delete current;
+            current = next_to_delete;
+        }
+    }
+
     EventContainer::EventIterator EventContainer::begin()
     {
         return EventContainer::EventIterator(head);
@@ -89,6 +115,7 @@ namespace mtm{
     {     
     }
 
+
     EventContainer::EventIterator& EventContainer::EventIterator::operator++()
     {
         current_event = current_event->next;
@@ -109,17 +136,4 @@ namespace mtm{
     {
         return current_event != iterator.current_event;
     }
-
-    EventContainer::~EventContainer()
-    {
-        Node_event *current = head;
-        Node_event *next_to_delete;
-        while(current)
-        {
-            next_to_delete = current->next;
-            delete current;
-            current = next_to_delete;
-        }
-    }
-
 }
