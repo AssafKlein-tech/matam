@@ -1,16 +1,17 @@
 #ifndef SCHEDULE_H_
 #define SCHEDULE_H_
 #include "event_container.h"
+#include "event_wraper.h"
 #include <memory>
 #include <list>
-
 using std::list;
+using std::p;
 
 namespace mtm{
 
    
     class Schedule{
-        list<std::shared_ptr<BaseEvent*>> event_list;
+        list<EventWrap> event_list;
         
     public:
         
@@ -20,9 +21,10 @@ namespace mtm{
         void unregisterToEvent(DateWrap& date, string& name, int& student);
         void printAllEvents();
         void printMonthEvents(int& month, int& year);
+        template <class predicate>
         void printSomeEvents(predicate& predicate_func, bool verbose = true);
-        void printEventDetails(string& name,DateWrap& date)
-        virtual ~Schedule();
+        void printEventDetails(string& name,DateWrap& date);
+        ~Schedule();
     };
 
 }
