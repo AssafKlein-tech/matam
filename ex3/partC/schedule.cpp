@@ -4,6 +4,8 @@ typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
 
 namespace mtm{
 
+
+    //Schedule private functions
     EventList::iterator Schedule::insertEvent(BaseEvent& event)
     {
         EventList::iterator pos = event_list.begin();
@@ -43,8 +45,9 @@ namespace mtm{
         }
     }
 
-    Schedule::Schedule(){}
 
+    //Schedule methods
+    Schedule::Schedule(){}
 
     void Schedule::addEvent(EventContainer& container)
     {
@@ -57,7 +60,7 @@ namespace mtm{
     
     void Schedule::registerToEvent(DateWrap& date, string& name, int& student)
     {
-
+        
     }
 
     void Schedule::unregisterToEvent(DateWrap& date, string& name, int& student)
