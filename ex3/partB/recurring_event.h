@@ -12,6 +12,7 @@ namespace mtm{
         void add(BaseEvent& event);
         ~RecurringEvent(){}
     };
+
     template <class EventType>
     RecurringEvent<EventType>::RecurringEvent(DateWrap& first_date, string name, int num_occurrences, int interval_days)
     {

@@ -11,7 +11,7 @@ using std::string;
 namespace mtm{
     class BaseEvent{
     public: 
-        BaseEvent(DateWrap& date, string name);
+        BaseEvent(DateWrap& date, string& name);
         virtual void registerParticipant(int student)=0;
         virtual void unregisterParticipant(int student);
         virtual void printShort(ostream stream);
@@ -22,6 +22,8 @@ namespace mtm{
         bool operator>(const BaseEvent& event) const;
         bool operator<(const BaseEvent& event) const;
         bool compareEventsDateWithADate(DateWrap& date);
+        bool isEventLesserThanDate(DateWrap& date);
+        bool compareEventsNameWithAName(string& name);
         
     protected:    
         DateWrap date;

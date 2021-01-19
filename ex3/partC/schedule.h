@@ -15,9 +15,10 @@ namespace mtm{
         EventList event_list;
 
 
-        EventList::iterator insertEvent(BaseEvent& event);
+        void insertEvent(BaseEvent& event);
         bool contains(EventContainer& container);
         void insert(EventContainer& container);
+        EventList::iterator getEventPosition(DateWrap& date, string& name);
         
     public:
         

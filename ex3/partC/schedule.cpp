@@ -1,4 +1,7 @@
 #include "schedule.h"
+#include <cstdlib>
+#include <iostream>
+
 typedef mtm::EventContainer::EventIterator EventIter;
 typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
 
@@ -6,7 +9,7 @@ namespace mtm{
 
 
     //Schedule private functions
-    EventList::iterator Schedule::insertEvent(BaseEvent& event)
+    void Schedule::insertEvent(BaseEvent& event)
     {
         EventList::iterator pos = event_list.begin();
         EventPointer event_ptr((&event)->clone());
@@ -30,8 +33,7 @@ namespace mtm{
                 if (*iter == *event_ptr)
                 {
                     return true;
-                }
-                
+                }       
             }
         }
         return false;
@@ -41,10 +43,21 @@ namespace mtm{
     {
         for (EventIter iter = container.begin(); iter!= container.end(); ++iter)
         {
-            EventList::iterator pos = insertEvent(*iter);
+            insertEvent(*iter);
         }
     }
 
+    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name)
+    {
+        for (EventList::iterator pos = event_list.begin(); pos != event_list.end(); ++pos)
+        {  
+            if((**pos).compareEventsDateWithADate(date) && (**pos).compareEventsNameWithAName(name))
+            {
+                return pos;
+            }         
+        }
+        throw EventDoesNotExist();
+    }
 
     //Schedule methods
     Schedule::Schedule(){}
@@ -60,20 +73,36 @@ namespace mtm{
     
     void Schedule::registerToEvent(DateWrap& date, string& name, int& student)
     {
-        
+        EventList::iterator pos = getEventPosition(date,name);
+        (**pos).registerParticipant(student);
     }
 
     void Schedule::unregisterToEvent(DateWrap& date, string& name, int& student)
     {
+        EventList::iterator pos = getEventPosition(date,name);
+        (**pos).unregisterParticipant(student);
 
     }
 
     void Schedule::printAllEvents()
-    {}
+    {
+        for (EventPointer event_ptr: event_list)
+        {
+            event_ptr->printShort(std::cout);
+        }
+    }
 
     void Schedule::printMonthEvents(int& month, int& year)
     {
-
+        DateWrap date(1, month, year);
+        DateWrap running_date = date;
+        for (EventPointer event_ptr: event_list)
+        {
+            if (event_ptr->isEventLesserThanDate(date))
+            {
+                
+            }
+        }
     }
 
     template <class predicate>

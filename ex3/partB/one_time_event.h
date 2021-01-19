@@ -8,7 +8,7 @@ namespace mtm{
     template <class EventType>
     class OneTimeEvent: public EventContainer{
     public:
-        OneTimeEvent(DateWrap& date, string name)
+        OneTimeEvent(DateWrap& date, string name);
         void add(BaseEvent& event);
         ~OneTimeEvent(){}
     };

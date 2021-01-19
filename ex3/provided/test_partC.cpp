@@ -1,6 +1,6 @@
 #include "base_event.h"
 #include "closed_event.h"
-//#include "custom_event.h"
+#include "custom_event.h"
 #include "date_wrap.h"
 #include "event_container.h"
 #include "exceptions.h"
