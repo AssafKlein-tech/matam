@@ -1,4 +1,5 @@
-/home/guyhakmon/mtm/matam/build/CMakeFiles/edit_cache.dir
-/home/guyhakmon/mtm/matam/build/CMakeFiles/progA.dir
-/home/guyhakmon/mtm/matam/build/CMakeFiles/rebuild_cache.dir
-/home/guyhakmon/mtm/matam/build/CMakeFiles/progB.dir
+C:/Users/amevu/Desktop/mtm/EX1/matam/build/CMakeFiles/progC.dir
+C:/Users/amevu/Desktop/mtm/EX1/matam/build/CMakeFiles/rebuild_cache.dir
+C:/Users/amevu/Desktop/mtm/EX1/matam/build/CMakeFiles/progB.dir
+C:/Users/amevu/Desktop/mtm/EX1/matam/build/CMakeFiles/progA.dir
+C:/Users/amevu/Desktop/mtm/EX1/matam/build/CMakeFiles/edit_cache.dir

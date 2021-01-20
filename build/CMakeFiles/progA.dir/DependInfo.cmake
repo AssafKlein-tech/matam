@@ -4,19 +4,22 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/guyhakmon/mtm/matam/ex3/partA/date_wrap.cpp" "/home/guyhakmon/mtm/matam/build/CMakeFiles/progA.dir/partA/date_wrap.cpp.o"
-  "/home/guyhakmon/mtm/matam/ex3/provided/test_partA.cpp" "/home/guyhakmon/mtm/matam/build/CMakeFiles/progA.dir/provided/test_partA.cpp.o"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/partA/date_wrap.cpp" "C:/Users/amevu/Desktop/mtm/EX1/matam/build/CMakeFiles/progA.dir/partA/date_wrap.cpp.obj"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/provided/test_partA.cpp" "C:/Users/amevu/Desktop/mtm/EX1/matam/build/CMakeFiles/progA.dir/provided/test_partA.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/guyhakmon/mtm/matam/ex3/progB"
-  "/home/guyhakmon/mtm/matam/ex3/./partB"
-  "/home/guyhakmon/mtm/matam/ex3/./provided"
-  "/home/guyhakmon/mtm/matam/ex3/progA"
-  "/home/guyhakmon/mtm/matam/ex3/partA"
-  "/home/guyhakmon/mtm/matam/ex3/provided"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/progC"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/./partC"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/./partB"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/./partA"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/./provided"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/progB"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/progA"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/partA"
+  "C:/Users/amevu/Desktop/mtm/EX1/matam/ex3/provided"
   )
 
 # Targets to which this target links.

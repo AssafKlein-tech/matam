@@ -15,7 +15,7 @@ namespace mtm{
         virtual void registerParticipant(int student)=0;
         virtual void unregisterParticipant(int student);
         virtual ostream& printShort(ostream& stream);
-        virtual ostream& printLong(ostream&s stream);
+        virtual ostream& printLong(ostream& stream);
         virtual BaseEvent* clone();
         bool operator==(const BaseEvent& event) const;
         bool operator!=(const BaseEvent& event) const;
@@ -25,10 +25,12 @@ namespace mtm{
         bool isEventGreaterThanDate(DateWrap& date);
         bool compareEventsNameWithAName(string& name);
         
+        
     protected:    
         DateWrap date;
         string name;
         LinkedList<int> *member_list;
+        void InsertParticipant(int student);
 
     };
 
