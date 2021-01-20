@@ -7,6 +7,7 @@ namespace mtm
     struct node {
         node<T>* next;
         T data;
+        ~node<T>();
     };
 
     template<class T>
@@ -15,12 +16,13 @@ namespace mtm
     public:
         node<T>* first;
         node<T>* last;
-        ~node<T>();
+        
         LinkedList<T>() 
         {
             first = NULL;
             last = NULL;
         }
+        
         bool sub(T data);
         void add(T data);
         T get(int index);

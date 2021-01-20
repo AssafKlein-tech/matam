@@ -10,22 +10,31 @@ namespace mtm{
             member_list->clear();
         }
     
-    BaseEvent::BaseEvent(const BaseEvent& event): 
+    BaseEvent::BaseEvent(BaseEvent& event): 
         date(event.date)
+    {
+        name = event.name;
+        node<int>* curr_member = event.member_list->first;
+        while(curr_member)
         {
-            name = event.name;
-            member_list 
+            member_list->add(curr_member->data);
+            curr_member = curr_member->next;
         }
+    }
 
     BaseEvent& BaseEvent::operator=(const BaseEvent& event)
     {
-        node<int>* curr_member = member_list->first;
+        LinkedList<int>* temp_list;
+        node<int>* curr_member = event->member_list->first;
         while(curr_member)
         {
-            if(curr_member->data == student)
-                throw AlreadyRegistered();
-            member_list->add(student);
+            temp_list->add(curr_member->data);
+            curr_member = curr_member->next;
         }
+        delete member_list;
+        member_list = temp_list;
+        name = event.name;
+        date = event.date;
     }
 
     BaseEvent::~BaseEvent()

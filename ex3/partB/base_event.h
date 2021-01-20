@@ -12,7 +12,7 @@ namespace mtm{
     class BaseEvent{
     public: 
         BaseEvent(DateWrap& date, string& name);
-        BaseEvent(const BaseEvent& event);
+        BaseEvent(BaseEvent& event);
         virtual ~BaseEvent();
         virtual BaseEvent& operator=(const BaseEvent& event);
         virtual BaseEvent* clone() const = 0;
