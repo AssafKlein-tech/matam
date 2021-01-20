@@ -1,1 +1,3 @@
-/usr/bin/g++  -g  -rdynamic CMakeFiles/progA.dir/partA/date_wrap.cpp.o CMakeFiles/progA.dir/provided/test_partA.cpp.o  -o progA  /home/guyhakmon/mtm/matam/ex3/provided/libdate.a 
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\progA.dir/objects.a
+C:\TDM-GCC-64\bin\ar.exe cr CMakeFiles\progA.dir/objects.a @CMakeFiles\progA.dir\objects1.rsp
+C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe g++ -std=c++11 -Wall -Werror -pedantic-errors -g   -Wl,--whole-archive CMakeFiles\progA.dir/objects.a -Wl,--no-whole-archive  -o progA.exe -Wl,--out-implib,libprogA.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\progA.dir\linklibs.rsp

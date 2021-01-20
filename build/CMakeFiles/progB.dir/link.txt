@@ -1,1 +1,3 @@
-/usr/bin/g++  -g  -rdynamic CMakeFiles/progB.dir/provided/test_partB.cpp.o CMakeFiles/progB.dir/partB/event_container.cpp.o CMakeFiles/progB.dir/partB/base_event.cpp.o CMakeFiles/progB.dir/partB/festival.cpp.o CMakeFiles/progB.dir/partB/recurring_event.cpp.o  -o progB  /home/guyhakmon/mtm/matam/ex3/provided/libdate.a 
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\progB.dir/objects.a
+C:\TDM-GCC-64\bin\ar.exe cr CMakeFiles\progB.dir/objects.a @CMakeFiles\progB.dir\objects1.rsp
+C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe g++ -std=c++11 -Wall -Werror -pedantic-errors -g   -Wl,--whole-archive CMakeFiles\progB.dir/objects.a -Wl,--no-whole-archive  -o progB.exe -Wl,--out-implib,libprogB.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\progB.dir\linklibs.rsp

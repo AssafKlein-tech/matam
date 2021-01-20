@@ -29,10 +29,12 @@ namespace mtm{
         bool isEventGreaterThanDate(DateWrap& date);
         bool compareEventsNameWithAName(string& name);
         
+        
     protected:    
         DateWrap date;
         string name;
         LinkedList<int> *member_list;
+        void InsertParticipant(int student);
 
     };
 

@@ -28,11 +28,7 @@ namespace mtm{
         {
             if(student==curr_invited->data)
             {
-                while(curr_member)
-                    if(curr_member->data==student)
-                        throw AlreadyRegistered();
-
-                member_list->add(student);
+               InsertParticipant(student);
                 return;
             }
         curr_invited=curr_invited->next;
@@ -48,7 +44,6 @@ namespace mtm{
 
      }
 
-    
 
 
 
