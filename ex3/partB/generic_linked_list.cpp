@@ -28,6 +28,7 @@ void add(T data) {
 			}
 		}
 	}
+
   template<class T>
 	T get(int index) {
 		if(index == 0) {
@@ -76,8 +77,24 @@ template<class T>
     return false;
   }
 
-      ~LinkedList<T>()
+~LinkedList<T>()
 	  {
 		  	clear();
 	  }
+
+	
+template<class T>   
+void sort(T data) {
+	
+while(this->first)
+	{
+
+
+
+
+
+		}
+	
+	}
+
 }

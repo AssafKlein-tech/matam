@@ -12,6 +12,7 @@ namespace mtm{
     class BaseEvent{
     public: 
         BaseEvent(DateWrap& date, string& name);
+        ~BaseEvent();
         virtual void registerParticipant(int student)=0;
         virtual void unregisterParticipant(int student);
         virtual ostream& printShort(ostream& stream);

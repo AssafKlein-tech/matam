@@ -10,6 +10,7 @@ namespace mtm{
      void ClosedEvent::addinvitee (int student);
      void ClosedEvent::registerParticipant(int student) override;
      ClosedEvent* clone() override;
+     ClosedEvent::~ClosedEvent();
     
     protected:    
           LinkedList<int> *invited_list;

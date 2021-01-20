@@ -19,6 +19,7 @@ namespace mtm{
                 first = NULL;
                 last = NULL;
                 }
+                ~LinkedList<T>();
                 bool sub(T data);
                 void add(T data);
                 T get(int index);
