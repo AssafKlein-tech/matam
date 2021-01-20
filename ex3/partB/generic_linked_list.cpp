@@ -76,5 +76,8 @@ template<class T>
     return false;
   }
 
-    
+      ~LinkedList<T>()
+	  {
+		  	clear();
+	  }
 }
