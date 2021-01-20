@@ -9,6 +9,11 @@ namespace mtm{
         invited_list->clear();
     }
 
+    ClosedEvent::~ClosedEvent()
+    {
+        delete(invited_list);
+    }
+
     void ClosedEvent::addinvitee (int student){
         node<int>* curr_invited=invited_list->first;
         while (curr_invited)
