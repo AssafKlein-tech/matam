@@ -6,16 +6,17 @@ namespace mtm{
     class ClosedEvent:public BaseEvent{
     
     public:
-     ClosedEvent::ClosedEvent(DateWrap date, std::string name);
-     void ClosedEvent::addinvitee (int student);
-     void ClosedEvent::registerParticipant(int student) override;
-     ClosedEvent* clone() override;
-    
+        ClosedEvent(DateWrap date, string name);
+        ClosedEvent(ClosedEvent& event);
+        void registerParticipant(int student) override;
+        ClosedEvent* clone() override;
+        ~ClosedEvent();
+        void addinvitee (int student);
+
     protected:    
-          LinkedList<int> *invited_list;
+        LinkedList<int> *invited_list;
 
     };
-
 }
 
 #endif

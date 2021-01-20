@@ -22,10 +22,10 @@ namespace mtm{
         }
     }
 
-    BaseEvent& BaseEvent::operator=(const BaseEvent& event)
+    BaseEvent& BaseEvent::operator=(BaseEvent& event)
     {
         LinkedList<int>* temp_list;
-        node<int>* curr_member = event->member_list->first;
+        node<int>* curr_member = event.member_list->first;
         while(curr_member)
         {
             temp_list->add(curr_member->data);
@@ -58,7 +58,7 @@ namespace mtm{
         printShort(stream);
         stream<<"\n";
         member_list->sort();
-        node<int>* curr_member = event->member_list->first;
+        node<int>* curr_member = member_list->first;
         while(curr_member)
         {
             stream<<curr_member->data<<"\n";
