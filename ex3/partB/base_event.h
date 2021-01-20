@@ -20,7 +20,7 @@ namespace mtm{
         virtual void registerParticipant(int student);
         virtual void unregisterParticipant(int student);
         virtual ostream& printShort(ostream& stream);
-        virtual ostream& printLong(ostream&s stream);
+        virtual ostream& printLong(ostream& stream);
         bool operator==(const BaseEvent& event) const;
         bool operator!=(const BaseEvent& event) const;
         bool operator>(const BaseEvent& event) const;

@@ -40,8 +40,8 @@ namespace mtm{
 
     ostream& BaseEvent::printLong(ostream& stream)
     {
-        return stream<< name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
-        //printShort(stream);
+        printShort(stream);
+        
     }
 
     bool BaseEvent::operator==(const BaseEvent& event) const
