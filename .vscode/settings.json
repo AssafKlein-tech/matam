@@ -2,7 +2,8 @@
     "files.associations": {
         "iosfwd": "cpp",
         "system_error": "cpp",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "xutility": "cpp"
     },
     "cmake.sourceDirectory": "${workspaceFolder}/ex3"
 }

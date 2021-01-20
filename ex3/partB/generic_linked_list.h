@@ -19,7 +19,6 @@ namespace mtm
         
         LinkedList<T>() 
         {
-<<<<<<< HEAD
         public:
                 node<T>* first;
                 node<T>* last;
@@ -33,20 +32,7 @@ namespace mtm
                 T get(int index);
                 void clear();
                 T operator[](int index);
+                void sort();
         };
 };
-=======
-            first = NULL;
-            last = NULL;
-        }
-        
-        bool sub(T data);
-        void add(T data);
-        T get(int index);
-        void clear();
-        T operator[](int index);
-    };
-}
-
->>>>>>> 2cde6ab6c24f5fe7acff452dabb7bcd955101bd7
 #endif

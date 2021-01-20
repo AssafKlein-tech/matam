@@ -9,11 +9,6 @@ namespace mtm{
         {
             member_list->clear();
         }
-<<<<<<< HEAD
-
-    BaseEvent::~BaseEvent()
-    {
-=======
     
     BaseEvent::BaseEvent(BaseEvent& event): 
         date(event.date)
@@ -44,7 +39,6 @@ namespace mtm{
 
     BaseEvent::~BaseEvent()
     {
->>>>>>> 2cde6ab6c24f5fe7acff452dabb7bcd955101bd7
         delete member_list;
     }
 
@@ -53,11 +47,6 @@ namespace mtm{
         if(!member_list->sub(student))
             throw(NotRegistered());
     }
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> 2cde6ab6c24f5fe7acff452dabb7bcd955101bd7
     ostream& BaseEvent::printShort(ostream& stream)
     {
         return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
