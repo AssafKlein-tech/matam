@@ -75,7 +75,7 @@ namespace mtm{
     void Schedule::registerToEvent(DateWrap& date, string& name, int& student)
     {
         EventList::iterator pos = getEventPosition(date,name);
-        (**pos).registerParticipant(student);
+        (*pos)->registerParticipant(student);
     }
 
     void Schedule::unregisterToEvent(DateWrap& date, string& name, int& student)
@@ -96,8 +96,6 @@ namespace mtm{
     void Schedule::printMonthEvents(int& month, int& year)
     {
         DateWrap date(1, month, year);
-        DateWrap running_date = date;
-        EventPointer event_ptr2 = nullptr;
         for (EventPointer event_ptr: event_list)
         {
             while (event_ptr->isEventGreaterThanDate(date) && date.day() < 30)
@@ -112,10 +110,28 @@ namespace mtm{
     }
 
     template <class predicate>
-    void Schedule::printSomeEvents(predicate& predicate_func, bool verbose = true)
-    {}
+    void Schedule::printSomeEvents(predicate& predicate_func, bool verbose)
+    {
+        for (EventPointer event_ptr: event_list)
+        {
+            if (predicate_func(*event_ptr))
+            {
+                if (verbose)
+                {
+                    event_ptr->printLong(cout);
+                }
+                else
+                {
+                    event_ptr->printShort(cout);
+                }
+            }
+        }
+    }
 
     void Schedule::printEventDetails(string& name,DateWrap& date)
-    {}
+    {
+        EventList::iterator pos = getEventPosition(date,name);
+        (*pos)->printLong(cout);
+    }
 
 }

@@ -29,7 +29,7 @@ namespace mtm{
         void printAllEvents();
         void printMonthEvents(int& month, int& year);
         template <class predicate>
-        void printSomeEvents(predicate& predicate_func, bool verbose = true);
+        void printSomeEvents(predicate& predicate_func, bool verbose = false);
         void printEventDetails(string& name,DateWrap& date);
         ~Schedule() {}
     };
