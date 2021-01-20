@@ -2,15 +2,18 @@
 
 namespace mtm{
   
-  template<class T>   
-void add(T data) {
-		if(!first) {
+ 	template<class T>   
+	void LinkedList<class T>::add(T data) 
+	{
+		if(!first) 
+		{
 			// The list is empty
 			first = new node<T>;
 			first->data = data;
 			first->next = NULL;
 			last = first;
-		} else {
+		} else 
+		{
 			// The list isn't empty
 			if(last == first) {
 				// The list has one element
@@ -37,29 +40,30 @@ void add(T data) {
 		} else {
 			// Get the index'th element
 			node<T>* curr = this->first;
-			for(int i = 0; i < index; ++i) {
+			for(int i = 0; i < index; ++i) 
+			{
 				curr = curr->next;
 			}
 			return curr->data;
 		}
-  }
+  	}
 
   template<class T>
-  void clear()
+  void LinkedList<class T>::clear()
     {
-         node<T>* curr=this->first;
+        node<T>* curr=this->first;
         while(this->first)
         {
-          delete(this->first);
-          this->first=curr->next;
-
+			curr=curr->next;
+          	delete(this->first);
+          	this->first=curr;
         }
 
     } 
 
 
 template<class T>
-  bool sub(T data)
+  bool LinkedList<class T>::sub(T data)
   {
      node<T>* first_copy=this->first;
      node<T>* copy;
@@ -81,18 +85,29 @@ template<class T>
 	  {
 		  	clear();
 	  }
-
 	
 template<class T>   
-void sort(T data) {
-	
-while(this->first)
+void LinkedList<class T>::sort() {
+	node<T>* curr1=this->first;
+	node<T>* curr2=this->first->next;
+	while(curr1->first)
 	{
-
-
-
-
-
+		while (curr2->first)
+		{
+			if(curr2->first->data < curr1->first->data)
+			{
+				T data_copy=new T();
+				data_copy=curr2->first->data;
+				curr2->first->data=curr1->first->data_copy;
+				curr1->first->data=data_copy;
+				delete(data_copy);
+			}
+			
+			curr2->first=curr2->first->next;
+		}
+			curr1->first=curr1->first->next;
+	}
+	
 		}
 	
 	}
