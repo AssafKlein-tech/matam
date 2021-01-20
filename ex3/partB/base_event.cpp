@@ -10,13 +10,9 @@ namespace mtm{
             member_list->clear();
         }
 
-     BaseEvent::~BaseEvent()
+    BaseEvent::~BaseEvent()
     {
-        delete(name);
-
-
-
-
+        delete member_list;
     }
 
     void BaseEvent::unregisterParticipant(int student)
@@ -24,7 +20,6 @@ namespace mtm{
     if(!member_list->sub(student))
         throw(NotRegistered());
     }
-
     
     ostream& BaseEvent::printShort(ostream& stream)
     {
