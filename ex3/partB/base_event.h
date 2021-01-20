@@ -12,11 +12,15 @@ namespace mtm{
     class BaseEvent{
     public: 
         BaseEvent(DateWrap& date, string& name);
-        virtual void registerParticipant(int student)=0;
+        BaseEvent(const BaseEvent& event);
+        virtual ~BaseEvent();
+        virtual BaseEvent& operator=(const BaseEvent& event);
+        virtual BaseEvent* clone() const = 0;
+
+        virtual void registerParticipant(int student);
         virtual void unregisterParticipant(int student);
         virtual ostream& printShort(ostream& stream);
         virtual ostream& printLong(ostream&s stream);
-        virtual BaseEvent* clone();
         bool operator==(const BaseEvent& event) const;
         bool operator!=(const BaseEvent& event) const;
         bool operator>(const BaseEvent& event) const;

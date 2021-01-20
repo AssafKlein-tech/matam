@@ -9,16 +9,30 @@ namespace mtm{
         {
             member_list->clear();
         }
+    
+    BaseEvent::BaseEvent(const BaseEvent& event): 
+        date(event.date)
+        {
+            name = event.name;
+            member_list 
+        }
 
+    BaseEvent& BaseEvent::operator=(const BaseEvent& event)
+    {
 
+    }
+
+    BaseEvent::~BaseEvent()
+    {
+        delete member_list;
+    }
 
     void BaseEvent::unregisterParticipant(int student)
     {
-    if(!member_list->sub(student))
-        throw(NotRegistered());
+        if(!member_list->sub(student))
+            throw(NotRegistered());
     }
 
-    
     ostream& BaseEvent::printShort(ostream& stream)
     {
         return stream<< name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
@@ -28,11 +42,6 @@ namespace mtm{
     {
         return stream<< name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
         //printShort(stream);
-    }
-
-    BaseEvent* BaseEvent::clone()
-    {
-        
     }
 
     bool BaseEvent::operator==(const BaseEvent& event) const
