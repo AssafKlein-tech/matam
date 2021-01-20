@@ -3,14 +3,8 @@
 
 namespace mtm{
 
-  void OpenEvent::registerParticipant(int student)
- {
-     InsertParticipant(student);
-
- }
-
-
-
-
-
+    void OpenEvent::registerParticipant(int student)
+    {
+        InsertParticipant(student);
+    }
 }

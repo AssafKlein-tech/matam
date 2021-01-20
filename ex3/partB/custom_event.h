@@ -11,7 +11,7 @@ namespace mtm{
      CustomEvent::CustomEvent(DateWrap date, std::string name, const CanRegister assignment_conditions);
      void CustomEvent::registerParticipant(int student) override;
      CustomEvent* clone() override;
-     CustomEvent::~CustomEvent(){ delete(invited_list); };
+     CustomEvent::~CustomEvent(){}
 
     protected:
         CanRegister can_register;

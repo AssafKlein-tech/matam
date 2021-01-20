@@ -21,6 +21,11 @@ namespace mtm{
         }
     }
 
+    ClosedEvent ClosedEvent::operator=(ClosedEvent& event)
+    {
+        
+    }
+
     ClosedEvent::~ClosedEvent()
     {
         delete invited_list;
@@ -31,7 +36,8 @@ namespace mtm{
         return new ClosedEvent(*this);
     }
 
-    void ClosedEvent::addinvitee (int student)
+
+    void ClosedEvent::addinvitee(int student)
     {
         node<int>* curr_invited = invited_list->first;
         while (curr_invited)

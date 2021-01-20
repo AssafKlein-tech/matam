@@ -5,34 +5,31 @@ namespace mtm{
  	template<class T>   
 	void LinkedList<class T>::add(T data) 
 	{
+		node<T>* insdata = new node<T>;
+		insdata->data = data;
 		if(!first) 
 		{
 			// The list is empty
-			first = new node<T>;
-			first->data = data;
+			first = insdata
 			first->next = NULL;
-			last = first;
-		} else 
-		{
-			// The list isn't empty
-			if(last == first) {
-				// The list has one element
-				last = new node<T>;
-				last->data = data;
-				last->next = NULL;
-				first->next = last;
-			} else {
-				// The list has more than one element
-				node<T>* insdata = new node<T>;
-				insdata->data = data;
-				insdata->next = NULL;
-				last->next = insdata;
-				last = insdata;
+		} else if (data < first->data)
+			{
+				insdata->next = first;
+				first = insdata
 			}
+		else
+		{
+			node<T>* curr = first;
+			while (data < curr->next)
+			{
+				curr = curr->next;
+			}
+			insdata->next = curr->next;
+			curr->next = insdata;
 		}
 	}
 
-  template<class T>
+  	template<class T>
 	T get(int index) {
 		if(index == 0) {
 			// Get the first element
@@ -58,16 +55,15 @@ namespace mtm{
           	delete(this->first);
           	this->first=curr;
         }
-
     } 
 
 
-template<class T>
-  bool LinkedList<class T>::sub(T data)
-  {
-     node<T>* first_copy=this->first;
-     node<T>* copy;
-    while(this->first)
+	template<class T>
+  	bool LinkedList<class T>::sub(T data)
+  	{
+     	node<T>* first_copy=this->first;
+     	node<T>* copy;
+    	while(this->first)
         {
           if(this->first->data==data)
             {
@@ -78,38 +74,12 @@ template<class T>
             this->first=first_copy;
             return true;
         }
-    return false;
-  }
+   		return false;
+  	}
 
-~LinkedList<T>()
-	  {
-		  	clear();
-	  }
-	
-template<class T>   
-void LinkedList<class T>::sort() {
-	node<T>* curr1=this->first;
-	node<T>* curr2=this->first->next;
-	while(curr1->first)
+	template<class T>
+	LinkedList<T>::~LinkedList<T>()
 	{
-		while (curr2->first)
-		{
-			if(curr2->first->data < curr1->first->data)
-			{
-				T data_copy=new T();
-				data_copy=curr2->first->data;
-				curr2->first->data=curr1->first->data_copy;
-				curr1->first->data=data_copy;
-				delete(data_copy);
-			}
-			
-			curr2->first=curr2->first->next;
-		}
-			curr1->first=curr1->first->next;
+		clear();
 	}
-	
-		}
-	
-	}
-
 }

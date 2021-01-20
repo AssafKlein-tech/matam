@@ -6,9 +6,9 @@ namespace mtm{
     BaseEvent::BaseEvent(DateWrap& date, string& name):
         name(name),
         date(date)
-        {
-            member_list->clear();
-        }
+    {
+        member_list->clear();
+    }
     
     BaseEvent::BaseEvent(BaseEvent& event): 
         date(event.date)
@@ -56,7 +56,6 @@ namespace mtm{
     {
         printShort(stream);
         stream<<"\n";
-        member_list->sort();
         node<int>* curr_member = member_list->first;
         while(curr_member)
         {
