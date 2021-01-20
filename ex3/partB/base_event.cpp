@@ -50,15 +50,20 @@ namespace mtm{
 
     ostream& BaseEvent::printShort(ostream& stream)
     {
-        return stream<< name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
+        return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
     }
 
     ostream& BaseEvent::printLong(ostream& stream)
     {
         printShort(stream);
+        stream<<"\n";
         member_list->sort();
-        
-        
+        node<int>* curr_member = event->member_list->first;
+        while(curr_member)
+        {
+            stream<<curr_member->data<<"\n";
+        }
+        return stream;
     }
 
     bool BaseEvent::operator==(const BaseEvent& event) const

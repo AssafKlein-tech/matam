@@ -36,13 +36,13 @@ namespace mtm{
        throw(RegistrationBlocked());
     }
 
-     ClosedEvent* clone()
-     {
+    ClosedEvent* clone()
+    {
          
 
 
 
-     }
+    }
 
 
 

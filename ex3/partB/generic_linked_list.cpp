@@ -3,7 +3,7 @@
 namespace mtm{
   
  	template<class T>   
-	void add(T data) 
+	void LinkedList<class T>::add(T data) 
 	{
 		if(!first) 
 		{
@@ -33,7 +33,7 @@ namespace mtm{
 	}
 
   	template<class T>
-	T get(int index) 
+	T LinkedList<class T>::get(int index) 
 	{
 		if(index == 0) {
 			// Get the first element
@@ -50,7 +50,7 @@ namespace mtm{
   	}
 
   template<class T>
-  void clear()
+  void LinkedList<class T>::clear()
     {
         node<T>* curr=this->first;
         while(this->first)
@@ -64,7 +64,7 @@ namespace mtm{
 
 
 template<class T>
-  bool sub(T data)
+  bool LinkedList<class T>::sub(T data)
   {
      node<T>* first_copy=this->first;
      node<T>* copy;
