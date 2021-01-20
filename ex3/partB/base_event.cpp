@@ -10,6 +10,14 @@ namespace mtm{
             member_list->clear();
         }
 
+     BaseEvent::~BaseEvent()
+    {
+        delete(name);
+
+
+
+
+    }
 
     void BaseEvent::unregisterParticipant(int student)
     {
@@ -82,10 +90,9 @@ namespace mtm{
         {
             if(curr_member->data==student)
                 throw AlreadyRegistered();
-
-             member_list->add(student);
-
+            curr_member=curr_member->next;
         }
+        member_list->add(student);
     }
 }
 
