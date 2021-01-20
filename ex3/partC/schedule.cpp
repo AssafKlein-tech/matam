@@ -96,12 +96,14 @@ namespace mtm{
     {
         DateWrap date(1, month, year);
         DateWrap running_date = date;
+        EventPointer event_ptr2 = nullptr;
         for (EventPointer event_ptr: event_list)
         {
-            if (event_ptr->isEventLesserThanDate(date))
+            if (event_ptr->isEventGreaterThanDate(date))
             {
-                
+                date++;
             }
+
         }
     }
 
