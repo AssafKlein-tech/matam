@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <iostream>
 
+using std::cout;
 typedef mtm::EventContainer::EventIterator EventIter;
 typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
 
@@ -88,7 +89,7 @@ namespace mtm{
     {
         for (EventPointer event_ptr: event_list)
         {
-            event_ptr->printShort(std::cout);
+            event_ptr->printShort(cout);
         }
     }
 
@@ -99,11 +100,14 @@ namespace mtm{
         EventPointer event_ptr2 = nullptr;
         for (EventPointer event_ptr: event_list)
         {
-            if (event_ptr->isEventGreaterThanDate(date))
+            while (event_ptr->isEventGreaterThanDate(date) && date.day() < 30)
             {
                 date++;
             }
-
+            if (event_ptr->compareEventsDateWithADate(date))
+            {
+                event_ptr->printShort(cout);
+            }
         }
     }
 
@@ -114,8 +118,4 @@ namespace mtm{
     void Schedule::printEventDetails(string& name,DateWrap& date)
     {}
 
-    Schedule::~Schedule()
-    {
-
-    }
 }

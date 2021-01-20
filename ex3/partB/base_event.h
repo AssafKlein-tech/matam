@@ -14,15 +14,15 @@ namespace mtm{
         BaseEvent(DateWrap& date, string& name);
         virtual void registerParticipant(int student)=0;
         virtual void unregisterParticipant(int student);
-        virtual void printShort(ostream stream);
-        virtual void printLong(ostream stream);
+        virtual ostream& printShort(ostream& stream);
+        virtual ostream& printLong(ostream&s stream);
         virtual BaseEvent* clone();
         bool operator==(const BaseEvent& event) const;
         bool operator!=(const BaseEvent& event) const;
         bool operator>(const BaseEvent& event) const;
         bool operator<(const BaseEvent& event) const;
         bool compareEventsDateWithADate(DateWrap& date);
-        bool isEventLesserThanDate(DateWrap& date);
+        bool isEventGreaterThanDate(DateWrap& date);
         bool compareEventsNameWithAName(string& name);
         
     protected:    

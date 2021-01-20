@@ -31,7 +31,7 @@ namespace mtm{
         template <class predicate>
         void printSomeEvents(predicate& predicate_func, bool verbose = true);
         void printEventDetails(string& name,DateWrap& date);
-        ~Schedule();
+        ~Schedule() {}
     };
 
 }

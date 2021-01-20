@@ -10,6 +10,7 @@
 #include "recurring_event.h"
 #include <cstdlib>
 #include <iostream>
+using std::cout;
 
 typedef mtm::EventContainer::EventIterator Iter;
 
@@ -45,8 +46,8 @@ void test2_aux(mtm::BaseEvent& event) {
     event.unregisterParticipant(1);
     event.registerParticipant(3);
     mtm::BaseEvent* clone = event.clone();
-    clone->printShort(std::cout);
-    clone->printLong(std::cout);
+    clone->printShort(cout);
+    clone->printLong(cout);
     delete clone;
 }
 
