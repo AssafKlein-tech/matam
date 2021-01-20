@@ -2,15 +2,18 @@
 
 namespace mtm{
   
-  template<class T>   
-void add(T data) {
-		if(!first) {
+ 	template<class T>   
+	void add(T data) 
+	{
+		if(!first) 
+		{
 			// The list is empty
 			first = new node<T>;
 			first->data = data;
 			first->next = NULL;
 			last = first;
-		} else {
+		} else 
+		{
 			// The list isn't empty
 			if(last == first) {
 				// The list has one element
@@ -28,30 +31,33 @@ void add(T data) {
 			}
 		}
 	}
-  template<class T>
-	T get(int index) {
+
+  	template<class T>
+	T get(int index) 
+	{
 		if(index == 0) {
 			// Get the first element
 			return this->first->data;
 		} else {
 			// Get the index'th element
 			node<T>* curr = this->first;
-			for(int i = 0; i < index; ++i) {
+			for(int i = 0; i < index; ++i) 
+			{
 				curr = curr->next;
 			}
 			return curr->data;
 		}
-  }
+  	}
 
   template<class T>
   void clear()
     {
-         node<T>* curr=this->first;
+        node<T>* curr=this->first;
         while(this->first)
         {
-          delete(this->first);
-          this->first=curr->next;
-
+			curr=curr->next;
+          	delete(this->first);
+          	this->first=curr;
         }
 
     } 

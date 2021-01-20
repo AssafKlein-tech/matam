@@ -56,6 +56,8 @@ namespace mtm{
     ostream& BaseEvent::printLong(ostream& stream)
     {
         printShort(stream);
+        member_list->sort();
+        
         
     }
 
