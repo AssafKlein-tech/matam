@@ -47,7 +47,6 @@ namespace mtm{
         if(!member_list->sub(student))
             throw(NotRegistered());
     }
-
     ostream& BaseEvent::printShort(ostream& stream)
     {
         return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();

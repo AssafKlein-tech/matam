@@ -32,9 +32,8 @@ namespace mtm{
 		}
 	}
 
-  	template<class T>
-	T LinkedList<class T>::get(int index) 
-	{
+  template<class T>
+	T get(int index) {
 		if(index == 0) {
 			// Get the first element
 			return this->first->data;
@@ -82,5 +81,35 @@ template<class T>
     return false;
   }
 
-    
+~LinkedList<T>()
+	  {
+		  	clear();
+	  }
+	
+template<class T>   
+void LinkedList<class T>::sort() {
+	node<T>* curr1=this->first;
+	node<T>* curr2=this->first->next;
+	while(curr1->first)
+	{
+		while (curr2->first)
+		{
+			if(curr2->first->data < curr1->first->data)
+			{
+				T data_copy=new T();
+				data_copy=curr2->first->data;
+				curr2->first->data=curr1->first->data_copy;
+				curr1->first->data=data_copy;
+				delete(data_copy);
+			}
+			
+			curr2->first=curr2->first->next;
+		}
+			curr1->first=curr1->first->next;
+	}
+	
+		}
+	
+	}
+
 }
