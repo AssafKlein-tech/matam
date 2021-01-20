@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/guyhakmon/mtm/matam/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/./partB -I/home/guyhakmon/mtm/matam/ex3/./provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA -I/home/guyhakmon/mtm/matam/ex3/provided  -g   -o CMakeFiles/progA.dir/partA/date_wrap.cpp.o -c /home/guyhakmon/mtm/matam/ex3/partA/date_wrap.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/partA/date_wrap.cpp"
+},
+{
+  "directory": "/home/guyhakmon/mtm/matam/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/./partB -I/home/guyhakmon/mtm/matam/ex3/./provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA -I/home/guyhakmon/mtm/matam/ex3/provided  -g   -o CMakeFiles/progA.dir/provided/test_partA.cpp.o -c /home/guyhakmon/mtm/matam/ex3/provided/test_partA.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/provided/test_partA.cpp"
+},
+{
+  "directory": "/home/guyhakmon/mtm/matam/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/./partB -I/home/guyhakmon/mtm/matam/ex3/./provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA -I/home/guyhakmon/mtm/matam/ex3/provided  -g   -o CMakeFiles/progB.dir/provided/test_partB.cpp.o -c /home/guyhakmon/mtm/matam/ex3/provided/test_partB.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/provided/test_partB.cpp"
+},
+{
+  "directory": "/home/guyhakmon/mtm/matam/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/./partB -I/home/guyhakmon/mtm/matam/ex3/./provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA -I/home/guyhakmon/mtm/matam/ex3/provided  -g   -o CMakeFiles/progB.dir/partB/event_container.cpp.o -c /home/guyhakmon/mtm/matam/ex3/partB/event_container.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/partB/event_container.cpp"
+},
+{
+  "directory": "/home/guyhakmon/mtm/matam/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/./partB -I/home/guyhakmon/mtm/matam/ex3/./provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA -I/home/guyhakmon/mtm/matam/ex3/provided  -g   -o CMakeFiles/progB.dir/partB/base_event.cpp.o -c /home/guyhakmon/mtm/matam/ex3/partB/base_event.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/partB/base_event.cpp"
+},
+{
+  "directory": "/home/guyhakmon/mtm/matam/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/./partB -I/home/guyhakmon/mtm/matam/ex3/./provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA -I/home/guyhakmon/mtm/matam/ex3/provided  -g   -o CMakeFiles/progB.dir/partB/festival.cpp.o -c /home/guyhakmon/mtm/matam/ex3/partB/festival.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/partB/festival.cpp"
+},
+{
+  "directory": "/home/guyhakmon/mtm/matam/build",
+  "command": "/usr/bin/g++   -I/home/guyhakmon/mtm/matam/ex3/progB -I/home/guyhakmon/mtm/matam/ex3/./partB -I/home/guyhakmon/mtm/matam/ex3/./provided -I/home/guyhakmon/mtm/matam/ex3/progA -I/home/guyhakmon/mtm/matam/ex3/partA -I/home/guyhakmon/mtm/matam/ex3/provided  -g   -o CMakeFiles/progB.dir/partB/recurring_event.cpp.o -c /home/guyhakmon/mtm/matam/ex3/partB/recurring_event.cpp",
+  "file": "/home/guyhakmon/mtm/matam/ex3/partB/recurring_event.cpp"
+}
+]

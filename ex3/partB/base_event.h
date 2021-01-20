@@ -4,25 +4,31 @@
 #include <iostream>
 using std::ostream;
 #include "date_wrap.h"
-#include "generic_queue.h"
+#include "generic_linked_list.h"
 using std::string;
-
-// we need <,>,==, copyC'tor
+#include "exceptions.h"
+// we need <,>,==,!= (regular, and with date to compare) copyC'tor
 namespace mtm{
     class BaseEvent{
     public: 
-        BaseEvent(DateWrap& date, string name);
+        BaseEvent(DateWrap& date, string& name);
         virtual void registerParticipant(int student)=0;
         virtual void unregisterParticipant(int student);
-        virtual void printShort(ostream stream);
-        virtual void printLong(ostream stream);
+        virtual ostream& printShort(ostream& stream);
+        virtual ostream& printLong(ostream&s stream);
         virtual BaseEvent* clone();
-    
+        bool operator==(const BaseEvent& event) const;
+        bool operator!=(const BaseEvent& event) const;
+        bool operator>(const BaseEvent& event) const;
+        bool operator<(const BaseEvent& event) const;
+        bool compareEventsDateWithADate(DateWrap& date);
+        bool isEventGreaterThanDate(DateWrap& date);
+        bool compareEventsNameWithAName(string& name);
+        
     protected:    
-
         DateWrap date;
         string name;
-        Stack<int> *member_stack;
+        LinkedList<int> *member_list;
 
     };
 

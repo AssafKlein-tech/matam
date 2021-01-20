@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/guyhakmon/mtm/matam/ex3/partA/date_wrap.h
+iostream
+-
+stdbool.h
+-
+exceptions.h
+/home/guyhakmon/mtm/matam/ex3/partA/exceptions.h
+date.h
+/home/guyhakmon/mtm/matam/ex3/partA/date.h
+
+/home/guyhakmon/mtm/matam/ex3/partA/exceptions.h
+iostream
+-
+
+/home/guyhakmon/mtm/matam/ex3/partB/base_event.cpp
+base_event.h
+/home/guyhakmon/mtm/matam/ex3/partB/base_event.h
+
+/home/guyhakmon/mtm/matam/ex3/partB/base_event.h
+string.h
+-
+iostream
+-
+date_wrap.h
+/home/guyhakmon/mtm/matam/ex3/partB/date_wrap.h
+generic_linked_list.h
+/home/guyhakmon/mtm/matam/ex3/partB/generic_linked_list.h
+exceptions.h
+/home/guyhakmon/mtm/matam/ex3/partB/exceptions.h
+
+/home/guyhakmon/mtm/matam/ex3/partB/generic_linked_list.h
+
+/home/guyhakmon/mtm/matam/ex3/provided/date.h
+stdbool.h
+-
+

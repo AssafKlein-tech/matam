@@ -1,0 +1,1 @@
+/usr/bin/g++  -g  -rdynamic CMakeFiles/progA.dir/partA/date_wrap.cpp.o CMakeFiles/progA.dir/provided/test_partA.cpp.o  -o progA  /home/guyhakmon/mtm/matam/ex3/provided/libdate.a 

@@ -1,15 +1,16 @@
 #include "base_event.h"
-//#include "closed_event.h"
-#include "custom_event.h"
+#include "closed_event.h"
+//#include "custom_event.h"
 #include "date_wrap.h"
 #include "event_container.h"
 #include "exceptions.h"
 #include "festival.h"
-//#include "one_time_event.h"
-//#include "open_event.h"
+#include "one_time_event.h"
+#include "open_event.h"
 #include "recurring_event.h"
 #include <cstdlib>
 #include <iostream>
+using std::cout;
 
 typedef mtm::EventContainer::EventIterator Iter;
 
@@ -23,6 +24,7 @@ void printEventsShort(mtm::EventContainer& events) {
 void test1() {
     mtm::Festival festival(mtm::DateWrap(21, 10, 2020));
     festival.add(mtm::OpenEvent(mtm::DateWrap(21, 10, 2020), "Performance 1"));
+    
     mtm::ClosedEvent closed(mtm::DateWrap(21, 10, 2020), "Performance 2");
     closed.addInvitee(1);
     closed.addInvitee(500);
@@ -44,8 +46,8 @@ void test2_aux(mtm::BaseEvent& event) {
     event.unregisterParticipant(1);
     event.registerParticipant(3);
     mtm::BaseEvent* clone = event.clone();
-    clone->printShort(std::cout);
-    clone->printLong(std::cout);
+    clone->printShort(cout);
+    clone->printLong(cout);
     delete clone;
 }
 

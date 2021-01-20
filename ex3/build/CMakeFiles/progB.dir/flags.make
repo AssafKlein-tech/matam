@@ -6,5 +6,5 @@ CXX_FLAGS = -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/./partB -I/home/assafklein/mtm/matam/ex3/./provided -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA -I/home/assafklein/mtm/matam/ex3/provided 
+CXX_INCLUDES = -I/home/assafklein/mtm/matam/ex3/progC -I/home/assafklein/mtm/matam/ex3/./partC -I/home/assafklein/mtm/matam/ex3/./partB -I/home/assafklein/mtm/matam/ex3/./partA -I/home/assafklein/mtm/matam/ex3/./provided -I/home/assafklein/mtm/matam/ex3/progB -I/home/assafklein/mtm/matam/ex3/progA -I/home/assafklein/mtm/matam/ex3/partA -I/home/assafklein/mtm/matam/ex3/provided 
 

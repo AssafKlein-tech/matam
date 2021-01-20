@@ -152,8 +152,8 @@ namespace mtm{
 		return copy;
 	}
 
-	ostream& operator<<(ostream& os, const DateWrap& c)
+	ostream& operator<<(ostream& os, const DateWrap& date)
 	{
-		return os<<c.day()<<"/"<<c.month()<<"/"<<c.year();
+		return os<<date.day()<<"/"<<date.month()<<"/"<<date.year();
 	}
 }

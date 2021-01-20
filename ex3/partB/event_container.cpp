@@ -39,25 +39,21 @@ namespace mtm{
     {
         if (!contains(event))
         {
-            try{
-                Node_event* new_node = new Node_event(event);
-                if (!head)
+            Node_event* new_node = new Node_event(event);
+            if (!head)
+            {
+                head = new_node;
+            }
+            else if (event < *(head->event_ptr))
                 {
+                    new_node->next = head;
                     head = new_node;
                 }
-                else if (event < *(head->event_ptr))
-                    {
-                        new_node->next = head;
-                        head = new_node;
-                    }
-                else
-                {
-                    Node_event* current = getInsertionPlace(event);
-                    new_node->next = current->next;
-                    current->next = new_node;
-                }
-            } catch (std::bad_alloc){
-                throw NotSupported();
+            else
+            {
+                Node_event* current = getInsertionPlace(event);
+                new_node->next = current->next;
+                current->next = new_node;
             }
         }
     }
