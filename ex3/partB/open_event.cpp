@@ -10,7 +10,7 @@ namespace mtm{
         InsertParticipant(student);
     }
 
-    OpenEvent* OpenEvent::clone()
+    OpenEvent* OpenEvent::clone() const
     {
         return new OpenEvent(*this);
     }
