@@ -21,7 +21,7 @@ namespace mtm{
         date(event.date)
     {
         name = event.name;
-        node<int>* curr_member = event.member_list->first;
+        Node<int>* curr_member = event.member_list->first;
         while(curr_member)
         {
             member_list->add(curr_member->data);
@@ -57,7 +57,7 @@ namespace mtm{
     {
         printShort(stream);
         stream<<"\n";
-        node<int>* curr_member = member_list->first;
+        Node<int>* curr_member = member_list->first;
         while(curr_member)
         {
             stream<<curr_member->data<<"\n";
@@ -108,7 +108,7 @@ namespace mtm{
     {
         if(member_list)
         {
-            node<int>* curr_member=member_list->first;
+            Node<int>* curr_member=member_list->first;
             while(curr_member)
             {
                 if(curr_member->data == student)
@@ -123,7 +123,7 @@ namespace mtm{
     void BaseEvent::copyMembersFromEvent(ClosedEvent& event)
     {
         LinkedList<int>* temp_member_list;
-        node<int>* curr_member = event.member_list->first;
+        Node<int>* curr_member = event.member_list->first;
         while(curr_member)
         {
             temp_member_list->add(curr_member->data);
