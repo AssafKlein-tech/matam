@@ -3,6 +3,13 @@
 
 namespace mtm{
 
+    void BaseEvent::assign(const BaseEvent& event)
+    {
+        member_list = event.member_list;
+        name = event.name;
+        date = event.date;
+    }
+
     BaseEvent::BaseEvent(DateWrap date, string name):
         date(date),
         name(name)
@@ -22,19 +29,9 @@ namespace mtm{
         }
     }
 
-    BaseEvent& BaseEvent::operator=(BaseEvent& event)
+    BaseEvent& BaseEvent::operator=(const BaseEvent& event)
     {
-        LinkedList<int>* temp_list;
-        node<int>* curr_member = event.member_list->first;
-        while(curr_member)
-        {
-            temp_list->add(curr_member->data);
-            curr_member = curr_member->next;
-        }
-        delete member_list;
-        member_list = temp_list;
-        name = event.name;
-        date = event.date;
+        assign(event);
         return *this;
     }
 

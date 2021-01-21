@@ -20,31 +20,10 @@ namespace mtm{
         }
     }
 
-    ClosedEvent& ClosedEvent::operator=(ClosedEvent& event)
+    ClosedEvent& ClosedEvent::operator=(const ClosedEvent& event)
     {
-        LinkedList<int>* temp_member_list;
-        node<int>* curr_member = event.member_list->first;
-        while(curr_member)
-        {
-            temp_member_list->add(curr_member->data);
-            curr_member = curr_member->next;
-        }
-        delete member_list;
-        member_list = temp_member_list;
-
-
-        LinkedList<int>* temp_invited_list;
-        node<int>* curr_invited = event.invited_list->first;
-        while(curr_invited)
-        {
-            temp_invited_list->add(curr_invited->data);
-            curr_invited = curr_invited->next;
-        }
-        delete invited_list;
-        member_list = temp_invited_list;
-
-        name = event.name;
-        date = event.date;
+        assign(event);
+        invited_list = event.invited_list;
         return *this;
     }
 

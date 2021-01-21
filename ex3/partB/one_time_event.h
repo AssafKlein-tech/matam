@@ -11,14 +11,14 @@ namespace mtm{
     public:
         OneTimeEvent(DateWrap date, string name);
         void add(const BaseEvent& event);
-        OneTimeEvent* clone() const override;
+        OneTimeEvent* clone() const;
         ~OneTimeEvent(){}
     };
     
     template <class EventType>
-    OneTimeEvent<EventType>::OneTimeEvent(DateWrap date, string name):
+    OneTimeEvent<EventType>::OneTimeEvent(DateWrap date, string name)
     {
-        this.Insert(EventType(date,name));
+        Insert(EventType(date,name));
     }
 
     template <class EventType>

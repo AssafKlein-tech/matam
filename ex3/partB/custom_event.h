@@ -8,12 +8,13 @@ namespace mtm{
     class CustomEvent:public BaseEvent{
     
     public:
-     CustomEvent(DateWrap date, std::string name, const CanRegister assignment_conditions);
-     void registerParticipant(int student) override;
-     CustomEvent* clone() const override;
-     ~CustomEvent(){}
+        CustomEvent(DateWrap date, std::string name, const CanRegister assignment_conditions);
+        void registerParticipant(int student) override;
+        CustomEvent& operator=(const CustomEvent& event);
+        CustomEvent* clone() const override;
+        ~CustomEvent(){}
 
-    protected:
+    private:
         CanRegister can_register;
     };
 
@@ -21,15 +22,25 @@ namespace mtm{
     CustomEvent<CanRegister>::CustomEvent(DateWrap date, std::string name, const CanRegister assignment_conditions):
         BaseEvent(date,name)
     {
-        can_register=assignment_conditions;
+        can_register = assignment_conditions;
     }
 
 
     template <class CanRegister>
     void CustomEvent<CanRegister>::registerParticipant(int student) 
     {
-        if(assignment_conditions(student))
-        InsertParticipant(student);
+        if(can_register(student))
+        {
+            InsertParticipant(student);
+        }
+    }
+
+    template <class CanRegister>
+    CustomEvent& CustomEvent<CanRegister>::operator=(const CustomEvent<CanRegister>& event)
+    {
+        assign(event);
+        can_register = event.can_register;
+        return *this;
     }
 
     template <class CanRegister>
@@ -37,15 +48,6 @@ namespace mtm{
     {
         return new CustomEvent<CanRegister>(*this);
     }
-
-
-
-
-
 }
-
-
-
-
 
 #endif
