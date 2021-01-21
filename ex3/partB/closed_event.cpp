@@ -6,7 +6,7 @@ namespace mtm{
     ClosedEvent::ClosedEvent(DateWrap date, string name):
         BaseEvent(date,name)
     {
-        invited_list->clear();
+        invited_list =  new LinkedList<int>();
     }
 
     ClosedEvent::ClosedEvent(const ClosedEvent& event):
