@@ -25,9 +25,9 @@ namespace mtm{
         bool operator!=(const BaseEvent& event) const;
         bool operator>(const BaseEvent& event) const;
         bool operator<(const BaseEvent& event) const;
-        bool compareEventsDateWithADate(DateWrap& date);
-        bool isEventGreaterThanDate(DateWrap& date);
-        bool compareEventsNameWithAName(string& name);
+        bool compareEventsDateWithADate(DateWrap& date) const;
+        bool isEventGreaterThanDate(DateWrap& date) const;
+        bool compareEventsNameWithAName(string& name) const; 
         
         
 

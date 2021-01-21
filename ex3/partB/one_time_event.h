@@ -10,7 +10,7 @@ namespace mtm{
     {
     public:
         OneTimeEvent(DateWrap date, string name);
-        void add(BaseEvent& event);
+        void add(const BaseEvent& event);
         OneTimeEvent* clone() const override;
         ~OneTimeEvent(){}
     };
@@ -22,7 +22,7 @@ namespace mtm{
     }
 
     template <class EventType>
-    void OneTimeEvent<EventType>::add(BaseEvent& event)
+    void OneTimeEvent<EventType>::add(const BaseEvent& event)
     {
         throw NotSupported();
     }

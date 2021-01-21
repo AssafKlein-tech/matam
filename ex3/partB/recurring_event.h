@@ -9,7 +9,7 @@ namespace mtm{
     class RecurringEvent: public EventContainer{
     public:
         RecurringEvent(DateWrap first_date, string name, int num_occurrences, int interval_days);
-        void add(BaseEvent& event);
+        void add(const BaseEvent& event);
         ~RecurringEvent(){}
     };
 
@@ -29,7 +29,7 @@ namespace mtm{
     }
 
     template <class EventType>
-    void RecurringEvent<EventType>::add(BaseEvent& event)
+    void RecurringEvent<EventType>::add(const BaseEvent& event)
     {
         throw NotSupported();
     }
