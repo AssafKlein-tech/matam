@@ -3,6 +3,19 @@
 
 namespace mtm{
 
+    void BaseEvent::copyMembersFromEvent(const BaseEvent& event)
+    {
+        LinkedList<int>* temp_member_list = new LinkedList<int>();
+        Node<int>* curr_member = event.member_list->first;
+        while(curr_member)
+        {
+            temp_member_list->add(curr_member->data);
+            curr_member = curr_member->next;
+        }
+        delete member_list;
+        member_list = temp_member_list;
+    }
+
     void BaseEvent::assign(const BaseEvent& event)
     {
         copyMembersFromEvent(event);
@@ -12,16 +25,16 @@ namespace mtm{
 
     BaseEvent::BaseEvent(DateWrap date, string name):
         date(date),
-        name(name)
+        name(name),
+        member_list(new LinkedList<int>());
     {
-        member_list = new LinkedList<int>();
     }
     
     BaseEvent::BaseEvent(const BaseEvent& event): 
         date(event.date),
-        name(event.name)
+        name(event.name),
+        member_list(new LinkedList<int>());
     {
-        member_list = new LinkedList<int>();
         Node<int>* curr_member = event.member_list->first;
         while(curr_member)
         {
@@ -128,18 +141,6 @@ namespace mtm{
         member_list->add(student);
     }
 
-    void BaseEvent::copyMembersFromEvent(const BaseEvent& event)
-    {
-        LinkedList<int>* temp_member_list = new LinkedList<int>();
-        Node<int>* curr_member = event.member_list->first;
-        while(curr_member)
-        {
-            temp_member_list->add(curr_member->data);
-            curr_member = curr_member->next;
-        }
-        delete member_list;
-        member_list = temp_member_list;
-    }
 }
 
 
