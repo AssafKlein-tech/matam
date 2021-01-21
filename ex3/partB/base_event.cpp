@@ -43,9 +43,13 @@ namespace mtm{
     void BaseEvent::unregisterParticipant(int student)
     {
         if(student<1)
+        {
             throw(InvalidStudent());
+        }
         if(!member_list->sub(student))
+        {
             throw(NotRegistered());
+        }
     }
 
     ostream& BaseEvent::printShort(ostream& stream)
@@ -72,45 +76,49 @@ namespace mtm{
 
     bool BaseEvent::operator!=(const BaseEvent& event) const
     {
-         return(!(this->date==event.date&&this->name==event.name));
+        return(!(this->date==event.date&&this->name==event.name));
     }
 
     bool BaseEvent::operator<(const BaseEvent& event) const
     {
         if(this->date==event.date)
+        {
             return(this->name<event.name);
+        }
         return(this->date<event.date);
     }
 
     bool BaseEvent::operator>(const BaseEvent& event) const
     {
         if(this->date==event.date)
+        {
             return(this->name>event.name);
+        }
         return(this->date>event.date);
     }
 
     bool BaseEvent::compareEventsDateWithADate(DateWrap& date) const
     {
-        return this->date==date;
+        return this->date = =date;
     }
     
     bool BaseEvent::isEventGreaterThanDate(DateWrap& date) const
     {
-        return this->date>date;
+        return this->date > date;
     }
 
     bool BaseEvent::compareEventsNameWithAName(string& name) const
     {
-        return this->name==name;
+        return this->name == name;
     }
 
     void BaseEvent::InsertParticipant(int student)
-    {
+     {
  
-        Node<int>* curr_member=member_list->first;
+        Node<int>* curr_member = member_list->first;
         while(curr_member)
         {
-            Node<int>* curr_member=member_list->first;
+            Node<int>* curr_member = member_list->first;
             while(curr_member)
             {
                 throw AlreadyRegistered();
@@ -119,7 +127,7 @@ namespace mtm{
         member_list->add(student);
     }
 
-    void BaseEvent::copyMembersFromEvent(ClosedEvent& event)
+    void BaseEvent::copyMembersFromEvent(const ClosedEvent& event)
     {
         LinkedList<int>* temp_member_list;
         Node<int>* curr_member = event.member_list->first;

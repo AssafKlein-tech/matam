@@ -14,7 +14,7 @@ namespace mtm{
         BaseEvent(DateWrap date, string name);
         BaseEvent(const BaseEvent& event);
         virtual ~BaseEvent();
-        virtual BaseEvent& operator=(BaseEvent& event);
+        virtual BaseEvent& operator=(const BaseEvent& event);
         virtual BaseEvent* clone() const = 0;
 
         virtual void registerParticipant(int student);
@@ -28,7 +28,7 @@ namespace mtm{
         bool compareEventsDateWithADate(DateWrap& date) const;
         bool isEventGreaterThanDate(DateWrap& date) const;
         bool compareEventsNameWithAName(string& name) const; 
-        void copyMembersFromEvent(BaseEvent& event);
+    
         
 
         //temp for tests
@@ -43,6 +43,7 @@ namespace mtm{
         LinkedList<int> *member_list;
         void InsertParticipant(int student);
         void assign(const BaseEvent& event);
+        void copyMembersFromEvent(const BaseEvent& event);
 
     };
 
