@@ -13,7 +13,7 @@ namespace mtm
     class LinkedList
     {
     public:
-        node<T>* first;
+        Node<T>* first;
 
         LinkedList<T>() {}
         ~LinkedList<T>();
@@ -22,7 +22,6 @@ namespace mtm
         void add(T data);
         T get(int index);
         void clear();
-       LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T> linked_list);
     };
 }
 #endif

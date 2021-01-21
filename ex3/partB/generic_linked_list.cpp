@@ -5,7 +5,7 @@ namespace mtm{
  	template<class T>   
 	void LinkedList<T>::add(T data) 
 	{
-		node<T>* insdata = new node<T>;
+		Node<T>* insdata = new Node<T>;
 		insdata->data = data;
 		if(!first) 
 		{
@@ -19,7 +19,7 @@ namespace mtm{
 		}
 		else
 		{
-			node<T>* curr = first;
+			Node<T>* curr = first;
 			while (data < curr->next)
 			{
 				curr = curr->next;
@@ -40,7 +40,7 @@ namespace mtm{
 		else 
 		{
 			// Get the index'th element
-			node<T>* curr = first;
+			Node<T>* curr = first;
 			for(int i = 0; i < index; ++i) 
 			{
 				curr = curr->next;
@@ -52,7 +52,7 @@ namespace mtm{
   template<class T>
   void LinkedList<T>::clear()
     {
-        node<T>* curr = first;
+        Node<T>* curr = first;
         while(first)
         {
 			curr = curr->next;
@@ -65,8 +65,8 @@ namespace mtm{
 	template<class T>
   	bool LinkedList<T>::sub(T data)
   	{
-     	node<T>* first_copy = first;
-     	node<T>* copy;
+     	Node<T>* first_copy = first;
+     	Node<T>* copy;
     	while(first)
         {
           	if(first->data == data)
