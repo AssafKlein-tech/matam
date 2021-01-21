@@ -430,7 +430,8 @@ bool (*tests[])(void) = {
 };
 
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[]) 
+{
 
     if (argc < 2) {
         for (int i = 0; i < NUMBER_OF_TESTS; i++) {
