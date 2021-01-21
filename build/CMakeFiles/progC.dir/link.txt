@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\progC.dir/objects.a
+C:\TDM-GCC-64\bin\ar.exe cr CMakeFiles\progC.dir/objects.a @CMakeFiles\progC.dir\objects1.rsp
+C:\TDM-GCC-64\bin\x86_64-w64-mingw32-g++.exe g++ -std=c++11 -Wall -Werror -pedantic-errors -g   -Wl,--whole-archive CMakeFiles\progC.dir/objects.a -Wl,--no-whole-archive  -o progC.exe -Wl,--out-implib,libprogC.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\progC.dir\linklibs.rsp
