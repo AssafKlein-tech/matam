@@ -115,6 +115,21 @@ namespace mtm{
             member_list->add(student);
         }
     }
+
+    void BaseEvent::copyMembersFromEvent(ClosedEvent& event)
+    {
+        LinkedList<int>* temp_member_list;
+        node<int>* curr_member = event.member_list->first;
+        while(curr_member)
+        {
+            temp_member_list->add(curr_member->data);
+            curr_member = curr_member->next;
+        }
+        delete member_list;
+        member_list = temp_member_list;
+    }
+    
+
 }
 
 

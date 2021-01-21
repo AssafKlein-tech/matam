@@ -22,16 +22,7 @@ namespace mtm{
 
     ClosedEvent& ClosedEvent::operator=(ClosedEvent& event)
     {
-        LinkedList<int>* temp_member_list;
-        node<int>* curr_member = event.member_list->first;
-        while(curr_member)
-        {
-            temp_member_list->add(curr_member->data);
-            curr_member = curr_member->next;
-        }
-        delete member_list;
-        member_list = temp_member_list;
-
+        copyMembersFromEvent(event)
 
         LinkedList<int>* temp_invited_list;
         node<int>* curr_invited = event.invited_list->first;
