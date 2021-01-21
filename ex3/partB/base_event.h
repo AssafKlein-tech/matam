@@ -15,7 +15,7 @@ namespace mtm{
         BaseEvent(const BaseEvent& event);
         virtual ~BaseEvent();
         virtual BaseEvent& operator=(BaseEvent& event);
-        virtual BaseEvent* clone() = 0;
+        virtual BaseEvent* clone() const = 0;
 
         virtual void registerParticipant(int student);
         virtual void unregisterParticipant(int student);
@@ -36,7 +36,7 @@ namespace mtm{
         {
             return name;
         }
-        
+
     protected:    
         DateWrap date;
         string name;

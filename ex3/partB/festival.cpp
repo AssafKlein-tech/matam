@@ -5,7 +5,7 @@ namespace mtm{
     {
     }
 
-    void Festival::add(BaseEvent& event)
+    void Festival::add(const BaseEvent& event)
     {
         if(!event.compareEventsDateWithADate(date))
         {

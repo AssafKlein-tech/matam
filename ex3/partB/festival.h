@@ -8,7 +8,7 @@ namespace mtm{
         DateWrap date;
     public:
         Festival(DateWrap date);
-        void add(BaseEvent& event);
+        void add(const BaseEvent& event);
         ~Festival(){}
     };
 }

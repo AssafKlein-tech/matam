@@ -17,7 +17,7 @@ namespace mtm{
          * @brief Construct a new Node_event object 
          * @param base_event - BaseEvent object the for the bew node
          */
-        Node_event(BaseEvent& base_event):
+        Node_event(const BaseEvent& base_event):
             event_ptr((&base_event)->clone()){
             }
         /**
@@ -44,7 +44,7 @@ namespace mtm{
          * 
          * @param event the event to enter to the node
          */
-        void Insert(BaseEvent& event);
+        void Insert(const BaseEvent& event);
 
         /**
          * @brief checks if the Events queue contains the event

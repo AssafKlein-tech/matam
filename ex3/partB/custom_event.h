@@ -10,7 +10,7 @@ namespace mtm{
     public:
      CustomEvent::CustomEvent(DateWrap date, std::string name, const CanRegister assignment_conditions);
      void CustomEvent::registerParticipant(int student) override;
-     CustomEvent* clone() override;
+     CustomEvent* clone() const override;
      CustomEvent::~CustomEvent(){}
 
     protected:
@@ -33,7 +33,7 @@ namespace mtm{
     }
 
     template <class CanRegister>
-    CustomEvent<CanRegister>* CustomEvent<CanRegister>::clone()
+    CustomEvent<CanRegister>* CustomEvent<CanRegister>::clone() const
     {
         return new CustomEvent<CanRegister>(*this);
     }

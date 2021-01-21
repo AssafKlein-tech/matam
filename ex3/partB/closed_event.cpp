@@ -52,7 +52,7 @@ namespace mtm{
         delete invited_list;
     }
 
-    ClosedEvent* ClosedEvent::clone()
+    ClosedEvent* ClosedEvent::clone() const
     {
         return new ClosedEvent(*this);
     }

@@ -11,7 +11,7 @@ namespace mtm{
     public:
         OneTimeEvent(DateWrap date, string name);
         void add(BaseEvent& event);
-        OneTimeEvent* clone() override;
+        OneTimeEvent* clone() const override;
         ~OneTimeEvent(){}
     };
     
@@ -28,7 +28,7 @@ namespace mtm{
     }
 
     template <class EventType>
-    OneTimeEvent<EventType>* OneTimeEvent<EventType>::clone()
+    OneTimeEvent<EventType>* OneTimeEvent<EventType>::clone() const
     {
         return new OneTimeEvent<EventType>(*this);
     }
