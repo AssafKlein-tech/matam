@@ -16,13 +16,9 @@ namespace mtm
     public:
         node<T>* first;
 
-        LinkedList<T>() 
-        {
-            first = NULL;
-        }
-
+        LinkedList<T>() {}
         ~LinkedList<T>();
-        
+
         bool sub(T data);
         void add(T data);
         T get(int index);

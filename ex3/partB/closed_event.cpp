@@ -45,6 +45,7 @@ namespace mtm{
 
         name = event.name;
         date = event.date;
+        return *this;
     }
 
     ClosedEvent::~ClosedEvent()

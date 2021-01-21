@@ -4,8 +4,8 @@
 namespace mtm{
 
     BaseEvent::BaseEvent(DateWrap date, string name):
-        name(name),
-        date(date)
+        date(date),
+        name(name)
     {
         member_list->clear();
     }
@@ -35,6 +35,7 @@ namespace mtm{
         member_list = temp_list;
         name = event.name;
         date = event.date;
+        return *this;
     }
 
     BaseEvent::~BaseEvent()
@@ -49,6 +50,7 @@ namespace mtm{
         if(!member_list->sub(student))
             throw(NotRegistered());
     }
+
     ostream& BaseEvent::printShort(ostream& stream)
     {
         return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
