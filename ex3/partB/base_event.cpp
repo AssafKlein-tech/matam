@@ -14,7 +14,7 @@ namespace mtm{
         date(date),
         name(name)
     {
-        member_list->clear();
+        member_list = new LinkedList<int>();
     }
     
     BaseEvent::BaseEvent(const BaseEvent& event): 
@@ -106,15 +106,18 @@ namespace mtm{
 
     void BaseEvent::InsertParticipant(int student)
     {
-        node<int>* curr_member=member_list->first;
-        while(curr_member)
+        if(member_list)
         {
-            if(curr_member->data == student)
+            node<int>* curr_member=member_list->first;
+            while(curr_member)
             {
-                throw AlreadyRegistered();
+                if(curr_member->data == student)
+                {
+                    throw AlreadyRegistered();
+                }
             }
-            member_list->add(student);
         }
+        member_list->add(student);
     }
 }
 
