@@ -44,6 +44,8 @@ namespace mtm{
 
     void BaseEvent::unregisterParticipant(int student)
     {
+        if(student<1)
+            throw(InvalidStudent());
         if(!member_list->sub(student))
             throw(NotRegistered());
     }

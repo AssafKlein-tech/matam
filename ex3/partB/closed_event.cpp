@@ -63,6 +63,8 @@ namespace mtm{
 
     void ClosedEvent::addinvitee(int student)
     {
+        if(student<1)
+            throw(InvalidStudent());
         node<int>* curr_invited = invited_list->first;
         while (curr_invited)
         {
@@ -75,6 +77,8 @@ namespace mtm{
 
     void ClosedEvent::registerParticipant(int student)
     {
+        if(student<1)
+            throw(InvalidStudent());
         node<int>* curr_invited=invited_list->first;
         while(curr_invited)
         {
