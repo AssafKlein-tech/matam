@@ -28,7 +28,7 @@ namespace mtm{
         bool compareEventsDateWithADate(DateWrap& date) const;
         bool isEventGreaterThanDate(DateWrap& date) const;
         bool compareEventsNameWithAName(string& name) const; 
-        void copyMembersFromEvent(ClosedEvent& event);
+        void copyMembersFromEvent(BaseEvent& event);
         
 
         //temp for tests
@@ -42,6 +42,7 @@ namespace mtm{
         string name;
         LinkedList<int> *member_list;
         void InsertParticipant(int student);
+        void assign(const BaseEvent& event);
 
     };
 

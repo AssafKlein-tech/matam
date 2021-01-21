@@ -106,15 +106,14 @@ namespace mtm{
 
     void BaseEvent::InsertParticipant(int student)
     {
-        if(member_list)
+ 
+        Node<int>* curr_member=member_list->first;
+        while(curr_member)
         {
             Node<int>* curr_member=member_list->first;
             while(curr_member)
             {
-                if(curr_member->data == student)
-                {
-                    throw AlreadyRegistered();
-                }
+                throw AlreadyRegistered();
             }
         }
         member_list->add(student);
