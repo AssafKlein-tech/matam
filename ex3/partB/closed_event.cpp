@@ -11,7 +11,8 @@ namespace mtm{
         invited_list->clear();
     }
 
-    ClosedEvent::ClosedEvent(ClosedEvent& event)
+    ClosedEvent::ClosedEvent(ClosedEvent& event):
+        BaseEvent(event)
     {
         node<int>* curr_invtee = event.invited_list->first;
         while(curr_invtee)
@@ -47,8 +48,6 @@ namespace mtm{
 
         name = event.name;
         date = event.date;
-    }
-
     }
 
     ClosedEvent::~ClosedEvent()

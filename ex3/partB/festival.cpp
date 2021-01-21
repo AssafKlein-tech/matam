@@ -1,7 +1,7 @@
 #include "festival.h"
 
 namespace mtm{
-    Festival::Festival(DateWrap& date): date(DateWrap(date))
+    Festival::Festival(DateWrap& date): EventContainer(), date(DateWrap(date))
     {
     }
 

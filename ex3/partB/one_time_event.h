@@ -6,10 +6,12 @@
 namespace mtm{
 
     template <class EventType>
-    class OneTimeEvent: public EventContainer{
+    class OneTimeEvent: public EventContainer
+    {
     public:
         OneTimeEvent(DateWrap& date, string name);
         void add(BaseEvent& event);
+        OneTimeEvent* clone() override;
         ~OneTimeEvent(){}
     };
     
@@ -23,6 +25,12 @@ namespace mtm{
     void OneTimeEvent<EventType>::add(BaseEvent& event)
     {
         throw NotSupported();
+    }
+
+    template <class EventType>
+    OneTimeEvent<EventType>* OneTimeEvent<EventType>::clone()
+    {
+        return new OneTimeEvent<EventType>(*this);
     }
 }
 #endif

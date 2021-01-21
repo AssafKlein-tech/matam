@@ -6,8 +6,10 @@ namespace mtm{
     class OpenEvent:public BaseEvent{
     
     public:
-    void OpenEvent::registerParticipant(int student);
-   
+        OpenEvent(DateWrap date, string name);
+        void OpenEvent::registerParticipant(int student);
+        OpenEvent* clone() override;
+        ~OpenEvent();
     };
 
 }

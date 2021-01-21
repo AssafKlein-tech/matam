@@ -18,7 +18,7 @@ target_link_libraries(progC ${DATE})
 
 
 include_directories(progB ./partB ./partA ./provided)
-add_executable(progB provided/test_partB.cpp partB/event_container.cpp partB/base_event.cpp partB/festival.cpp partB/recurring_event.cpp)
+add_executable(progB provided/test_partB.cpp partB/event_container.cpp partB/base_event.cpp partB/festival.cpp partB/recurring_event.cpp partB/open_event.cpp partB/one_time_event.h partB/custom_event.h)
 target_link_libraries(progB ${DATE})
 
 #add_library(date date.c date.h)
