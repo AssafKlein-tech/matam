@@ -40,7 +40,7 @@ namespace mtm{
     protected:    
         DateWrap date;
         string name;
-        LinkedList<int> *member_list;
+        LinkedList<int> member_list;
         void InsertParticipant(int student);
         void assign(const BaseEvent& event);
         void copyMembersFromEvent(const BaseEvent& event);

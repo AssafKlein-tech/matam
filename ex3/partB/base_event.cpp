@@ -5,14 +5,14 @@ namespace mtm{
 
     void BaseEvent::copyMembersFromEvent(const BaseEvent& event)
     {
-        LinkedList<int>* temp_member_list = new LinkedList<int>();
-        Node<int>* curr_member = event.member_list->first;
+        LinkedList<int> temp_member_list;
+        Node<int>* curr_member = event.member_list.first;
         while(curr_member)
         {
-            temp_member_list->add(curr_member->data);
+            temp_member_list.add(curr_member->data);
             curr_member = curr_member->next;
         }
-        delete member_list;
+        member_list.clear();
         member_list = temp_member_list;
     }
 
@@ -26,19 +26,19 @@ namespace mtm{
     BaseEvent::BaseEvent(DateWrap date, string name):
         date(date),
         name(name),
-        member_list(new LinkedList<int>());
+        member_list()
     {
     }
     
     BaseEvent::BaseEvent(const BaseEvent& event): 
         date(event.date),
         name(event.name),
-        member_list(new LinkedList<int>());
+        member_list()
     {
-        Node<int>* curr_member = event.member_list->first;
+        Node<int>* curr_member = event.member_list.first;
         while(curr_member)
         {
-            member_list->add(curr_member->data);
+            member_list.add(curr_member->data);
             curr_member = curr_member->next;
         }
     }
@@ -51,7 +51,6 @@ namespace mtm{
 
     BaseEvent::~BaseEvent()
     {
-        delete member_list;
     }
 
     void BaseEvent::unregisterParticipant(int student)
@@ -60,7 +59,7 @@ namespace mtm{
         {
             throw(InvalidStudent());
         }
-        if(!member_list->sub(student))
+        if(!member_list.sub(student))
         {
             throw(NotRegistered());
         }
@@ -75,7 +74,7 @@ namespace mtm{
     {
         printShort(stream);
         stream<<"\n";
-        Node<int>* curr_member = member_list->first;
+        Node<int>* curr_member = member_list.first;
         while(curr_member)
         {
             stream<<curr_member->data<<"\n";
@@ -129,16 +128,16 @@ namespace mtm{
     void BaseEvent::InsertParticipant(int student)
      {
  
-        Node<int>* curr_member = member_list->first;
+        Node<int>* curr_member = member_list.first;
         while(curr_member)
         {
-            Node<int>* curr_member = member_list->first;
+            Node<int>* curr_member = member_list.first;
             while(curr_member)
             {
                 throw AlreadyRegistered();
             }
         }
-        member_list->add(student);
+        member_list.add(student);
     }
 
 }

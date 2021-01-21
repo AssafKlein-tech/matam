@@ -16,7 +16,7 @@ namespace mtm{
         void addInvitee(int student);
 
     protected:    
-        LinkedList<int> *invited_list;
+        LinkedList<int> invited_list;
 
     };
 }
