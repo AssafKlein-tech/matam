@@ -3,14 +3,14 @@
 
 namespace mtm{
 
-    BaseEvent::BaseEvent(DateWrap& date, string& name):
+    BaseEvent::BaseEvent(DateWrap date, string name):
         name(name),
         date(date)
     {
         member_list->clear();
     }
     
-    BaseEvent::BaseEvent(BaseEvent& event): 
+    BaseEvent::BaseEvent(const BaseEvent& event): 
         date(event.date)
     {
         name = event.name;

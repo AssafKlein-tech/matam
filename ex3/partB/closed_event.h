@@ -13,7 +13,7 @@ namespace mtm{
         ~ClosedEvent();
 
         void registerParticipant(int student) override;
-        void addinvitee(int student);
+        void addInvitee(int student);
 
     protected:    
         LinkedList<int> *invited_list;

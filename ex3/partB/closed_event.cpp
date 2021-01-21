@@ -3,8 +3,6 @@
 
 namespace mtm{
 
-    
-    
     ClosedEvent::ClosedEvent(DateWrap date, string name):
         BaseEvent(date,name)
     {
@@ -60,8 +58,7 @@ namespace mtm{
         return new ClosedEvent(*this);
     }
 
-
-    void ClosedEvent::addinvitee(int student)
+    void ClosedEvent::addInvitee(int student)
     {
         node<int>* curr_invited = invited_list->first;
         while (curr_invited)

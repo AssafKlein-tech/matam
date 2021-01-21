@@ -11,8 +11,8 @@ using std::string;
 namespace mtm{
     class BaseEvent{
     public: 
-        BaseEvent(DateWrap& date, string& name);
-        BaseEvent(BaseEvent& event);
+        BaseEvent(DateWrap date, string name);
+        BaseEvent(const BaseEvent& event);
         virtual ~BaseEvent();
         virtual BaseEvent& operator=(BaseEvent& event);
         virtual BaseEvent* clone() = 0;
