@@ -110,7 +110,8 @@ namespace mtm{
         Node<int>* curr_member=member_list->first;
         while(curr_member)
         {
-            if(curr_member->data == student)
+            Node<int>* curr_member=member_list->first;
+            while(curr_member)
             {
                 throw AlreadyRegistered();
             }
