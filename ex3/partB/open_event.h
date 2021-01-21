@@ -8,7 +8,7 @@ namespace mtm{
     public:
         OpenEvent(DateWrap date, string name): BaseEvent(date,name) {}
         OpenEvent* clone() const override;
-        OpenEvent& operator=(const OpenEvent& event)
+        OpenEvent& operator=(const OpenEvent& event);
         ~OpenEvent() {}
         void registerParticipant(int student);
     };

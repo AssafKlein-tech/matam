@@ -15,4 +15,9 @@ namespace mtm{
         return new OpenEvent(*this);
     }
 
+    OpenEvent& OpenEvent::operator=(const OpenEvent& event)
+    {
+        assign(event);
+        return *this;
+    }
 }
