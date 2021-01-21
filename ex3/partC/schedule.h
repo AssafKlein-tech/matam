@@ -1,7 +1,6 @@
 #ifndef SCHEDULE_H_
 #define SCHEDULE_H_
 #include "event_container.h"
-#include "event_wraper.h"
 #include <memory>
 #include <list>
 using std::list;
@@ -16,21 +15,21 @@ namespace mtm{
 
 
         void insertEvent(BaseEvent& event);
-        bool contains(EventContainer& container);
-        void insert(EventContainer& container);
-        EventList::iterator getEventPosition(DateWrap& date, string& name);
+        bool contains(const EventContainer& container);
+        void insert(const EventContainer& container);
+        EventList::iterator getEventPosition(DateWrap& date, string& name) const;
         
     public:
         
         Schedule() {}
-        void addEvent(EventContainer& container);
-        void registerToEvent(DateWrap& date, string& name, int& student);
-        void unregisterToEvent(DateWrap& date, string& name, int& student);
-        void printAllEvents();
-        void printMonthEvents(int& month, int& year);
+        void addEvents(const EventContainer& container);
+        void registerToEvent(DateWrap date, string name, int student);
+        void unregisterFromEvent(DateWrap date, string name, int student);
+        void printAllEvents() const;
+        void printMonthEvents(int month, int year) const ; 
         template <class predicate>
-        void printSomeEvents(predicate& predicate_func, bool verbose = false);
-        void printEventDetails(string& name,DateWrap& date);
+        void printSomeEvents(predicate predicate_func, bool verbose = false) const;
+        void printEventDetails(DateWrap date, string name) const;
         ~Schedule() {}
     };
 

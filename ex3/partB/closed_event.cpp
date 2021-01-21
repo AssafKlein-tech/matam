@@ -9,7 +9,7 @@ namespace mtm{
         invited_list->clear();
     }
 
-    ClosedEvent::ClosedEvent(ClosedEvent& event):
+    ClosedEvent::ClosedEvent(const ClosedEvent& event):
         BaseEvent(event)
     {
         node<int>* curr_invtee = event.invited_list->first;
@@ -20,7 +20,7 @@ namespace mtm{
         }
     }
 
-    ClosedEvent ClosedEvent::operator=(ClosedEvent& event)
+    ClosedEvent& ClosedEvent::operator=(ClosedEvent& event)
     {
         LinkedList<int>* temp_member_list;
         node<int>* curr_member = event.member_list->first;
@@ -42,7 +42,6 @@ namespace mtm{
         }
         delete invited_list;
         member_list = temp_invited_list;
-
 
         name = event.name;
         date = event.date;

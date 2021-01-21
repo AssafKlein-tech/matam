@@ -59,12 +59,12 @@ namespace mtm{
     }
 
    //EventContainer methods
-    EventContainer::EventIterator EventContainer::begin()
+    EventContainer::EventIterator EventContainer::begin() const
     {
         return EventContainer::EventIterator(head);
     }
 
-    EventContainer::EventIterator EventContainer::end()
+    EventContainer::EventIterator EventContainer::end() const
     {
         Node_event* tmp_node = head;
         if (!tmp_node)

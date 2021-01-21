@@ -30,6 +30,13 @@ namespace mtm{
         bool compareEventsNameWithAName(string& name);
         
         
+
+        //temp for tests
+        string getName()
+        {
+            return name;
+        }
+        
     protected:    
         DateWrap date;
         string name;

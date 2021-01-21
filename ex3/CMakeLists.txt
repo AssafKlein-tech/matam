@@ -13,7 +13,7 @@ set(CMAKE_CXX_FLAGS ${MTM_FLAGS_DEBUG})
 find_library(DATE date ./provided)
 
 include_directories(progC ./partC ./partB ./partA ./provided)
-add_executable(progC provided/test_partC.cpp partC/schedule.cpp)
+add_executable(progC provided/test_partC.cpp partC/schedule.cpp provided/test_partB.cpp partB/event_container.cpp partB/base_event.cpp partB/festival.cpp partB/recurring_event.cpp partB/open_event.cpp partB/one_time_event.h partB/custom_event.h)
 target_link_libraries(progC ${DATE})
 
 

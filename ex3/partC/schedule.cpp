@@ -25,7 +25,7 @@ namespace mtm{
         event_list.insert(pos, event_ptr);
     }
 
-    bool Schedule::contains(EventContainer& container)
+    bool Schedule::contains(const EventContainer& container)
     {
         for (EventIter iter = container.begin(); iter!= container.end(); ++iter)
         {
@@ -40,7 +40,7 @@ namespace mtm{
         return false;
     }
 
-    void Schedule::insert(EventContainer& container)
+    void Schedule::insert(const EventContainer& container)
     {
         for (EventIter iter = container.begin(); iter!= container.end(); ++iter)
         {
@@ -48,9 +48,10 @@ namespace mtm{
         }
     }
 
-    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name)
+    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name) const
     {
-        for (EventList::iterator pos = event_list.begin(); pos != event_list.end(); ++pos)
+        EventList iteration_list = event_list;
+        for (EventList::iterator pos = iteration_list.begin(); pos != iteration_list.end(); ++pos)
         {  
             if((**pos).compareEventsDateWithADate(date) && (**pos).compareEventsNameWithAName(name))
             {
@@ -63,7 +64,7 @@ namespace mtm{
     //Schedule methods
     Schedule::Schedule(){}
 
-    void Schedule::addEvent(EventContainer& container)
+    void Schedule::addEvents(const EventContainer& container)
     {
         if(contains(container))
         {
@@ -72,20 +73,20 @@ namespace mtm{
         insert(container);
     }
     
-    void Schedule::registerToEvent(DateWrap& date, string& name, int& student)
+    void Schedule::registerToEvent(DateWrap date, string name, int student)
     {
         EventList::iterator pos = getEventPosition(date,name);
         (*pos)->registerParticipant(student);
     }
 
-    void Schedule::unregisterToEvent(DateWrap& date, string& name, int& student)
+    void Schedule::unregisterFromEvent(DateWrap date, string name, int student)
     {
         EventList::iterator pos = getEventPosition(date,name);
         (**pos).unregisterParticipant(student);
 
     }
 
-    void Schedule::printAllEvents()
+    void Schedule::printAllEvents() const
     {
         for (EventPointer event_ptr: event_list)
         {
@@ -93,7 +94,7 @@ namespace mtm{
         }
     }
 
-    void Schedule::printMonthEvents(int& month, int& year)
+    void Schedule::printMonthEvents(int month, int year) const
     {
         DateWrap date(1, month, year);
         for (EventPointer event_ptr: event_list)
@@ -110,7 +111,7 @@ namespace mtm{
     }
 
     template <class predicate>
-    void Schedule::printSomeEvents(predicate& predicate_func, bool verbose)
+    void Schedule::printSomeEvents(predicate predicate_func, bool verbose) const
     {
         for (EventPointer event_ptr: event_list)
         {
@@ -128,7 +129,7 @@ namespace mtm{
         }
     }
 
-    void Schedule::printEventDetails(string& name,DateWrap& date)
+    void Schedule::printEventDetails(DateWrap date, string name)  const
     {
         EventList::iterator pos = getEventPosition(date,name);
         (*pos)->printLong(cout);
