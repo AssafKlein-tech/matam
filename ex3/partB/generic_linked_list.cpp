@@ -3,7 +3,7 @@
 namespace mtm{
   
  	template<class T>   
-	void LinkedList<class T>::add(T data) 
+	void LinkedList<T>::add(T data) 
 	{
 		node<T>* insdata = new node<T>;
 		insdata->data = data;
@@ -30,13 +30,16 @@ namespace mtm{
 	}
 
   	template<class T>
-	T get(int index) {
-		if(index == 0) {
+	T LinkedList<T>::get(int index) 
+	{
+		if(index == 0) 
+		{
 			// Get the first element
-			return this->first->data;
-		} else {
+			return first->data;
+		} else 
+		{
 			// Get the index'th element
-			node<T>* curr = this->first;
+			node<T>* curr = first;
 			for(int i = 0; i < index; ++i) 
 			{
 				curr = curr->next;
@@ -46,32 +49,32 @@ namespace mtm{
   	}
 
   template<class T>
-  void LinkedList<class T>::clear()
+  void LinkedList<T>::clear()
     {
-        node<T>* curr=this->first;
-        while(this->first)
+        node<T>* curr = first;
+        while(first)
         {
-			curr=curr->next;
-          	delete(this->first);
-          	this->first=curr;
+			curr = curr->next;
+          	delete(first);
+          	first = curr;
         }
     } 
 
 
 	template<class T>
-  	bool LinkedList<class T>::sub(T data)
+  	bool LinkedList<T>::sub(T data)
   	{
-     	node<T>* first_copy=this->first;
+     	node<T>* first_copy = first;
      	node<T>* copy;
-    	while(this->first)
+    	while(first)
         {
-          if(this->first->data==data)
+          	if(first->data == data)
             {
-            copy=this->first;
-            this->first=this->first->next;
-            delete(copy);
+				copy = first;
+				first = first->next;
+				delete(copy);
             }
-            this->first=first_copy;
+            first = first_copy;
             return true;
         }
    		return false;
