@@ -4,12 +4,11 @@
 namespace mtm
 {
     template<class T>
-    struct node {
-        node<T>* next;
+    struct Node {
+        Node<T>* next;
         T data;
-        ~node<T>();
+        ~Node<T>();
     };
-
     template<class T>
     class LinkedList
     {
@@ -23,7 +22,7 @@ namespace mtm
         void add(T data);
         T get(int index);
         void clear();
-        T operator[](int index);
+       LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T> linked_list);
     };
 }
 #endif
