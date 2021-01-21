@@ -99,7 +99,7 @@ namespace mtm{
 
     bool BaseEvent::compareEventsDateWithADate(DateWrap& date) const
     {
-        return this->date = =date;
+        return this->date == date;
     }
     
     bool BaseEvent::isEventGreaterThanDate(DateWrap& date) const
