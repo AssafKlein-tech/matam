@@ -199,6 +199,7 @@ partB/base_event.o: partB/base_event.cpp.o
 
 # target to build an object file
 partB/base_event.cpp.o:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/base_event.cpp.o
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/base_event.cpp.o
 .PHONY : partB/base_event.cpp.o
 
@@ -208,6 +209,7 @@ partB/base_event.i: partB/base_event.cpp.i
 
 # target to preprocess a source file
 partB/base_event.cpp.i:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/base_event.cpp.i
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/base_event.cpp.i
 .PHONY : partB/base_event.cpp.i
 
@@ -217,6 +219,7 @@ partB/base_event.s: partB/base_event.cpp.s
 
 # target to generate assembly for a file
 partB/base_event.cpp.s:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/base_event.cpp.s
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/base_event.cpp.s
 .PHONY : partB/base_event.cpp.s
 
@@ -226,6 +229,7 @@ partB/event_container.o: partB/event_container.cpp.o
 
 # target to build an object file
 partB/event_container.cpp.o:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/event_container.cpp.o
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_container.cpp.o
 .PHONY : partB/event_container.cpp.o
 
@@ -235,6 +239,7 @@ partB/event_container.i: partB/event_container.cpp.i
 
 # target to preprocess a source file
 partB/event_container.cpp.i:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/event_container.cpp.i
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_container.cpp.i
 .PHONY : partB/event_container.cpp.i
 
@@ -244,6 +249,7 @@ partB/event_container.s: partB/event_container.cpp.s
 
 # target to generate assembly for a file
 partB/event_container.cpp.s:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/event_container.cpp.s
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/event_container.cpp.s
 .PHONY : partB/event_container.cpp.s
 
@@ -253,6 +259,7 @@ partB/festival.o: partB/festival.cpp.o
 
 # target to build an object file
 partB/festival.cpp.o:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/festival.cpp.o
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.o
 .PHONY : partB/festival.cpp.o
 
@@ -262,6 +269,7 @@ partB/festival.i: partB/festival.cpp.i
 
 # target to preprocess a source file
 partB/festival.cpp.i:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/festival.cpp.i
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.i
 .PHONY : partB/festival.cpp.i
 
@@ -271,8 +279,39 @@ partB/festival.s: partB/festival.cpp.s
 
 # target to generate assembly for a file
 partB/festival.cpp.s:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/festival.cpp.s
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/festival.cpp.s
 .PHONY : partB/festival.cpp.s
+
+partB/open_event.o: partB/open_event.cpp.o
+
+.PHONY : partB/open_event.o
+
+# target to build an object file
+partB/open_event.cpp.o:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/open_event.cpp.o
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/open_event.cpp.o
+.PHONY : partB/open_event.cpp.o
+
+partB/open_event.i: partB/open_event.cpp.i
+
+.PHONY : partB/open_event.i
+
+# target to preprocess a source file
+partB/open_event.cpp.i:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/open_event.cpp.i
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/open_event.cpp.i
+.PHONY : partB/open_event.cpp.i
+
+partB/open_event.s: partB/open_event.cpp.s
+
+.PHONY : partB/open_event.s
+
+# target to generate assembly for a file
+partB/open_event.cpp.s:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/open_event.cpp.s
+	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/open_event.cpp.s
+.PHONY : partB/open_event.cpp.s
 
 partB/recurring_event.o: partB/recurring_event.cpp.o
 
@@ -280,6 +319,7 @@ partB/recurring_event.o: partB/recurring_event.cpp.o
 
 # target to build an object file
 partB/recurring_event.cpp.o:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/recurring_event.cpp.o
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.o
 .PHONY : partB/recurring_event.cpp.o
 
@@ -289,6 +329,7 @@ partB/recurring_event.i: partB/recurring_event.cpp.i
 
 # target to preprocess a source file
 partB/recurring_event.cpp.i:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/recurring_event.cpp.i
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.i
 .PHONY : partB/recurring_event.cpp.i
 
@@ -298,6 +339,7 @@ partB/recurring_event.s: partB/recurring_event.cpp.s
 
 # target to generate assembly for a file
 partB/recurring_event.cpp.s:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/partB/recurring_event.cpp.s
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/partB/recurring_event.cpp.s
 .PHONY : partB/recurring_event.cpp.s
 
@@ -361,6 +403,7 @@ provided/test_partB.o: provided/test_partB.cpp.o
 
 # target to build an object file
 provided/test_partB.cpp.o:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/provided/test_partB.cpp.o
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/provided/test_partB.cpp.o
 .PHONY : provided/test_partB.cpp.o
 
@@ -370,6 +413,7 @@ provided/test_partB.i: provided/test_partB.cpp.i
 
 # target to preprocess a source file
 provided/test_partB.cpp.i:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/provided/test_partB.cpp.i
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/provided/test_partB.cpp.i
 .PHONY : provided/test_partB.cpp.i
 
@@ -379,6 +423,7 @@ provided/test_partB.s: provided/test_partB.cpp.s
 
 # target to generate assembly for a file
 provided/test_partB.cpp.s:
+	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/provided/test_partB.cpp.s
 	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/provided/test_partB.cpp.s
 .PHONY : provided/test_partB.cpp.s
 
@@ -432,6 +477,9 @@ help:
 	@echo "... partB/festival.o"
 	@echo "... partB/festival.i"
 	@echo "... partB/festival.s"
+	@echo "... partB/open_event.o"
+	@echo "... partB/open_event.i"
+	@echo "... partB/open_event.s"
 	@echo "... partB/recurring_event.o"
 	@echo "... partB/recurring_event.i"
 	@echo "... partB/recurring_event.s"

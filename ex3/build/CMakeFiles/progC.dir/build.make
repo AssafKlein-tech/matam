@@ -100,24 +100,114 @@ CMakeFiles/progC.dir/partC/schedule.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/partC/schedule.cpp.s"
 	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partC/schedule.cpp -o CMakeFiles/progC.dir/partC/schedule.cpp.s
 
+CMakeFiles/progC.dir/provided/test_partB.cpp.o: CMakeFiles/progC.dir/flags.make
+CMakeFiles/progC.dir/provided/test_partB.cpp.o: ../provided/test_partB.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/progC.dir/provided/test_partB.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/provided/test_partB.cpp.o -c /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp
+
+CMakeFiles/progC.dir/provided/test_partB.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progC.dir/provided/test_partB.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp > CMakeFiles/progC.dir/provided/test_partB.cpp.i
+
+CMakeFiles/progC.dir/provided/test_partB.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/provided/test_partB.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/provided/test_partB.cpp -o CMakeFiles/progC.dir/provided/test_partB.cpp.s
+
+CMakeFiles/progC.dir/partB/event_container.cpp.o: CMakeFiles/progC.dir/flags.make
+CMakeFiles/progC.dir/partB/event_container.cpp.o: ../partB/event_container.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/progC.dir/partB/event_container.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/partB/event_container.cpp.o -c /home/assafklein/mtm/matam/ex3/partB/event_container.cpp
+
+CMakeFiles/progC.dir/partB/event_container.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progC.dir/partB/event_container.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partB/event_container.cpp > CMakeFiles/progC.dir/partB/event_container.cpp.i
+
+CMakeFiles/progC.dir/partB/event_container.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/partB/event_container.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partB/event_container.cpp -o CMakeFiles/progC.dir/partB/event_container.cpp.s
+
+CMakeFiles/progC.dir/partB/base_event.cpp.o: CMakeFiles/progC.dir/flags.make
+CMakeFiles/progC.dir/partB/base_event.cpp.o: ../partB/base_event.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/progC.dir/partB/base_event.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/partB/base_event.cpp.o -c /home/assafklein/mtm/matam/ex3/partB/base_event.cpp
+
+CMakeFiles/progC.dir/partB/base_event.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progC.dir/partB/base_event.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partB/base_event.cpp > CMakeFiles/progC.dir/partB/base_event.cpp.i
+
+CMakeFiles/progC.dir/partB/base_event.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/partB/base_event.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partB/base_event.cpp -o CMakeFiles/progC.dir/partB/base_event.cpp.s
+
+CMakeFiles/progC.dir/partB/festival.cpp.o: CMakeFiles/progC.dir/flags.make
+CMakeFiles/progC.dir/partB/festival.cpp.o: ../partB/festival.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/progC.dir/partB/festival.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/partB/festival.cpp.o -c /home/assafklein/mtm/matam/ex3/partB/festival.cpp
+
+CMakeFiles/progC.dir/partB/festival.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progC.dir/partB/festival.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partB/festival.cpp > CMakeFiles/progC.dir/partB/festival.cpp.i
+
+CMakeFiles/progC.dir/partB/festival.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/partB/festival.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partB/festival.cpp -o CMakeFiles/progC.dir/partB/festival.cpp.s
+
+CMakeFiles/progC.dir/partB/recurring_event.cpp.o: CMakeFiles/progC.dir/flags.make
+CMakeFiles/progC.dir/partB/recurring_event.cpp.o: ../partB/recurring_event.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/progC.dir/partB/recurring_event.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/partB/recurring_event.cpp.o -c /home/assafklein/mtm/matam/ex3/partB/recurring_event.cpp
+
+CMakeFiles/progC.dir/partB/recurring_event.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progC.dir/partB/recurring_event.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partB/recurring_event.cpp > CMakeFiles/progC.dir/partB/recurring_event.cpp.i
+
+CMakeFiles/progC.dir/partB/recurring_event.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/partB/recurring_event.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partB/recurring_event.cpp -o CMakeFiles/progC.dir/partB/recurring_event.cpp.s
+
+CMakeFiles/progC.dir/partB/open_event.cpp.o: CMakeFiles/progC.dir/flags.make
+CMakeFiles/progC.dir/partB/open_event.cpp.o: ../partB/open_event.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/progC.dir/partB/open_event.cpp.o"
+	/usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/progC.dir/partB/open_event.cpp.o -c /home/assafklein/mtm/matam/ex3/partB/open_event.cpp
+
+CMakeFiles/progC.dir/partB/open_event.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/progC.dir/partB/open_event.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/assafklein/mtm/matam/ex3/partB/open_event.cpp > CMakeFiles/progC.dir/partB/open_event.cpp.i
+
+CMakeFiles/progC.dir/partB/open_event.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/progC.dir/partB/open_event.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/assafklein/mtm/matam/ex3/partB/open_event.cpp -o CMakeFiles/progC.dir/partB/open_event.cpp.s
+
 # Object files for target progC
 progC_OBJECTS = \
 "CMakeFiles/progC.dir/provided/test_partC.cpp.o" \
-"CMakeFiles/progC.dir/partC/schedule.cpp.o"
+"CMakeFiles/progC.dir/partC/schedule.cpp.o" \
+"CMakeFiles/progC.dir/provided/test_partB.cpp.o" \
+"CMakeFiles/progC.dir/partB/event_container.cpp.o" \
+"CMakeFiles/progC.dir/partB/base_event.cpp.o" \
+"CMakeFiles/progC.dir/partB/festival.cpp.o" \
+"CMakeFiles/progC.dir/partB/recurring_event.cpp.o" \
+"CMakeFiles/progC.dir/partB/open_event.cpp.o"
 
 # External object files for target progC
 progC_EXTERNAL_OBJECTS =
 
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: CMakeFiles/progC.dir/provided/test_partC.cpp.o
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: CMakeFiles/progC.dir/partC/schedule.cpp.o
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: CMakeFiles/progC.dir/build.make
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: ../provided/libdate.a
-$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC: CMakeFiles/progC.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ======progC"
+progC: CMakeFiles/progC.dir/provided/test_partC.cpp.o
+progC: CMakeFiles/progC.dir/partC/schedule.cpp.o
+progC: CMakeFiles/progC.dir/provided/test_partB.cpp.o
+progC: CMakeFiles/progC.dir/partB/event_container.cpp.o
+progC: CMakeFiles/progC.dir/partB/base_event.cpp.o
+progC: CMakeFiles/progC.dir/partB/festival.cpp.o
+progC: CMakeFiles/progC.dir/partB/recurring_event.cpp.o
+progC: CMakeFiles/progC.dir/partB/open_event.cpp.o
+progC: CMakeFiles/progC.dir/build.make
+progC: ../provided/libdate.a
+progC: CMakeFiles/progC.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable progC"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/progC.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/progC.dir/build: $(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)$(EQUALS)progC
+CMakeFiles/progC.dir/build: progC
 
 .PHONY : CMakeFiles/progC.dir/build
 

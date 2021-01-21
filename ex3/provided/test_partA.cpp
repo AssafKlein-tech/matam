@@ -1,5 +1,5 @@
-#include "../partA/date_wrap.h"
-#include "../partA/exceptions.h"
+#include "date_wrap.h"
+#include "exceptions.h"
 #include <iostream>
 #include <fstream>
 

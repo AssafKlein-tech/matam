@@ -1,8 +1,14 @@
 file(REMOVE_RECURSE
-  "======progC"
-  "======progC.pdb"
+  "CMakeFiles/progC.dir/partB/base_event.cpp.o"
+  "CMakeFiles/progC.dir/partB/event_container.cpp.o"
+  "CMakeFiles/progC.dir/partB/festival.cpp.o"
+  "CMakeFiles/progC.dir/partB/open_event.cpp.o"
+  "CMakeFiles/progC.dir/partB/recurring_event.cpp.o"
   "CMakeFiles/progC.dir/partC/schedule.cpp.o"
+  "CMakeFiles/progC.dir/provided/test_partB.cpp.o"
   "CMakeFiles/progC.dir/provided/test_partC.cpp.o"
+  "progC"
+  "progC.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
