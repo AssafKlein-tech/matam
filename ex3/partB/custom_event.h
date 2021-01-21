@@ -8,10 +8,10 @@ namespace mtm{
     class CustomEvent:public BaseEvent{
     
     public:
-     CustomEvent::CustomEvent(DateWrap date, std::string name, const CanRegister assignment_conditions);
-     void CustomEvent::registerParticipant(int student) override;
+     CustomEvent(DateWrap date, std::string name, const CanRegister assignment_conditions);
+     void registerParticipant(int student) override;
      CustomEvent* clone() const override;
-     CustomEvent::~CustomEvent(){}
+     ~CustomEvent(){}
 
     protected:
         CanRegister can_register;
