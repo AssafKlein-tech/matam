@@ -131,8 +131,6 @@ namespace mtm{
         delete member_list;
         member_list = temp_member_list;
     }
-    
-
 }
 
 

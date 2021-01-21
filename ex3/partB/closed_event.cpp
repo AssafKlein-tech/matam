@@ -24,7 +24,7 @@ namespace mtm{
     {
 
         assign(event);
-        LinkedList<int>* temp_invited_list;
+        LinkedList<int>* temp_invited_list = new LinkedList<int>();
         Node<int>* curr_invited = event.invited_list->first;
         while(curr_invited)
         {
