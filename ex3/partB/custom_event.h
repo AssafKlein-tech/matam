@@ -36,7 +36,7 @@ namespace mtm{
     }
 
     template <class CanRegister>
-    CustomEvent& CustomEvent<CanRegister>::operator=(const CustomEvent<CanRegister>& event)
+    CustomEvent<CanRegister>& CustomEvent<CanRegister>::operator=(const CustomEvent<CanRegister>& event)
     {
         assign(event);
         can_register = event.can_register;

@@ -110,7 +110,9 @@ namespace mtm{
         while(curr_member)
         {
             if(curr_member->data == student)
+            {
                 throw AlreadyRegistered();
+            }
             member_list->add(student);
         }
     }
