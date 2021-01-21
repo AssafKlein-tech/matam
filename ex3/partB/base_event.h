@@ -10,12 +10,11 @@ using std::string;
 // we need <,>,==,!= (regular, and with date to compare) copyC'tor
 namespace mtm{
     class BaseEvent{
-
     public: 
         BaseEvent(DateWrap date, string name);
         BaseEvent(const BaseEvent& event);
-        virtual BaseEvent& operator=(const BaseEvent& event);
         virtual ~BaseEvent();
+        virtual BaseEvent& operator=(BaseEvent& event);
         virtual BaseEvent* clone() const = 0;
 
         virtual void registerParticipant(int student);
@@ -29,7 +28,9 @@ namespace mtm{
         bool compareEventsDateWithADate(DateWrap& date) const;
         bool isEventGreaterThanDate(DateWrap& date) const;
         bool compareEventsNameWithAName(string& name) const; 
+        void copyMembersFromEvent(ClosedEvent& event);
         
+
         //temp for tests
         string getName()
         {
@@ -40,8 +41,6 @@ namespace mtm{
         DateWrap date;
         string name;
         LinkedList<int> *member_list;
-
-        void assign(const BaseEvent& event);
         void InsertParticipant(int student);
 
     };

@@ -5,7 +5,7 @@ namespace mtm{
 
     void BaseEvent::assign(const BaseEvent& event)
     {
-        member_list = event.member_list;
+        copyMembersFromEvent(event);
         name = event.name;
         date = event.date;
     }
