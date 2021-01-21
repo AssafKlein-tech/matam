@@ -18,9 +18,10 @@ namespace mtm{
     }
     
     BaseEvent::BaseEvent(const BaseEvent& event): 
-        date(event.date)
+        date(event.date),
+        name(event.name)
     {
-        name = event.name;
+        member_list = new LinkedList<int>();
         Node<int>* curr_member = event.member_list->first;
         while(curr_member)
         {
