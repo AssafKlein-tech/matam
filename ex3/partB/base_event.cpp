@@ -127,9 +127,9 @@ namespace mtm{
         member_list->add(student);
     }
 
-    void BaseEvent::copyMembersFromEvent(const ClosedEvent& event)
+    void BaseEvent::copyMembersFromEvent(const BaseEvent& event)
     {
-        LinkedList<int>* temp_member_list;
+        LinkedList<int>* temp_member_list = new LinkedList<int>();
         Node<int>* curr_member = event.member_list->first;
         while(curr_member)
         {
