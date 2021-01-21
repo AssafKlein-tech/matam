@@ -10,13 +10,13 @@ namespace mtm{
 		if(!first) 
 		{
 			// The list is empty
-			first = insdata
-			first->next = NULL;
-		} else if (data < first->data)
-			{
-				insdata->next = first;
-				first = insdata
-			}
+			first = insdata;
+		} 
+		else if (data < first->data)
+		{
+			insdata->next = first;
+			first = insdata;
+		}
 		else
 		{
 			node<T>* curr = first;
@@ -36,7 +36,8 @@ namespace mtm{
 		{
 			// Get the first element
 			return first->data;
-		} else 
+		} 
+		else 
 		{
 			// Get the index'th element
 			node<T>* curr = first;

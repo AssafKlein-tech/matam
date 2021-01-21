@@ -20,11 +20,11 @@ namespace mtm{
             throw InvalidNumber();
         if (interval_days <= 0)
             throw InvalidInterval();
-        EventType event_to_enter;
-        for(int i = 0; i < num_occurrences; i++)
+        EventType event_to_enter = EventType(first_date,name);
+        for(int i = 1; i < num_occurrences; i++)
         {
             event_to_enter = EventType(first_date + (i * interval_days),name);
-            this.Insert(event_to_enter);
+            Insert(event_to_enter);
         }
     }
 

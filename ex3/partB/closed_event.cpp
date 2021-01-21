@@ -20,7 +20,7 @@ namespace mtm{
         }
     }
 
-    ClosedEvent& ClosedEvent::operator=(ClosedEvent& event)
+    ClosedEvent& ClosedEvent::operator=(const ClosedEvent& event)
     {
         copyMembersFromEvent(event)
 
@@ -36,6 +36,9 @@ namespace mtm{
 
         name = event.name;
         date = event.date;
+        assign(event);
+        invited_list = event.invited_list;
+        return *this;
     }
 
     ClosedEvent::~ClosedEvent()

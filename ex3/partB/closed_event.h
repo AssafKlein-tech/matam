@@ -8,7 +8,7 @@ namespace mtm{
     public:
         ClosedEvent(DateWrap date, string name);
         ClosedEvent(const ClosedEvent& event);
-        ClosedEvent& operator=(ClosedEvent& event);
+        ClosedEvent& operator=(const ClosedEvent& event);
         ClosedEvent* clone() const override;
         ~ClosedEvent();
 
