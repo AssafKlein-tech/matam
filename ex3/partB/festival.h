@@ -7,7 +7,7 @@ namespace mtm{
     class Festival: public EventContainer{
         DateWrap date;
     public:
-        Festival(DateWrap& date);
+        Festival(DateWrap date);
         void add(BaseEvent& event);
         ~Festival(){}
     };

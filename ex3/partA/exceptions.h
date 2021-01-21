@@ -15,6 +15,7 @@ namespace mtm{
     class RegistrationBlocked: public Exception {};
     class NotRegistered: public Exception {};
     class AlreadyInvited: public Exception {};
+    class InvalidStudent: public Exception {};
 
     //EventContainers exceptions
     class NotSupported: public Exception {};

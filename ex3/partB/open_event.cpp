@@ -3,7 +3,6 @@
 
 namespace mtm{
 
-    
     void OpenEvent::registerParticipant(int student)
     {
         InsertParticipant(student);
@@ -13,4 +12,5 @@ namespace mtm{
     {
         return new OpenEvent(*this);
     }
+
 }

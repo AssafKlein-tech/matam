@@ -3,7 +3,7 @@
 namespace mtm{
     
     template <class EventType>
-    RecurringEvent<EventType>::RecurringEvent(DateWrap& first_date, string name, int num_occurrences, int interval_days)
+    RecurringEvent<EventType>::RecurringEvent(DateWrap first_date, string name, int num_occurrences, int interval_days)
     {
         if (num_occurrences <= 0)
             throw InvalidNumber();
