@@ -12,7 +12,7 @@ namespace mtm{
     ClosedEvent::ClosedEvent(const ClosedEvent& event):
         BaseEvent(event)
     {
-        node<int>* curr_invtee = event.invited_list->first;
+        Node<int>* curr_invtee = event.invited_list->first;
         while(curr_invtee)
         {
             invited_list->add(curr_invtee->data);
@@ -22,10 +22,10 @@ namespace mtm{
 
     ClosedEvent& ClosedEvent::operator=(const ClosedEvent& event)
     {
-        copyMembersFromEvent(event)
 
+        assign(event);
         LinkedList<int>* temp_invited_list;
-        node<int>* curr_invited = event.invited_list->first;
+        Node<int>* curr_invited = event.invited_list->first;
         while(curr_invited)
         {
             temp_invited_list->add(curr_invited->data);
@@ -33,11 +33,6 @@ namespace mtm{
         }
         delete invited_list;
         member_list = temp_invited_list;
-
-        name = event.name;
-        date = event.date;
-        assign(event);
-        invited_list = event.invited_list;
         return *this;
     }
 
@@ -55,7 +50,7 @@ namespace mtm{
     {
         if(student<1)
             throw(InvalidStudent());
-        node<int>* curr_invited = invited_list->first;
+        Node<int>* curr_invited = invited_list->first;
         while (curr_invited)
         {
             if(student==curr_invited->data)
@@ -69,7 +64,7 @@ namespace mtm{
     {
         if(student<1)
             throw(InvalidStudent());
-        node<int>* curr_invited=invited_list->first;
+        Node<int>* curr_invited = invited_list->first;
         while(curr_invited)
         {
             if(student==curr_invited->data)
