@@ -15,12 +15,14 @@ namespace mtm
     {
     public:
         node<T>* first;
+
         LinkedList<T>() 
         {
             first = NULL;
-            last = NULL;
         }
+
         ~LinkedList<T>();
+        
         bool sub(T data);
         void add(T data);
         T get(int index);
