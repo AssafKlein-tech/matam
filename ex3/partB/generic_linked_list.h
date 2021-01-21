@@ -18,7 +18,7 @@ namespace mtm
         LinkedList<T>() 
         {
             first = NULL;
-            last = NULL;
+         
         }
         ~LinkedList<T>();
         bool sub(T data);
