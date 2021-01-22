@@ -20,7 +20,7 @@
 					]
 				}
 			],
-			"name" : "Release",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -42,21 +42,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "progA::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-progA-Release-fb4ca5092ac1f7f68420.json",
+					"jsonFile" : "target-progA-Debug-4af7baea0813587b23b1.json",
 					"name" : "progA",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "progB::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-progB-Release-2959a69a782de9593a53.json",
-					"name" : "progB",
+					"id" : "progB1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-progB1-Debug-3faf85a9bca9a13b413c.json",
+					"name" : "progB1",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "progC::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-progC-Release-d5e3ad0813952298eb05.json",
+					"jsonFile" : "target-progC-Debug-5e1cb185815a3c9333b6.json",
 					"name" : "progC",
 					"projectIndex" : 0
 				}

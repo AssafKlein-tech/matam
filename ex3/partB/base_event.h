@@ -17,7 +17,7 @@ namespace mtm{
         virtual BaseEvent& operator=(const BaseEvent& event);
         virtual BaseEvent* clone() const = 0;
 
-        virtual void registerParticipant(int student);
+        virtual void registerParticipant(int student) = 0;
         virtual void unregisterParticipant(int student);
         virtual ostream& printShort(ostream& stream);
         virtual ostream& printLong(ostream& stream);

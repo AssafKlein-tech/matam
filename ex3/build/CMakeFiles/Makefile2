@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /home/assafklein/mtm/matam/ex3/build
 
 # The main recursive "all" target.
 all: CMakeFiles/progC.dir/all
-all: CMakeFiles/progB.dir/all
+all: CMakeFiles/progB1.dir/all
 all: CMakeFiles/progA.dir/all
 
 .PHONY : all
@@ -83,7 +83,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/progC.dir/clean
-clean: CMakeFiles/progB.dir/clean
+clean: CMakeFiles/progB1.dir/clean
 clean: CMakeFiles/progA.dir/clean
 
 .PHONY : clean
@@ -95,7 +95,7 @@ clean: CMakeFiles/progA.dir/clean
 CMakeFiles/progC.dir/all:
 	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/depend
 	$(MAKE) -f CMakeFiles/progC.dir/build.make CMakeFiles/progC.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=11,12,13,14,15,16,17,18,19 "Built target progC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=12,13,14,15,16,17,18,19,20 "Built target progC"
 .PHONY : CMakeFiles/progC.dir/all
 
 # Build rule for subdir invocation for target.
@@ -116,31 +116,31 @@ CMakeFiles/progC.dir/clean:
 .PHONY : CMakeFiles/progC.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/progB.dir
+# Target rules for target CMakeFiles/progB1.dir
 
 # All Build rule for target.
-CMakeFiles/progB.dir/all:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/depend
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=4,5,6,7,8,9,10 "Built target progB"
-.PHONY : CMakeFiles/progB.dir/all
+CMakeFiles/progB1.dir/all:
+	$(MAKE) -f CMakeFiles/progB1.dir/build.make CMakeFiles/progB1.dir/depend
+	$(MAKE) -f CMakeFiles/progB1.dir/build.make CMakeFiles/progB1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/assafklein/mtm/matam/ex3/build/CMakeFiles --progress-num=4,5,6,7,8,9,10,11 "Built target progB1"
+.PHONY : CMakeFiles/progB1.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/progB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/progB.dir/all
+CMakeFiles/progB1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 8
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/progB1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/assafklein/mtm/matam/ex3/build/CMakeFiles 0
-.PHONY : CMakeFiles/progB.dir/rule
+.PHONY : CMakeFiles/progB1.dir/rule
 
 # Convenience name for target.
-progB: CMakeFiles/progB.dir/rule
+progB1: CMakeFiles/progB1.dir/rule
 
-.PHONY : progB
+.PHONY : progB1
 
 # clean rule for target.
-CMakeFiles/progB.dir/clean:
-	$(MAKE) -f CMakeFiles/progB.dir/build.make CMakeFiles/progB.dir/clean
-.PHONY : CMakeFiles/progB.dir/clean
+CMakeFiles/progB1.dir/clean:
+	$(MAKE) -f CMakeFiles/progB1.dir/build.make CMakeFiles/progB1.dir/clean
+.PHONY : CMakeFiles/progB1.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/progA.dir

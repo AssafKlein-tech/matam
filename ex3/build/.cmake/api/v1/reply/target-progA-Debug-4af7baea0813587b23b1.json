@@ -38,19 +38,19 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 15,
+				"line" : 17,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 20,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 25,
+				"line" : 28,
 				"parent" : 0
 			}
 		]
@@ -61,7 +61,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "g++ -std=c++11 -Wall -Werror -pedantic-errors -L. -O3 -DNDEBUG  "
+					"fragment" : "-g  "
 				}
 			],
 			"includes" : 
@@ -72,35 +72,27 @@
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/assafklein/mtm/matam/ex3/./partC"
+					"path" : "/home/assafklein/mtm/matam/ex3/partC"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/assafklein/mtm/matam/ex3/./partB"
+					"path" : "/home/assafklein/mtm/matam/ex3/partB"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/assafklein/mtm/matam/ex3/./partA"
+					"path" : "/home/assafklein/mtm/matam/ex3/partA"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/home/assafklein/mtm/matam/ex3/./provided"
+					"path" : "/home/assafklein/mtm/matam/ex3/provided"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/assafklein/mtm/matam/ex3/progB"
+					"path" : "/home/assafklein/mtm/matam/ex3/progB1"
 				},
 				{
 					"backtrace" : 5,
 					"path" : "/home/assafklein/mtm/matam/ex3/progA"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/home/assafklein/mtm/matam/ex3/partA"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "/home/assafklein/mtm/matam/ex3/provided"
 				}
 			],
 			"language" : "CXX",
@@ -117,7 +109,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "g++ -std=c++11 -Wall -Werror -pedantic-errors -L. -O3 -DNDEBUG",
+				"fragment" : "-g",
 				"role" : "flags"
 			},
 			{
