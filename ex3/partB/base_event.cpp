@@ -138,14 +138,13 @@ namespace mtm{
      {
  
         Node<int>* curr_member = member_list.first;
-        while(curr_member)
-        {
-            Node<int>* curr_member = member_list.first;
             while(curr_member)
             {
+                if(curr_member->data==student)
                 throw AlreadyRegistered();
+                curr_member=curr_member->next;
             }
-        }
+        
         member_list.add(student);
     }
 
