@@ -7,10 +7,10 @@ namespace mtm
     struct Node {
         Node<T>* next;
         T data;
-        Node<T>(){}
+        Node<T>(): next(NULL), data(){}
         Node<T>* nodeCopy(T data)
         {
-            Node<T>* new_node = new Node<T>();
+            Node<T>* new_node = new Node<T>;
             new_node->data = data;
             return new_node;
         }
@@ -38,6 +38,10 @@ namespace mtm
 	Node<T>* Node<T>::hardCopy()
 	{
 		Node<T>* temp = this;
+		if (!temp)
+		{
+			return NULL;
+		}
 		Node<T>* new_node = nodeCopy(temp->data);
 		Node<T>* iteration = new_node;
 		temp = temp->next;
@@ -108,7 +112,6 @@ namespace mtm
           	first = curr;
         }
     } 
-
 
 	template<class T>
   	bool LinkedList<T>::sub(T data)

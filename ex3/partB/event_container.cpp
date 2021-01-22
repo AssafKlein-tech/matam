@@ -39,6 +39,7 @@ namespace mtm{
         }
         return false;
     }
+    
     void EventContainer::Insert(const BaseEvent& event)
     {
         if (!contains(event))

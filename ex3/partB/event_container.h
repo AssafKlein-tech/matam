@@ -18,7 +18,7 @@ namespace mtm{
          * @param base_event - BaseEvent object the for the bew node
          */
         Node_event(const BaseEvent& base_event):
-            event_ptr((&base_event)->clone()){
+            event_ptr((&base_event)->clone()), next(NULL){
             }
         /**
          * @brief Destroy the Node_event object 
