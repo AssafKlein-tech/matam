@@ -75,7 +75,7 @@ namespace mtm{
 
     ostream& BaseEvent::printShort(ostream& stream)
     {
-        return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year()<<"/n";
+        return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year()<<"\n";
     }
 
     ostream& BaseEvent::printLong(ostream& stream)
