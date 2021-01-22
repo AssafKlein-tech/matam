@@ -24,7 +24,7 @@ namespace mtm
     public:
         Node<T>* first;
 
-        LinkedList() {}
+        LinkedList(): first(NULL) {}
         ~LinkedList();
         LinkedList& operator=(const LinkedList& list);
 
