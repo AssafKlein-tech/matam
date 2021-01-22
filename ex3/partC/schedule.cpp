@@ -2,10 +2,6 @@
 #include <cstdlib>
 #include <iostream>
 
-using std::cout;
-typedef mtm::EventContainer::EventIterator EventIter;
-typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
-
 namespace mtm{
 
 
@@ -62,8 +58,6 @@ namespace mtm{
     }
 
     //Schedule methods
-    Schedule::Schedule(){}
-
     void Schedule::addEvents(const EventContainer& container)
     {
         if(contains(container))
@@ -110,24 +104,6 @@ namespace mtm{
         }
     }
 
-    template <class predicate>
-    void Schedule::printSomeEvents(predicate predicate_func, bool verbose) const
-    {
-        for (EventPointer event_ptr: event_list)
-        {
-            if (predicate_func(*event_ptr))
-            {
-                if (verbose)
-                {
-                    event_ptr->printLong(cout);
-                }
-                else
-                {
-                    event_ptr->printShort(cout);
-                }
-            }
-        }
-    }
 
     void Schedule::printEventDetails(DateWrap date, string name)  const
     {
