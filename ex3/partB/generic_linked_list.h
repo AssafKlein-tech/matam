@@ -72,7 +72,7 @@ namespace mtm
 		else
 		{
 			Node<T>* curr = first;
-			while (data < curr->next->data)
+			while (curr->next && data < curr->next->data)
 			{
 				curr = curr->next;
 			}
@@ -80,26 +80,6 @@ namespace mtm
 			curr->next = insdata;
 		}
 	}
-
-  	template<class T>
-	T LinkedList<T>::get(int index) 
-	{
-		if(index == 0) 
-		{
-			// Get the first element
-			return first->data;
-		} 
-		else 
-		{
-			// Get the index'th element
-			Node<T>* curr = first;
-			for(int i = 0; i < index; ++i) 
-			{
-				curr = curr->next;
-			}
-			return curr->data;
-		}
-  	}
 
     template<class T>
     void LinkedList<T>::clear()
