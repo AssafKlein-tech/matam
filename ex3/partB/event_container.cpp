@@ -29,11 +29,6 @@ namespace mtm{
     bool EventContainer::contains(const BaseEvent& event)
     {
         Node_event *tmp = head;
-        Node_event *tmp2 = NULL;
-        if(tmp2)
-        {
-            cout<<head<<endl;
-        }
         while(tmp)
         {
             if(*(tmp->event_ptr) == event)
