@@ -67,7 +67,6 @@ namespace mtm{
 
     ostream& BaseEvent::printShort(ostream& stream)
     {
-        std::cout << "Hello World!"<<std::endl;
         return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
     }
 
@@ -130,14 +129,13 @@ namespace mtm{
      {
  
         Node<int>* curr_member = member_list.first;
-        while(curr_member)
-        {
-            Node<int>* curr_member = member_list.first;
             while(curr_member)
             {
+                if(curr_member->data==student)
                 throw AlreadyRegistered();
+                curr_member=curr_member->next;
             }
-        }
+        
         member_list.add(student);
     }
 
