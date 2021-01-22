@@ -75,17 +75,17 @@ namespace mtm{
 
     ostream& BaseEvent::printShort(ostream& stream)
     {
-        return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
+        return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year()<<"/n";
     }
 
     ostream& BaseEvent::printLong(ostream& stream)
     {
         printShort(stream);
-        stream<<"\n";
         Node<int>* curr_member = member_list.first;
         while(curr_member)
         {
             stream<<curr_member->data<<"\n";
+            curr_member=curr_member->next;
         }
         return stream;
     }
