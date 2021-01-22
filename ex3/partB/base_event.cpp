@@ -33,7 +33,7 @@ namespace mtm{
     
     BaseEvent::BaseEvent(const BaseEvent& event): 
         date(event.date),
-        name(event.name),
+        name(event.name)
     {
         Node<int>* curr_member = event.member_list.first;
         while(curr_member)
