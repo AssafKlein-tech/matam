@@ -1,5 +1,13 @@
 #include "base_event.h"
 
+#include <fstream>
+
+
+using std::ofstream;
+
+using std::cout;
+using std::endl;
+
 
 namespace mtm{
 
@@ -67,7 +75,6 @@ namespace mtm{
 
     ostream& BaseEvent::printShort(ostream& stream)
     {
-        std::cout << "Hello World!"<<std::endl;
         return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
     }
 
@@ -113,6 +120,7 @@ namespace mtm{
 
     bool BaseEvent::compareEventsDateWithADate(DateWrap& date) const
     {
+        
         return this->date == date;
     }
     

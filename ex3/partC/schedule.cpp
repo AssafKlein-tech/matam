@@ -1,6 +1,13 @@
 #include "schedule.h"
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
+
+
+using std::ofstream;
+
+using std::cout;
+using std::endl;
 
 namespace mtm{
 
@@ -49,7 +56,9 @@ namespace mtm{
         EventList iteration_list = event_list;
         for (EventList::iterator pos = iteration_list.begin(); pos != iteration_list.end(); ++pos)
         {  
-            if((**pos).compareEventsDateWithADate(date) && (**pos).compareEventsNameWithAName(name))
+            cout << (*pos)->compareEventsDateWithADate(date) << endl;
+            cout << (*pos)->compareEventsNameWithAName(name) << endl;
+            if((*pos)->compareEventsDateWithADate(date) && (*pos)->compareEventsNameWithAName(name))
             {
                 return pos;
             }         
