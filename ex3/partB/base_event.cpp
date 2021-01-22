@@ -9,6 +9,7 @@ namespace mtm{
         Node<int>* curr_member = event.member_list.first;
         while(curr_member)
         {
+            
             temp_member_list.add(curr_member->data);
             curr_member = curr_member->next;
         }
@@ -32,8 +33,7 @@ namespace mtm{
     
     BaseEvent::BaseEvent(const BaseEvent& event): 
         date(event.date),
-        name(event.name),
-        member_list()
+        name(event.name)
     {
         Node<int>* curr_member = event.member_list.first;
         while(curr_member)
@@ -67,6 +67,7 @@ namespace mtm{
 
     ostream& BaseEvent::printShort(ostream& stream)
     {
+        std::cout << "Hello World!"<<std::endl;
         return stream<<name<<" "<<this->date.day()<<"/"<<this->date.month()<<"/"<<this->date.year();
     }
 
