@@ -56,8 +56,6 @@ namespace mtm{
         EventList iteration_list = event_list;
         for (EventList::iterator pos = iteration_list.begin(); pos != iteration_list.end(); ++pos)
         {  
-            cout << (*pos)->compareEventsDateWithADate(date) << endl;
-            cout << (*pos)->compareEventsNameWithAName(name) << endl;
             if((*pos)->compareEventsDateWithADate(date) && (*pos)->compareEventsNameWithAName(name))
             {
                 return pos;

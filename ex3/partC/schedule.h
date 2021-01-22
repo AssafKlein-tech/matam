@@ -5,6 +5,7 @@
 #include <list>
 using std::list;
 using std::shared_ptr;
+using std::cout;
 typedef list<std::shared_ptr<mtm::BaseEvent>> EventList;
 typedef mtm::EventContainer::EventIterator EventIter;
 typedef std::shared_ptr<mtm::BaseEvent> EventPointer;

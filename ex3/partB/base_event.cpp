@@ -120,7 +120,6 @@ namespace mtm{
 
     bool BaseEvent::compareEventsDateWithADate(DateWrap& date) const
     {
-        
         return this->date == date;
     }
     
