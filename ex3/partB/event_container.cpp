@@ -1,4 +1,7 @@
 #include "event_container.h"
+#include <iostream>
+using std::cout;
+using std::endl;
 
 namespace mtm{
 
@@ -22,9 +25,15 @@ namespace mtm{
         }
         return tmp_ptr;
     }
+
     bool EventContainer::contains(const BaseEvent& event)
     {
         Node_event *tmp = head;
+        Node_event *tmp2 = NULL;
+        if(tmp2)
+        {
+            cout<<head<<endl;
+        }
         while(tmp)
         {
             if(*(tmp->event_ptr) == event)
