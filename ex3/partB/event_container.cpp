@@ -1,7 +1,4 @@
 #include "event_container.h"
-#include <iostream>
-using std::cout;
-using std::endl;
 
 namespace mtm{
 

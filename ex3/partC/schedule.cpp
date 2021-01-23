@@ -125,7 +125,6 @@ namespace mtm{
         }
     }
 
-
     void Schedule::printEventDetails(DateWrap date, string name) const
     {
         EventList iteration_list = event_list;
@@ -133,5 +132,4 @@ namespace mtm{
         (*pos)->printLong(cout);
         cout<<endl;
     }
-
 }

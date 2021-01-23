@@ -5,6 +5,12 @@ namespace mtm{
 	const int MIN_MONTH = 1;
 	const int MAX_MONTH = 12;
 
+	//private functions
+	bool DateWrap::getDateParameter(int& day, int& month, int& year) const
+	{
+		return dateGet(date, &day, &month, &year);
+	}
+
 	bool DateWrap::checkDateValidation(const int day,const int month)
 	{
 		if (day < MIN_DAY || day > MAX_DAY || month < MIN_MONTH || month > MAX_MONTH)
@@ -14,6 +20,7 @@ namespace mtm{
 		return true;
 	}
 
+	//DateWrap Methods
 	DateWrap::DateWrap(const int day,const int month, const int year)
 	{
 		if (!checkDateValidation(day,month))	
@@ -38,7 +45,6 @@ namespace mtm{
 				year--;
 			}
 		}
-		//if date illegall raise InvalidDate
 		date = dateCreate(day,month,year);
 	}
 
@@ -59,11 +65,6 @@ namespace mtm{
 		dateDestroy(date);
 		date = dateCreate(datewrap.day(),datewrap.month(),datewrap.year());
 		return *this;
-	}
-
-	bool DateWrap::getDateParameter(int& day, int& month, int& year) const
-	{
-		return dateGet(date, &day, &month, &year);
 	}
 
 	int toDays(DateWrap date)

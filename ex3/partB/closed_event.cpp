@@ -21,14 +21,9 @@ namespace mtm{
 
     ClosedEvent& ClosedEvent::operator=(const ClosedEvent& event)
     {
-
         assign(event);
         invited_list = event.invited_list;
         return *this;
-    }
-
-    ClosedEvent::~ClosedEvent()
-    {
     }
 
     ClosedEvent* ClosedEvent::clone() const

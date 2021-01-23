@@ -9,38 +9,40 @@ using std::string;
 #include "exceptions.h"
 
 namespace mtm{
-    class BaseEvent
-    {
+    class BaseEvent{
+
     protected:    
+        //member parameters
         DateWrap date;
         string name;
         LinkedList<int> member_list;
-/**
+        
+        /**
          * @brief Inserts a new particiapnt to the event.
          * @param student The particiapnt's ID
          */
         void InsertParticipant(int student);
 
+        /**
+         * @brief Copy the name,date and the memberlist from the provided event to this.
+         * 
+         * @param event the events to copy from
+         */
         void assign(const BaseEvent& event);
-
-        void copyMembersFromEvent(const BaseEvent& event);
-
 
         /**
          * @brief checks if the student is valid
          * 
-         * @param day the day of the date
-         * @param month the month of the date
-         * @return true if its valid
+         * @param student the student ID
+         * @return true if it valid (between 1 and 123456789)
          * @return false otherwise
          */
-
         bool isValidStudent(int student);
 
     public: 
         BaseEvent(DateWrap date, string name);
         BaseEvent(const BaseEvent& event);
-        virtual ~BaseEvent();
+        virtual ~BaseEvent() {}
         virtual BaseEvent& operator=(const BaseEvent& event);
         virtual BaseEvent* clone() const = 0;
 
@@ -80,12 +82,6 @@ namespace mtm{
          */
         bool compareEventsNameWithAName(string& name) const; 
     
-       //temp for tests
-        string getName()
-        {
-            return name;
-        }
     };
 }
-
 #endif

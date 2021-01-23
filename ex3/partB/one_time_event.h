@@ -28,9 +28,6 @@ namespace mtm{
         throw NotSupported();
     }
 
- /**
-         * @brief Clone the event to a new pointer.
-         */
     template <class EventType>
     OneTimeEvent<EventType>* OneTimeEvent<EventType>::clone() const
     {

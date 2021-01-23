@@ -7,15 +7,15 @@ namespace mtm{
     template <class CanRegister>
     class CustomEvent:public BaseEvent{
     
+    private:
+        CanRegister can_register;
+
     public:
         CustomEvent(DateWrap date, std::string name, const CanRegister assignment_conditions);
         void registerParticipant(int student) override;
         CustomEvent& operator=(const CustomEvent& event);
         CustomEvent* clone() const override;
         ~CustomEvent(){}
-
-    private:
-        CanRegister can_register;
     };
 
     template <class CanRegister>

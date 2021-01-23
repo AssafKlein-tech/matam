@@ -5,45 +5,29 @@ namespace mtm{
     //protected functions
     void BaseEvent::InsertParticipant(int student)
      {
- 
         Node<int>* curr_member = member_list.first;
-            while(curr_member)
-            {
-                if(curr_member->data==student)
-                throw AlreadyRegistered();
-                curr_member=curr_member->next;
-            }
-        
+        while(curr_member)
+        {
+            if(curr_member->data==student)
+            throw AlreadyRegistered();
+            curr_member=curr_member->next;
+        }
         member_list.add(student);
     }
     
+    void BaseEvent::assign(const BaseEvent& event)
+    {
+        member_list = event.member_list;
+        name = event.name;
+        date = event.date;
+    }
+
     bool BaseEvent::isValidStudent(int student)
     {
         return (student > 0) && (student <= 1234567890);
     }
 
-    void BaseEvent::copyMembersFromEvent(const BaseEvent& event)
-    {
-        LinkedList<int> temp_member_list;
-        Node<int>* curr_member = event.member_list.first;
-        while(curr_member)
-        {
-            
-            temp_member_list.add(curr_member->data);
-            curr_member = curr_member->next;
-        }
-        member_list.clear();
-        member_list = temp_member_list;
-    }
-
-    void BaseEvent::assign(const BaseEvent& event)
-    {
-        copyMembersFromEvent(event);
-        name = event.name;
-        date = event.date;
-    }
-
-    //Methods
+    //BaseEvent Methods
     BaseEvent::BaseEvent(DateWrap date, string name):
         date(date),
         name(name),
@@ -69,19 +53,15 @@ namespace mtm{
         return *this;
     }
 
-    BaseEvent::~BaseEvent()
-    {
-    }
-
     void BaseEvent::unregisterParticipant(int student)
     {
         if(!isValidStudent(student))
         {
-            throw(InvalidStudent());
+            throw InvalidStudent();
         }
         if(!member_list.sub(student))
         {
-            throw(NotRegistered());
+            throw NotRegistered();
         }
     }
 
@@ -146,7 +126,6 @@ namespace mtm{
     {
         return this->name == name;
     }
-
 
 }
 

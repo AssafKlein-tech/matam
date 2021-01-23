@@ -2,7 +2,7 @@
 #define EVENT_CONTAINER_H_
 #include <stdbool.h>
 #include "base_event.h"
-#include "exceptions.h"
+
 
 namespace mtm{
 
@@ -47,7 +47,7 @@ namespace mtm{
         void Insert(const BaseEvent& event);
 
         /**
-         * @brief checks if the Events queue contains the event
+         * @brief checks if the Events container contains the event
          * 
          * @param event the event
          * @return true if it contains it
@@ -64,7 +64,6 @@ namespace mtm{
             BaseEvent& operator*() const;
             bool operator==(const EventIterator& iterator) const;
             bool operator!=(const EventIterator& iterator) const;
-        protected:
         }; 
 
         EventContainer(): head(NULL){}
@@ -73,7 +72,6 @@ namespace mtm{
         EventIterator end() const;
         virtual ~EventContainer();
     };
-
 }
 
 #endif

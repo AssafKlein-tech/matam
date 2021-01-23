@@ -5,7 +5,9 @@
 namespace mtm{
 
     class Festival: public EventContainer{
+
         DateWrap date;
+        
     public:
         Festival(DateWrap date);
         void add(const BaseEvent& event);
