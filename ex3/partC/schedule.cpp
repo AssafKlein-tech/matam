@@ -2,8 +2,16 @@
 #include <cstdlib>
 #include <iostream>
 
+typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
+typedef list<std::shared_ptr<mtm::BaseEvent>> EventList;
+typedef mtm::EventContainer::EventIterator EventIter;
+
 namespace mtm{
 
+    bool Schedule::isValidStudent(int student)
+    {
+        return (student > 0) && (student <= 1234567890);
+    }
 
     //Schedule private functions
     void Schedule::insertEvent(BaseEvent& event)
@@ -47,9 +55,8 @@ namespace mtm{
         }
     }
 
-    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name) const
+    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name, EventList& iteration_list) const
     {
-        EventList iteration_list = event_list;
         for (EventList::iterator pos = iteration_list.begin(); pos != iteration_list.end(); ++pos)
         {  
             if((*pos)->compareEventsDateWithADate(date) && (*pos)->compareEventsNameWithAName(name))
@@ -58,20 +65,6 @@ namespace mtm{
             }         
         }
         throw EventDoesNotExist();
-    }
-
-    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name) 
-    {
-        EventList iteration_list = event_list;
-        for (EventList::iterator pos = iteration_list.begin(); pos != iteration_list.end(); ++pos)
-        {  
-            if((*pos)->compareEventsDateWithADate(date) && (*pos)->compareEventsNameWithAName(name))
-            {
-                return pos;
-            }         
-        }
-        throw EventDoesNotExist();
-        //return iteration_list.end();
     }
 
     //Schedule methods
@@ -86,15 +79,24 @@ namespace mtm{
     
     void Schedule::registerToEvent(DateWrap date, string name, int student)
     {
-        EventList::iterator pos = getEventPosition(date,name);
-        (*pos)->registerParticipant(student);
+        if(!isValidStudent(student))
+        {
+            throw InvalidStudent();
+        }
+        EventList iteration_list = event_list;
+        EventList::iterator pos = getEventPosition(date,name, event_list);
+        (**pos).registerParticipant(student);
     }
 
     void Schedule::unregisterFromEvent(DateWrap date, string name, int student)
     {
-        EventList::iterator pos = getEventPosition(date,name);
+        if(!isValidStudent(student))
+        {
+            throw InvalidStudent();
+        }
+        EventList iteration_list = event_list;
+        EventList::iterator pos = getEventPosition(date,name, event_list);
         (**pos).unregisterParticipant(student);
-
     }
 
     void Schedule::printAllEvents() const
@@ -123,12 +125,11 @@ namespace mtm{
         }
     }
 
-
     void Schedule::printEventDetails(DateWrap date, string name) const
     {
-        EventList::iterator pos = getEventPosition(date,name);
+        EventList iteration_list = event_list;
+        EventList::iterator pos = getEventPosition(date,name, iteration_list);
         (*pos)->printLong(cout);
         cout<<endl;
     }
-
 }

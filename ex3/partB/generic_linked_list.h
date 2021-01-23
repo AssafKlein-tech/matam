@@ -4,18 +4,24 @@
 namespace mtm
 {
 
-	 /**
-         * @brief A generic linked list
-         * @param node node in the list
-         */
     template<class T>
     struct Node {
+		//parameters
         Node<T>* next;
         T data;
+
+		/**
+		 * @brief Construct a new Node<T> object
+		 */
         Node<T>(): next(NULL), data(){}
+
+		/**
+		 * @brief Destroy the Node<T> object - destroy all list!
+		 * 
+		 */
 		~Node<T>(){delete next;}
 
-		 /**
+		/**
          * @brief Copy data to a new node.
          * @param data The event to be copied.
          */
@@ -25,36 +31,46 @@ namespace mtm
             new_node->data = data;
             return new_node;
         }
-         /**
-         * @brief Copy all the generic list.
-         */
+        
+		/**
+        * @brief Copy all the generic list.
+        */
         Node<T>* hardCopy();
     };
+
+
     template<class T>
     class LinkedList
     {
     public:
         Node<T>* first;
 
+		/**
+		 * @brief Construct a new empty Linked List object
+		 */
         LinkedList(): first(NULL) {}
         ~LinkedList();
         LinkedList& operator=(const LinkedList& list);
-		 /**
-         * @brief sub node with specific data from the list.
-         * @param data The data of the node to be removed.
-		 * return true if the data was found in the list and removed and false otherwise.
-         */
+		
+		/**
+        * @brief sub node with specific data from the list.
+        * @param data The data of the node to be removed.
+		* return true if the data was found in the list and removed and false otherwise.
+        */
         bool sub(T data);
+
 		/**
          * @brief ad node with specific data to the list.
          * @param data The data of the node to be added.
          */
         void add(T data);
+		
 		/**
          * @brief Gets the node's data in the list by integer.
          * @param index The index of the node with the requiered data.
          */
         T get(int index);
+		
 		/**
          * @brief Clears the list.
          */
@@ -119,14 +135,13 @@ namespace mtm
   	{
      	Node<T>* curr = first;
 		Node<T>* copy;
-			if(curr->data == data)
-            {
-				first=first->next;
-				curr->next=NULL;
-				delete(curr);
-				return true;
-            }
-
+		if(curr->data == data)
+		{
+			first=first->next;
+			curr->next=NULL;
+			delete(curr);
+			return true;
+		}
     	while(curr->next)
         {
           	if(curr->next->data == data)

@@ -15,14 +15,52 @@ namespace mtm{
 
    
     class Schedule{
+
         EventList event_list;
 
+        /**
+         * @brief checks if the student is valid
+         * 
+         * @param student - the student to check
+         * @return true if is valid between 1 and 123456789
+         * @return false otherwise
+         */
+        bool isValidStudent(int student);
 
+        /**
+         * @brief inserting an event to the schedule
+         * 
+         * @param event to enter
+         */
         void insertEvent(BaseEvent& event);
+        
+        /**
+         * @brief checks the schedule contains one or more events from the container
+         * 
+         * @param container container of events
+         * @return true if the schedule contains those events
+         * @return false otherwise
+         */
         bool contains(const EventContainer& container);
+
+        /**
+         * @brief Inserting all the events of the container to the schedule
+         * 
+         * @param container - container of events
+         */
         void insert(const EventContainer& container);
-        EventList::iterator& getEventPosition(DateWrap& date, string& name) const;
-        EventList::iterator& getEventPosition(DateWrap& date, string& name);
+
+        /**
+         * @brief Get the Event Position iterator of the list, which match the date and the name given
+         * 
+         * @param date of the event
+         * @param name of the event
+         * @param iteration_list a list to iterate
+         * @return EventList::iterator - the position
+         * 
+         * Throws "EventDoesNotExist" exception if their is no event with the given arrguments 
+         */
+        EventList::iterator getEventPosition(DateWrap& date, string& name, EventList& iteration_list) const;
         
     public:
         
@@ -54,7 +92,6 @@ namespace mtm{
         void printEventDetails(DateWrap date, string name) const;
         ~Schedule() {}
     };
-
 }
 
 #endif

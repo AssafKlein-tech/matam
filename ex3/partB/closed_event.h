@@ -5,19 +5,18 @@
 namespace mtm{
     class ClosedEvent:public BaseEvent{
     
+    protected:    
+        LinkedList<int> invited_list;
+
     public:
         ClosedEvent(DateWrap date, string name);
         ClosedEvent(const ClosedEvent& event);
         ClosedEvent& operator=(const ClosedEvent& event);
         ClosedEvent* clone() const override;
-        ~ClosedEvent();
+        ~ClosedEvent() {}
 
         void registerParticipant(int student) override;
         void addInvitee(int student);
-
-    protected:    
-        LinkedList<int> invited_list;
-
     };
 }
 

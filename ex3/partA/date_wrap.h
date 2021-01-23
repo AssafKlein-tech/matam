@@ -15,6 +15,17 @@ namespace mtm{
         Date date;
 
         /**
+         * @brief Gets the paramters of the date.
+         * 
+         * @param day the day of the date
+         * @param month the month of the date
+         * @param year the year of the date
+         * @return true if its the same.
+         * @return false otherwise
+         */
+        bool getDateParameter(int& day, int& month, int& year) const;
+
+        /**
          * @brief checks if the date is valid
          * 
          * @param day the day of the date
@@ -45,22 +56,8 @@ namespace mtm{
         DateWrap operator+(const int days);
         DateWrap operator++(int);
         DateWrap& operator+=(const int days_to_add);
-
-    private:
-
-    
-        /**
-         * @brief Gets the paramters of the date.
-         * 
-         * @param day the day of the date
-         * @param month the month of the date
-         * @param year the year of the date
-         * @return true if its the same.
-         * @return false otherwise
-         */
-        bool getDateParameter(int& day, int& month, int& year) const;
     };
-    
+   
     DateWrap operator+(const int days, const DateWrap& date);
 }
 
