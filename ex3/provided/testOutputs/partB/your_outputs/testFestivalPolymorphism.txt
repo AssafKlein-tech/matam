@@ -1,4 +1,8 @@
 RegistrationBlocked
+<<<<<<< HEAD
+=======
+RegistrationBlocked
+>>>>>>> 17bb81d0ae64260b30d7a6faee8dd33ad17c9347
 a closed event 1/1/2000
 5
 6
