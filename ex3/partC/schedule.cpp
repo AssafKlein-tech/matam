@@ -60,6 +60,20 @@ namespace mtm{
         throw EventDoesNotExist();
     }
 
+    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name) 
+    {
+        EventList iteration_list = event_list;
+        for (EventList::iterator pos = iteration_list.begin(); pos != iteration_list.end(); ++pos)
+        {  
+            if((*pos)->compareEventsDateWithADate(date) && (*pos)->compareEventsNameWithAName(name))
+            {
+                return pos;
+            }         
+        }
+        throw EventDoesNotExist();
+        //return iteration_list.end();
+    }
+
     //Schedule methods
     void Schedule::addEvents(const EventContainer& container)
     {
@@ -110,7 +124,7 @@ namespace mtm{
     }
 
 
-    void Schedule::printEventDetails(DateWrap date, string name)  const
+    void Schedule::printEventDetails(DateWrap date, string name) const
     {
         EventList::iterator pos = getEventPosition(date,name);
         (*pos)->printLong(cout);
