@@ -15,22 +15,28 @@ namespace mtm{
         DateWrap date;
         string name;
         LinkedList<int> member_list;
-/**
+        /**
          * @brief Inserts a new particiapnt to the event.
          * @param student The particiapnt's ID
          */
         void InsertParticipant(int student);
 
+         /**
+         * @brief Copy all event's details.
+         * @param event The event to be copied.
+         */
         void assign(const BaseEvent& event);
 
+         /**
+         * @brief Copy only event's members.
+         * @param event The event to be copied.
+         */
         void copyMembersFromEvent(const BaseEvent& event);
-
 
         /**
          * @brief checks if the student is valid
          * 
-         * @param day the day of the date
-         * @param month the month of the date
+         * @param student The particiapnt's ID
          * @return true if its valid
          * @return false otherwise
          */
