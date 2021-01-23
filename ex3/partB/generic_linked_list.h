@@ -102,6 +102,7 @@ namespace mtm
 			if(curr->data == data)
             {
 				first=first->next;
+				curr->next=NULL;
 				delete(curr);
 				return true;
             }
@@ -111,10 +112,12 @@ namespace mtm
           	if(curr->next->data == data)
             {
 				copy=curr->next->next;
+				curr->next->next=NULL;
 				delete(curr->next);
 				curr->next=copy;
 				return true;
             }
+			curr=curr->next;
         }
    		return false;
   	}
