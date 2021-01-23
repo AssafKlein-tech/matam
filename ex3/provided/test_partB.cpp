@@ -166,13 +166,13 @@ bool test1SegelProvided() {
 
 void test2SegelProvided_aux(mtm::BaseEvent& event, ofstream& stream) {
     event.registerParticipant(1);
- //   event.registerParticipant(20000);
+    event.registerParticipant(20000);
     event.unregisterParticipant(1);
-  //  event.registerParticipant(3);
-  //  mtm::BaseEvent* clone = event.clone();
-  //  clone->printShort(stream);
-  //  clone->printLong(stream);
-   // delete clone;
+    event.registerParticipant(3);
+    mtm::BaseEvent* clone = event.clone();
+    clone->printShort(stream);
+    clone->printLong(stream);
+    delete clone;
 }
 
 
@@ -186,10 +186,10 @@ bool test2SegelProvided() {
     closed.addInvitee(1);
     closed.addInvitee(3);
     closed.addInvitee(20000);
-   // test2SegelProvided_aux(closed, out);
+    test2SegelProvided_aux(closed, out);
     mtm::CustomEvent<StudentFilter> custom(mtm::DateWrap(21, 10, 2020),
                                            "A Custom Event", StudentFilter());
-    //test2SegelProvided_aux(custom, out);
+    test2SegelProvided_aux(custom, out);
     out.close();
     ASSERT(matchFiles(fileName, FILE_PATH + std::string("/expected/test2SegelProvided.txt")))
     return result;
