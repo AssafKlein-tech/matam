@@ -29,7 +29,7 @@ namespace mtm{
     template <class CanRegister>
     void CustomEvent<CanRegister>::registerParticipant(int student) 
     {
-        if (student <= 0)
+         if(!validStudent)
         {
             throw InvalidStudent();
         }

@@ -1,9 +1,7 @@
 NotSupported
 AlreadyRegistered
-<<<<<<< HEAD
+InvalidStudent
 ev1 1/1/2000
 6
 7
 8
-=======
->>>>>>> 17bb81d0ae64260b30d7a6faee8dd33ad17c9347

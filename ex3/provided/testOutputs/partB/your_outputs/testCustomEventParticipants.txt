@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
+InvalidStudent
 RegistrationBlocked
 RegistrationBlocked
 RegistrationBlocked
 RegistrationBlocked
-RegistrationBlocked
->>>>>>> 17bb81d0ae64260b30d7a6faee8dd33ad17c9347
 NotRegistered
 NotRegistered
 ev1 1/1/2000
