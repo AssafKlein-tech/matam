@@ -1,15 +1,11 @@
 #include "base_event.h"
 
-#include <fstream>
-
-
-using std::ofstream;
-
-using std::cout;
-using std::endl;
-
-
 namespace mtm{
+
+    void BaseEvent::validStudent(int student)
+    {
+        return (student > 0) && (student <= 1234567890);
+    }
 
     void BaseEvent::copyMembersFromEvent(const BaseEvent& event)
     {
