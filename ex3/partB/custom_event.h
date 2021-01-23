@@ -33,6 +33,10 @@ namespace mtm{
         {
             InsertParticipant(student);
         }
+        else 
+        {
+            throw RegistrationBlocked();
+        }
     }
 
     template <class CanRegister>
