@@ -99,12 +99,13 @@ namespace mtm
   	{
      	Node<T>* curr = first;
 		Node<T>* copy;
-			if(curr->data == data)
-            {
-				first=first->next;
-				delete(curr);
-				return true;
-            }
+		if(curr->data == data)
+		{
+			first=first->next;
+			curr->next = NULL;
+			delete(curr);
+			return true;
+		}
 
     	while(curr->next)
         {
