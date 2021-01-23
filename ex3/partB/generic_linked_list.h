@@ -97,18 +97,24 @@ namespace mtm
 	template<class T>
   	bool LinkedList<T>::sub(T data)
   	{
-     	Node<T>* first_copy = first;
-     	Node<T>* copy;
-    	while(first)
-        {
-          	if(first->data == data)
+     	Node<T>* curr = first;
+		Node<T>* copy;
+			if(curr->data == data)
             {
-				copy = first;
-				first = first->next;
-				delete(copy);
+				first=first->next;
+				delete(curr);
+				return true;
             }
-            first = first_copy;
-            return true;
+
+    	while(curr->next)
+        {
+          	if(curr->next->data == data)
+            {
+				copy=curr->next->next;
+				delete(curr->next);
+				curr->next=copy;
+				return true;
+            }
         }
    		return false;
   	}
