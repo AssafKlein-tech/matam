@@ -7,14 +7,15 @@ namespace mtm
     struct Node {
         Node<T>* next;
         T data;
-        Node<T>(): next(NULL), data(){};
+        Node<T>(): next(NULL), data(){}
+		~Node<T>(){delete next;}
         Node<T>* nodeCopy(T data)
         {
             Node<T>* new_node = new Node<T>;
             new_node->data = data;
             return new_node;
         }
-            
+        
         
         Node<T>* hardCopy();
     };
@@ -84,13 +85,13 @@ namespace mtm
     template<class T>
     void LinkedList<T>::clear()
     {
-        Node<T>* curr = first;
-        while(first)
-        {
-			curr = curr->next;
+      //  Node<T>* curr = first;
+    //    while(first)
+    //    {
+	//		curr = curr->next;
           	delete first;
-          	first = curr;
-        }
+    //      	first = curr;
+   //     }
     } 
 
 	template<class T>

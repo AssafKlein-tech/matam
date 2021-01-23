@@ -180,16 +180,16 @@ bool test2SegelProvided() {
     bool result = true;
     OPEN_FILE(out, FILE_PATH + std::string("/your_outputs/test2SegelProvided.txt"))
     mtm::OpenEvent open(mtm::DateWrap(21, 10, 2020), "An Open Event");
-   // test2SegelProvided_aux(open, out);
+  //  test2SegelProvided_aux(open, out);
 
     mtm::ClosedEvent closed(mtm::DateWrap(21, 10, 2020), "A Closed Event");
     closed.addInvitee(1);
     closed.addInvitee(3);
     closed.addInvitee(20000);
-    //test2SegelProvided_aux(closed, out);
+   // test2SegelProvided_aux(closed, out);
     mtm::CustomEvent<StudentFilter> custom(mtm::DateWrap(21, 10, 2020),
                                            "A Custom Event", StudentFilter());
-    //test2SegelProvided_aux(custom, out);
+   // test2SegelProvided_aux(custom, out);
     out.close();
     ASSERT(matchFiles(fileName, FILE_PATH + std::string("/expected/test2SegelProvided.txt")))
     return result;
