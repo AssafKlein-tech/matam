@@ -3,7 +3,6 @@ an open event 1/1/2000
 2
 3
 
-2/1/2000   an open event
 EventDoesNotExist
 a custom event 1/1/2000
 

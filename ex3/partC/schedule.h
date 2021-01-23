@@ -21,7 +21,7 @@ namespace mtm{
         void insertEvent(BaseEvent& event);
         bool contains(const EventContainer& container);
         void insert(const EventContainer& container);
-        EventList::iterator getEventPosition(DateWrap& date, string& name) const;
+        EventList::iterator getEventPosition(DateWrap& date, string& name, EventList& iteration_list) const;
         
     public:
         

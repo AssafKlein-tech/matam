@@ -1,10 +1,7 @@
 InvalidStudent
-3/1/2000   an open event
 EventDoesNotExist
 InvalidStudent
-3/1/2000   an open event
 EventDoesNotExist
-1/1/2000   an open event
 EventDoesNotExist
 InvalidStudent
 an open event 2/1/2000

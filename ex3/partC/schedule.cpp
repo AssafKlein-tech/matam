@@ -55,9 +55,8 @@ namespace mtm{
         }
     }
 
-    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name) const
+    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name, EventList& iteration_list) const
     {
-        EventList iteration_list = event_list;
         for (EventList::iterator pos = iteration_list.begin(); pos != iteration_list.end(); ++pos)
         {  
             if((*pos)->compareEventsDateWithADate(date) && (*pos)->compareEventsNameWithAName(name))
@@ -65,7 +64,6 @@ namespace mtm{
                 return pos;
             }         
         }
-        cout<<date<<"   "<<name<<endl;
         throw EventDoesNotExist();
     }
 
@@ -85,7 +83,8 @@ namespace mtm{
         {
             throw InvalidStudent();
         }
-        EventList::iterator pos = getEventPosition(date,name);
+        EventList iteration_list = event_list;
+        EventList::iterator pos = getEventPosition(date,name, event_list);
         (**pos).registerParticipant(student);
     }
 
@@ -95,7 +94,8 @@ namespace mtm{
         {
             throw InvalidStudent();
         }
-        EventList::iterator pos = getEventPosition(date,name);
+        EventList iteration_list = event_list;
+        EventList::iterator pos = getEventPosition(date,name, event_list);
         (**pos).unregisterParticipant(student);
     }
 
@@ -128,7 +128,8 @@ namespace mtm{
 
     void Schedule::printEventDetails(DateWrap date, string name) const
     {
-        EventList::iterator pos = getEventPosition(date,name);
+        EventList iteration_list = event_list;
+        EventList::iterator pos = getEventPosition(date,name, iteration_list);
         (*pos)->printLong(cout);
         cout<<endl;
     }
