@@ -21,11 +21,14 @@ namespace mtm{
         {
             event_list.push_back(event_ptr);
         }
-        while (pos != event_list.end() && (*pos)->operator<(*event_ptr))
+        else
         {
-            ++pos;
+            while (pos != event_list.end() && (*pos)->operator<(*event_ptr))
+            {
+                ++pos;
+            }
+            event_list.insert(pos, event_ptr);
         }
-        event_list.insert(pos, event_ptr);
     }
 
     bool Schedule::contains(const EventContainer& container)
