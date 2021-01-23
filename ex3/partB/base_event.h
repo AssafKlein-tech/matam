@@ -7,7 +7,7 @@ using std::ostream;
 #include "generic_linked_list.h"
 using std::string;
 #include "exceptions.h"
-// we need <,>,==,!= (regular, and with date to compare) copyC'tor
+
 namespace mtm{
     class BaseEvent
     {
@@ -15,9 +15,26 @@ namespace mtm{
         DateWrap date;
         string name;
         LinkedList<int> member_list;
+/**
+         * @brief Inserts a new particiapnt to the event.
+         * @param student The particiapnt's ID
+         */
         void InsertParticipant(int student);
+
         void assign(const BaseEvent& event);
+
         void copyMembersFromEvent(const BaseEvent& event);
+
+
+        /**
+         * @brief checks if the student is valid
+         * 
+         * @param day the day of the date
+         * @param month the month of the date
+         * @return true if its valid
+         * @return false otherwise
+         */
+
         bool isValidStudent(int student);
 
     public: 
