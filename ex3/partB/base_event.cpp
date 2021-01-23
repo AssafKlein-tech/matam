@@ -59,7 +59,7 @@ namespace mtm{
 
     void BaseEvent::unregisterParticipant(int student)
     {
-         if(!validStudent)
+        if(!validStudent(student))
         {
             throw(InvalidStudent());
         }
