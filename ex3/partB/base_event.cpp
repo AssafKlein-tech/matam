@@ -2,6 +2,7 @@
 
 namespace mtm{
 
+    //protected functions
     void BaseEvent::InsertParticipant(int student)
      {
  
@@ -42,6 +43,7 @@ namespace mtm{
         date = event.date;
     }
 
+    //Methods
     BaseEvent::BaseEvent(DateWrap date, string name):
         date(date),
         name(name),
@@ -100,6 +102,7 @@ namespace mtm{
         return stream;
     }
 
+    //Added operators
     bool BaseEvent::operator==(const BaseEvent& event) const
     {
         return(this->date==event.date&&this->name==event.name);

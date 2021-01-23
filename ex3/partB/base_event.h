@@ -53,17 +53,22 @@ namespace mtm{
          * @return false otherwise
          */
         bool isEventGreaterThanDate(DateWrap& date) const;
+
+        /**
+         * @brief compare this event.name with the given name
+         * 
+         * @param name the name to compare to
+         * @return true if the event name is the same as given
+         * @return false otherwise
+         */
         bool compareEventsNameWithAName(string& name) const; 
     
-        
        //temp for tests
         string getName()
         {
             return name;
         }
-
     };
-
 }
 
 #endif
