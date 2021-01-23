@@ -226,14 +226,14 @@ class StudentOddFilter {
     }
 };
 
-
+/*
 class Predicate {
     public:
     bool operator()(mtm::BaseEvent& event) {
         if(event.getName() == "YanA") return false;
         return true;
     }
-};
+};*/
 
 
 bool testYan3()
@@ -274,7 +274,7 @@ bool testYan3()
     mtm::Schedule schedule;
     schedule.addEvents(festival);
     schedule.registerToEvent(mtm::DateWrap(21, 10, 2020),"YanB",198);
-    schedule.printSomeEvents(Predicate(), true);
+    schedule.printSomeEvents(MutatingPredicat(), true);
     out.close();
     ASSERT_TEST(matchFiles(fileName, FILE_PATH + std::string("/expected/testYan3.txt")), stream_buffer_cout)
     return result;
