@@ -25,6 +25,7 @@ namespace mtm{
         bool operator!=(const BaseEvent& event) const;
         bool operator>(const BaseEvent& event) const;
         bool operator<(const BaseEvent& event) const;
+        
         bool compareEventsDateWithADate(DateWrap& date) const;
         bool isEventGreaterThanDate(DateWrap& date) const;
         bool compareEventsNameWithAName(string& name) const; 
@@ -44,8 +45,7 @@ namespace mtm{
         void InsertParticipant(int student);
         void assign(const BaseEvent& event);
         void copyMembersFromEvent(const BaseEvent& event);
-        bool
-        validStudent(int student);
+        bool isValidStudent(int student);
 
     };
 
