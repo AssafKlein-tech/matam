@@ -7,7 +7,7 @@ namespace mtm
     struct Node {
         Node<T>* next;
         T data;
-        Node<T>(): next(NULL), data(){}
+        Node<T>(): next(NULL), data(){};
         Node<T>* nodeCopy(T data)
         {
             Node<T>* new_node = new Node<T>;
@@ -15,7 +15,7 @@ namespace mtm
             return new_node;
         }
             
-        ~Node<T>(){}
+        
         Node<T>* hardCopy();
     };
     template<class T>
