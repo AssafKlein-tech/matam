@@ -55,15 +55,17 @@ namespace mtm{
         if(student<1)
             throw(InvalidStudent());
         Node<int>* curr_invited = invited_list.first;
+        bool not_entered = true;
         while(curr_invited)
         {
             if(student==curr_invited->data)
             {
-               InsertParticipant(student);
+                not_entered = false;
+                InsertParticipant(student);
             }
             curr_invited = curr_invited->next;
         }
-        if(!curr_invited)
+        if(not_entered)
             throw(RegistrationBlocked());
     }
 

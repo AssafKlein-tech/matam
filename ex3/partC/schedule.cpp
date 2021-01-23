@@ -1,13 +1,6 @@
 #include "schedule.h"
 #include <cstdlib>
 #include <iostream>
-#include <fstream>
-
-
-using std::ofstream;
-
-using std::cout;
-using std::endl;
 
 namespace mtm{
 
@@ -95,6 +88,7 @@ namespace mtm{
         for (EventPointer event_ptr: event_list)
         {
             event_ptr->printShort(cout);
+            cout<<endl;
         }
     }
 
@@ -110,6 +104,7 @@ namespace mtm{
             if (event_ptr->compareEventsDateWithADate(date))
             {
                 event_ptr->printShort(cout);
+                cout<<endl;
             }
         }
     }
@@ -119,6 +114,7 @@ namespace mtm{
     {
         EventList::iterator pos = getEventPosition(date,name);
         (*pos)->printLong(cout);
+        cout<<endl;
     }
 
 }
