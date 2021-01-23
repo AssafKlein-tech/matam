@@ -2,7 +2,7 @@
 
 namespace mtm{
 
-    void BaseEvent::validStudent(int student)
+    bool BaseEvent::validStudent(int student)
     {
         return (student > 0) && (student <= 1234567890);
     }
