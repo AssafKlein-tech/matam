@@ -1,18 +1,19 @@
 
-#include "base_event.h"
-#include "closed_event.h"
-#include "custom_event.h"
-#include "date_wrap.h"
-#include "event_container.h"
-#include "exceptions.h"
-#include "festival.h"
-#include "one_time_event.h"
-#include "open_event.h"
-#include "recurring_event.h"
+#include "../partB/base_event.h"
+#include "../partB/closed_event.h"
+#include "../partB/custom_event.h"
+#include "../partA/date_wrap.h"
+#include "../partB/event_container.h"
+#include "../partA/exceptions.h"
+#include "../partB/festival.h"
+#include "../partB/one_time_event.h"
+#include "../partB/open_event.h"
+#include "../partB/recurring_event.h"
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <typeinfo>
+#include <cstdio>
 
 
 using std::string;
@@ -37,7 +38,7 @@ static const std::string FILE_PATH = "./provided/testOutputs/partB";
 #define ASSERT_TEST(expr)                                                         \
      do {                                                                          \
          if (!(expr)) {                                                            \
-             cout << "\nAssertion failed at line"<< __LINE__ << "  " << __FILE__ << #expr << endl; \
+             printf("\nAssertion failed at %s:%d %s ", __FILE__, __LINE__, #expr); \
              result = false;                                                       \
          }                                                                         \
      } while (0);
@@ -480,8 +481,6 @@ bool testFestivalAddAndIterator() {
     Iter iter2(festival.begin());
     iter = iter2;
     ASSERT(iter == iter2)
-    Iter iter3(festival1.begin());
-    ASSERT(iter != iter3);
     Iter iter4(iter2);
     ASSERT(iter2 == iter4);
     ASSERT(matchFiles(fileName, FILE_PATH + std::string("/expected/testFestivalAddAndIterator.txt")))
@@ -631,7 +630,8 @@ bool testOneTimeEventAdd() {
     return result;
 }
 
-bool testBigEventContainersAndPolymorphism() {
+bool testBigEventContainersAndPolymorphism()
+{
     bool result = true;
     OPEN_FILE(out, FILE_PATH + std::string("/your_outputs/testBigEventContainersAndPolymorphism.txt"))
     Festival festival(DateWrap(1, 1, 2000));
@@ -969,12 +969,6 @@ bool testCustomEventPrints_CreatorYan() {
     return result;
 }
 
-
-bool testHugeEventContainers(){
-    bool result  = true;
-
-    return result;
-}
 const int NUMBER_OF_TESTS = 28;
 
 
