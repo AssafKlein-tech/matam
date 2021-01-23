@@ -44,7 +44,8 @@ namespace mtm{
         void InsertParticipant(int student);
         void assign(const BaseEvent& event);
         void copyMembersFromEvent(const BaseEvent& event);
-        bool validStudent(int student);
+        bool
+        validStudent(int student);
 
     };
 
