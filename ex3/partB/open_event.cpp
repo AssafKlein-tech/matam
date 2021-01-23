@@ -5,8 +5,10 @@ namespace mtm{
 
     void OpenEvent::registerParticipant(int student)
     {
-        if(student<1)
-            throw(InvalidStudent());
+        if(!isValidStudent(student))
+        {
+            throw InvalidStudent();
+        }
         InsertParticipant(student);
     }
 

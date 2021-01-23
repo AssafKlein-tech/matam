@@ -38,7 +38,7 @@ namespace mtm{
 
     void ClosedEvent::addInvitee(int student)
     {
-        if(!validStudent(student))
+        if(!isValidStudent(student))
         {
             throw InvalidStudent();
         }
@@ -54,7 +54,7 @@ namespace mtm{
 
     void ClosedEvent::registerParticipant(int student)
     {
-        if(!validStudent(student))
+        if(!isValidStudent(student))
         {
             throw InvalidStudent();
         }
