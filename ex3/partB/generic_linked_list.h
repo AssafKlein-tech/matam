@@ -73,7 +73,7 @@ namespace mtm
 		else
 		{
 			Node<T>* curr = first;
-			while (curr->next && data < curr->next->data)
+			while (curr->next && data > curr->next->data)
 			{
 				curr = curr->next;
 			}

@@ -18,7 +18,8 @@ namespace mtm{
     template <class EventType>
     OneTimeEvent<EventType>::OneTimeEvent(DateWrap date, string name)
     {
-        Insert(EventType(date,name));
+        EventType event_to_enter = EventType(date,name);
+        Insert(event_to_enter);
     }
 
     template <class EventType>
