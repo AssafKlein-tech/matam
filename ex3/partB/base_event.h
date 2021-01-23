@@ -9,7 +9,17 @@ using std::string;
 #include "exceptions.h"
 // we need <,>,==,!= (regular, and with date to compare) copyC'tor
 namespace mtm{
-    class BaseEvent{
+    class BaseEvent
+    {
+    protected:    
+        DateWrap date;
+        string name;
+        LinkedList<int> member_list;
+        void InsertParticipant(int student);
+        void assign(const BaseEvent& event);
+        void copyMembersFromEvent(const BaseEvent& event);
+        bool isValidStudent(int student);
+
     public: 
         BaseEvent(DateWrap date, string name);
         BaseEvent(const BaseEvent& event);
@@ -25,27 +35,32 @@ namespace mtm{
         bool operator!=(const BaseEvent& event) const;
         bool operator>(const BaseEvent& event) const;
         bool operator<(const BaseEvent& event) const;
-        
+
+        /**
+         * @brief compare between the event and a given date
+         * 
+         * @param date - a date to compare
+         * @return true if the date match to the event date
+         * @return false otherwise
+         */
         bool compareEventsDateWithADate(DateWrap& date) const;
+
+        /**
+         * @brief check if the event.date is greater(later) than the given date
+         * 
+         * @param date a date to compare to
+         * @return true if the event is later
+         * @return false otherwise
+         */
         bool isEventGreaterThanDate(DateWrap& date) const;
         bool compareEventsNameWithAName(string& name) const; 
     
         
-
-        //temp for tests
+       //temp for tests
         string getName()
         {
             return name;
         }
-
-    protected:    
-        DateWrap date;
-        string name;
-        LinkedList<int> member_list;
-        void InsertParticipant(int student);
-        void assign(const BaseEvent& event);
-        void copyMembersFromEvent(const BaseEvent& event);
-        bool isValidStudent(int student);
 
     };
 

@@ -2,6 +2,20 @@
 
 namespace mtm{
 
+    void BaseEvent::InsertParticipant(int student)
+     {
+ 
+        Node<int>* curr_member = member_list.first;
+            while(curr_member)
+            {
+                if(curr_member->data==student)
+                throw AlreadyRegistered();
+                curr_member=curr_member->next;
+            }
+        
+        member_list.add(student);
+    }
+    
     bool BaseEvent::isValidStudent(int student)
     {
         return (student > 0) && (student <= 1234567890);
@@ -114,6 +128,7 @@ namespace mtm{
         return(this->date>event.date);
     }
 
+    //extra methods
     bool BaseEvent::compareEventsDateWithADate(DateWrap& date) const
     {
         return this->date == date;
@@ -129,19 +144,6 @@ namespace mtm{
         return this->name == name;
     }
 
-    void BaseEvent::InsertParticipant(int student)
-     {
- 
-        Node<int>* curr_member = member_list.first;
-            while(curr_member)
-            {
-                if(curr_member->data==student)
-                throw AlreadyRegistered();
-                curr_member=curr_member->next;
-            }
-        
-        member_list.add(student);
-    }
 
 }
 
