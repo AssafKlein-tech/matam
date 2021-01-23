@@ -6,9 +6,7 @@ namespace mtm{
     void OpenEvent::registerParticipant(int student)
     {
         if(!isValidStudent(student))
-        {
-            throw InvalidStudent();
-        }
+            throw(InvalidStudent());
         InsertParticipant(student);
     }
 
