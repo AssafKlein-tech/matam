@@ -30,14 +30,6 @@ generic_linked_list.h
 exceptions.h
 ../partB/exceptions.h
 
-../partB/closed_event.h
-base_event.h
-../partB/base_event.h
-
-../partB/custom_event.h
-base_event.h
-../partB/base_event.h
-
 ../partB/event_container.h
 stdbool.h
 -
@@ -46,31 +38,7 @@ base_event.h
 exceptions.h
 ../partB/exceptions.h
 
-../partB/festival.h
-event_container.h
-../partB/event_container.h
-
 ../partB/generic_linked_list.h
-
-../partB/one_time_event.h
-event_container.h
-../partB/event_container.h
-
-../partB/open_event.h
-base_event.h
-../partB/base_event.h
-
-../partB/recurring_event.h
-event_container.h
-../partB/event_container.h
-
-../partC/schedule.h
-event_container.h
-../partC/event_container.h
-memory
--
-list
--
 
 ../provided/date.h
 stdbool.h
@@ -116,9 +84,15 @@ closed_event.h
 base_event.h
 /home/assafklein/mtm/matam/ex3/partB/base_event.h
 
+/home/assafklein/mtm/matam/ex3/partB/custom_event.h
+base_event.h
+/home/assafklein/mtm/matam/ex3/partB/base_event.h
+
 /home/assafklein/mtm/matam/ex3/partB/event_container.cpp
 event_container.h
 /home/assafklein/mtm/matam/ex3/partB/event_container.h
+iostream
+-
 
 /home/assafklein/mtm/matam/ex3/partB/event_container.h
 stdbool.h
@@ -138,6 +112,10 @@ event_container.h
 
 /home/assafklein/mtm/matam/ex3/partB/generic_linked_list.h
 
+/home/assafklein/mtm/matam/ex3/partB/one_time_event.h
+event_container.h
+/home/assafklein/mtm/matam/ex3/partB/event_container.h
+
 /home/assafklein/mtm/matam/ex3/partB/open_event.cpp
 open_event.h
 /home/assafklein/mtm/matam/ex3/partB/open_event.h
@@ -145,6 +123,10 @@ open_event.h
 /home/assafklein/mtm/matam/ex3/partB/open_event.h
 base_event.h
 /home/assafklein/mtm/matam/ex3/partB/base_event.h
+
+/home/assafklein/mtm/matam/ex3/partB/recurring_event.h
+event_container.h
+/home/assafklein/mtm/matam/ex3/partB/event_container.h
 
 /home/assafklein/mtm/matam/ex3/partC/schedule.cpp
 schedule.h
@@ -163,32 +145,34 @@ list
 -
 
 /home/assafklein/mtm/matam/ex3/provided/test_partC.cpp
-base_event.h
-/home/assafklein/mtm/matam/ex3/provided/base_event.h
-closed_event.h
-/home/assafklein/mtm/matam/ex3/provided/closed_event.h
-custom_event.h
-/home/assafklein/mtm/matam/ex3/provided/custom_event.h
-date_wrap.h
-/home/assafklein/mtm/matam/ex3/provided/date_wrap.h
-event_container.h
-/home/assafklein/mtm/matam/ex3/provided/event_container.h
-exceptions.h
-/home/assafklein/mtm/matam/ex3/provided/exceptions.h
-festival.h
-/home/assafklein/mtm/matam/ex3/provided/festival.h
-one_time_event.h
-/home/assafklein/mtm/matam/ex3/provided/one_time_event.h
-open_event.h
-/home/assafklein/mtm/matam/ex3/provided/open_event.h
-recurring_event.h
-/home/assafklein/mtm/matam/ex3/provided/recurring_event.h
-schedule.h
-/home/assafklein/mtm/matam/ex3/provided/schedule.h
+../partB/base_event.h
+/home/assafklein/mtm/matam/ex3/partB/base_event.h
+../partB/closed_event.h
+/home/assafklein/mtm/matam/ex3/partB/closed_event.h
+../partB/custom_event.h
+/home/assafklein/mtm/matam/ex3/partB/custom_event.h
+../partA/date_wrap.h
+/home/assafklein/mtm/matam/ex3/partA/date_wrap.h
+../partB/event_container.h
+/home/assafklein/mtm/matam/ex3/partB/event_container.h
+../partA/exceptions.h
+/home/assafklein/mtm/matam/ex3/partA/exceptions.h
+../partB/festival.h
+/home/assafklein/mtm/matam/ex3/partB/festival.h
+../partB/one_time_event.h
+/home/assafklein/mtm/matam/ex3/partB/one_time_event.h
+../partB/open_event.h
+/home/assafklein/mtm/matam/ex3/partB/open_event.h
+../partB/recurring_event.h
+/home/assafklein/mtm/matam/ex3/partB/recurring_event.h
+../partC/schedule.h
+/home/assafklein/mtm/matam/ex3/partC/schedule.h
 cstdlib
 -
 iostream
 -
 fstream
+-
+cstdio
 -
 

@@ -17,12 +17,11 @@ namespace mtm{
     class Schedule{
         EventList event_list;
 
-
+        bool isValidStudent(int student);
         void insertEvent(BaseEvent& event);
         bool contains(const EventContainer& container);
         void insert(const EventContainer& container);
-        EventList::iterator& getEventPosition(DateWrap& date, string& name) const;
-        EventList::iterator& getEventPosition(DateWrap& date, string& name);
+        EventList::iterator getEventPosition(DateWrap& date, string& name) const;
         
     public:
         

@@ -57,6 +57,9 @@ CMakeFiles/progC.dir/partC/schedule.cpp.o: ../partC/schedule.h
 
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partA/date_wrap.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partA/exceptions.h
+CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../provided/date.h
+CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partA/date_wrap.h
+CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partA/exceptions.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/base_event.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/closed_event.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/custom_event.h
@@ -67,6 +70,5 @@ CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/one_time_event.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/open_event.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partB/recurring_event.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../partC/schedule.h
-CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../provided/date.h
 CMakeFiles/progC.dir/provided/test_partC.cpp.o: ../provided/test_partC.cpp
 
