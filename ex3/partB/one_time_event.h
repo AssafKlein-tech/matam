@@ -12,7 +12,7 @@ namespace mtm{
         OneTimeEvent(DateWrap date, std::string name);
         void add(const BaseEvent& event);
         OneTimeEvent* clone() const;
-        ~OneTimeEvent(){}
+        ~OneTimeEvent()=default;
     };
     
     template <class EventType>

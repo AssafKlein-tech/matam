@@ -10,7 +10,7 @@ namespace mtm{
     public:
         RecurringEvent(DateWrap first_date, std::string name, int num_occurrences, int interval_days);
         void add(const BaseEvent& event);
-        ~RecurringEvent(){}
+        ~RecurringEvent()=default;
     };
 
     template <class EventType>

@@ -38,7 +38,7 @@ namespace mtm{
     public: 
         BaseEvent(DateWrap date, std::string name);
         BaseEvent(const BaseEvent& event);
-        virtual ~BaseEvent() {}
+        virtual ~BaseEvent() =default;
         virtual BaseEvent& operator=(const BaseEvent& event);
         virtual BaseEvent* clone() const = 0;
 

@@ -9,7 +9,7 @@ namespace mtm{
         OpenEvent(DateWrap date, std::string name): BaseEvent(date,name) {}
         OpenEvent* clone() const override;
         OpenEvent& operator=(const OpenEvent& event);
-        ~OpenEvent() {}
+        ~OpenEvent() =default;
         void registerParticipant(int student);
     };
 
