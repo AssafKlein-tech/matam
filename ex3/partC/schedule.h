@@ -48,7 +48,7 @@ namespace mtm{
          * 
          * Throws "EventDoesNotExist" exception if their is no event with the given arrguments 
          */
-        EventList::iterator getEventPosition(const DateWrap& date, const string& name, EventList& iteration_list) const;
+        EventList::iterator getEventPosition(const DateWrap& date, const std::string& name, EventList& iteration_list) const;
     public:
         
         Schedule() {}
@@ -56,8 +56,8 @@ namespace mtm{
         Schedule& operator=(const Schedule& schedule) = default;
         ~Schedule() = default;
         void addEvents(const EventContainer& container);
-        void registerToEvent(const DateWrap& date, string& name, int student);
-        void unregisterFromEvent(const DateWrap& date, string& name, int student);
+        void registerToEvent(const DateWrap& date,const std::string name, int student);
+        void unregisterFromEvent(const DateWrap& date,const std::string name, int student);
         void printAllEvents() const;
         void printMonthEvents(int month, int year) const ; 
         template <typename Predicate>
@@ -79,7 +79,7 @@ namespace mtm{
                 }
             }
         }
-        void printEventDetails(const DateWrap& date,const string& name) const;
+        void printEventDetails(const DateWrap& date,const std::string& name) const;
     };
 }
 
