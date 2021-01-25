@@ -56,8 +56,8 @@ namespace mtm{
         Schedule& operator=(const Schedule& schedule) = default;
         ~Schedule() = default;
         void addEvents(const EventContainer& container);
-        void registerToEvent(const DateWrap& date, const string& name, int student);
-        void unregisterFromEvent(const DateWrap& date, const string& name, int student);
+        void registerToEvent(const DateWrap& date, string& name, int student);
+        void unregisterFromEvent(const DateWrap& date, string& name, int student);
         void printAllEvents() const;
         void printMonthEvents(int month, int year) const ; 
         template <typename Predicate>

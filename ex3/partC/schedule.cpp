@@ -89,7 +89,7 @@ namespace mtm{
         insert(container);
     }
     
-    void Schedule::registerToEvent(const DateWrap& date,const string& name, int student)
+    void Schedule::registerToEvent(const DateWrap& date,string& name, int student)
     {
         if(!isValidStudent(student))
         {
@@ -100,7 +100,7 @@ namespace mtm{
         (**pos).registerParticipant(student);
     }
 
-    void Schedule::unregisterFromEvent(const DateWrap& date,const string& name, int student)
+    void Schedule::unregisterFromEvent(const DateWrap& date,string& name, int student)
     {
         if(!isValidStudent(student))
         {
