@@ -10,9 +10,9 @@ namespace mtm{
     {
     public:
         OneTimeEvent(DateWrap date, string name);
-        void add(const BaseEvent& event);
+        void add(const BaseEvent& event) override;
         OneTimeEvent* clone() const;
-        ~OneTimeEvent(){}
+        ~OneTimeEvent() = default;
     };
     
     template <class EventType>
