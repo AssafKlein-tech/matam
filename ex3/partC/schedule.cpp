@@ -1,6 +1,5 @@
 #include "schedule.h"
 #include <cstdlib>
-#include <iostream>
 
 typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
 typedef list<std::shared_ptr<mtm::BaseEvent>> EventList;

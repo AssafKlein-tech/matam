@@ -2,11 +2,12 @@
 #define BASE_EVENT_H_
 #include<string.h>
 #include <iostream>
-using std::ostream;
 #include "date_wrap.h"
-#include "generic_linked_list.h"
+#include "linked_list.h"
+
+using std::ostream;
 using std::string;
-#include "exceptions.h"
+
 
 namespace mtm{
     class BaseEvent{
@@ -16,25 +17,24 @@ namespace mtm{
         DateWrap date;
         string name;
         LinkedList<int> member_list;
-        
         /**
          * @brief Inserts a new particiapnt to the event.
          * @param student The particiapnt's ID
          */
         void InsertParticipant(int student);
 
-        /**
-         * @brief Copy the name,date and the memberlist from the provided event to this.
-         * 
-         * @param event the events to copy from
+         /**
+         * @brief Copy all event's details.
+         * @param event The event to be copied.
          */
         void assign(const BaseEvent& event);
+
 
         /**
          * @brief checks if the student is valid
          * 
-         * @param student the student ID
-         * @return true if it valid (between 1 and 123456789)
+         * @param student The particiapnt's ID
+         * @return true if its valid
          * @return false otherwise
          */
         bool isValidStudent(int student);
