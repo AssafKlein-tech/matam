@@ -9,7 +9,7 @@ namespace mtm{
         LinkedList<int> invited_list;
 
     public:
-        ClosedEvent(DateWrap date, string name);
+        ClosedEvent(DateWrap date, std::string name);
         ClosedEvent(const ClosedEvent& event);
         ClosedEvent& operator=(const ClosedEvent& event);
         ClosedEvent* clone() const override;

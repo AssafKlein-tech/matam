@@ -1,9 +1,8 @@
 #include "closed_event.h"
 
-
 namespace mtm{
 
-    ClosedEvent::ClosedEvent(DateWrap date, string name):
+    ClosedEvent::ClosedEvent(DateWrap date, std::string name):
         BaseEvent(date,name)
     {
     }
