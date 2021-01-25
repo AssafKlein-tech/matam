@@ -1,5 +1,8 @@
 #include "schedule.h"
 #include <cstdlib>
+#include <memory>
+#include <list>
+
 using std::list;
 using std::shared_ptr;
 using std::cout;
@@ -98,19 +101,11 @@ namespace mtm{
         (**pos).registerParticipant(student);
     }
 
+<<<<<<< HEAD
     void Schedule::unregisterFromEvent(const DateWrap& date,const string& name, int student)
-    {
-        if(!isValidStudent(student))
-        {
-            throw InvalidStudent();
-        }
-        EventList iteration_list = event_list;
-        EventList::iterator pos = getEventPosition(date,name, event_list);
-        (**pos).unregisterParticipant(student);
-    }
-
+=======
+    void Schedule::unregisterFromEvent(const DateWrap& date,string& name, int student)
     void Schedule::printAllEvents() const
-    {
         for (EventPointer event_ptr: event_list)
         {
             event_ptr->printShort(cout);
@@ -118,7 +113,7 @@ namespace mtm{
         }
     }
 
-    void Schedule::printMonthEvents(int month, int year) const
+    void Schedule::printMonthEvents(int month,int year) const
     {
         DateWrap date(1, month, year);
         for (EventPointer event_ptr: event_list)

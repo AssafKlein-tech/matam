@@ -29,7 +29,9 @@ namespace mtm{
     class EventContainer
     {
         Node_event *head;
-
+        EventContainer(const EventContainer& ec);
+        EventContainer* operator=(const EventContainer& ec);
+        
     protected:
         /**
          * @brief Get the Insertion Place Node to enter the new Node after
@@ -66,7 +68,7 @@ namespace mtm{
             bool operator!=(const EventIterator& iterator) const;
         }; 
 
-        EventContainer(): head(NULL){}
+        EventContainer(): head(nullptr){}
         virtual void add(const BaseEvent& event) = 0;
         EventIterator begin() const;
         EventIterator end() const;

@@ -1,14 +1,14 @@
-#include "../partB/base_event.h"
-#include "../partB/closed_event.h"
-#include "../partB/custom_event.h"
-#include "../partA/date_wrap.h"
-#include "../partB/event_container.h"
-#include "../partA/exceptions.h"
-#include "../partB/festival.h"
-#include "../partB/one_time_event.h"
-#include "../partB/open_event.h"
-#include "../partB/recurring_event.h"
-#include "../partC/schedule.h"
+#include "base_event.h"
+#include "closed_event.h"
+#include "custom_event.h"
+#include "date_wrap.h"
+#include "event_container.h"
+#include "exceptions.h"
+#include "festival.h"
+#include "one_time_event.h"
+#include "open_event.h"
+#include "recurring_event.h"
+#include "schedule.h"
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
@@ -226,14 +226,14 @@ class StudentOddFilter {
     }
 };
 
-/*
+
 class Predicate {
     public:
     bool operator()(mtm::BaseEvent& event) {
         if(event.getName() == "YanA") return false;
         return true;
     }
-};*/
+};
 
 
 bool testYan3()
@@ -274,7 +274,7 @@ bool testYan3()
     mtm::Schedule schedule;
     schedule.addEvents(festival);
     schedule.registerToEvent(mtm::DateWrap(21, 10, 2020),"YanB",198);
-    schedule.printSomeEvents(MutatingPredicat(), true);
+    schedule.printSomeEvents(Predicate(), true);
     out.close();
     ASSERT_TEST(matchFiles(fileName, FILE_PATH + std::string("/expected/testYan3.txt")), stream_buffer_cout)
     return result;

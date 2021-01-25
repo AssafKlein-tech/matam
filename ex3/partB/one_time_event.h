@@ -9,14 +9,14 @@ namespace mtm{
     class OneTimeEvent: public EventContainer
     {
     public:
-        OneTimeEvent(DateWrap date, string name);
-        void add(const BaseEvent& event);
+        OneTimeEvent(DateWrap date, std::string name);
+        void add(const BaseEvent& event) override;
         OneTimeEvent* clone() const;
-        ~OneTimeEvent(){}
+        ~OneTimeEvent()=default;
     };
     
     template <class EventType>
-    OneTimeEvent<EventType>::OneTimeEvent(DateWrap date, string name)
+    OneTimeEvent<EventType>::OneTimeEvent(DateWrap date, std::string name)
     {
         EventType event_to_enter = EventType(date,name);
         Insert(event_to_enter);

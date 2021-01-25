@@ -8,23 +8,24 @@ namespace mtm{
     template <class EventType>
     class RecurringEvent: public EventContainer{
     public:
-        RecurringEvent(DateWrap first_date, string name, int num_occurrences, int interval_days);
+        RecurringEvent(const DateWrap& first_date,const std::string& name, int num_occurrences, int interval_days);
         void add(const BaseEvent& event);
-        ~RecurringEvent(){}
+        ~RecurringEvent()=default;
     };
 
     template <class EventType>
-    RecurringEvent<EventType>::RecurringEvent(DateWrap first_date, string name, int num_occurrences, int interval_days)
+    RecurringEvent<EventType>::RecurringEvent(const DateWrap& first_date, const std::string& name, int num_occurrences, int interval_days)
     {
         if (num_occurrences <= 0)
             throw InvalidNumber();
         if (interval_days <= 0)
             throw InvalidInterval();
         EventType event_to_enter = EventType(first_date,name);
+        DateWrap date = first_date;
         Insert(event_to_enter);
         for(int i = 1; i < num_occurrences; i++)
         {
-            event_to_enter = EventType(first_date + (i * interval_days),name);
+            event_to_enter = EventType(date + (i * interval_days),name);
             Insert(event_to_enter);
         }
     }
@@ -34,5 +35,6 @@ namespace mtm{
     {
         throw NotSupported();
     }
+
 }
 #endif
