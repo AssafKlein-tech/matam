@@ -1,5 +1,5 @@
 #include "base_event.h"
-
+using std::string;
 namespace mtm{
 
     //protected functions
