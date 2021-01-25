@@ -5,17 +5,13 @@
 #include "date_wrap.h"
 #include "linked_list.h"
 
-using std::ostream;
-using std::string;
-
-
 namespace mtm{
     class BaseEvent{
 
     protected:    
         //member parameters
         DateWrap date;
-        string name;
+        std::string name;
         LinkedList<int> member_list;
         /**
          * @brief Inserts a new particiapnt to the event.
@@ -40,7 +36,7 @@ namespace mtm{
         bool isValidStudent(int student);
 
     public: 
-        BaseEvent(DateWrap date, string name);
+        BaseEvent(DateWrap date, std::string name);
         BaseEvent(const BaseEvent& event);
         virtual ~BaseEvent() {}
         virtual BaseEvent& operator=(const BaseEvent& event);
@@ -48,8 +44,8 @@ namespace mtm{
 
         virtual void registerParticipant(int student) = 0;
         virtual void unregisterParticipant(int student);
-        virtual ostream& printShort(ostream& stream);
-        virtual ostream& printLong(ostream& stream);
+        virtual std::ostream& printShort(std::ostream& stream);
+        virtual std::ostream& printLong(std::ostream& stream);
         bool operator==(const BaseEvent& event) const;
         bool operator!=(const BaseEvent& event) const;
         bool operator>(const BaseEvent& event) const;
@@ -80,11 +76,11 @@ namespace mtm{
          * @return true if the event name is the same as given
          * @return false otherwise
          */
-        bool compareEventsNameWithAName(const string& name) const; 
+        bool compareEventsNameWithAName(const std::string& name) const; 
     
 
         //for yans tests
-        string getName()
+        std::string getName()
         {
             return name;
         }

@@ -8,13 +8,13 @@ namespace mtm{
     template <class EventType>
     class RecurringEvent: public EventContainer{
     public:
-        RecurringEvent(DateWrap first_date, string name, int num_occurrences, int interval_days);
+        RecurringEvent(DateWrap first_date, std::string name, int num_occurrences, int interval_days);
         void add(const BaseEvent& event);
         ~RecurringEvent(){}
     };
 
     template <class EventType>
-    RecurringEvent<EventType>::RecurringEvent(DateWrap first_date, string name, int num_occurrences, int interval_days)
+    RecurringEvent<EventType>::RecurringEvent(DateWrap first_date, std::string name, int num_occurrences, int interval_days)
     {
         if (num_occurrences <= 0)
             throw InvalidNumber();
