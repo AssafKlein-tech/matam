@@ -62,7 +62,7 @@ namespace mtm{
          * @return true if the date match to the event date
          * @return false otherwise
          */
-        bool compareEventsDateWithADate(DateWrap& date) const;
+        bool compareEventsDateWithADate(const DateWrap& date) const;
 
         /**
          * @brief check if the event.date is greater(later) than the given date
@@ -71,7 +71,7 @@ namespace mtm{
          * @return true if the event is later
          * @return false otherwise
          */
-        bool isEventGreaterThanDate(DateWrap& date) const;
+        bool isEventGreaterThanDate(const DateWrap& date) const;
 
         /**
          * @brief compare this event.name with the given name
@@ -80,8 +80,14 @@ namespace mtm{
          * @return true if the event name is the same as given
          * @return false otherwise
          */
-        bool compareEventsNameWithAName(string& name) const; 
+        bool compareEventsNameWithAName(const string& name) const; 
     
+
+        //for yans tests
+        string getName()
+        {
+            return name;
+        }
     };
 }
 #endif

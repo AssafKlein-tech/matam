@@ -112,17 +112,17 @@ namespace mtm{
     }
 
     //extra methods
-    bool BaseEvent::compareEventsDateWithADate(DateWrap& date) const
+    bool BaseEvent::compareEventsDateWithADate(const DateWrap& date) const
     {
         return this->date == date;
     }
     
-    bool BaseEvent::isEventGreaterThanDate(DateWrap& date) const
+    bool BaseEvent::isEventGreaterThanDate(const DateWrap& date) const
     {
         return this->date > date;
     }
 
-    bool BaseEvent::compareEventsNameWithAName(string& name) const
+    bool BaseEvent::compareEventsNameWithAName(const string& name) const
     {
         return this->name == name;
     }

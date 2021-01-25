@@ -1,19 +1,32 @@
 #include "schedule.h"
 #include <cstdlib>
+#include <memory>
+#include <list>
 
+using std::list;
+using std::shared_ptr;
+using std::cout;
+using std::endl;
 typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
 typedef list<std::shared_ptr<mtm::BaseEvent>> EventList;
 typedef mtm::EventContainer::EventIterator EventIter;
 
 namespace mtm{
 
-    bool Schedule::isValidStudent(int student)
+    /**
+    * @brief checks if the student is valid
+    * 
+    * @param student - the student to check
+    * @return true if is valid between 1 and 123456789
+    * @return false otherwise
+    */
+    bool isValidStudent(int student)
     {
         return (student > 0) && (student <= 1234567890);
     }
 
     //Schedule private functions
-    void Schedule::insertEvent(BaseEvent& event)
+    void Schedule::insertEvent(const BaseEvent& event)
     {
         EventList::iterator pos = event_list.begin();
         EventPointer event_ptr((&event)->clone());
@@ -54,7 +67,7 @@ namespace mtm{
         }
     }
 
-    EventList::iterator Schedule::getEventPosition(DateWrap& date, string& name, EventList& iteration_list) const
+    EventList::iterator Schedule::getEventPosition(const DateWrap& date, const string& name, EventList& iteration_list) const
     {
         for (EventList::iterator pos = iteration_list.begin(); pos != iteration_list.end(); ++pos)
         {  
@@ -76,7 +89,7 @@ namespace mtm{
         insert(container);
     }
     
-    void Schedule::registerToEvent(DateWrap date, string name, int student)
+    void Schedule::registerToEvent(const DateWrap& date,const string& name, int student)
     {
         if(!isValidStudent(student))
         {
@@ -87,7 +100,7 @@ namespace mtm{
         (**pos).registerParticipant(student);
     }
 
-    void Schedule::unregisterFromEvent(DateWrap date, string name, int student)
+    void Schedule::unregisterFromEvent(const DateWrap& date,const string& name, int student)
     {
         if(!isValidStudent(student))
         {
@@ -107,7 +120,7 @@ namespace mtm{
         }
     }
 
-    void Schedule::printMonthEvents(int month, int year) const
+    void Schedule::printMonthEvents(int month,int year) const
     {
         DateWrap date(1, month, year);
         for (EventPointer event_ptr: event_list)
@@ -124,7 +137,7 @@ namespace mtm{
         }
     }
 
-    void Schedule::printEventDetails(DateWrap date, string name) const
+    void Schedule::printEventDetails(const DateWrap& date, const string& name) const
     {
         EventList iteration_list = event_list;
         EventList::iterator pos = getEventPosition(date,name, iteration_list);
