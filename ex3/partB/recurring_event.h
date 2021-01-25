@@ -8,20 +8,13 @@ namespace mtm{
     template <class EventType>
     class RecurringEvent: public EventContainer{
     public:
-<<<<<<< HEAD
-        RecurringEvent(DateWrap first_date, std::string name, int num_occurrences, int interval_days);
+        RecurringEvent(const DateWrap& first_date,const std::string& name, int num_occurrences, int interval_days);
         void add(const BaseEvent& event);
         ~RecurringEvent()=default;
-=======
-        RecurringEvent(const DateWrap& first_date, const string& name, int num_occurrences, int interval_days);
-        void add(const BaseEvent& event) override;
-        RecurringEvent* clone() const;
-        ~RecurringEvent() = default;
->>>>>>> 07eca301b4a802bddb0dfd7fd4053397b709db72
     };
 
     template <class EventType>
-    RecurringEvent<EventType>::RecurringEvent(const DateWrap& first_date, const string& name, int num_occurrences, int interval_days)
+    RecurringEvent<EventType>::RecurringEvent(const DateWrap& first_date, const std::string& name, int num_occurrences, int interval_days)
     {
         if (num_occurrences <= 0)
             throw InvalidNumber();
@@ -43,10 +36,5 @@ namespace mtm{
         throw NotSupported();
     }
 
-    template <class EventType>
-    RecurringEvent<EventType>*  RecurringEvent<EventType>::clone() const
-    {
-        return new RecurringEvent<EventType>(*this);
-    }
 }
 #endif
