@@ -15,7 +15,7 @@ namespace mtm{
         void registerParticipant(int student) override;
         CustomEvent& operator=(const CustomEvent& event);
         CustomEvent* clone() const override;
-        ~CustomEvent(){}
+        ~CustomEvent()=default;
     };
 
     template <class CanRegister>
