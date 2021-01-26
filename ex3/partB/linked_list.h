@@ -42,14 +42,15 @@ namespace mtm
     template<class T>
     class LinkedList
     {
-    public:
         Node<T>* first;
+    public:
 
 		/**
 		 * @brief Construct a new empty Linked List object
 		 */
-        LinkedList(): first(NULL) {}
+        LinkedList(): first(nullptr) {}
         ~LinkedList();
+		Node<T>* getFirst();
         LinkedList& operator=(const LinkedList& list);
 		
 		/**
@@ -102,6 +103,7 @@ namespace mtm
 	{
 		Node<T>* insdata = new Node<T>;
 		insdata->data = data;
+		insdata->next = nullptr;
 		if(!first) 
 		{
 			// The list is empty
@@ -134,8 +136,8 @@ namespace mtm
   	bool LinkedList<T>::sub(T data)
   	{
      	Node<T>* curr = first;
-		Node<T>* copy;
-		if(curr->data == data)
+		Node<T>* copy = nullptr;
+		if(first->data == data)
 		{
 			first=first->next;
 			curr->next=NULL;
@@ -148,7 +150,7 @@ namespace mtm
             {
 
 				copy=curr->next->next;
-				curr->next->next=NULL;
+				curr->next->next=nullptr;
 				delete(curr->next);
 				curr->next=copy;
 				return true;
@@ -157,6 +159,9 @@ namespace mtm
         }
    		return false;
   	}
+
+	template<class T>
+	Node<T>* getFirst();
 
 	template<class T>
 	LinkedList<T>::~LinkedList<T>()

@@ -7,6 +7,7 @@ using std::list;
 using std::shared_ptr;
 using std::cout;
 using std::endl;
+using std::string;
 typedef std::shared_ptr<mtm::BaseEvent> EventPointer;
 typedef list<std::shared_ptr<mtm::BaseEvent>> EventList;
 typedef mtm::EventContainer::EventIterator EventIter;
@@ -90,7 +91,7 @@ namespace mtm{
         insert(container);
     }
     
-    void Schedule::registerToEvent(const DateWrap& date, const string& name, int student)
+    void Schedule::registerToEvent(const DateWrap& date,const string name, int student)
     {
         if(!isValidStudent(student))
         {
@@ -101,10 +102,23 @@ namespace mtm{
         (**pos).registerParticipant(student);
     }
 
-<<<<<<< HEAD
+
     void Schedule::unregisterFromEvent(const DateWrap& date,const string& name, int student)
-=======
+
     void Schedule::unregisterFromEvent(const DateWrap& date,string& name, int student)
+
+    void Schedule::unregisterFromEvent(const DateWrap& date,const string name, int student)
+    {
+        if(!isValidStudent(student))
+        {
+            throw InvalidStudent();
+        }
+        EventList iteration_list = event_list;
+        EventList::iterator pos = getEventPosition(date,name, event_list);
+        (**pos).unregisterParticipant(student);
+    }
+
+
     void Schedule::printAllEvents() const
         for (EventPointer event_ptr: event_list)
         {
